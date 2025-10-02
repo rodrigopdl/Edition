@@ -49,13 +49,13 @@
                     <div class="gh-head-members">
                         {{#unless @member}}
                             {{#unless @site.members_invite_only}}
-                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
-                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Iniciar sesión</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Suscribirse</a>
                             {{else}}
-                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signin" data-portal="signin">Iniciar sesión</a>
                             {{/unless}}
                         {{else}}
-                            <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/account" data-portal="account">Account</a>
+                            <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/account" data-portal="account">Mi cuenta</a>
                         {{/unless}}
                     </div>
                 {{/unless}}
@@ -64,28 +64,39 @@
     </header>
 
     {{#is "home"}}
-        {{> "cover"}}
-        {{#if @custom.show_featured_posts}}
-            {{> "featured-posts"}}
-        {{/if}}
+        {{> "home"}}
+    {{else}}
+        <div class="site-content">
+            {{{body}}}
+        </div>
     {{/is}}
 
-    <div class="site-content">
-        {{{body}}}
-    </div>
-
-    <footer class="gh-foot{{#unless @site.secondary_navigation}} no-menu{{/unless}} gh-outer">
-        <div class="gh-foot-inner gh-inner">
-            <div class="gh-copyright">
-                {{@site.title}} © {{date format="YYYY"}}
+    <footer class="mm-footer">
+        <div class="mm-footer-content">
+            {{!-- Left Column: About --}}
+            <div class="mm-footer-column">
+                <h3 class="mm-footer-title">🍽️ {{@site.title}}</h3>
+                <p class="mm-footer-description">{{@site.description}}</p>
             </div>
-            {{#if @site.secondary_navigation}}
-                <nav class="gh-foot-menu">
+            
+            {{!-- Right Column: Navigation Links --}}
+            <div class="mm-footer-nav">
+                {{#if @site.secondary_navigation}}
+                <nav class="mm-footer-links">
                     {{navigation type="secondary"}}
                 </nav>
-            {{/if}}
-            <div class="gh-powered-by">
-                <a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a>
+                {{/if}}
+                
+                {{!-- Social Links --}}
+                <div class="mm-footer-bottom">
+                    <!--div class="mm-footer-copyright">
+                        <a href="{{@site.url}}">Privacy Policy</a>
+                        <a href="{{@site.url}}">Manage Cookie Settings</a>
+                        <a href="{{@site.url}}">Your Privacy Choices</a>
+                        <a href="{{@site.url}}">Terms and Conditions</a>
+                    </div>-->
+                    <p class="mm-footer-year">© {{date format="YYYY"}} {{@site.title}}</p>
+                </div>
             </div>
         </div>
     </footer>

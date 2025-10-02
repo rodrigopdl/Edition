@@ -1,0 +1,704 @@
+/* ==========================================================================
+   Homepage - Mark Manson Style with Custom Colors
+   ========================================================================== */
+
+/* Base Homepage */
+.homepage-main {
+    background: #222535;
+    font-size: 2.2rem;
+}
+
+/* Hero Section - Mark Manson Style (Two Column Layout) */
+.mm-hero {
+    background: #222535;
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></defs><rect width="200" height="200" filter="url(%23noise)" opacity="0.05"/></svg>');
+    background-repeat: repeat;
+    padding: 6rem 0 8rem;
+    border-bottom: 1px solid #3a3d4f;
+}
+
+.mm-hero-content {
+    max-width: 1200px !important;
+    margin: 0 auto;
+    padding: 0 4rem;
+    width: 100%;
+}
+
+.mm-hero-title {
+    font-family: var(--font-display);
+    font-size: 88px;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 4rem;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    text-align: center;
+}
+
+.accent-word {
+    color: #5271FF;
+}
+
+/* Two Column Grid */
+.mm-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 10rem;
+    align-items: center;
+}
+
+/* Left: Visual/Image */
+.mm-hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mm-hero-image {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Right: Form Section */
+.mm-hero-form-section {
+    display: flex;
+    flex-direction: column;
+    max-width: 460px;
+}
+
+.mm-hero-stat {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mm-hero-text {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #f1f1f1;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
+.mm-hero-description {
+    font-size: 1.7rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+/* Legacy styles - will be removed */
+.mm-badge-text {
+    display: inline-block;
+    background: #222535;
+    color: #ffffff;
+    padding: 1.2rem 2.4rem;
+    border-radius: 100px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.mm-stats {
+    display: none;
+}
+
+.mm-stat-number {
+    font-size: clamp(4rem, 8vw, 6.4rem);
+    font-weight: 600;
+    color: #5271FF;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.mm-stat-text {
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+/* Newsletter Form - Mark Manson Style (Button inside input) */
+.mm-newsletter-form {
+    width: 100%;
+}
+
+.mm-form-wrapper {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.mm-email-input {
+    width: 100%;
+    padding: 1.8rem 13rem 1.8rem 2.2rem;
+    border: 1px solid #4a4d5e;
+    border-radius: 25px;
+    font-size: 1.6rem;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+}
+
+.mm-email-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.mm-email-input:focus {
+    outline: none;
+    border-color: #5271FF;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(82, 113, 255, 0.15);
+}
+
+.mm-submit-btn {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 1.0rem 2.2rem;
+    background: #5271FF;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.mm-submit-btn:hover {
+    background: #4a5fe6;
+    box-shadow: 0 4px 12px rgba(82, 113, 255, 0.4);
+}
+
+.mm-submit-btn .btn-loader,
+.mm-submit-btn .btn-success {
+    display: none;
+}
+
+.mm-submit-btn.loading .btn-text {
+    display: none;
+}
+
+.mm-submit-btn.loading .btn-loader {
+    display: inline-block;
+}
+
+.mm-submit-btn.success .btn-text,
+.mm-submit-btn.success .btn-loader {
+    display: none;
+}
+
+.mm-submit-btn.success .btn-success {
+    display: inline-block;
+}
+
+.mm-privacy-note {
+    font-size: 1.45rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+/* About Section - Mark Manson Style */
+.mm-about {
+    padding: 7rem 0;
+    background: #222535;
+    border-bottom: 1px solid #3a3d4f;
+}
+
+.mm-about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.mm-about-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 5.5vw, 6.1rem);
+    font-weight: 600;
+    color: #f1f1f1;
+    margin-bottom: 4rem;
+    letter-spacing: -0.02em;
+    text-align: center;
+}
+
+.mm-about-description {
+    font-size: 2.3rem;
+    line-height: 1.7;
+    color: #f1f1f1;
+}
+
+.mm-about-description p {
+    margin-bottom: 1.5rem;
+}
+
+.mm-about-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.mm-about-text {
+    order: 1;
+}
+
+.mm-about-image {
+    order: 2;
+    position: relative;
+}
+
+.mm-profile-img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+}
+
+.mm-profile-placeholder {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: #3a3d4f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mm-about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.mm-action-link {
+    display: inline-block;
+    background: #222535;
+    color: #ffffff;
+    padding: 1.55rem 3.1rem;
+    border-radius: 100px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 2px solid #3a3d4f;
+}
+
+.mm-action-link:hover {
+    background: #2a2d45;
+    border-color: #5271FF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(82, 113, 255, 0.3);
+}
+
+/* Content Sections - Mark Manson Style with Lines (Side by Side) */
+.mm-content-sections {
+    padding: 7rem 0;
+    background: #222535;
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></defs><rect width="200" height="200" filter="url(%23noise)" opacity="0.05"/></svg>');
+    background-repeat: repeat;
+}
+
+.mm-sections-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+}
+
+.mm-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.mm-section-title {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #f1f1f1;
+    margin-bottom: 0;
+    padding-bottom: 2rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid #3a3d4f;
+}
+
+.mm-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 2rem;
+}
+
+.mm-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #3a3d4f;
+}
+
+.mm-item:first-child {
+    padding-top: 0;
+}
+
+.mm-item:last-child {
+    border-bottom: none;
+}
+
+.mm-item-link {
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: #f1f1f1;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+    display: block;
+}
+
+.mm-item-link:hover {
+    color: #5271FF;
+}
+
+.mm-section-description {
+    font-size: 1.6rem;
+    line-height: 1.65;
+    color: #4b5563;
+    margin-bottom: 2rem;
+}
+
+.mm-section-description em {
+    font-style: italic;
+    font-weight: 600;
+    color: #222535;
+}
+
+.mm-cta-button {
+    display: inline-block;
+    padding: 1.4rem 2.8rem;
+    background: #5271FF;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.mm-cta-button:hover {
+    background: #4a5fe6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(82, 113, 255, 0.3);
+}
+
+/* Bottom CTA - Mark Manson Style */
+.mm-bottom-cta {
+    padding: 7rem 0;
+    background: #5271FF;
+    border-top: 1px solid #3a3d4f;
+}
+
+.mm-cta-content {
+    max-width: 1100px !important;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.mm-cta-text {
+    text-align: left;
+}
+
+.mm-cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.mm-cta-description {
+    font-size: 1.8rem;
+    line-height: 1.7;
+    color: #FFFFFF;
+    margin-bottom: 3.5rem;
+}
+
+.mm-cta-description em {
+    font-style: italic;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.mm-bottom-form {
+    max-width: 600px;
+}
+
+/* Bottom CTA Form Button - Different styling */
+.mm-bottom-form .mm-submit-btn {
+    background: #222535;
+    color: #ffffff;
+}
+
+.mm-bottom-form .mm-submit-btn:hover {
+    background: #1a1d2e;
+    box-shadow: 0 4px 12px rgba(34, 37, 53, 0.4);
+}
+
+.mm-cta-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mm-phone-image {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    display: block;
+}
+
+/* Member Welcome */
+.mm-member-welcome {
+    padding: 3rem;
+    background: #f0fdf4;
+    border: 2px solid #86efac;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.mm-member-welcome p {
+    color: #166534;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.mm-account-link {
+    color: #5271FF;
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-decoration: underline;
+}
+
+.mm-account-link:hover {
+    color: #4a5fe6;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .mm-sections-wrapper {
+        padding: 0 2rem;
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .mm-hero {
+        padding: 4rem 0 5rem;
+    }
+    
+    .mm-about-title {
+        margin-bottom: 3rem;
+    }
+    
+    .mm-about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .mm-about-text {
+        order: 2;
+    }
+    
+    .mm-about-description {
+        font-size: 1.8rem;
+    }
+    
+    .mm-about-image {
+        order: 1;
+        margin: 0 auto;
+        max-width: 200px;
+    }
+    
+    .mm-profile-img {
+        width: 100%;
+        height: auto;
+        max-width: 200px;
+    }
+    
+    .mm-about-actions {
+        justify-content: center;
+    }
+    
+    /* Hero responsive */
+    .mm-hero-content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mm-hero-title {
+        font-size: 5.5rem;
+        order: -2;
+    }
+    
+    .mm-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        display: flex;
+        flex-direction: column;
+        order: -1;
+    }
+    
+    .mm-hero-visual {
+        order: -1;
+    }
+    
+    .mm-hero-form-section {
+        order: 0;
+    }
+    
+    .mm-hero-image {
+        max-width: 300px;
+    }
+    
+    .mm-email-input {
+        padding: 1.8rem 2.2rem;
+    }
+    
+    .mm-submit-btn {
+        position: static;
+        transform: none;
+        font-size: 1.3rem;
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+    
+    .mm-form-wrapper {
+        position: static;
+    }
+    
+    .mm-sections-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .mm-sections-wrapper {
+        padding: 0 4rem;
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .mm-content-sections {
+        padding: 4rem 0;
+    }
+    
+    .mm-section {
+        padding: 3rem 0;
+    }
+    
+    .mm-section-title {
+        font-size: 1.8rem;
+    }
+    
+    .mm-item-link {
+        font-size: 1.7rem;
+    }
+    
+    .mm-cta-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .mm-cta-image {
+        order: -1;
+    }
+    
+    .mm-cta-text {
+        text-align: center;
+    }
+    
+    .mm-bottom-form {
+        max-width: 100%;
+    }
+    
+    .mm-phone-image {
+        max-width: 200px;
+    }
+    
+    .mm-bottom-cta {
+        padding: 4rem 0;
+    }
+    .mm-action-link {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .mm-hero {
+        padding: 2.5rem 0 3rem;
+    }
+    
+    .mm-about {
+        padding: 3.5rem 0;
+    }
+    
+    .mm-about-grid {
+        gap: 1.5rem;
+    }
+    
+    .mm-profile-img,
+    .mm-profile-placeholder {
+        width: 150px;
+        height: auto;
+    }
+    
+    .mm-sections-grid {
+        gap: 2.5rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .mm-newsletter-form,
+    .mm-bottom-form,
+    .mm-cta-button {
+        display: none;
+    }
+}

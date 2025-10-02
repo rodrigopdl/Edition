@@ -1,13 +1,14 @@
 :root {
-    --brand-color: var(--ghost-accent-color, #ff572f);
-    --primary-text-color: #333;
-    --secondary-text-color: #999;
-    --white-color: #fff;
-    --lighter-gray-color: #f6f6f6;
+    --brand-color: #5271FF;
+    --accent-color: #5271FF;
+    --primary-text-color: #222535;
+    --secondary-text-color: #666;
+    --white-color: #f1f1f1;
+    --lighter-gray-color: #f1f1f1;
     --light-gray-color: #e6e6e6;
     --mid-gray-color: #ccc;
     --dark-gray-color: #444;
-    --darker-gray-color: #1a1a1a;
+    --darker-gray-color: #222535;
     --black-color: #000;
     --green-color: #28a745;
     --orange-color: #ffc107;
@@ -25,9 +26,11 @@
     --animation-base: ease-in-out;
     --font-sans: Mulish, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
     --font-serif: Lora, Times, serif;
+    --font-display: 'League Spartan', -apple-system, BlinkMacSystemFont, sans-serif;
     --navbar-height: 80px;
     --content-font-size: 1.7rem;
     --header-spacing: 6vmin;
+    --content-width: 1200px;
 }
 
 .is-head-brand {
@@ -35,5 +38,5 @@
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
-    font-weight: 800;
+    font-weight: 600;
 }

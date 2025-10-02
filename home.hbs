@@ -1,0 +1,194 @@
+{{!< default}}
+
+<main class="homepage-main">
+
+    {{!-- Hero Section --}}
+    <section class="homepage-hero">
+        <div class="hero-content gh-canvas">
+            <div class="hero-text">
+                <h1 class="hero-title">Encontrá claridad en medio de la incertidumbre</h1>
+                <p class="hero-subtitle">Bocados para pensar distinto, calmar la mente y tomar mejores decisiones. Suscribite para recibirlos.</p>
+                
+                {{!-- Newsletter CTA --}}
+                {{#if @site.members_enabled}}
+                    {{#unless @site.members_invite_only}}
+                        {{#unless @member}}
+                            <form class="hero-newsletter-form" data-members-form>
+                                <div class="form-group">
+                                    <input class="newsletter-email" type="email" name="email" data-members-email placeholder="Tu email aquí" required="true">
+                                    <button class="newsletter-btn" type="submit" aria-label="Suscribirse">
+                                        <span class="btn-text">Suscribirse</span>
+                                        <span class="btn-loader">{{> "icons/loader"}}</span>
+                                        <span class="btn-success">¡Listo!</span>
+                                    </button>
+                                </div>
+                                <p class="form-note">Sin spam. Solo contenido valioso.</p>
+                            </form>
+                        {{else}}
+                            <div class="member-welcome">
+                                <p>¡Bienvenido! Ya estás suscrito a nuestro newsletter.</p>
+                                <a href="#/portal/account" class="account-link" data-portal="account">Ver mi cuenta</a>
+                            </div>
+                        {{/unless}}
+                    {{/unless}}
+                {{/if}}
+            </div>
+            
+            {{!-- Hero Visual --}}
+            <div class="hero-visual">
+                {{#if @site.cover_image}}
+                    <div class="hero-image">
+                        <img src="{{@site.cover_image}}" alt="{{@site.title}}" class="cover-img">
+                    </div>
+                {{else}}
+                    <div class="hero-placeholder">
+                        <div class="placeholder-icon">{{> "icons/star"}}</div>
+                        <p>Tu imagen de portada aparecerá aquí</p>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </section>
+
+    {{!-- Featured Articles Section --}}
+    {{#get "posts" filter="featured:true" limit="3" as |featured|}}
+    {{#if featured}}
+    <section class="featured-section">
+        <div class="gh-canvas">
+            <div class="section-header">
+                <h2 class="section-title">Artículos Destacados</h2>
+                <p class="section-subtitle">Los más leídos y compartidos</p>
+            </div>
+            
+            <div class="featured-grid">
+                {{#foreach featured}}
+                <article class="featured-card">
+                    <div class="card-image">
+                        {{#if feature_image}}
+                            <img src="{{img_url feature_image size="l"}}" alt="{{title}}" class="card-img">
+                        {{else}}
+                            <div class="card-placeholder">
+                                <div class="placeholder-icon">{{> "icons/star"}}</div>
+                            </div>
+                        {{/if}}
+                        <div class="card-overlay">
+                            <span class="read-time">{{reading_time}}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <time class="card-date">{{date published_at format="DD MMM YYYY"}}</time>
+                            {{#if primary_tag}}
+                                <span class="card-tag">{{primary_tag.name}}</span>
+                            {{/if}}
+                        </div>
+                        
+                        <h3 class="card-title">
+                            <a href="{{url}}">{{title}}</a>
+                        </h3>
+                        
+                        {{#if excerpt}}
+                            <p class="card-excerpt">{{excerpt words="20"}}</p>
+                        {{/if}}
+                        
+                        <div class="card-footer">
+                            {{#if primary_author}}
+                                <div class="card-author">
+                                    <span class="author-name">{{primary_author.name}}</span>
+                                </div>
+                            {{/if}}
+                            <a href="{{url}}" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+                {{/foreach}}
+            </div>
+        </div>
+    </section>
+    {{/if}}
+    {{/get}}
+
+    {{!-- Latest Articles Section --}}
+    <section class="latest-section">
+        <div class="gh-canvas">
+            <div class="section-header">
+                <h2 class="section-title">Últimos Artículos</h2>
+                <p class="section-subtitle">Lo más reciente del blog</p>
+            </div>
+            
+            <div class="latest-grid">
+                {{#foreach posts limit="6"}}
+                <article class="latest-card">
+                    <div class="latest-image">
+                        {{#if feature_image}}
+                            <img src="{{img_url feature_image size="m"}}" alt="{{title}}" class="latest-img">
+                        {{else}}
+                            <div class="latest-placeholder">
+                                <div class="placeholder-icon">{{> "icons/star"}}</div>
+                            </div>
+                        {{/if}}
+                    </div>
+                    
+                    <div class="latest-content">
+                        <div class="latest-meta">
+                            <time class="latest-date">{{date published_at format="DD MMM"}}</time>
+                            {{#if primary_tag}}
+                                <span class="latest-tag">{{primary_tag.name}}</span>
+                            {{/if}}
+                        </div>
+                        
+                        <h3 class="latest-title">
+                            <a href="{{url}}">{{title}}</a>
+                        </h3>
+                        
+                        {{#if excerpt}}
+                            <p class="latest-excerpt">{{excerpt words="15"}}</p>
+                        {{/if}}
+                        
+                        <div class="latest-footer">
+                            {{#if reading_time}}
+                                <span class="latest-reading-time">{{reading_time}}</span>
+                            {{/if}}
+                            <a href="{{url}}" class="latest-link">Leer →</a>
+                        </div>
+                    </div>
+                </article>
+                {{/foreach}}
+            </div>
+            
+            {{!-- View All Button --}}
+            <div class="view-all-wrapper">
+                <a href="/archive" class="view-all-btn">Ver todos los artículos</a>
+            </div>
+        </div>
+    </section>
+
+    {{!-- Newsletter CTA Section (Bottom) --}}
+    {{#unless @member}}
+    <section class="newsletter-cta">
+        <div class="gh-canvas">
+            <div class="cta-content">
+                <h2 class="cta-title">No te pierdas ningún contenido</h2>
+                <p class="cta-text">Suscribite y recibí nuestros mejores artículos directamente en tu inbox.</p>
+                
+                <form class="cta-form" data-members-form>
+                    <div class="form-group">
+                        <input class="cta-email" type="email" name="email" data-members-email placeholder="Tu email aquí" required="true">
+                        <button class="cta-btn" type="submit" aria-label="Suscribirse">
+                            <span class="btn-text">Suscribirse Gratis</span>
+                            <span class="btn-loader">{{> "icons/loader"}}</span>
+                            <span class="btn-success">¡Listo!</span>
+                        </button>
+                    </div>
+                    <p class="cta-note">Únete a cientos de lectores que ya reciben nuestro contenido.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+    {{/unless}}
+
+</main>
+
+{{!-- Custom body classes for homepage --}}
+{{#contentFor "body_class"}} homepage-custom{{/contentFor}}

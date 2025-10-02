@@ -2,15 +2,47 @@
     grid-template-columns: 1fr 50% 1fr;
 }
 
+.gh-head {
+    background-color: #222535 !important;
+    border-bottom: 1px solid #3a3d4f;
+}
+
 .gh-head-logo {
     font-size: 2.2rem;
-    font-weight: 800;
+    font-weight: 500;
+    color: #f1f1f1 !important;
+    font-family: var(--font-display);
+    white-space: nowrap;
+}
+
+.gh-head-logo a {
+    color: #f1f1f1 !important;
 }
 
 .gh-head-menu,
 .gh-head-actions {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.gh-head .nav a {
+    color: #f1f1f1 !important;
+}
+
+.gh-head .nav a:hover {
+    opacity: 0.8;
+}
+
+.gh-head-btn {
+    color: #f1f1f1 !important;
+}
+
+/* Padding lateral solo en pantallas grandes */
+@media (min-width: 1600px) {
+    .gh-head.gh-outer {
+        padding-left: 600px !important;
+        padding-right: 600px !important;
+    }
 }
 
 @media (min-width: 992px) {
@@ -18,4 +50,8 @@
         justify-content: center;
         margin: 0;
     }
+}
+
+.gh-head-link {
+    color: #f1f1f1 !important;
 }

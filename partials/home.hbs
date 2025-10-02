@@ -1,0 +1,147 @@
+{{!< default}}
+
+<main class="homepage-main">
+
+    {{!-- Hero Section - Mark Manson Style --}}
+    <section class="mm-hero">
+        <div class="mm-hero-content gh-canvas">
+            <h1 class="mm-hero-title">Un <span class="accent-word">bocado</span> te puede cambiar la vida</h1>
+            
+            <div class="mm-hero-grid">
+                {{!-- Left: Image/Visual --}}
+                <div class="mm-hero-visual">
+                    <img src="{{asset "images/newsletterimg.webp"}}" alt="Newsletter Preview" class="mm-hero-image">
+                </div>
+                
+                {{!-- Right: Form and Description --}}
+                <div class="mm-hero-form-section">
+                    <div class="mm-hero-stat">
+                        <span class="mm-hero-text">HAVE SHARED <span class="accent-word">BREAKTHROUGHS</span> SO FAR. WILL THE NEXT ONE BE YOU?</span>
+                    </div>
+                    
+                    <p class="mm-hero-description">Recibí ideas compartidas con millones de personas cada semana directamente en tu inbox.</p>
+                    
+                    {{!-- Newsletter CTA --}}
+                    {{#if @site.members_enabled}}
+                        {{#unless @site.members_invite_only}}
+                            {{#unless @member}}
+                                <form class="mm-newsletter-form" data-members-form>
+                                    <div class="mm-form-wrapper">
+                                        <input class="mm-email-input" type="email" name="email" data-members-email placeholder="Tu email aquí" required="true">
+                                        <button class="mm-submit-btn" type="submit" aria-label="Suscribirse">
+                                            <span class="btn-text">SUSCRIBIRSE</span>
+                                            <span class="btn-loader">{{> "icons/loader"}}</span>
+                                            <span class="btn-success">¡Listo!</span>
+                                        </button>
+                                    </div>
+                                    <p class="mm-privacy-note">Tu información está protegida y nunca envío spam.</p>
+                                </form>
+                            {{else}}
+                                <div class="mm-member-welcome">
+                                    <p>¡Bienvenido! Ya estás suscrito a Para masticar.</p>
+                                    <a href="#/portal/account" class="mm-account-link" data-portal="account">Ver mi cuenta</a>
+                                </div>
+                            {{/unless}}
+                        {{/unless}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- About Section - Mark Manson Style --}}
+    <section class="mm-about">
+        <div class="mm-about-content gh-canvas">
+            <h2 class="mm-about-title">Hola, <span class="accent-word">soy Rodri</span></h2>
+            
+            <div class="mm-about-grid">
+                <div class="mm-about-text">
+                    <div class="mm-about-description">
+                        <p>I am the #1 NY Times Bestselling author of The Subtle Art of Not Giving a F*ck and Everything Is F*cked: A Book About Hope. I write life advice that is science-based, pragmatic, and non-bullshitty—a.k.a., life advice that doesn’t suck. Some people say I’m an idiot. Other people say I saved their life. Read on and decide for yourself.</p>
+                    </div>
+                </div>
+                <div class="mm-about-image">
+                    <img src="{{asset "images/mark.webp"}}" alt="{{@site.title}}" class="mm-profile-img">
+                </div>
+            </div>
+            
+            <div class="mm-about-actions">
+                <a href="/archive" class="mm-action-link">Leé mis bocados</a>
+                <a href="https://youtube.com/@paramasticar?si=hxlreYn3YGllakjm" class="mm-action-link" target="_blank" rel="noopener noreferrer">Mirá mis videos</a>
+            </div>
+        </div>
+    </section>
+
+    {{!-- Content Sections - Mark Manson Style --}}
+    <section class="mm-content-sections">
+        <div class="mm-sections-wrapper">
+            
+            {{!-- Los Favoritos (Featured Posts Only) --}}
+            {{#get "posts" filter="featured:true" limit="6" as |featured|}}
+            {{#if featured}}
+            <div class="mm-section">
+                <h3 class="mm-section-title">Los favoritos</h3>
+                <ul class="mm-items-list">
+                    {{#foreach featured}}
+                    <li class="mm-item">
+                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+            {{/if}}
+            {{/get}}
+            
+            {{!-- Últimos Bocados (Latest Posts) --}}
+            {{#get "posts" limit="6" as |latest|}}
+            <div class="mm-section">
+                <h3 class="mm-section-title">Últimos bocados</h3>
+                <ul class="mm-items-list">
+                    {{#foreach latest}}
+                    <li class="mm-item">
+                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+            {{/get}}
+            
+        </div>
+    </section>
+
+    {{!-- Bottom Newsletter CTA - Mark Manson Style --}}
+    {{#unless @member}}
+    <section class="mm-bottom-cta">
+        <div class="gh-canvas">
+            <div class="mm-cta-content">
+                <div class="mm-cta-text">
+                    <h2 class="mm-cta-title">5 Minutes Each Week That Might Change Your Life</h2>
+                    <p class="mm-cta-description">
+                        Ingresá tu email para suscribirte a mi newsletter gratuito, <em>Your Next Breakthrough</em>. Cada semana, recibirás algunas preguntas y ejercicios diseñados para crear tu próximo breakthrough. Sin relleno, sin BS. Solo cinco minutos cada semana que podrían cambiar tu vida.
+                    </p>
+                    
+                    <form class="mm-bottom-form" data-members-form>
+                        <div class="mm-form-wrapper">
+                            <input class="mm-email-input" type="email" name="email" data-members-email placeholder="Tu email aquí" required="true">
+                            <button class="mm-submit-btn" type="submit" aria-label="Suscribirse">
+                                <span class="btn-text">Suscribirse</span>
+                                <span class="btn-loader">{{> "icons/loader"}}</span>
+                                <span class="btn-success">¡Listo!</span>
+                            </button>
+                        </div>
+                        <p class="mm-privacy-note">Tu información está protegida y nunca enviamos spam.</p>
+                    </form>
+                </div>
+                
+                <div class="mm-cta-image">
+                    <img src="{{asset "images/phone.png"}}" alt="Newsletter Preview" class="mm-phone-image">
+                </div>
+            </div>
+        </div>
+    </section>
+    {{/unless}}
+
+</main>
+
+{{!-- Custom body classes for homepage --}}
+{{#contentFor "body_class"}}homepage-mm-style{{/contentFor}}
