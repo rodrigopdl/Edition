@@ -90,37 +90,6 @@
     margin-bottom: 2.5rem;
 }
 
-/* Legacy styles - will be removed */
-.mm-badge-text {
-    display: inline-block;
-    background: #222535;
-    color: #ffffff;
-    padding: 1.2rem 2.4rem;
-    border-radius: 100px;
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-.mm-stats {
-    display: none;
-}
-
-.mm-stat-number {
-    font-size: clamp(4rem, 8vw, 6.4rem);
-    font-weight: 600;
-    color: #5271FF;
-    line-height: 1;
-    margin-bottom: 1rem;
-}
-
-.mm-stat-text {
-    font-size: clamp(1.6rem, 2.5vw, 2rem);
-    color: #4b5563;
-    line-height: 1.5;
-}
-
 /* Newsletter Form - Mark Manson Style (Button inside input) */
 .mm-newsletter-form {
     width: 100%;
@@ -276,18 +245,6 @@
     display: block;
     object-fit: cover;
     padding-bottom: 41px;
-}
-
-.mm-profile-placeholder {
-    width: 420px;
-    height: 420px;
-    border-radius: 50%;
-    background: #f1f1f1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4), 
-                0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .mm-about-actions {
@@ -566,11 +523,6 @@
         padding-bottom: 36px;
     }
     
-    .mm-profile-placeholder {
-        width: 300px;
-        height: 300px;
-    }
-    
     .mm-about-actions {
         justify-content: center;
     }
@@ -620,11 +572,6 @@
     
     .mm-form-wrapper {
         position: static;
-    }
-    
-    .mm-sections-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
     }
     
     .mm-sections-wrapper {
@@ -690,12 +637,6 @@
     
     .mm-about-grid {
         gap: 1.5rem;
-    }
-    
-
-    
-    .mm-sections-grid {
-        gap: 2.5rem;
     }
 }
 

@@ -83,23 +83,6 @@
     margin-top: auto;
 }
 
-.mm-footer-copyright {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 2rem;
-}
-
-.mm-footer-copyright a {
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.mm-footer-copyright a:hover {
-    color: #ffffff;
-}
-
 .mm-footer-year {
     font-size: 1.3rem;
     color: rgba(255, 255, 255, 0.5);
@@ -163,12 +146,6 @@
     
     .mm-footer-bottom {
         flex-direction: column;
-        align-items: center;
-    }
-    
-    .mm-footer-copyright {
-        flex-direction: column;
-        gap: 1rem;
         align-items: center;
     }
 }
