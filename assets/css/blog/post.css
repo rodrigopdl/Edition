@@ -50,6 +50,9 @@
     line-height: 1.2;
     margin-bottom: 0;
     letter-spacing: -0.02em;
+    max-width: 950px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 /* Post Excerpt */
@@ -268,7 +271,7 @@
 
 /* Quote icon using CSS */
 .post-template .gh-content blockquote::before {
-    content: '"';
+    content: '“';
     position: absolute;
     left: 2rem;
     top: 2.5rem;
@@ -346,11 +349,13 @@
     margin: 0 auto;
 }
 
-.post-template .gh-content figcaption {
+.post-template figcaption {
     color: rgba(241, 241, 241, 0.6);
     font-size: 1.8rem;
     text-align: center;
     margin-top: 2rem;
+    font-family: var(--font-post-body);
+    a {color: #f1f1f1;}
 }
 
 /* Post Footer Navigation */

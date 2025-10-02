@@ -1,0 +1,173 @@
+{{!< default}}
+{{!--
+Template Name: Archive
+--}}
+
+<main class="archive-main">
+
+    {{!-- Hero Section --}}
+    <section class="archive-hero">
+        <div class="gh-canvas">
+            <h1 class="archive-title">Todos mis <span class="accent-word">bocados</span></h1>
+            <p class="archive-description">Explorá el archivo completo organizado por temas</p>
+        </div>
+    </section>
+
+    {{!-- Archive Sections by Tags --}}
+    <section class="mm-content-sections archive-sections">
+        <div class="mm-sections-wrapper">
+            
+            {{!-- Los Favoritos (Featured Posts) --}}
+            {{#get "posts" filter="featured:true" limit="6" as |featured|}}
+            {{#if featured}}
+            <div class="mm-section">
+                <h3 class="mm-section-title">Los favoritos</h3>
+                <ul class="mm-items-list">
+                    {{#foreach featured}}
+                    <li class="mm-item">
+                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+            {{/if}}
+            {{/get}}
+            
+            {{!-- Latest Posts --}}
+            {{#get "posts" limit="6" as |latest|}}
+            <div class="mm-section">
+                <h3 class="mm-section-title">Últimos bocados</h3>
+                <ul class="mm-items-list">
+                    {{#foreach latest}}
+                    <li class="mm-item">
+                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+            {{/get}}
+            
+            {{!-- 
+            Agrega más secciones aquí para diferentes tags
+            Reemplaza "tag-name" con el slug real de tu tag
+            --}}
+            
+            {{!-- Example: Posts with tag "productividad" --}}
+            {{#get "posts" filter="tag:la-bestia" limit="6" as |bestias|}}
+            {{#if bestias}}
+            <div class="mm-section">
+                <h3 class="mm-section-title">La Bestia</h3>
+                <ul class="mm-items-list">
+                    {{#foreach bestias}}
+                    <li class="mm-item">
+                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+            {{/if}}
+            {{/get}}
+            
+            {{!-- Example: Posts with tag "desarrollo-personal" --}}
+            {{#get "posts" filter="tag:la-llama" limit="6" as |llamas|}}
+            {{#if llamas}}
+            <div class="mm-section">
+                <h3 class="mm-section-title">La Llama</h3>
+                <ul class="mm-items-list">
+                    {{#foreach llamas}}
+                    <li class="mm-item">
+                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+            {{/if}}
+            {{/get}}
+            
+            {{!-- Example: Posts with tag "negocios" --}}
+            {{#get "posts" filter="tag:liderazgo" limit="6" as |liderazgo|}}
+            {{#if liderazgo}}
+            <div class="mm-section">
+                <h3 class="mm-section-title">Liderazgo</h3>
+                <ul class="mm-items-list">
+                    {{#foreach liderazgo}}
+                    <li class="mm-item">
+                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+            {{/if}}
+            {{/get}}
+            
+            {{!-- Example: Posts with tag "psicologia" --}}
+            {{#get "posts" filter="tag:psicologia" limit="6" as |psychology|}}
+            {{#if psychology}}
+            <div class="mm-section">
+                <h3 class="mm-section-title">Psicología</h3>
+                <ul class="mm-items-list">
+                    {{#foreach psychology}}
+                    <li class="mm-item">
+                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+            {{/if}}
+            {{/get}}
+            
+            {{!-- Example: Posts with tag "relaciones" --}}
+            {{#get "posts" filter="tag:relaciones" limit="6" as |relationships|}}
+            {{#if relationships}}
+            <div class="mm-section">
+                <h3 class="mm-section-title">Relaciones</h3>
+                <ul class="mm-items-list">
+                    {{#foreach relationships}}
+                    <li class="mm-item">
+                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+            {{/if}}
+            {{/get}}
+            
+        </div>
+    </section>
+
+    {{!-- Bottom Newsletter CTA --}}
+    {{#unless @member}}
+    <section class="mm-bottom-cta">
+        <div class="gh-canvas">
+            <div class="mm-cta-content">
+                <div class="mm-cta-text">
+                    <h2 class="mm-cta-title">5 Minutes Each Week That Might Change Your Life</h2>
+                    <p class="mm-cta-description">
+                        Ingresá tu email para suscribirte a mi newsletter gratuito, <em>Your Next Breakthrough</em>. Cada semana, recibirás algunas preguntas y ejercicios diseñados para crear tu próximo breakthrough. Sin relleno, sin BS. Solo cinco minutos cada semana que podrían cambiar tu vida.
+                    </p>
+                    
+                    <form class="mm-bottom-form" data-members-form>
+                        <div class="mm-form-wrapper">
+                            <input class="mm-email-input" type="email" name="email" data-members-email placeholder="Tu email aquí" required="true">
+                            <button class="mm-submit-btn" type="submit" aria-label="Suscribirse">
+                                <span class="btn-text">SUSCRIBIRSE</span>
+                                <span class="btn-loader">{{> "icons/loader"}}</span>
+                                <span class="btn-success">¡Listo!</span>
+                            </button>
+                        </div>
+                        <p class="mm-privacy-note">Tu información está protegida y nunca envío spam.</p>
+                    </form>
+                </div>
+                
+                <div class="mm-cta-image">
+                    <img src="{{asset "images/phone.png"}}" alt="Newsletter Preview" class="mm-phone-image">
+                </div>
+            </div>
+        </div>
+    </section>
+    {{/unless}}
+
+</main>
+
+{{#contentFor "body_class"}}archive-page{{/contentFor}}
+
