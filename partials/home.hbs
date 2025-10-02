@@ -77,32 +77,14 @@
         <div class="mm-sections-wrapper">            
             {{!-- Últimos Bocados (Latest Posts) --}}
             {{#get "posts" limit="6" as |latest|}}
-            <div class="mm-section">
-                <h3 class="mm-section-title">Recién salidos del horno</h3>
-                <ul class="mm-items-list">
-                    {{#foreach latest}}
-                    <li class="mm-item">
-                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
-                    </li>
-                    {{/foreach}}
-                </ul>
-            </div>
+                {{> "post-list-section" posts=latest title="Recién salidos del horno"}}
             {{/get}}
             
             {{!-- Los Favoritos (Featured Posts Only) --}}
             {{#get "posts" filter="featured:true" limit="6" as |featured|}}
-            {{#if featured}}
-            <div class="mm-section">
-                <h3 class="mm-section-title">Favoritos de la comunidad</h3>
-                <ul class="mm-items-list">
-                    {{#foreach featured}}
-                    <li class="mm-item">
-                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
-                    </li>
-                    {{/foreach}}
-                </ul>
-            </div>
-            {{/if}}
+                {{#if featured}}
+                    {{> "post-list-section" posts=featured title="Favoritos de la comunidad"}}
+                {{/if}}
             {{/get}}
         </div>
     </section>

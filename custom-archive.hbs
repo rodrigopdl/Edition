@@ -19,32 +19,14 @@ Template Name: Archive
             
             {{!-- Los Favoritos (Featured Posts) --}}
             {{#get "posts" filter="featured:true" limit="6" as |featured|}}
-            {{#if featured}}
-            <div class="mm-section">
-                <h3 class="mm-section-title">Los favoritos</h3>
-                <ul class="mm-items-list">
-                    {{#foreach featured}}
-                    <li class="mm-item">
-                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
-                    </li>
-                    {{/foreach}}
-                </ul>
-            </div>
-            {{/if}}
+                {{#if featured}}
+                    {{> "post-list-section" posts=featured title="Los favoritos"}}
+                {{/if}}
             {{/get}}
             
             {{!-- Latest Posts --}}
             {{#get "posts" limit="6" as |latest|}}
-            <div class="mm-section">
-                <h3 class="mm-section-title">Últimos bocados</h3>
-                <ul class="mm-items-list">
-                    {{#foreach latest}}
-                    <li class="mm-item">
-                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
-                    </li>
-                    {{/foreach}}
-                </ul>
-            </div>
+                {{> "post-list-section" posts=latest title="Últimos bocados"}}
             {{/get}}
             
             {{!-- 
@@ -52,84 +34,39 @@ Template Name: Archive
             Reemplaza "tag-name" con el slug real de tu tag
             --}}
             
-            {{!-- Example: Posts with tag "productividad" --}}
+            {{!-- Posts by Tag - La Bestia --}}
             {{#get "posts" filter="tag:la-bestia" limit="6" as |bestias|}}
-            {{#if bestias}}
-            <div class="mm-section">
-                <h3 class="mm-section-title">La Bestia</h3>
-                <ul class="mm-items-list">
-                    {{#foreach bestias}}
-                    <li class="mm-item">
-                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
-                    </li>
-                    {{/foreach}}
-                </ul>
-            </div>
-            {{/if}}
+                {{#if bestias}}
+                    {{> "post-list-section" posts=bestias title="La Bestia"}}
+                {{/if}}
             {{/get}}
             
-            {{!-- Example: Posts with tag "desarrollo-personal" --}}
+            {{!-- Posts by Tag - La Llama --}}
             {{#get "posts" filter="tag:la-llama" limit="6" as |llamas|}}
-            {{#if llamas}}
-            <div class="mm-section">
-                <h3 class="mm-section-title">La Llama</h3>
-                <ul class="mm-items-list">
-                    {{#foreach llamas}}
-                    <li class="mm-item">
-                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
-                    </li>
-                    {{/foreach}}
-                </ul>
-            </div>
-            {{/if}}
+                {{#if llamas}}
+                    {{> "post-list-section" posts=llamas title="La Llama"}}
+                {{/if}}
             {{/get}}
             
-            {{!-- Example: Posts with tag "negocios" --}}
+            {{!-- Posts by Tag - Liderazgo --}}
             {{#get "posts" filter="tag:liderazgo" limit="6" as |liderazgo|}}
-            {{#if liderazgo}}
-            <div class="mm-section">
-                <h3 class="mm-section-title">Liderazgo</h3>
-                <ul class="mm-items-list">
-                    {{#foreach liderazgo}}
-                    <li class="mm-item">
-                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
-                    </li>
-                    {{/foreach}}
-                </ul>
-            </div>
-            {{/if}}
+                {{#if liderazgo}}
+                    {{> "post-list-section" posts=liderazgo title="Liderazgo"}}
+                {{/if}}
             {{/get}}
             
-            {{!-- Example: Posts with tag "psicologia" --}}
+            {{!-- Posts by Tag - Psicología --}}
             {{#get "posts" filter="tag:psicologia" limit="6" as |psychology|}}
-            {{#if psychology}}
-            <div class="mm-section">
-                <h3 class="mm-section-title">Psicología</h3>
-                <ul class="mm-items-list">
-                    {{#foreach psychology}}
-                    <li class="mm-item">
-                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
-                    </li>
-                    {{/foreach}}
-                </ul>
-            </div>
-            {{/if}}
+                {{#if psychology}}
+                    {{> "post-list-section" posts=psychology title="Psicología"}}
+                {{/if}}
             {{/get}}
             
-            {{!-- Example: Posts with tag "relaciones" --}}
+            {{!-- Posts by Tag - Relaciones --}}
             {{#get "posts" filter="tag:relaciones" limit="6" as |relationships|}}
-            {{#if relationships}}
-            <div class="mm-section">
-                <h3 class="mm-section-title">Relaciones</h3>
-                <ul class="mm-items-list">
-                    {{#foreach relationships}}
-                    <li class="mm-item">
-                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
-                    </li>
-                    {{/foreach}}
-                </ul>
-            </div>
-            {{/if}}
+                {{#if relationships}}
+                    {{> "post-list-section" posts=relationships title="Relaciones"}}
+                {{/if}}
             {{/get}}
             
         </div>

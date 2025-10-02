@@ -1,0 +1,24 @@
+{{!-- 
+    Reusable Post List Section
+    
+    Usage: Wrap this in a {{#get}} helper with your desired filter
+    
+    Example:
+    {{#get "posts" filter="tag:your-tag" limit="6" as |posts|}}
+        {{#if posts}}
+            {{> "post-list-section" posts=posts title="Your Section Title"}}
+        {{/if}}
+    {{/get}}
+--}}
+
+<div class="mm-section">
+    <h3 class="mm-section-title">{{title}}</h3>
+    <ul class="mm-items-list">
+        {{#foreach posts}}
+        <li class="mm-item">
+            <a href="{{url}}" class="mm-item-link">{{title}}</a>
+        </li>
+        {{/foreach}}
+    </ul>
+</div>
+

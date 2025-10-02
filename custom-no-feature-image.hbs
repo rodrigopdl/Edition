@@ -6,14 +6,6 @@
         {{> "content" no_image=true}}
     {{/post}}
 
-    {{#if @custom.show_related_posts}}
-        {{> "related-posts"}}
-    {{/if}}
-
-    {{#post}}
-        {{> "comments"}}
-    {{/post}}
-
-    {{> "bottom-cta"}}
+    {{> "post-footer"}}
 
 </main>
