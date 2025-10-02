@@ -48,6 +48,23 @@
     margin-bottom: 0;
 }
 
+/* Width variations for feature images */
+.single-media.kg-width-narrow {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.single-media.kg-width-wide {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.single-media.kg-width-full {
+    max-width: 100%;
+}
+
 .single-media img {
     width: 100%;
 }

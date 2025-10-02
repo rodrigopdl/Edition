@@ -74,28 +74,11 @@
 
     {{!-- Content Sections - Mark Manson Style --}}
     <section class="mm-content-sections">
-        <div class="mm-sections-wrapper">
-            
-            {{!-- Los Favoritos (Featured Posts Only) --}}
-            {{#get "posts" filter="featured:true" limit="6" as |featured|}}
-            {{#if featured}}
-            <div class="mm-section">
-                <h3 class="mm-section-title">Los favoritos</h3>
-                <ul class="mm-items-list">
-                    {{#foreach featured}}
-                    <li class="mm-item">
-                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
-                    </li>
-                    {{/foreach}}
-                </ul>
-            </div>
-            {{/if}}
-            {{/get}}
-            
+        <div class="mm-sections-wrapper">            
             {{!-- Últimos Bocados (Latest Posts) --}}
             {{#get "posts" limit="6" as |latest|}}
             <div class="mm-section">
-                <h3 class="mm-section-title">Últimos bocados</h3>
+                <h3 class="mm-section-title">Recién salidos del horno</h3>
                 <ul class="mm-items-list">
                     {{#foreach latest}}
                     <li class="mm-item">
@@ -106,6 +89,21 @@
             </div>
             {{/get}}
             
+            {{!-- Los Favoritos (Featured Posts Only) --}}
+            {{#get "posts" filter="featured:true" limit="6" as |featured|}}
+            {{#if featured}}
+            <div class="mm-section">
+                <h3 class="mm-section-title">Favoritos de la comunidad</h3>
+                <ul class="mm-items-list">
+                    {{#foreach featured}}
+                    <li class="mm-item">
+                        <a href="{{url}}" class="mm-item-link">{{title}}</a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+            {{/if}}
+            {{/get}}
         </div>
     </section>
 

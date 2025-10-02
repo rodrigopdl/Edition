@@ -9,9 +9,6 @@
                         {{date published_at format="DD MMM YYYY"}}
                     </time>
                 </span>
-                <span class="single-meta-item single-meta-length">
-                    {{reading_time}}
-                </span>
                 {{#primary_tag}}
                     <span class="single-meta-item single-meta-tag">
                         <a class="post-tag post-tag-{{slug}}" href="{{url}}">{{name}}</a>
@@ -46,54 +43,4 @@
     <div class="single-content gh-content gh-canvas">
         {{content}}
     </div>
-
-    {{#is "post"}}
-    <div class="gh-canvas">
-    <footer class="single-footer">
-
-        <div class="single-footer-left">
-            {{#prev_post}}
-            <div class="navigation navigation-previous">
-                <a class="navigation-link" href="{{url}}" aria-label="Previous post">
-                    <span class="navigation-icon">{{> "icons/arrow-left"}}</span>
-                </a>
-            </div>
-            {{/prev_post}}
-        </div>
-
-        <div class="single-footer-middle">
-            {{#if @custom.show_author}}
-            <div class="single-footer-top">
-                <h3 class="single-footer-title">Published by:</h3>
-                <div class="author-list">
-                    {{#foreach authors}}
-                        <div class="author-image-placeholder u-placeholder square">
-                            <a href="{{url}}" title="{{name}}">
-                                {{#if profile_image}}
-                                    <img class="author-image u-object-fit" src="{{img_url profile_image size="xs"}}" alt="{{name}}" loading="lazy">
-                                {{else}}
-                                    <span class="u-object-fit">{{> "icons/avatar"}}</span>
-                                {{/if}}
-                            </a>
-                        </div>
-                    {{/foreach}}
-                </div>
-            </div>
-            {{/if}}
-        </div>
-
-        <div class="single-footer-right">
-            {{#next_post}}
-            <div class="navigation navigation-next">
-                <a class="navigation-link" href="{{url}}" aria-label="Next post">
-                    <span class="navigation-icon">{{> "icons/arrow-right"}}</span>
-                </a>
-            </div>
-            {{/next_post}}
-        </div>
-
-    </footer>
-    </div>
-    {{/is}}
-
 </article>

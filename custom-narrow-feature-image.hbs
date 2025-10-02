@@ -6,14 +6,44 @@
         {{> "content" width="narrow"}}
     {{/post}}
 
-    {{#is "post"}}
-        {{#if @custom.show_related_posts}}
-            {{> "related-posts"}}
-        {{/if}}
+    {{#if @custom.show_related_posts}}
+        {{> "related-posts"}}
+    {{/if}}
 
-        {{#post}}
-            {{> "comments"}}
-        {{/post}}
-    {{/is}}
+    {{#post}}
+        {{> "comments"}}
+    {{/post}}
+
+    {{!-- Bottom Newsletter CTA - Mark Manson Style --}}
+    {{#unless @member}}
+    <section class="mm-bottom-cta">
+        <div class="gh-canvas">
+            <div class="mm-cta-content">
+                <div class="mm-cta-text">
+                    <h2 class="mm-cta-title">5 Minutes Each Week That Might Change Your Life</h2>
+                    <p class="mm-cta-description">
+                        Ingresá tu email para suscribirte a mi newsletter gratuito, <em>Your Next Breakthrough</em>. Cada semana, recibirás algunas preguntas y ejercicios diseñados para crear tu próximo breakthrough. Sin relleno, sin BS. Solo cinco minutos cada semana que podrían cambiar tu vida.
+                    </p>
+                    
+                    <form class="mm-bottom-form" data-members-form>
+                        <div class="mm-form-wrapper">
+                            <input class="mm-email-input" type="email" name="email" data-members-email placeholder="Tu email aquí" required="true">
+                            <button class="mm-submit-btn" type="submit" aria-label="Suscribirse">
+                                <span class="btn-text">SUSCRIBIRSE</span>
+                                <span class="btn-loader">{{> "icons/loader"}}</span>
+                                <span class="btn-success">¡Listo!</span>
+                            </button>
+                        </div>
+                        <p class="mm-privacy-note">Tu información está protegida y nunca envío spam.</p>
+                    </form>
+                </div>
+                
+                <div class="mm-cta-image">
+                    <img src="{{asset "images/phone.png"}}" alt="Newsletter Preview" class="mm-phone-image">
+                </div>
+            </div>
+        </div>
+    </section>
+    {{/unless}}
 
 </main>
