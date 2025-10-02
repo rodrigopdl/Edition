@@ -18,6 +18,9 @@
 .gh-head-logo a {
     color: #f1f1f1 !important;
 }
+.gh-head-menu {
+    text-transform: uppercase;
+}
 
 .gh-head-menu,
 .gh-head-actions {

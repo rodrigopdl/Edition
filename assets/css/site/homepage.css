@@ -59,8 +59,6 @@
     max-width: 450px;
     height: auto;
     display: block;
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Right: Form Section */
@@ -234,6 +232,7 @@
 }
 
 .mm-about-description {
+    font-family: var(--font-post-body);
     font-size: 2.3rem;
     line-height: 1.7;
     color: #f1f1f1;
@@ -245,8 +244,8 @@
 
 .mm-about-grid {
     display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 4rem;
+    grid-template-columns: 1fr 320px;
+    gap: 6rem;
     align-items: center;
     margin-bottom: 4rem;
 }
@@ -258,23 +257,37 @@
 .mm-about-image {
     order: 2;
     position: relative;
-}
-
-.mm-profile-img {
-    width: 100%;
-    height: auto;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
-    display: block;
-}
-
-.mm-profile-placeholder {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: #3a3d4f;
+    background: #5271FF;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4), 
+                0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mm-profile-img {
+    width: 124%;
+    height: 124%;
+    border-radius: 50%;
+    display: block;
+    object-fit: cover;
+    padding-bottom: 41px;
+}
+
+.mm-profile-placeholder {
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4), 
+                0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .mm-about-actions {
@@ -410,7 +423,7 @@
 
 /* Bottom CTA - Mark Manson Style */
 .mm-bottom-cta {
-    padding: 7rem 0;
+    padding: 3rem 0;
     background: #5271FF;
     border-top: 1px solid #3a3d4f;
 }
@@ -476,9 +489,10 @@
 
 .mm-phone-image {
     width: 100%;
-    max-width: 240px;
+    max-width: 360px;
     height: auto;
-    display: block;
+    display: block;    
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3)) drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
 }
 
 /* Member Welcome */
@@ -542,13 +556,19 @@
     .mm-about-image {
         order: 1;
         margin: 0 auto;
-        max-width: 200px;
+        width: 300px;
+        height: 300px;
     }
     
     .mm-profile-img {
-        width: 100%;
-        height: auto;
-        max-width: 200px;
+        width: 124%;
+        height: 124%;
+        padding-bottom: 36px;
+    }
+    
+    .mm-profile-placeholder {
+        width: 300px;
+        height: 300px;
     }
     
     .mm-about-actions {
@@ -651,7 +671,7 @@
     }
     
     .mm-bottom-cta {
-        padding: 4rem 0;
+        padding: 7rem 0;
     }
     .mm-action-link {
         width: 100%;
@@ -672,11 +692,7 @@
         gap: 1.5rem;
     }
     
-    .mm-profile-img,
-    .mm-profile-placeholder {
-        width: 150px;
-        height: auto;
-    }
+
     
     .mm-sections-grid {
         gap: 2.5rem;
