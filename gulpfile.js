@@ -83,8 +83,12 @@ function zipper(done) {
             '**',
             '!node_modules', '!node_modules/**',
             '!dist', '!dist/**',
-            '!yarn-error.log'
-        ]),
+            '!yarn-error.log',
+            '!yarn.lock',
+            '!package-lock.json',
+            '!.DS_Store',
+            '!**/.DS_Store'
+        ], {encoding: false}),
         zip(filename),
         dest('dist/')
     ], handleError(done));
