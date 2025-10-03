@@ -47,25 +47,18 @@ Template Name: Archive
                     {{> "post-list-section" posts=llamas title="La Llama"}}
                 {{/if}}
             {{/get}}
-            
+
+            {{!-- Posts by Tag - Source --}}
+            {{#get "posts" filter="tag:source" limit="6" as |source|}}
+                {{#if source}}
+                    {{> "post-list-section" posts=source title="Source"}}
+                {{/if}}
+            {{/get}}
+
             {{!-- Posts by Tag - Liderazgo --}}
             {{#get "posts" filter="tag:liderazgo" limit="6" as |liderazgo|}}
                 {{#if liderazgo}}
                     {{> "post-list-section" posts=liderazgo title="Liderazgo"}}
-                {{/if}}
-            {{/get}}
-            
-            {{!-- Posts by Tag - Psicología --}}
-            {{#get "posts" filter="tag:psicologia" limit="6" as |psychology|}}
-                {{#if psychology}}
-                    {{> "post-list-section" posts=psychology title="Psicología"}}
-                {{/if}}
-            {{/get}}
-            
-            {{!-- Posts by Tag - Relaciones --}}
-            {{#get "posts" filter="tag:relaciones" limit="6" as |relationships|}}
-                {{#if relationships}}
-                    {{> "post-list-section" posts=relationships title="Relaciones"}}
                 {{/if}}
             {{/get}}
             

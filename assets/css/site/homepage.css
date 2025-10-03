@@ -1,14 +1,9 @@
-/* ==========================================================================
-   Homepage - Mark Manson Style with Custom Colors
-   ========================================================================== */
-
-/* Base Homepage */
 .homepage-main {
     background: #222535;
     font-size: 2.2rem;
 }
 
-/* Hero Section - Mark Manson Style (Two Column Layout) */
+/* Hero Section */
 .mm-hero {
     background: #222535;
     background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></defs><rect width="200" height="200" filter="url(%23noise)" opacity="0.05"/></svg>');
@@ -90,7 +85,7 @@
     margin-bottom: 2.5rem;
 }
 
-/* Newsletter Form - Mark Manson Style (Button inside input) */
+/* Newsletter Form */
 .mm-newsletter-form {
     width: 100%;
 }
@@ -176,7 +171,7 @@
     font-style: italic;
 }
 
-/* About Section - Mark Manson Style */
+/* About Section */
 .mm-about {
     padding: 7rem 0;
     background: #222535;
@@ -276,7 +271,7 @@
     box-shadow: 0 4px 12px rgba(82, 113, 255, 0.3);
 }
 
-/* Content Sections - Mark Manson Style with Lines (Side by Side) */
+/* Content Sections */
 .mm-content-sections {
     padding: 7rem 0;
     background: #222535;
@@ -378,7 +373,7 @@
     box-shadow: 0 6px 20px rgba(82, 113, 255, 0.3);
 }
 
-/* Bottom CTA - Mark Manson Style */
+/* Bottom CTA */
 .mm-bottom-cta {
     padding: 3rem 0;
     background: #5271FF;

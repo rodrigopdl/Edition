@@ -58,3 +58,26 @@
 .gh-head-link {
     color: #f1f1f1 !important;
 }
+
+/* Hamburger icon color */
+.gh-burger::before,
+.gh-burger::after {
+    background-color: #f1f1f1 !important;
+}
+
+/* Mobile open menu background and colors */
+@media (max-width: 767px) {
+    .is-head-open #gh-head {
+        background-color: #222535 !important;
+    }
+
+    .is-head-open #gh-head .gh-head-actions {
+        background-color: #222535 !important;
+    }
+
+    .is-head-open #gh-head .nav a,
+    .is-head-open #gh-head .gh-head-link,
+    .is-head-open #gh-head .gh-head-btn {
+        color: #f1f1f1 !important;
+    }
+}
