@@ -59,6 +59,15 @@
     color: #f1f1f1 !important;
 }
 
+/* Search icon color */
+.gh-head .gh-search {
+    color: #f1f1f1 !important;
+}
+
+.gh-head .gh-search svg {
+    stroke: #f1f1f1 !important;
+}
+
 /* Hamburger icon color */
 .gh-burger::before,
 .gh-burger::after {
