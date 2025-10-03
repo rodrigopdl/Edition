@@ -92,7 +92,7 @@
 }
 
 /* Post Content */
-.post-template .gh-content {
+.gh-content {
     max-width: 950px !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -104,11 +104,11 @@
 }
 
 /* Text Justification */
-.post-template .gh-content p {
+.gh-content p {
     text-align: justify;
 }
 /* Callout - Premium Mark Manson Style */
-.post-template .gh-content .callout {
+.gh-content .callout {
     position: relative;
     padding: 4rem 3.5rem;
     margin: 5rem auto;
@@ -123,7 +123,7 @@
     width: 100%;
 }
 
-.post-template .gh-content .callout::before {
+.gh-content .callout::before {
     content: "";
     position: absolute;
     top: 0;
@@ -136,19 +136,19 @@
     z-index: 1;
 }
 
-.post-template .gh-content .callout:hover {
+.gh-content .callout:hover {
     transform: translateY(-2px);
     box-shadow: 
         0 15px 50px rgba(82, 113, 255, 0.35),
         0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-.post-template .gh-content .callout > * {
+.gh-content .callout > * {
     position: relative;
     z-index: 2;
 }
 
-.post-template .gh-content .callout h4 { 
+.gh-content .callout h4 { 
     text-align: center; 
     margin-top: 0;
     margin-bottom: 1.5rem;
@@ -161,7 +161,7 @@
     line-height: 1.2;
 }
 
-.post-template .gh-content .callout p { 
+.gh-content .callout p { 
     text-align: center; 
     font-size: 2.3rem;
     line-height: 1.7;
@@ -170,34 +170,34 @@
     margin-bottom: 0;
 }
 
-.post-template .gh-content .callout p:last-child {
+.gh-content .callout p:last-child {
     margin-bottom: 0;
 }
 
 /* Mobile adjustments for callout */
 @media (max-width: 768px) {
-    .post-template .gh-content .callout {
+    .gh-content .callout {
         padding: 3rem 2.5rem;
         margin: 4rem auto;
         border-radius: 12px;
     }
     
-    .post-template .gh-content .callout h4 {
+    .gh-content .callout h4 {
         font-size: 2.6rem;
     }
     
-    .post-template .gh-content .callout p {
+    .gh-content .callout p {
         font-size: 1.7rem;
     }
 }
 
 /* Headers in Content */
-.post-template .gh-content h1,
-.post-template .gh-content h2,
-.post-template .gh-content h3,
-.post-template .gh-content h4,
-.post-template .gh-content h5,
-.post-template .gh-content h6 {
+.gh-content h1,
+.gh-content h2,
+.gh-content h3,
+.gh-content h4,
+.gh-content h5,
+.gh-content h6 {
     color: #5271FF;
     font-family: var(--font-display);
     font-weight: 600;
@@ -206,56 +206,56 @@
     text-align: left;
 }
 
-.post-template .gh-content h2 {
+.gh-content h2 {
     font-size: 3.52rem;
     line-height: 1.3;
 }
 
-.post-template .gh-content h3 {
+.gh-content h3 {
     font-size: 2.86rem;
     line-height: 1.3;
 }
 
-.post-template .gh-content h4 {
+.gh-content h4 {
     font-size: 2.42rem;
     line-height: 1.4;
 }
 
-.post-template .gh-content h5 {
+.gh-content h5 {
     font-size: 2.2rem;
     line-height: 1.4;
 }
 
-.post-template .gh-content h6 {
+.gh-content h6 {
     font-size: 1.98rem;
     line-height: 1.5;
 }
 
 /* Links in Content */
-.post-template .gh-content a {
+.gh-content a {
     color: #ffffff;
     text-decoration: underline;
     transition: opacity 0.2s ease;
 }
 
-.post-template .gh-content a:hover {
+.gh-content a:hover {
     opacity: 0.8;
 }
 
 /* Lists */
-.post-template .gh-content ul,
-.post-template .gh-content ol {
+.gh-content ul,
+.gh-content ol {
     margin-bottom: 2rem;
     padding-left: 3rem;
 }
 
-.post-template .gh-content li {
+.gh-content li {
     margin-bottom: 0.8rem;
     color: #f1f1f1;
 }
 
 /* Blockquotes - Premium Style */
-.post-template .gh-content blockquote {
+.gh-content blockquote {
     position: relative;
     padding: 3rem 3rem 3rem 5rem;
     margin-top: 4rem;
@@ -270,7 +270,7 @@
 }
 
 /* Quote icon using CSS */
-.post-template .gh-content blockquote::before {
+.gh-content blockquote::before {
     content: '“';
     position: absolute;
     left: 2rem;
@@ -284,18 +284,18 @@
 }
 
 /* Blockquote paragraphs */
-.post-template .gh-content blockquote p {
+.gh-content blockquote p {
     position: relative;
     z-index: 1;
     margin-bottom: 1rem;
 }
 
-.post-template .gh-content blockquote p:last-child {
+.gh-content blockquote p:last-child {
     margin-bottom: 0;
 }
 
 /* Optional: Style for citation/attribution */
-.post-template .gh-content blockquote cite {
+.gh-content blockquote cite {
     display: block;
     margin-top: 1.5rem;
     font-size: 1.76rem;
@@ -304,12 +304,12 @@
     font-weight: 600;
 }
 
-.post-template .gh-content blockquote cite::before {
+.gh-content blockquote cite::before {
     content: '— ';
 }
 
 /* Code blocks */
-.post-template .gh-content pre {
+.gh-content pre {
     background: #1a1d2e;
     border: 1px solid #3a3d4f;
     border-radius: 8px;
@@ -318,12 +318,12 @@
     margin: 2rem 0;
 }
 
-.post-template .gh-content code {
+.gh-content code {
     color: #f1f1f1;
     font-size: 1.76rem;
 }
 
-.post-template .gh-content :not(pre) > code {
+.gh-content :not(pre) > code {
     background: #1a1d2e;
     border: 1px solid #3a3d4f;
     padding: 0.3rem 0.6rem;
@@ -332,7 +332,7 @@
 }
 
 /* Images in Content */
-.post-template .gh-content img {
+.gh-content img {
     border-radius: 8px;
     margin: 3rem auto;
     display: block;
@@ -340,12 +340,12 @@
     height: auto;
 }
 
-.post-template .gh-content figure {
+.gh-content figure {
     margin: 3rem auto;
     max-width: 100%;
 }
 
-.post-template .gh-content figure img {
+.gh-content figure img {
     margin: 0 auto;
 }
 
@@ -389,7 +389,7 @@
 
 /* Responsive */
 @media (max-width: 991px) {
-    .post-template .gh-content {
+    .gh-content {
         font-size: 1.98rem;
     }
     
@@ -397,11 +397,11 @@
         font-size: clamp(3rem, 8vw, 4.5rem);
     }
     
-    .post-template .gh-content h2 {
+    .gh-content h2 {
         font-size: 3.08rem;
     }
     
-    .post-template .gh-content h3 {
+    .gh-content h3 {
         font-size: 2.64rem;
     }
     
@@ -415,7 +415,7 @@
         margin-top: calc(var(--header-spacing, 80px) / 2);
     }
     
-    .post-template .gh-content {
+    .gh-content {
         font-size: 1.87rem;
     }
     
@@ -423,12 +423,12 @@
         font-size: 2.09rem;
     }
     
-    .post-template .gh-content blockquote {
+    .gh-content blockquote {
         font-size: 2.09rem;
         padding: 2.5rem 2rem 2.5rem 4.5rem;
     }
     
-    .post-template .gh-content blockquote::before {
+    .gh-content blockquote::before {
         font-size: 5.5rem;
         left: 1.5rem;
         top: 2rem;
