@@ -61,6 +61,20 @@ Template Name: Archive
                     {{> "post-list-section" posts=liderazgo title="Liderazgo"}}
                 {{/if}}
             {{/get}}
+
+            {{!-- Posts by Tag - Claridad --}}
+            {{#get "posts" filter="tag:claridad" limit="6" as |claridad|}}
+                {{#if claridad}}
+                    {{> "post-list-section" posts=claridad title="Claridad"}}
+                {{/if}}
+            {{/get}}
+
+            {{!-- Posts by Tag - Autores --}}
+            {{#get "posts" filter="tag:autores" limit="6" as |autores|}}
+                {{#if autores}}
+                    {{> "post-list-section" posts=autores title="Autores"}}
+                {{/if}}
+            {{/get}}
             
         </div>
     </section>
