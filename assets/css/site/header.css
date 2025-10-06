@@ -48,6 +48,92 @@
     }
 }
 
+/* Override Ghost's default 767px breakpoint to support tablets */
+@media (max-width: 991px) {
+    /* Show hamburger menu on tablets */
+    .gh-burger {
+        display: block !important;
+    }
+    
+    /* Hide desktop navigation on tablets */
+    #gh-head .gh-head-menu,
+    #gh-head .gh-head-actions {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        position: fixed !important;
+    }
+    
+    /* Show menu when opened */
+    .is-head-open #gh-head .gh-head-menu,
+    .is-head-open #gh-head .gh-head-actions {
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: static !important;
+    }
+    
+    /* Reduce header height on tablets */
+    #gh-head {
+        height: 80px !important;
+    }
+    
+    #gh-head .gh-head-inner {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto 1fr auto !important;
+        gap: 48px !important;
+    }
+    
+    #gh-head .gh-head-brand {
+        grid-template-columns: 1fr auto auto !important;
+        display: grid !important;
+        align-items: center !important;
+        grid-column-start: 1 !important;
+        height: 80px !important;
+    }
+    
+    #gh-head .gh-head-logo {
+        font-size: 2.8rem !important;
+    }
+    
+    /* Mobile menu styling */
+    #gh-head .gh-head-menu {
+        justify-content: center !important;
+    }
+    
+    #gh-head .nav {
+        flex-direction: column !important;
+        display: flex !important;
+        gap: 20px !important;
+        align-items: center !important;
+        line-height: 1.4 !important;
+    }
+    
+    #gh-head .nav a {
+        font-size: 2.4rem !important;
+        font-weight: 600 !important;
+        text-transform: none !important;
+    }
+    
+    #gh-head .gh-head-actions {
+        text-align: center !important;
+    }
+    
+    #gh-head .gh-head-btn {
+        font-size: 1.8rem !important;
+        text-transform: none !important;
+        width: 100% !important;
+    }
+    
+    /* Full screen menu when open */
+    .is-head-open #gh-head {
+        position: fixed !important;
+        inset: 0 !important;
+        height: 100% !important;
+        overflow-y: scroll !important;
+        z-index: 3999999 !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+}
+
 @media (min-width: 992px) {
     .is-head-left-logo .gh-head-menu {
         justify-content: center;
@@ -75,7 +161,7 @@
 }
 
 /* Mobile open menu background and colors */
-@media (max-width: 767px) {
+@media (max-width: 991px) {
     .is-head-open #gh-head {
         background-color: #222535 !important;
     }
