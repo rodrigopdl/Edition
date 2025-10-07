@@ -39,6 +39,10 @@
 /* Archive Sections */
 .archive-sections {
     padding: 6rem 0 4rem;
+    
+    .mm-section-title {
+        color: #5271FF;
+    }
 }
 
 /* Responsive */
