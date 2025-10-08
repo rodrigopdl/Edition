@@ -6,6 +6,7 @@ var st = 0;
 cover();
 featured();
 pagination(false);
+talksSlider();
 
 window.addEventListener('scroll', function () {
     'use strict';
@@ -72,5 +73,67 @@ function featured() {
                 items: 3,
             },
         },
+    });
+}
+
+function talksSlider() {
+    'use strict';
+    var slider = document.querySelector('.talks-testimonial-slider');
+    if (!slider) return;
+    
+    var quotes = slider.querySelectorAll('.talks-quote');
+    var dots = slider.querySelectorAll('.slider-dot');
+    var prevArrow = slider.querySelector('.slider-arrow-prev');
+    var nextArrow = slider.querySelector('.slider-arrow-next');
+    var currentSlide = 0;
+    
+    function showSlide(index) {
+        // Remove active class from all quotes and dots
+        quotes.forEach(function(quote) {
+            quote.classList.remove('active');
+        });
+        dots.forEach(function(dot) {
+            dot.classList.remove('active');
+        });
+        
+        // Add active class to current slide and dot
+        quotes[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentSlide = index;
+    }
+    
+    function nextSlide() {
+        var next = (currentSlide + 1) % quotes.length;
+        showSlide(next);
+    }
+    
+    function prevSlide() {
+        var prev = (currentSlide - 1 + quotes.length) % quotes.length;
+        showSlide(prev);
+    }
+    
+    // Arrow click handlers
+    if (prevArrow) {
+        prevArrow.addEventListener('click', prevSlide);
+    }
+    
+    if (nextArrow) {
+        nextArrow.addEventListener('click', nextSlide);
+    }
+    
+    // Dot click handlers
+    dots.forEach(function(dot, index) {
+        dot.addEventListener('click', function() {
+            showSlide(index);
+        });
+    });
+    
+    // Keyboard navigation
+    slider.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+        }
     });
 }

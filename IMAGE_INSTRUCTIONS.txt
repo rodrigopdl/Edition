@@ -1,0 +1,30 @@
+INSTRUCCIONES PARA AGREGAR LAS IMÁGENES DE CHARLAS
+====================================================
+
+Por favor, copia las dos imágenes que enviaste a la carpeta de assets con estos nombres:
+
+1. Primera imagen (La Meetup II - 150 personas):
+   Guardar como: assets/images/talks-lameetup.jpg
+   
+2. Segunda imagen (WyeWorks Summit 2024):
+   Guardar como: assets/images/talks-wyeworks.jpg
+
+PASOS:
+
+1. Abre la carpeta:
+   /Users/rodrigopdl/Documents/rpdl/Para masticar/Custom ghost theme/Edition/assets/images/
+
+2. Copia la primera imagen (la de La Meetup) y renómbrala a: talks-lameetup.jpg
+
+3. Copia la segunda imagen (la de WyeWorks) y renómbrala a: talks-wyeworks.jpg
+
+4. Una vez copiadas las imágenes, ejecuta:
+   cd "/Users/rodrigopdl/Documents/rpdl/Para masticar/Custom ghost theme/Edition"
+   npx gulp zip
+
+5. El nuevo tema estará listo en: dist/custom-edition.zip
+
+NOTA: Si prefieres usar formato WebP para mejor rendimiento, puedes nombrarlas
+talks-lameetup.webp y talks-wyeworks.webp y luego actualizar las extensiones
+en el archivo custom-talks.hbs (líneas 92 y 99).
+
