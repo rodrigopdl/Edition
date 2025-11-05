@@ -49,6 +49,45 @@
         </div>
     </section>
 
+    {{!-- Latest Post Section - Recién salido del horno --}}
+    {{#get "posts" limit="1" as |latest|}}
+        {{#foreach latest}}
+            <section class="mm-latest-post">
+                <div class="mm-latest-content gh-canvas">
+                    <div class="mm-latest-grid">
+                        {{!-- Left: Post Image --}}
+                        <div class="mm-latest-image-container">
+                            <a href="{{url}}" class="mm-latest-image-link">
+                                {{#if feature_image}}
+                                    <img src="{{img_url feature_image size="m"}}" alt="{{title}}" class="mm-latest-image">
+                                {{else}}
+                                    <div class="mm-latest-image-placeholder">
+                                        <span class="mm-placeholder-text">{{title}}</span>
+                                    </div>
+                                {{/if}}
+                            </a>
+                        </div>
+                        
+                        {{!-- Right: Post Content --}}
+                        <div class="mm-latest-text">
+                            <h3 class="mm-latest-title">
+                                <a href="{{url}}">{{title}}</a>
+                            </h3>
+                            
+                            <p class="mm-latest-excerpt">
+                                {{excerpt words="30"}}...
+                            </p>
+                            
+                            <a href="{{url}}" class="mm-latest-button">
+                                El último bocado
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {{/foreach}}
+    {{/get}}
+
     {{!-- About Section --}}
     <section class="mm-about">
         <div class="mm-about-content gh-canvas">
