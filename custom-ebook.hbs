@@ -87,9 +87,21 @@
         pageRendering = true;
         
         pdfDoc.getPage(num).then(function(page) {
+            // Use devicePixelRatio for sharp rendering on high-DPI displays
+            const pixelRatio = window.devicePixelRatio || 1;
             const viewport = page.getViewport({ scale: scale });
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
+            
+            // Set canvas size accounting for device pixel ratio
+            canvas.height = viewport.height * pixelRatio;
+            canvas.width = viewport.width * pixelRatio;
+            
+            // Scale the canvas back down to maintain proper display size
+            canvas.style.height = viewport.height + 'px';
+            canvas.style.width = viewport.width + 'px';
+            
+            // Reset transform and scale the context to account for pixel ratio
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.scale(pixelRatio, pixelRatio);
             
             const renderContext = {
                 canvasContext: ctx,
@@ -149,8 +161,10 @@
     function updateProgressBarWidth() {
         const canvas = document.getElementById('pdfCanvas');
         const progressBar = document.querySelector('.ebook-progress-bar');
-        if (canvas && progressBar && canvas.width > 0) {
-            progressBar.style.width = canvas.width + 'px';
+        if (canvas && progressBar) {
+            // Use the CSS width (display size) not the internal canvas width
+            const displayWidth = canvas.style.width || canvas.offsetWidth + 'px';
+            progressBar.style.width = displayWidth;
         }
     }
     
@@ -188,7 +202,7 @@
     // Responsive scaling
     function adjustScale() {
         if (window.innerWidth < 768) {
-            scale = 1;
+            scale = 1.0;
         } else if (window.innerWidth < 1024) {
             scale = 1.3;
         } else {

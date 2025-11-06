@@ -2,7 +2,6 @@
 
 .ebook-reader-page {
     background: #1a1d2e;
-    min-height: 100vh;
     padding: 2rem 0;
 }
 
@@ -222,6 +221,10 @@
         font-size: 1.3rem;
         padding: 1rem 2rem;
     }
+    
+    .ebook-download-section {
+        padding: 2rem 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -236,6 +239,10 @@
 
     .ebook-title {
         margin-top: 20px;
+    }
+    
+    .ebook-download-section {
+        padding: 1.5rem 1rem;
     }
 }
 
