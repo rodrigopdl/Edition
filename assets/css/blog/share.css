@@ -1,20 +1,41 @@
+.single-footer .share {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 2rem 0;
+    margin-top: 0;
+    justify-content: center;
+    width: 100%;
+}
+
 .share {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    justify-content: center;
 }
 
 .share-link {
     display: flex;
     align-items: center;
     height: 2.6rem;
-    padding: 0 0.8rem;
-    margin: 0 0.6rem;
+    padding: 0 1rem;
     font-size: 1.1rem;
     font-weight: 800;
     line-height: 0;
     color: var(--white-color);
     text-transform: uppercase;
     letter-spacing: 0.04rem;
-    border-radius: 3px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: opacity 0.2s var(--animation-base), transform 0.2s var(--animation-base);
+}
+
+.share-link:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
 }
 
 .share-link .icon {
@@ -35,6 +56,10 @@
 
 .share-link-twitter {
     background-color: var(--twitter-color);
+}
+
+.share-link-whatsapp {
+    background-color: var(--whatsapp-color);
 }
 
 .share-link-linkedin {

@@ -43,4 +43,10 @@
     <div class="single-content gh-content gh-canvas">
         {{content}}
     </div>
+
+    {{#is "post"}}
+        <div class="single-footer gh-canvas">
+            {{> "share"}}
+        </div>
+    {{/is}}
 </article>
