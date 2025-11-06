@@ -6,20 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{meta_title}}</title>
 
-    {{!-- Open Graph meta tags for social sharing --}}
-    {{#post}}
-        {{#if feature_image}}
-            <meta property="og:image" content="{{img_url feature_image size="l"}}">
-            <meta property="og:image:width" content="1200">
-            <meta property="og:image:height" content="630">
-            <meta name="twitter:card" content="summary_large_image">
-            <meta name="twitter:image" content="{{img_url feature_image size="l"}}">
-        {{/if}}
-    {{/post}}
-
     <link rel="stylesheet" href="{{asset "built/screen.css"}}">
 
     {{ghost_head}}
+    
+    {{!-- Enhanced Open Graph tags for better social sharing (WhatsApp, Facebook, etc.) --}}
+    {{#is "post"}}
+        {{#post}}
+            {{#if feature_image}}
+                <meta property="og:image" content="{{img_url feature_image size="xl" format="jpg"}}">
+                <meta property="og:image:secure_url" content="{{img_url feature_image size="xl" format="jpg"}}">
+                <meta property="og:image:width" content="1140">
+                <meta property="og:image:height" content="600">
+                <meta property="og:image:type" content="image/jpeg">
+                <meta property="og:image:alt" content="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}">
+                <meta name="twitter:card" content="summary_large_image">
+                <meta name="twitter:image" content="{{img_url feature_image size="xl" format="jpg"}}">
+            {{/if}}
+        {{/post}}
+    {{/is}}
 </head>
 
 <body class="{{body_class}}{{{block "body_class"}}} is-head-{{#match @custom.navigation_layout "Logo on the left"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Elegant serif"}} has-serif-body{{/match}}{{^is "home"}}{{#if @site.cover_image}} is-head-brand{{/if}}{{/is}}">
