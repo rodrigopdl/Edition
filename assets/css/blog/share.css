@@ -66,6 +66,17 @@
     background-color: var(--linkedin-color);
 }
 
+.share-link-copy {
+    background-color: var(--copy-color);
+    cursor: pointer;
+    border: none;
+}
+
+.share-link-copy .icon {
+    stroke: currentColor;
+    fill: none;
+}
+
 .share-link-bluesky {
     background-color: var(--bluesky-color);
 }

@@ -7,6 +7,7 @@ cover();
 featured();
 pagination(false);
 talksSlider();
+copyToClipboard();
 
 window.addEventListener('scroll', function () {
     'use strict';
@@ -136,4 +137,65 @@ function talksSlider() {
             nextSlide();
         }
     });
+}
+
+function copyToClipboard() {
+    'use strict';
+    var copyButtons = document.querySelectorAll('.share-link-copy');
+    if (!copyButtons.length) return;
+
+    copyButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var url = this.getAttribute('data-url');
+            var textElement = this.querySelector('.copy-text');
+            var originalText = textElement.textContent;
+
+            // Try to copy to clipboard
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(function() {
+                    // Success feedback
+                    button.classList.add('copied');
+                    textElement.textContent = '¡Copiado!';
+
+                    // Reset after 2 seconds
+                    setTimeout(function() {
+                        button.classList.remove('copied');
+                        textElement.textContent = originalText;
+                    }, 2000);
+                }).catch(function() {
+                    // Fallback if clipboard API fails
+                    fallbackCopy(url, button, textElement, originalText);
+                });
+            } else {
+                // Fallback for older browsers
+                fallbackCopy(url, button, textElement, originalText);
+            }
+        });
+    });
+
+    function fallbackCopy(text, button, textElement, originalText) {
+        var textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        try {
+            var successful = document.execCommand('copy');
+            if (successful) {
+                button.classList.add('copied');
+                textElement.textContent = '¡Copiado!';
+
+                setTimeout(function() {
+                    button.classList.remove('copied');
+                    textElement.textContent = originalText;
+                }, 2000);
+            }
+        } catch (err) {
+            console.error('Failed to copy:', err);
+        }
+
+        document.body.removeChild(textarea);
+    }
 }
