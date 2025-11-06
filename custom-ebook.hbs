@@ -76,6 +76,7 @@
     let pageRendering = false;
     let pageNumPending = null;
     let scale = 1.5;
+    let currentRenderTask = null;
     
     const canvas = document.getElementById('pdfCanvas');
     const ctx = canvas.getContext('2d');
@@ -83,6 +84,12 @@
     
     // Render page
     function renderPage(num) {
+        // Cancel any ongoing render task
+        if (currentRenderTask) {
+            currentRenderTask.cancel();
+            currentRenderTask = null;
+        }
+        
         pageRendering = true;
         
         pdfDoc.getPage(num).then(function(page) {
@@ -107,9 +114,11 @@
                 transform: null
             };
             
-            const renderTask = page.render(renderContext);
+            currentRenderTask = page.render(renderContext);
+            const renderTask = currentRenderTask;
             
             renderTask.promise.then(function() {
+                currentRenderTask = null;
                 pageRendering = false;
                 
                 if (pageNumPending !== null) {
@@ -124,6 +133,13 @@
                 
                 // Save current page
                 localStorage.setItem('ebookCurrentPage', num);
+            }).catch(function(err) {
+                // Ignore cancellation errors
+                if (err.name !== 'RenderingCancelledException') {
+                    console.error('PDF rendering error:', err);
+                }
+                currentRenderTask = null;
+                pageRendering = false;
             });
         });
         
@@ -198,6 +214,15 @@
         if (e.key === 'ArrowRight') onNextPage();
     });
     
+    // Prevent unwanted touch interactions on canvas
+    canvas.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+    }, { passive: false });
+    
+    canvas.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+    }, { passive: false });
+    
     // Responsive scaling
     function adjustScale() {
         if (window.innerWidth < 768) {
@@ -213,9 +238,14 @@
         }
     }
     
+    // Debounce resize events
+    let resizeTimeout;
     window.addEventListener('resize', function() {
-        adjustScale();
-        setTimeout(updateProgressBarWidth, 100);
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            adjustScale();
+            setTimeout(updateProgressBarWidth, 100);
+        }, 250);
     });
     adjustScale();
 })();
