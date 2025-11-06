@@ -210,7 +210,6 @@
 .mm-latest-image-container {
     position: relative;
     width: 100%;
-    overflow: hidden;
     border-radius: 16px;
     box-shadow: 0 5px 20px #5271FF, 
                 0 2px 8px #5271FF;
@@ -228,11 +227,69 @@
     pointer-events: none;
 }
 
+.mm-latest-image-container::before {
+    content: 'Recién salido del horno';
+    position: absolute;
+    top: -8px;
+    left: -12px;
+    background: #5271FF;
+    color: #F1F1F1;
+    padding: 1rem 2rem 1.1rem 1.8rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    z-index: 10;
+    transform: rotate(-3deg);
+    box-shadow: 0 6px 16px rgba(82, 113, 255, 0.5),
+                0 2px 4px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    clip-path: polygon(
+        2% 8%,
+        8% 2%,
+        15% 5%,
+        25% 1%,
+        35% 3%,
+        50% 0%,
+        65% 2%,
+        75% 0%,
+        85% 3%,
+        92% 1%,
+        98% 6%,
+        99% 15%,
+        97% 25%,
+        100% 35%,
+        98% 50%,
+        99% 65%,
+        97% 75%,
+        100% 85%,
+        96% 92%,
+        92% 98%,
+        85% 97%,
+        75% 99%,
+        65% 97%,
+        50% 100%,
+        35% 98%,
+        25% 99%,
+        15% 96%,
+        8% 98%,
+        2% 92%,
+        0% 85%,
+        3% 75%,
+        1% 65%,
+        2% 50%,
+        0% 35%,
+        3% 25%,
+        1% 15%
+    );
+}
+
 .mm-latest-image-link {
     display: block;
     position: relative;
     padding-bottom: 66.67%; /* 3:2 aspect ratio */
     overflow: hidden;
+    border-radius: 16px;
 }
 
 .mm-latest-image {
@@ -297,29 +354,6 @@
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.85);
     margin: 0;
-}
-
-.mm-latest-button {
-    display: inline-block;
-    align-self: flex-start;
-    background: #222535;
-    color: #ffffff;
-    padding: 1.55rem 3.1rem;
-    border-radius: 100px;
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    border: 2px solid #3a3d4f;
-}
-
-.mm-latest-button:hover {
-    background: #2a2d45;
-    border-color: #5271FF;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(82, 113, 255, 0.3);
 }
 
 /* About Section */
@@ -658,11 +692,6 @@
     
     .mm-latest-excerpt {
         font-size: 1.7rem;
-    }
-    
-    .mm-latest-button {
-        width: 100%;
-        text-align: center;
     }
     
     .mm-about-title {
