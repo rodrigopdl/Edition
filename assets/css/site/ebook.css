@@ -153,6 +153,7 @@
 .ebook-download-section {
     text-align: center;
     padding: 2rem;
+    margin-bottom: 20px;
 }
 
 .ebook-download-btn {
@@ -224,6 +225,7 @@
     
     .ebook-download-section {
         padding: 2rem 1rem;
+        margin-bottom: 20px;
     }
 }
 
@@ -243,6 +245,7 @@
     
     .ebook-download-section {
         padding: 1.5rem 1rem;
+        margin-bottom: 20px;
     }
 }
 
