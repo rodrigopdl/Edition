@@ -90,21 +90,21 @@
             const pixelRatio = window.devicePixelRatio || 1;
             const viewport = page.getViewport({ scale: scale });
             
-            // Set canvas size accounting for device pixel ratio
-            canvas.height = viewport.height * pixelRatio;
+            // Clear and reset canvas completely
             canvas.width = viewport.width * pixelRatio;
+            canvas.height = viewport.height * pixelRatio;
             
             // Scale the canvas back down to maintain proper display size
-            canvas.style.height = viewport.height + 'px';
             canvas.style.width = viewport.width + 'px';
+            canvas.style.height = viewport.height + 'px';
             
-            // Reset transform and scale the context to account for pixel ratio
-            ctx.setTransform(1, 0, 0, 1, 0, 0);
-            ctx.scale(pixelRatio, pixelRatio);
+            // Create a scaled viewport for high-DPI rendering
+            const scaledViewport = page.getViewport({ scale: scale * pixelRatio });
             
             const renderContext = {
                 canvasContext: ctx,
-                viewport: viewport
+                viewport: scaledViewport,
+                transform: null
             };
             
             const renderTask = page.render(renderContext);
