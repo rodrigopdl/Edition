@@ -36,6 +36,22 @@
     line-height: 1.6;
 }
 
+.archive-search-inline {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #f1f1f1;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.archive-search-inline:hover {
+    color: lightgray;
+}
+
 /* Archive Sections */
 .archive-sections {
     padding: 6rem 0 4rem;
