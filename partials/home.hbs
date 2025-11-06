@@ -75,7 +75,11 @@
                             </h3>
                             
                             <p class="mm-latest-excerpt">
-                                {{excerpt words="30"}}...
+                                {{#if custom_excerpt}}
+                                    {{custom_excerpt}}...
+                                {{else}}
+                                    {{excerpt words="30"}}...
+                                {{/if}}
                             </p>
                         </div>
                     </div>
