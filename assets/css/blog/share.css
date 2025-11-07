@@ -17,6 +17,17 @@
     justify-content: center;
 }
 
+.share-message {
+    width: 100%;
+    text-align: center;
+    font-size: 1.9rem;
+    line-height: 1.5;
+    color: var(--white-color);
+    margin: 0 0 1.5rem 0;
+    
+    font-family: var(--font-post-body);
+}
+
 .share-link {
     display: flex;
     align-items: center;
