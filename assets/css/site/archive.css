@@ -8,9 +8,29 @@
 /* Archive Hero Section */
 .archive-hero {
     padding: 8rem 0 6rem;
-    background: linear-gradient(135deg, rgba(82, 113, 255, 0.05) 0%, rgba(82, 113, 255, 0.02) 100%);
-    border-bottom: 1px solid rgba(82, 113, 255, 0.2);
+    background-image: url('../images/hiker.png');
+    background-size: cover;
+    background-position: center 55%;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #3a3d4f;
     text-align: center;
+    position: relative;
+}
+
+.archive-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(34, 37, 53, 0.7);
+    z-index: 0;
+}
+
+.archive-hero .gh-canvas {
+    position: relative;
+    z-index: 1;
 }
 
 .archive-title {
