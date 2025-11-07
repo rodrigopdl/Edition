@@ -86,7 +86,7 @@
         }
     }
 
-    // Load all posts from Ghost Content API
+    // Load all posts from Ghost Content API with pagination
     async function loadPosts() {
         isLoading = true;
         showLoadingState();
@@ -103,16 +103,8 @@
             const apiUrl = window.ghostConfig.apiUrl;
             const key = window.ghostConfig.apiKey;
 
-            const url = `${apiUrl}/posts/?key=${key}&limit=${POSTS_LIMIT}&fields=id,title,slug,excerpt,published_at,feature_image,custom_excerpt,html&include=tags`;
-            
-            const response = await fetch(url);
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            
-            const data = await response.json();
-            allPosts = data.posts || [];
+            // Fetch all posts using pagination
+            allPosts = await fetchAllPosts(apiUrl, key);
 
             // Process posts for better searching
             allPosts = allPosts.map(post => ({
@@ -125,6 +117,8 @@
                 tagNames: post.tags ? post.tags.map(tag => tag.name).join(' ') : ''
             }));
 
+            console.log(`Loaded ${allPosts.length} posts for search`);
+
             // Initialize Fuse.js
             initializeFuse();
             isInitialized = true;
@@ -136,6 +130,40 @@
         } finally {
             isLoading = false;
         }
+    }
+
+    // Fetch all posts with pagination
+    async function fetchAllPosts(apiUrl, key) {
+        let allPosts = [];
+        let page = 1;
+        let hasMorePages = true;
+        const limit = 250; // Maximum posts per page (Ghost API limit)
+
+        while (hasMorePages) {
+            const url = `${apiUrl}/posts/?key=${key}&limit=${limit}&page=${page}&fields=id,title,slug,excerpt,published_at,feature_image,custom_excerpt,html&include=tags`;
+            
+            const response = await fetch(url);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            const posts = data.posts || [];
+            
+            allPosts = allPosts.concat(posts);
+            
+            // Check if there are more pages
+            const meta = data.meta;
+            if (meta && meta.pagination) {
+                hasMorePages = meta.pagination.pages > page;
+                page++;
+            } else {
+                hasMorePages = false;
+            }
+        }
+
+        return allPosts;
     }
 
     // Initialize Fuse.js for fuzzy searching
