@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{meta_title}}</title>
 
+    {{!-- Resource hints for better performance --}}
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
     <link rel="stylesheet" href="{{asset "built/screen.css"}}">
+
+    {{!-- Preload critical fonts for better performance --}}
+    <link rel="preload" href="{{asset "fonts/league-spartan-700.woff2"}}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{asset "fonts/spectral-regular-400.woff2"}}" as="font" type="font/woff2" crossorigin>
 
     {{ghost_head}}
     
@@ -188,12 +195,19 @@
 
 {{!-- Fixes 100vh issue on mobile browsers with toolbar on the bottom --}}
 <script>
-    if (document.body.classList.contains('with-full-cover') && (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform))) {
-        document.getElementsByClassName('cover')[0].style.height = window.innerHeight + 'px';
-    }
+    (function() {
+        var body = document.body;
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform);
+        if (body.classList.contains('with-full-cover') && isMobile) {
+            var cover = body.querySelector('.cover');
+            if (cover) {
+                cover.style.height = window.innerHeight + 'px';
+            }
+        }
+    })();
 </script>
 
-<script src="{{asset "built/main.min.js"}}"></script>
+<script src="{{asset "built/main.min.js"}}" defer></script>
 
 {{ghost_foot}}
 
