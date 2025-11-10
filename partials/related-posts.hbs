@@ -1,37 +1,42 @@
-<section class="mm-content-sections mm-related-section">
-    <div class="mm-sections-wrapper">
+<section class="related-wrapper">
+    <div class="container">
         
         {{!-- Related Posts --}}
-        {{#get "posts" limit="6" filter="tags:[{{post.tags}}]+id:-{{post.id}}" as |related|}}
+        {{#get "posts" limit="3" filter="tags:[{{post.tags}}]+id:-{{post.id}}" as |related|}}
         {{#if related}}
-        <div class="mm-section">
-            <h3 class="mm-section-title">Seguí masticando...</h3>
-            <ul class="mm-items-list">
+        <div class="related-section">
+            <h3 class="related-title">Seguí masticando...</h3>
+            <div class="related-grid">
                 {{#foreach related}}
-                <li class="mm-item">
-                    <a href="{{url}}" class="mm-item-link">{{title}}</a>
-                </li>
+                <article class="related-card">
+                    <a href="{{url}}" class="related-card-link">
+                        <div class="related-card-image">
+                            <div class="related-card-image-inner">
+                                {{#if feature_image}}
+                                    <img
+                                        srcset="{{img_url feature_image size="s"}} 400w,
+                                                {{img_url feature_image size="m"}} 750w"
+                                        sizes="(min-width: 992px) 360px, (min-width: 768px) 45vw, 90vw"
+                                        src="{{img_url feature_image size="m"}}"
+                                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                        loading="lazy"
+                                    >
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="related-card-content">
+                            <h4 class="related-card-title">{{title}}</h4>
+                            {{#if excerpt}}
+                                <p class="related-card-excerpt">{{excerpt words="15"}}</p>
+                            {{/if}}
+                        </div>
+                    </a>
+                </article>
                 {{/foreach}}
-            </ul>
+            </div>
         </div>
         {{/if}}
         {{/get}}
-        
-        {{!-- Featured Posts (Los Favoritos) --}}
-        {{!--#get "posts" filter="featured:true+id:-{{post.id}}" limit="6" as |featured|}}
-        {{#if featured}}
-        <div class="mm-section">
-            <h3 class="mm-section-title">Favoritos de la comunidad</h3>
-            <ul class="mm-items-list">  
-                {{#foreach featured}}
-                <li class="mm-item">
-                    <a href="{{url}}" class="mm-item-link">{{title}}</a>
-                </li>
-                {{/foreach}}
-            </ul>
-        </div>
-        {{/if}}
-        {{/get}}--}}
         
     </div>
 </section>
