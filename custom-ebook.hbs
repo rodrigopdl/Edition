@@ -8,6 +8,18 @@
             <h1 class="ebook-title">{{title}}</h1>
         </div>
 
+        {{!-- Download Button --}}
+        <div class="ebook-download-section">
+            <a href="#" class="ebook-download-btn js-download-btn" download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Descargar PDF
+            </a>
+        </div>
+
         {{!-- PDF Canvas Container --}}
         <div class="ebook-viewer">
             <canvas id="pdfCanvas"></canvas>
@@ -47,7 +59,7 @@
 
         {{!-- Download Button --}}
         <div class="ebook-download-section">
-            <a href="#" id="downloadBtn" class="ebook-download-btn" download>
+            <a href="#" class="ebook-download-btn js-download-btn" download>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                     <polyline points="7 10 12 15 17 10"/>
@@ -197,8 +209,10 @@
         loadingEl.style.display = 'none';
         renderPage(pageNum);
         
-        // Set download link
-        document.getElementById('downloadBtn').href = PDF_URL;
+        // Set download links for all download buttons
+        document.querySelectorAll('.js-download-btn').forEach(function(btn) {
+            btn.href = PDF_URL;
+        });
     }).catch(function(error) {
         loadingEl.innerHTML = '<p style="color: #ef4444;">Error al cargar el PDF. Verificá que el archivo existe.</p>';
         console.error('Error loading PDF:', error);
