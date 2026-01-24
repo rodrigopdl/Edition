@@ -19,7 +19,7 @@
 }
 
 .post-template .single-meta {
-    color: rgba(241, 241, 241, 0.6);
+    color: rgba(255, 255, 255, 0.85);
     font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 2rem;
@@ -28,7 +28,7 @@
 }
 
 .post-template .single-meta-item {
-    color: rgba(241, 241, 241, 0.6);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .post-template .single-meta a {
@@ -55,9 +55,9 @@
     margin-right: auto !important;
 }
 
-/* Post Excerpt */
+/* Post Excerpt - High contrast */
 .post-template .single-excerpt {
-    color: rgba(241, 241, 241, 0.8);
+    color: #ffffff;
     font-size: 2.1rem;
     line-height: 1.6;
     margin-top: 2rem;
@@ -93,21 +93,21 @@
                 0 2px 8px #5271FF;
 }
 
-/* Post Content */
+/* Post Content - High contrast for better readability */
 .gh-content {
     max-width: 950px !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    color: #f1f1f1;
+    color: #ffffff;
     font-family: var(--font-post-body);
     font-size: 2.42rem;
     line-height: 1.6;
     font-weight: 400;
 }
 
-/* Text Justification */
+/* Text Alignment - Left aligned for better readability */
 .gh-content p {
-    text-align: justify;
+    text-align: left;
 }
 /* Callout */
 .gh-content .callout {
@@ -253,10 +253,10 @@
 
 .gh-content li {
     margin-bottom: 0.8rem;
-    color: #f1f1f1;
+    color: #ffffff;
 }
 
-/* Blockquotes - Premium Style */
+/* Blockquotes - Premium Style with high contrast */
 .gh-content blockquote {
     position: relative;
     padding: 3rem 3rem 3rem 5rem;
@@ -265,10 +265,11 @@
     border-left: 5px solid #5271FF;
     border-radius: 0 12px 12px 0;
     font-style: italic;
-    color: rgba(241, 241, 241, 0.95);
+    color: #ffffff;
     font-size: 2.42rem;
     line-height: 1.7;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    text-align: left;
 }
 
 /* Quote icon using CSS */
@@ -321,7 +322,7 @@
 }
 
 .gh-content code {
-    color: #f1f1f1;
+    color: #ffffff;
     font-size: 1.76rem;
 }
 
@@ -356,12 +357,12 @@
 }
 
 .post-template figcaption {
-    color: rgba(241, 241, 241, 0.6);
+    color: rgba(255, 255, 255, 0.85);
     font-size: 1.8rem;
     text-align: center;
     margin-top: 2rem;
     font-family: var(--font-post-body);
-    a {color: #f1f1f1;}
+    a {color: #ffffff;}
 }
 
 /* Post Footer Navigation */
@@ -373,7 +374,7 @@
 }
 
 .post-template .navigation-icon {
-    color: #f1f1f1;
+    color: #ffffff;
     transition: color 0.2s ease;
 }
 
@@ -382,7 +383,7 @@
 }
 
 .post-template .single-footer-title {
-    color: #f1f1f1;
+    color: #ffffff;
     font-size: 1.76rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
