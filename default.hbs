@@ -8,8 +8,11 @@
 
     {{!-- Resource hints for better performance --}}
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="{{@site.url}}" crossorigin>
 
-    <link rel="stylesheet" href="{{asset "built/screen.css"}}">
+    {{!-- Preload critical CSS --}}
+    <link rel="preload" href="{{asset "built/screen.css"}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{asset "built/screen.css"}}"></noscript>
 
     {{!-- Preload critical fonts for better performance --}}
     <link rel="preload" href="{{asset "fonts/league-spartan-700.woff2"}}" as="font" type="font/woff2" crossorigin>

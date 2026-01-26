@@ -15,6 +15,7 @@
     let fuse = null;
     let isLoading = false;
     let isInitialized = false;
+    let searchTimeout = null;
 
     // DOM Elements
     const searchModal = document.getElementById('search-modal');
@@ -38,7 +39,7 @@
 
         searchClose.addEventListener('click', closeModal);
         searchOverlay.addEventListener('click', closeModal);
-        searchInput.addEventListener('input', handleSearch);
+        searchInput.addEventListener('input', debounceSearch);
 
         // Keyboard shortcuts
         document.addEventListener('keydown', handleKeyboard);
@@ -187,9 +188,14 @@
         fuse = new Fuse(allPosts, fuseOptions);
     }
 
-    // Handle search input
-    function handleSearch(e) {
+    // Debounce search input for better performance
+    function debounceSearch(e) {
         const query = e.target.value.trim();
+
+        // Clear previous timeout
+        if (searchTimeout) {
+            clearTimeout(searchTimeout);
+        }
 
         if (query.length === 0) {
             showInitialState();
@@ -200,7 +206,15 @@
             return;
         }
 
-        performSearch(query);
+        // Wait 300ms before searching
+        searchTimeout = setTimeout(() => {
+            performSearch(query);
+        }, 300);
+    }
+
+    // Handle search input (kept for backwards compatibility)
+    function handleSearch(e) {
+        debounceSearch(e);
     }
 
     // Perform search
