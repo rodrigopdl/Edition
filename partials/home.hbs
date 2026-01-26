@@ -49,6 +49,40 @@
         </div>
     </section>
 
+    {{!-- Handpicked Posts Section - Best Posts for New Visitors --}}
+    {{#get "posts" filter="featured:true" limit="3" as |handpicked|}}
+        {{#if handpicked}}
+            {{> "handpicked-posts" posts=handpicked}}
+        {{/if}}
+    {{/get}}
+
+    {{!-- About Section --}}
+    <section class="mm-about">
+        <div class="mm-about-content gh-canvas">
+            <h2 class="mm-about-title">Hola, <span class="accent-word">soy Rodri</span></h2>
+            
+            <div class="mm-about-grid">
+                <div class="mm-about-text">
+                    <div class="mm-about-description">
+                        <p>En 2018 me di cuenta de algo simple pero incómodo: si quería avanzar con más claridad, primero tenía que aprender 
+a liderarme a mí mismo. Desde entonces escribo sobre ese camino. El de frenar cuando hace falta, 
+observarse con honestidad, domar un poco el ruido interno y seguir avanzando, pero desde un lugar más consciente. 
+Si estás intentando vivir con un poco más de intención, quizás estos bocados te acompañen en ese viaje.
+                            </p>
+                    </div>
+                </div>
+                <div class="mm-about-image">
+                    <img src="{{asset "images/rodri.webp"}}" alt="{{@site.title}}" class="mm-profile-img">
+                </div>
+            </div>
+            
+            <div class="mm-about-actions">
+                <a href="/bocados" class="mm-action-link">Leé mis bocados</a>
+                <a href="https://youtube.com/@paramasticar?si=hxlreYn3YGllakjm" class="mm-action-link" target="_blank" rel="noopener noreferrer">Mirá mis videos</a>
+            </div>
+        </div>
+    </section>
+
     {{!-- Latest Post Section - Recién salido del horno --}}
     {{#get "posts" limit="1" as |latest|}}
         {{#foreach latest}}
@@ -87,33 +121,6 @@
             </section>
         {{/foreach}}
     {{/get}}
-
-    {{!-- About Section --}}
-    <section class="mm-about">
-        <div class="mm-about-content gh-canvas">
-            <h2 class="mm-about-title">Hola, <span class="accent-word">soy Rodri</span></h2>
-            
-            <div class="mm-about-grid">
-                <div class="mm-about-text">
-                    <div class="mm-about-description">
-                        <p>En 2018 me di cuenta de algo simple pero incómodo: si quería avanzar con más claridad, primero tenía que aprender 
-a liderarme a mí mismo. Desde entonces escribo sobre ese camino. El de frenar cuando hace falta, 
-observarse con honestidad, domar un poco el ruido interno y seguir avanzando, pero desde un lugar más consciente. 
-Si estás intentando vivir con un poco más de intención, quizás estos bocados te acompañen en ese viaje.
-                            </p>
-                    </div>
-                </div>
-                <div class="mm-about-image">
-                    <img src="{{asset "images/rodri.webp"}}" alt="{{@site.title}}" class="mm-profile-img">
-                </div>
-            </div>
-            
-            <div class="mm-about-actions">
-                <a href="/bocados" class="mm-action-link">Leé mis bocados</a>
-                <a href="https://youtube.com/@paramasticar?si=hxlreYn3YGllakjm" class="mm-action-link" target="_blank" rel="noopener noreferrer">Mirá mis videos</a>
-            </div>
-        </div>
-    </section>
 
     {{!-- Content Sections --}}
     <section class="mm-content-sections">

@@ -1,0 +1,37 @@
+{{!-- Handpicked Posts Section - Best Posts for New Visitors --}}
+<section class="handpicked-wrapper">
+    <div class="container">
+        <div class="handpicked-section">
+            <h3 class="handpicked-title">Te recomiendo estos bocados</h3>
+            <div class="handpicked-grid">
+                {{#foreach posts}}
+                <article class="handpicked-card">
+                    <a href="{{url}}" class="handpicked-card-link">
+                        <div class="handpicked-card-image">
+                            <div class="handpicked-card-image-inner">
+                                {{#if feature_image}}
+                                    <img
+                                        srcset="{{img_url feature_image size="s"}} 400w,
+                                                {{img_url feature_image size="m"}} 750w"
+                                        sizes="(min-width: 992px) 360px, (min-width: 768px) 45vw, 90vw"
+                                        src="{{img_url feature_image size="m"}}"
+                                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                        loading="lazy"
+                                    >
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="handpicked-card-content">
+                            <h4 class="handpicked-card-title">{{title}}</h4>
+                            {{#if excerpt}}
+                                <p class="handpicked-card-excerpt">{{excerpt words="15"}}</p>
+                            {{/if}}
+                        </div>
+                    </a>
+                </article>
+                {{/foreach}}
+            </div>
+        </div>
+    </div>
+</section>
+
