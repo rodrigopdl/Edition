@@ -50,7 +50,7 @@
     </section>
 
     {{!-- Handpicked Posts Section - Best Posts for New Visitors --}}
-    {{#get "posts" filter="featured:true" limit="3" as |handpicked|}}
+    {{#get "posts" filter="tag:handpicked" limit="3" as |handpicked|}}
         {{#if handpicked}}
             {{> "handpicked-posts" posts=handpicked}}
         {{/if}}

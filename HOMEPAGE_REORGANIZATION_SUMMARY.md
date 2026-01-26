@@ -27,8 +27,8 @@ Reordered homepage sections for better user flow:
 6. **Bottom CTA**
 
 ### 3. Content Strategy
-- The handpicked section uses `filter="featured:true" limit="3"` to display featured posts
-- This gives you control over which posts to showcase by marking them as "featured" in Ghost admin
+- The handpicked section uses `filter="tag:handpicked" limit="3"` to display posts tagged with "handpicked"
+- This gives you independent control over which posts to showcase without affecting your featured posts
 - You can increase the limit to show more than 3 posts if desired
 
 ### 4. CSS Integration
@@ -39,14 +39,15 @@ Reordered homepage sections for better user flow:
 
 ### To Select Posts for the Handpicked Section:
 1. Go to Ghost Admin → Posts
-2. Edit any post you want to feature
-3. In the post settings, toggle "Feature this post" to ON
-4. The first 3 featured posts will automatically appear in the handpicked section
+2. Edit any post you want to showcase in the handpicked section
+3. In the post settings, add the tag `handpicked` to the post
+4. The first 3 posts with the "handpicked" tag will automatically appear in the section
+5. **Note:** This is separate from the "Featured" toggle, so you have independent control
 
 ### To Show More Posts:
 Edit line 53 in `partials/home.hbs`:
 ```handlebars
-{{#get "posts" filter="featured:true" limit="3" as |handpicked|}}
+{{#get "posts" filter="tag:handpicked" limit="3" as |handpicked|}}
 ```
 Change `limit="3"` to `limit="6"` (or any number you prefer)
 
@@ -65,8 +66,10 @@ Edit line 8 in `partials/handpicked-posts.hbs`:
 
 ## Notes
 
-- The handpicked section only shows if there are featured posts (uses `{{#if handpicked}}`)
+- The handpicked section only shows if there are posts with the "handpicked" tag (uses `{{#if handpicked}}`)
+- The "handpicked" tag is completely separate from the "Featured" toggle, giving you independent control
 - All responsive breakpoints are handled automatically
 - The section uses lazy loading for images to maintain performance
 - Maintains the same blue accent color (#5271FF) as the rest of your site
+- **Tip:** You can make the "handpicked" tag internal (hidden from public view) in Ghost Admin → Settings → Tags
 
