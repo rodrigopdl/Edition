@@ -1,0 +1,96 @@
+/* Ghost Signup Card Typography - Minimal adjustments to match post content */
+
+/* Heading - Adjusted to match post h3 size */
+.kg-signup-card h2,
+.kg-signup-card h3,
+.kg-signup-card h4 {
+    font-family: var(--font-display) !important;
+    font-size: 2.86rem !important; /* Same as h3 in posts */
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* Description/Paragraph - Match post body size */
+.kg-signup-card p {
+    font-family: var(--font-post-body) !important;
+    font-size: 2.42rem !important; /* Same as post body */
+    line-height: 1.6 !important;
+}
+
+/* Small text / disclaimer */
+.kg-signup-card p.kg-signup-card-disclaimer,
+.kg-signup-card small,
+.kg-signup-card .small-text {
+    font-family: var(--font-base) !important;
+    font-size: 1.6rem !important;
+}
+
+/* Input field */
+.kg-signup-card input[type="email"] {
+    font-family: var(--font-base) !important;
+    font-size: 1.8rem !important;
+    line-height: 1.5 !important;
+}
+
+.kg-signup-card input[type="email"]::placeholder {
+    font-size: 1.8rem !important;
+}
+
+/* Submit button */
+.kg-signup-card button[type="submit"],
+.kg-signup-card .kg-signup-card-button {
+    font-family: var(--font-display) !important;
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* Success/Error messages */
+.kg-signup-card-success,
+.kg-signup-card-error {
+    font-family: var(--font-base) !important;
+    font-size: 1.7rem !important;
+    line-height: 1.5 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .kg-signup-card h2,
+    .kg-signup-card h3,
+    .kg-signup-card h4 {
+        font-size: 2.64rem !important;
+    }
+    
+    .kg-signup-card p {
+        font-size: 1.98rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .kg-signup-card h2,
+    .kg-signup-card h3,
+    .kg-signup-card h4 {
+        font-size: 2.2rem !important;
+    }
+    
+    .kg-signup-card p {
+        font-size: 1.87rem !important;
+    }
+    
+    .kg-signup-card input[type="email"],
+    .kg-signup-card input[type="email"]::placeholder {
+        font-size: 1.6rem !important;
+    }
+    
+    .kg-signup-card button[type="submit"],
+    .kg-signup-card .kg-signup-card-button {
+        font-size: 1.45rem !important;
+    }
+    
+    .kg-signup-card p.kg-signup-card-disclaimer,
+    .kg-signup-card small {
+        font-size: 1.4rem !important;
+    }
+}
+
