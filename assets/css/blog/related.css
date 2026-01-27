@@ -202,3 +202,106 @@
         border-width: 4px;
     }
 }
+
+/* Random post button */
+.related-random-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.related-random-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.6rem 3.2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    background: #5271FF;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(82, 113, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.related-random-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.related-random-button:hover::before {
+    transform: translateX(100%);
+}
+
+.related-random-button:hover {
+    background: #F1F1F1;
+    color: #5271FF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(82, 113, 255, 0.6);
+}
+
+.related-random-button:active {
+    transform: translateY(0);
+}
+
+.related-random-button.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.random-button-text {
+    position: relative;
+    z-index: 1;
+}
+
+.random-button-icon {
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.related-random-button:hover .random-button-icon {
+    transform: scale(1.1);
+}
+
+.related-random-button.loading .random-button-icon {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 767px) {
+    .related-random-button-wrapper {
+        margin-bottom: 3rem;
+    }
+    
+    .related-random-button {
+        padding: 1.4rem 2.8rem;
+        font-size: 1.6rem;
+    }
+    
+    .random-button-icon {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+}

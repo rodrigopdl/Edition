@@ -20,10 +20,10 @@
 .share-message {
     width: 100%;
     text-align: center;
-    font-size: 1.9rem;
+    font-size: 2.3rem;
     line-height: 1.5;
     color: var(--white-color);
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 1.8rem 0;
     
     font-family: var(--font-post-body);
 }
@@ -31,9 +31,9 @@
 .share-link {
     display: flex;
     align-items: center;
-    height: 2.6rem;
-    padding: 0 1rem;
-    font-size: 1.1rem;
+    height: 3.2rem;
+    padding: 0 1.4rem;
+    font-size: 1.3rem;
     font-weight: 800;
     line-height: 0;
     color: var(--white-color);
@@ -50,9 +50,9 @@
 }
 
 .share-link .icon {
-    width: 14px;
-    height: 14px;
-    margin-right: 0.4rem;
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
     fill: currentColor;
 }
 

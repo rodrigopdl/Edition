@@ -8,6 +8,7 @@ featured();
 pagination(false);
 talksSlider();
 copyToClipboard();
+randomPostButton();
 
 window.addEventListener('scroll', function () {
     'use strict';
@@ -198,4 +199,62 @@ function copyToClipboard() {
 
         document.body.removeChild(textarea);
     }
+}
+
+function randomPostButton() {
+    'use strict';
+    var button = document.getElementById('randomPostButton');
+    if (!button) return;
+
+    button.addEventListener('click', function() {
+        // Add loading state
+        button.classList.add('loading');
+        
+        // Get the RSS feed to fetch all posts
+        fetch('/rss/')
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(str) {
+                // Parse RSS XML
+                var parser = new DOMParser();
+                var xmlDoc = parser.parseFromString(str, 'text/xml');
+                var items = xmlDoc.querySelectorAll('item');
+                
+                if (items.length === 0) {
+                    console.error('No posts found');
+                    button.classList.remove('loading');
+                    return;
+                }
+                
+                // Get current post URL to avoid redirecting to the same post
+                var currentUrl = window.location.href;
+                
+                // Filter out current post and get all post URLs
+                var postUrls = [];
+                items.forEach(function(item) {
+                    var link = item.querySelector('link').textContent;
+                    if (link !== currentUrl) {
+                        postUrls.push(link);
+                    }
+                });
+                
+                if (postUrls.length === 0) {
+                    console.error('No other posts found');
+                    button.classList.remove('loading');
+                    return;
+                }
+                
+                // Pick a random post
+                var randomIndex = Math.floor(Math.random() * postUrls.length);
+                var randomPostUrl = postUrls[randomIndex];
+                
+                // Navigate to the random post
+                window.location.href = randomPostUrl;
+            })
+            .catch(function(error) {
+                console.error('Error fetching posts:', error);
+                button.classList.remove('loading');
+            });
+    });
 }
