@@ -9,6 +9,9 @@
     {{!-- Resource hints for better performance --}}
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="{{@site.url}}" crossorigin>
+    {{#if @site.members_enabled}}
+    <link rel="dns-prefetch" href="https://ghost.org">
+    {{/if}}
 
     {{!-- Preload critical CSS --}}
     <link rel="preload" href="{{asset "built/screen.css"}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -17,6 +20,36 @@
     {{!-- Preload critical fonts for better performance --}}
     <link rel="preload" href="{{asset "fonts/league-spartan-700.woff2"}}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{asset "fonts/spectral-regular-400.woff2"}}" as="font" type="font/woff2" crossorigin>
+
+    {{!-- Defer Ghost member portal CSS to prevent render blocking --}}
+    <script>
+        // Make Ghost's member portal CSS non-blocking by loading it async
+        (function() {
+            var style = document.createElement('style');
+            style.textContent = `
+                /* Critical Ghost Portal styles to prevent FOUC */
+                #ghost-portal-root iframe {
+                    position: fixed !important;
+                    z-index: 2147483647 !important;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Watch for cards.min.css being added and make it async
+            var observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    mutation.addedNodes.forEach(function(node) {
+                        if (node.tagName === 'LINK' && node.href && node.href.includes('cards.min.css')) {
+                            node.media = 'print';
+                            node.onload = function() { this.media = 'all'; };
+                            observer.disconnect();
+                        }
+                    });
+                });
+            });
+            observer.observe(document.head, { childList: true });
+        })();
+    </script>
 
     {{ghost_head}}
     

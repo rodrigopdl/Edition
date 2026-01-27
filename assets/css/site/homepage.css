@@ -1,6 +1,8 @@
 .homepage-main {
     background: #222535;
     font-size: 2.2rem;
+    min-height: 100vh; /* Prevent layout shift by reserving minimum space */
+    contain: layout; /* Improve rendering performance */
 }
 
 /* Hero Section */
@@ -47,6 +49,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 0; /* Prevent flex item from overflowing */
 }
 
 .mm-hero-image {
@@ -54,6 +57,7 @@
     max-width: 450px;
     height: auto;
     display: block;
+    aspect-ratio: 1 / 1; /* Reserve space to prevent layout shift */
 }
 
 /* Right: Form Section */
@@ -408,6 +412,7 @@
     position: relative;
     width: 350px;
     height: 350px;
+    flex-shrink: 0; /* Prevent shrinking on smaller screens */
     border-radius: 50%;
     background: #5271FF;
     display: flex;
@@ -425,6 +430,7 @@
     display: block;
     object-fit: cover;
     padding-bottom: 41px;
+    aspect-ratio: 1 / 1; /* Reserve space for circular image */
 }
 
 .mm-about-actions {
@@ -669,6 +675,10 @@
 }
 
 @media (max-width: 768px) {
+    .homepage-main {
+        min-height: auto; /* Allow natural height on mobile */
+    }
+    
     .mm-hero {
         padding: 3rem 0 4rem;
     }
@@ -716,6 +726,7 @@
         margin: 0 auto;
         width: 300px;
         height: 300px;
+        flex-shrink: 0; /* Prevent image from shrinking */
     }
     
     .mm-profile-img {
