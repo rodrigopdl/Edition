@@ -210,47 +210,45 @@ function randomPostButton() {
         // Add loading state
         button.classList.add('loading');
         
-        // Get the RSS feed to fetch all posts
-        fetch('/rss/')
+        // Use Ghost Content API to get ALL posts
+        var apiUrl = window.ghostConfig ? window.ghostConfig.apiUrl : '/ghost/api/content';
+        var apiKey = window.ghostConfig ? window.ghostConfig.apiKey : '';
+        
+        // Fetch all posts using the Content API (limit=all gets everything)
+        fetch(apiUrl + '/posts/?key=' + apiKey + '&limit=all&fields=url')
             .then(function(response) {
-                return response.text();
+                return response.json();
             })
-            .then(function(str) {
-                // Parse RSS XML
-                var parser = new DOMParser();
-                var xmlDoc = parser.parseFromString(str, 'text/xml');
-                var items = xmlDoc.querySelectorAll('item');
+            .then(function(data) {
+                var posts = data.posts;
                 
-                if (items.length === 0) {
+                if (!posts || posts.length === 0) {
                     console.error('No posts found');
                     button.classList.remove('loading');
                     return;
                 }
                 
-                // Get current post URL to avoid redirecting to the same post
-                var currentUrl = window.location.href;
+                // Get current post slug from URL to avoid redirecting to the same post
+                var currentPath = window.location.pathname;
                 
-                // Filter out current post and get all post URLs
-                var postUrls = [];
-                items.forEach(function(item) {
-                    var link = item.querySelector('link').textContent;
-                    if (link !== currentUrl) {
-                        postUrls.push(link);
-                    }
+                // Filter out current post
+                var otherPosts = posts.filter(function(post) {
+                    return post.url !== window.location.href && 
+                           !currentPath.includes(post.url.split('/').pop());
                 });
                 
-                if (postUrls.length === 0) {
+                if (otherPosts.length === 0) {
                     console.error('No other posts found');
                     button.classList.remove('loading');
                     return;
                 }
                 
-                // Pick a random post
-                var randomIndex = Math.floor(Math.random() * postUrls.length);
-                var randomPostUrl = postUrls[randomIndex];
+                // Pick a random post from ALL available posts
+                var randomIndex = Math.floor(Math.random() * otherPosts.length);
+                var randomPost = otherPosts[randomIndex];
                 
                 // Navigate to the random post
-                window.location.href = randomPostUrl;
+                window.location.href = randomPost.url;
             })
             .catch(function(error) {
                 console.error('Error fetching posts:', error);
