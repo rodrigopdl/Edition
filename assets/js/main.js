@@ -228,24 +228,30 @@ function randomPostButton() {
                     return;
                 }
                 
-                // Get current post slug from URL to avoid redirecting to the same post
-                var currentPath = window.location.pathname;
+                console.log('Total posts found:', posts.length);
                 
-                // Filter out current post
+                // Get current page pathname (normalized without trailing slash)
+                var currentPath = window.location.pathname.replace(/\/$/, '');
+                
+                // Filter out current post by comparing normalized paths
                 var otherPosts = posts.filter(function(post) {
-                    return post.url !== window.location.href && 
-                           !currentPath.includes(post.url.split('/').pop());
+                    // Extract pathname from post URL and normalize
+                    var postPath = post.url.replace(/^https?:\/\/[^\/]+/, '').replace(/\/$/, '');
+                    return postPath !== currentPath;
                 });
                 
+                console.log('Posts after filtering current:', otherPosts.length);
+                
                 if (otherPosts.length === 0) {
-                    console.error('No other posts found');
-                    button.classList.remove('loading');
-                    return;
+                    // If we're on a non-post page or filtering failed, just use all posts
+                    otherPosts = posts;
                 }
                 
-                // Pick a random post from ALL available posts
+                // Pick a random post from all available posts
                 var randomIndex = Math.floor(Math.random() * otherPosts.length);
                 var randomPost = otherPosts[randomIndex];
+                
+                console.log('Navigating to:', randomPost.url);
                 
                 // Navigate to the random post
                 window.location.href = randomPost.url;
