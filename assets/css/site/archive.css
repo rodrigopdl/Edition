@@ -72,6 +72,147 @@
     color: lightgray;
 }
 
+/* Archive Random Button Section */
+.archive-random-section {
+    padding: 4rem 0 2rem;
+    background: #222535;
+}
+
+/* Archive Grid Section */
+.archive-grid-section {
+    padding: 4rem 0 6rem;
+    background: #222535;
+}
+
+.archive-grid-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.archive-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.archive-card-link {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.archive-card-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(82, 113, 255, 0.4), 
+                0 2px 8px rgba(82, 113, 255, 0.3);
+    overflow: hidden;
+    background: #1a1d2e;
+    transition: all 0.3s ease;
+}
+
+.archive-card-link:hover .archive-card-image {
+    box-shadow: 0 8px 30px rgba(82, 113, 255, 0.6), 
+                0 4px 12px rgba(82, 113, 255, 0.4);
+    transform: translateY(-4px);
+}
+
+.archive-card-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 6px solid #F1F1F1;
+    border-radius: 12px;
+    pointer-events: none;
+    z-index: 3;
+    transition: border-color 0.3s ease;
+}
+
+.archive-card-link:hover .archive-card-image::after {
+    border-color: #5271FF;
+}
+
+.archive-card-image-inner {
+    display: block;
+    position: relative;
+    padding-bottom: 75%; /* 4:3 aspect ratio for more compact cards */
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.archive-card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.12);
+    transition: transform 0.4s ease;
+}
+
+.archive-card-link:hover .archive-card-image img {
+    transform: scale(1.2);
+}
+
+.archive-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem 2rem 2rem;
+    background: linear-gradient(to top, 
+                                rgba(0, 0, 0, 0.95) 0%, 
+                                rgba(0, 0, 0, 0.85) 40%, 
+                                rgba(0, 0, 0, 0.6) 70%, 
+                                transparent 100%);
+    z-index: 2;
+    transition: background 0.3s ease;
+}
+
+.archive-card-link:hover .archive-card-overlay {
+    background: linear-gradient(to top, 
+                                rgba(82, 113, 255, 0.95) 0%, 
+                                rgba(82, 113, 255, 0.85) 40%, 
+                                rgba(82, 113, 255, 0.6) 70%, 
+                                transparent 100%);
+}
+
+.archive-card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+    color: #F1F1F1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.archive-card-link:hover .archive-card-title {
+    transform: translateY(-2px);
+}
+
+.archive-empty {
+    text-align: center;
+    font-size: 2rem;
+    color: rgba(241, 241, 241, 0.6);
+    padding: 4rem 0;
+}
+
 /* Archive Sections */
 .archive-sections {
     padding: 6rem 0 4rem;
@@ -82,6 +223,36 @@
 }
 
 /* Responsive */
+@media (max-width: 1199px) {
+    .archive-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .archive-grid-container {
+        padding: 0 2rem;
+    }
+    
+    .archive-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .archive-card-title {
+        font-size: 1.8rem;
+    }
+    
+    .archive-card-overlay {
+        padding: 2.5rem 1.5rem 1.5rem;
+    }
+    
+    .archive-card-image::after {
+        border-width: 4px;
+    }
+}
+
 @media (max-width: 768px) {
     .archive-hero {
         padding: 5rem 0 4rem;
@@ -95,8 +266,44 @@
         font-size: 1.7rem;
     }
     
+    .archive-random-section {
+        padding: 3rem 0 1.5rem;
+    }
+    
+    .archive-grid-section {
+        padding: 3rem 0 4rem;
+    }
+    
     .archive-sections {
         padding: 4rem 0 2rem;
+    }
+    
+    .archive-empty {
+        font-size: 1.7rem;
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .archive-grid-container {
+        padding: 0 2rem;
+    }
+    
+    .archive-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .archive-card-title {
+        font-size: 1.8rem;
+    }
+    
+    .archive-card-overlay {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+    
+    .archive-card-image::after {
+        border-width: 3px;
     }
 }
 
