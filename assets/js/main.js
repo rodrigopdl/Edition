@@ -9,6 +9,7 @@ pagination(false);
 talksSlider();
 copyToClipboard();
 randomPostButton();
+archiveLoadMore();
 
 window.addEventListener('scroll', function () {
     'use strict';
@@ -261,4 +262,178 @@ function randomPostButton() {
                 button.classList.remove('loading');
             });
     });
+}
+
+function archiveLoadMore() {
+    'use strict';
+    var trigger = document.getElementById('loadTrigger');
+    var grid = document.getElementById('archiveGrid');
+    
+    if (!trigger || !grid) return;
+    
+    var currentPage = parseInt(grid.getAttribute('data-page')) || 1;
+    var perPage = parseInt(grid.getAttribute('data-per-page')) || 18;
+    var loading = false;
+    var hasMore = true;
+    
+    // Function to load more posts
+    function loadMorePosts() {
+        if (loading || !hasMore) return;
+        
+        loading = true;
+        trigger.classList.add('loading');
+        
+        var nextPage = currentPage + 1;
+        
+        // Use Ghost Content API to get next batch of posts
+        var apiUrl = window.ghostConfig ? window.ghostConfig.apiUrl : '/ghost/api/content';
+        var apiKey = window.ghostConfig ? window.ghostConfig.apiKey : '';
+        
+        var url = apiUrl + '/posts/?key=' + apiKey + 
+                  '&limit=' + perPage + 
+                  '&page=' + nextPage +
+                  '&include=tags' +
+                  '&fields=id,title,url,feature_image,feature_image_alt';
+        
+        fetch(url)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                var posts = data.posts;
+                var meta = data.meta;
+                
+                if (!posts || posts.length === 0) {
+                    hasMore = false;
+                    trigger.classList.add('hidden');
+                    loading = false;
+                    return;
+                }
+                
+                // Add new posts to the grid with a slight delay for smooth appearance
+                posts.forEach(function(post, index) {
+                    setTimeout(function() {
+                        var card = createArchiveCard(post);
+                        grid.appendChild(card);
+                    }, index * 50); // Stagger the appearance slightly
+                });
+                
+                // Update page number
+                currentPage = nextPage;
+                grid.setAttribute('data-page', currentPage);
+                
+                // Check if there are more pages
+                if (meta && meta.pagination) {
+                    hasMore = currentPage < meta.pagination.pages;
+                    if (!hasMore) {
+                        trigger.classList.add('hidden');
+                    }
+                } else {
+                    // If no meta, assume no more posts
+                    hasMore = false;
+                    trigger.classList.add('hidden');
+                }
+                
+                loading = false;
+                trigger.classList.remove('loading');
+            })
+            .catch(function(error) {
+                console.error('Error loading more posts:', error);
+                loading = false;
+                trigger.classList.remove('loading');
+                // Retry after a delay
+                setTimeout(function() {
+                    if (hasMore) {
+                        loading = false;
+                    }
+                }, 3000);
+            });
+    }
+    
+    // Set up Intersection Observer for infinite scroll
+    if ('IntersectionObserver' in window) {
+        var options = {
+            root: null,
+            rootMargin: '400px', // Start loading 400px before the trigger is visible
+            threshold: 0
+        };
+        
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !loading && hasMore) {
+                    loadMorePosts();
+                }
+            });
+        }, options);
+        
+        observer.observe(trigger);
+    } else {
+        // Fallback for browsers that don't support Intersection Observer
+        window.addEventListener('scroll', function() {
+            var triggerPosition = trigger.getBoundingClientRect().top;
+            var windowHeight = window.innerHeight;
+            
+            if (triggerPosition < windowHeight + 400 && !loading && hasMore) {
+                loadMorePosts();
+            }
+        });
+    }
+}
+
+function createArchiveCard(post) {
+    'use strict';
+    
+    // Create article element
+    var article = document.createElement('article');
+    article.className = 'archive-card';
+    
+    // Create link
+    var link = document.createElement('a');
+    link.href = post.url;
+    link.className = 'archive-card-link';
+    
+    // Create image container
+    var imageDiv = document.createElement('div');
+    imageDiv.className = 'archive-card-image';
+    
+    // Create image inner container
+    var imageInner = document.createElement('div');
+    imageInner.className = 'archive-card-image-inner';
+    
+    // Create image if available
+    if (post.feature_image) {
+        var img = document.createElement('img');
+        
+        // Generate srcset for responsive images
+        var baseUrl = post.feature_image;
+        var smallUrl = baseUrl.replace(/\/content\/images\//, '/content/images/size/w400/');
+        var mediumUrl = baseUrl.replace(/\/content\/images\//, '/content/images/size/w750/');
+        
+        img.srcset = smallUrl + ' 400w, ' + mediumUrl + ' 750w';
+        img.sizes = '(min-width: 1200px) 360px, (min-width: 768px) 45vw, 90vw';
+        img.src = mediumUrl;
+        img.alt = post.feature_image_alt || post.title;
+        img.loading = 'lazy';
+        
+        imageInner.appendChild(img);
+    }
+    
+    imageDiv.appendChild(imageInner);
+    
+    // Create overlay with title
+    var overlay = document.createElement('div');
+    overlay.className = 'archive-card-overlay';
+    
+    var title = document.createElement('h3');
+    title.className = 'archive-card-title';
+    title.textContent = post.title;
+    
+    overlay.appendChild(title);
+    imageDiv.appendChild(overlay);
+    
+    // Assemble the card
+    link.appendChild(imageDiv);
+    article.appendChild(link);
+    
+    return article;
 }

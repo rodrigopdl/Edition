@@ -213,6 +213,47 @@
     padding: 4rem 0;
 }
 
+/* Infinite Scroll Trigger */
+.archive-load-trigger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    padding: 3rem 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.archive-load-trigger.loading {
+    opacity: 1;
+}
+
+.archive-load-trigger.hidden {
+    display: none;
+}
+
+.archive-loading-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner-icon {
+    width: 3rem;
+    height: 3rem;
+    color: #5271FF;
+    animation: spin 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* Archive Sections */
 .archive-sections {
     padding: 6rem 0 4rem;
@@ -304,6 +345,16 @@
     
     .archive-card-image::after {
         border-width: 3px;
+    }
+    
+    .archive-load-trigger {
+        margin-top: 3rem;
+        padding: 2rem 0;
+    }
+    
+    .spinner-icon {
+        width: 2.5rem;
+        height: 2.5rem;
     }
 }
 
