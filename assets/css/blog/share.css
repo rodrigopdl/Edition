@@ -111,3 +111,10 @@
 .share-link-instagram {
     background-color: var(--instagram-color);
 }
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+    .share-message {
+        font-size: 1.8rem;
+    }
+}
