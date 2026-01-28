@@ -266,22 +266,50 @@ function randomPostButton() {
 
 function archiveLoadMore() {
     'use strict';
-    var trigger = document.getElementById('loadTrigger');
+    var button = document.getElementById('loadMoreButton');
     var grid = document.getElementById('archiveGrid');
     
-    if (!trigger || !grid) return;
+    if (!button || !grid) return;
     
     var currentPage = parseInt(grid.getAttribute('data-page')) || 1;
     var perPage = parseInt(grid.getAttribute('data-per-page')) || 18;
     var loading = false;
     var hasMore = true;
     
-    // Function to load more posts
-    function loadMorePosts() {
+    // Check on page load if there are more posts available
+    function checkIfMorePostsExist() {
+        var apiUrl = window.ghostConfig ? window.ghostConfig.apiUrl : '/ghost/api/content';
+        var apiKey = window.ghostConfig ? window.ghostConfig.apiKey : '';
+        
+        // Get pagination info for the next page
+        var url = apiUrl + '/posts/?key=' + apiKey + 
+                  '&limit=' + perPage + 
+                  '&page=' + (currentPage + 1) +
+                  '&fields=id';
+        
+        fetch(url)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                if (!data.posts || data.posts.length === 0) {
+                    hasMore = false;
+                    button.classList.add('hidden');
+                }
+            })
+            .catch(function(error) {
+                console.error('Error checking for more posts:', error);
+            });
+    }
+    
+    // Check immediately on page load
+    checkIfMorePostsExist();
+    
+    button.addEventListener('click', function() {
         if (loading || !hasMore) return;
         
         loading = true;
-        trigger.classList.add('loading');
+        button.classList.add('loading');
         
         var nextPage = currentPage + 1;
         
@@ -305,17 +333,15 @@ function archiveLoadMore() {
                 
                 if (!posts || posts.length === 0) {
                     hasMore = false;
-                    trigger.classList.add('hidden');
+                    button.classList.add('hidden');
                     loading = false;
                     return;
                 }
                 
-                // Add new posts to the grid with a slight delay for smooth appearance
-                posts.forEach(function(post, index) {
-                    setTimeout(function() {
-                        var card = createArchiveCard(post);
-                        grid.appendChild(card);
-                    }, index * 50); // Stagger the appearance slightly
+                // Add new posts to the grid
+                posts.forEach(function(post) {
+                    var card = createArchiveCard(post);
+                    grid.appendChild(card);
                 });
                 
                 // Update page number
@@ -326,58 +352,23 @@ function archiveLoadMore() {
                 if (meta && meta.pagination) {
                     hasMore = currentPage < meta.pagination.pages;
                     if (!hasMore) {
-                        trigger.classList.add('hidden');
+                        button.classList.add('hidden');
                     }
                 } else {
                     // If no meta, assume no more posts
                     hasMore = false;
-                    trigger.classList.add('hidden');
+                    button.classList.add('hidden');
                 }
                 
                 loading = false;
-                trigger.classList.remove('loading');
+                button.classList.remove('loading');
             })
             .catch(function(error) {
                 console.error('Error loading more posts:', error);
                 loading = false;
-                trigger.classList.remove('loading');
-                // Retry after a delay
-                setTimeout(function() {
-                    if (hasMore) {
-                        loading = false;
-                    }
-                }, 3000);
+                button.classList.remove('loading');
             });
-    }
-    
-    // Set up Intersection Observer for infinite scroll
-    if ('IntersectionObserver' in window) {
-        var options = {
-            root: null,
-            rootMargin: '400px', // Start loading 400px before the trigger is visible
-            threshold: 0
-        };
-        
-        var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting && !loading && hasMore) {
-                    loadMorePosts();
-                }
-            });
-        }, options);
-        
-        observer.observe(trigger);
-    } else {
-        // Fallback for browsers that don't support Intersection Observer
-        window.addEventListener('scroll', function() {
-            var triggerPosition = trigger.getBoundingClientRect().top;
-            var windowHeight = window.innerHeight;
-            
-            if (triggerPosition < windowHeight + 400 && !loading && hasMore) {
-                loadMorePosts();
-            }
-        });
-    }
+    });
 }
 
 function createArchiveCard(post) {
