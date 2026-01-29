@@ -432,42 +432,55 @@ function createArchiveCard(post) {
 
 function shuffleRelatedPosts() {
     'use strict';
-    var grid = document.querySelector('.related-grid[data-shuffle="true"]');
     
-    if (!grid) return;
-    
-    var cards = Array.from(grid.querySelectorAll('[data-related-post]'));
-    
-    // If there are 3 or fewer cards, show them all
-    if (cards.length <= 3) {
-        cards.forEach(function(card) {
-            card.style.display = '';
-        });
-        return;
-    }
-    
-    // Fisher-Yates shuffle algorithm
-    function shuffle(array) {
-        var currentIndex = array.length;
-        var temporaryValue, randomIndex;
+    // Wait for DOM to be ready
+    function initShuffle() {
+        var grid = document.querySelector('.related-grid[data-shuffle="true"]');
         
-        while (currentIndex !== 0) {
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
-            
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
+        if (!grid) return;
+        
+        var cards = Array.from(grid.querySelectorAll('[data-related-post]'));
+        
+        if (cards.length === 0) return;
+        
+        // If there are 3 or fewer cards, show them all
+        if (cards.length <= 3) {
+            cards.forEach(function(card) {
+                card.classList.add('show');
+            });
+            return;
         }
         
-        return array;
+        // Fisher-Yates shuffle algorithm
+        function shuffle(array) {
+            var currentIndex = array.length;
+            var temporaryValue, randomIndex;
+            
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+                
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+            
+            return array;
+        }
+        
+        // Shuffle the cards
+        var shuffled = shuffle(cards);
+        
+        // Show only the first 3 shuffled cards by adding 'show' class
+        for (var i = 0; i < Math.min(3, shuffled.length); i++) {
+            shuffled[i].classList.add('show');
+        }
     }
     
-    // Shuffle the cards
-    var shuffled = shuffle(cards);
-    
-    // Show only the first 3 shuffled cards (CSS hides all by default)
-    for (var i = 0; i < Math.min(3, shuffled.length); i++) {
-        shuffled[i].style.display = '';
+    // Run immediately if DOM is ready, otherwise wait
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initShuffle);
+    } else {
+        initShuffle();
     }
 }

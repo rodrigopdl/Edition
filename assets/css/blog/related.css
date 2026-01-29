@@ -12,6 +12,11 @@
     display: none;
 }
 
+/* Show selected cards via JavaScript class */
+.related-grid[data-shuffle="true"] .related-card.show {
+    display: flex;
+}
+
 .related-wrapper::before {
     content: '';
     position: absolute;
