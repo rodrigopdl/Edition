@@ -438,8 +438,11 @@ function shuffleRelatedPosts() {
     
     var cards = Array.from(grid.querySelectorAll('[data-related-post]'));
     
-    // If there are 3 or fewer cards, don't shuffle - show them all
+    // If there are 3 or fewer cards, show them all
     if (cards.length <= 3) {
+        cards.forEach(function(card) {
+            card.style.display = '';
+        });
         return;
     }
     
@@ -463,12 +466,7 @@ function shuffleRelatedPosts() {
     // Shuffle the cards
     var shuffled = shuffle(cards);
     
-    // Hide all cards first
-    shuffled.forEach(function(card) {
-        card.style.display = 'none';
-    });
-    
-    // Show only the first 3 shuffled cards
+    // Show only the first 3 shuffled cards (CSS hides all by default)
     for (var i = 0; i < Math.min(3, shuffled.length); i++) {
         shuffled[i].style.display = '';
     }
