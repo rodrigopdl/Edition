@@ -10,6 +10,7 @@ talksSlider();
 copyToClipboard();
 randomPostButton();
 archiveLoadMore();
+shuffleRelatedPosts();
 
 window.addEventListener('scroll', function () {
     'use strict';
@@ -427,4 +428,48 @@ function createArchiveCard(post) {
     article.appendChild(link);
     
     return article;
+}
+
+function shuffleRelatedPosts() {
+    'use strict';
+    var grid = document.querySelector('.related-grid[data-shuffle="true"]');
+    
+    if (!grid) return;
+    
+    var cards = Array.from(grid.querySelectorAll('[data-related-post]'));
+    
+    // If there are 3 or fewer cards, don't shuffle - show them all
+    if (cards.length <= 3) {
+        return;
+    }
+    
+    // Fisher-Yates shuffle algorithm
+    function shuffle(array) {
+        var currentIndex = array.length;
+        var temporaryValue, randomIndex;
+        
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+        
+        return array;
+    }
+    
+    // Shuffle the cards
+    var shuffled = shuffle(cards);
+    
+    // Hide all cards first
+    shuffled.forEach(function(card) {
+        card.style.display = 'none';
+    });
+    
+    // Show only the first 3 shuffled cards
+    for (var i = 0; i < Math.min(3, shuffled.length); i++) {
+        shuffled[i].style.display = '';
+    }
 }

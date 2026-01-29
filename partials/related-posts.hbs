@@ -1,8 +1,8 @@
 <section class="related-wrapper">
     <div class="container">
         
-        {{!-- Related Posts --}}
-        {{#get "posts" limit="3" filter="tags:[{{post.tags}}]+id:-{{post.id}}" as |related|}}
+        {{!-- Related Posts (fetch more for randomization) --}}
+        {{#get "posts" limit="15" filter="tags:[{{post.tags}}]+id:-{{post.id}}" as |related|}}
         {{#if related}}
         <div class="related-section">
             <h3 class="related-title">Seguí masticando...</h3>
@@ -19,9 +19,9 @@
                 </button>
             </div>
             <h4 class="related-subheading">Bocados relacionados</h4>
-            <div class="related-grid">
+            <div class="related-grid" data-shuffle="true">
                 {{#foreach related}}
-                <article class="related-card">
+                <article class="related-card" data-related-post>
                     <a href="{{url}}" class="related-card-link">
                         <div class="related-card-image">
                             <div class="related-card-image-inner">
