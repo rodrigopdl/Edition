@@ -13,9 +13,68 @@
     <link rel="dns-prefetch" href="https://ghost.org">
     {{/if}}
 
-    {{!-- Preload critical CSS --}}
-    <link rel="preload" href="{{asset "built/screen.css"}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{asset "built/screen.css"}}"></noscript>
+    {{!-- Critical inline CSS to prevent FOUC --}}
+    <style>
+        /* Prevent FOUC with critical styles */
+        html {
+            background: #222535;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: #222535;
+            color: #f1f1f1;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        .site {
+            min-height: 100vh;
+            background: #222535;
+        }
+        /* Hide content briefly until CSS loads to prevent FOUC */
+        .site-content,
+        .homepage-main,
+        .archive-main,
+        .talks-main {
+            visibility: hidden;
+        }
+        /* Show content immediately if CSS loaded */
+        .css-loaded .site-content,
+        .css-loaded .homepage-main,
+        .css-loaded .archive-main,
+        .css-loaded .talks-main {
+            visibility: visible;
+        }
+    </style>
+    
+    {{!-- Load main CSS with optimized loading --}}
+    <link rel="stylesheet" href="{{asset "built/screen.css"}}" onload="document.documentElement.classList.add('css-loaded')">
+    
+    {{!-- Fallback for content visibility --}}
+    <noscript>
+        <style>
+            .site-content,
+            .homepage-main,
+            .archive-main,
+            .talks-main {
+                visibility: visible !important;
+            }
+        </style>
+    </noscript>
+    
+    {{!-- Ensure content shows after brief delay as fallback --}}
+    <script>
+        (function() {
+            // Mark CSS as loaded after a brief delay as fallback
+            setTimeout(function() {
+                document.documentElement.classList.add('css-loaded');
+            }, 100);
+            
+            // Also mark as loaded on DOMContentLoaded
+            document.addEventListener('DOMContentLoaded', function() {
+                document.documentElement.classList.add('css-loaded');
+            });
+        })();
+    </script>
 
     {{!-- Preload critical fonts for better performance --}}
     <link rel="preload" href="{{asset "fonts/league-spartan-700.woff2"}}" as="font" type="font/woff2" crossorigin>
