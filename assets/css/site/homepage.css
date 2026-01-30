@@ -414,22 +414,19 @@
     height: 350px;
     flex-shrink: 0; /* Prevent shrinking on smaller screens */
     border-radius: 50%;
-    background: #5271FF;
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Align to top instead of center */
     justify-content: center;
     overflow: hidden;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4), 
-                0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 20px #5271FF, 
+                0 2px 8px #5271FF;
 }
 
 .mm-profile-img {
     width: 124%;
     height: 124%;
-    border-radius: 50%;
     display: block;
     object-fit: cover;
-    padding-bottom: 41px;
     aspect-ratio: 1 / 1; /* Reserve space for circular image */
 }
 
