@@ -13,7 +13,7 @@
 
     function showSuccess(successEl, errorEl) {
         if (successEl) {
-            successEl.innerHTML = '¡Listo! Revisá tu correo para completar la suscripción.';
+            successEl.innerHTML = 'Casi listo. Revisá tu correo y confirmá la suscripción haciendo clic en el enlace que te enviamos. Si no lo ves, revisá spam o promociones.';
             successEl.style.display = 'block';
         }
         if (errorEl) errorEl.style.display = 'none';
