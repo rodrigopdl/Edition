@@ -1,5 +1,6 @@
+/* Menu gets more space: min 360px so nav items aren’t compressed on wide-but-padded viewports */
 .is-head-left-logo .gh-head-inner {
-    grid-template-columns: 1fr 50% 1fr;
+    grid-template-columns: auto 1fr auto;
 }
 
 .gh-head {
@@ -40,11 +41,20 @@
     color: #f1f1f1 !important;
 }
 
-/* Padding lateral solo en pantallas grandes */
+/* Header content stays centered with reasonable max-width on large screens */
+@media (min-width: 1200px) {
+    .gh-head .gh-head-inner {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Keep some padding but not excessive */
 @media (min-width: 1600px) {
     .gh-head.gh-outer {
-        padding-left: 600px !important;
-        padding-right: 600px !important;
+        padding-left: 3vmax !important;
+        padding-right: 3vmax !important;
     }
 }
 
