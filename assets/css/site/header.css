@@ -170,6 +170,19 @@
     background-color: #f1f1f1 !important;
 }
 
+/* "See more" dropdown button and menu colors */
+.gh-head .nav-more-toggle {
+    color: #f1f1f1;
+}
+
+.gh-head .gh-dropdown {
+    background-color: #222535;
+}
+
+.gh-head .gh-dropdown a {
+    color: #f1f1f1;
+}
+
 /* Mobile open menu background and colors */
 @media (max-width: 991px) {
     .is-head-open #gh-head {
