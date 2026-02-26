@@ -50,10 +50,16 @@
     </section>
 
     {{!-- Handpicked Posts Section - Best Posts for New Visitors --}}
-    {{#get "posts" filter="tag:handpicked" limit="3" as |handpicked|}}
-        {{#if handpicked}}
-            {{> "handpicked-posts" posts=handpicked}}
-        {{/if}}
+    {{!-- First get the pinned/featured post --}}
+    {{#get "posts" filter="tag:handpicked-featured" limit="1" as |pinnedPost|}}
+        {{!-- Then get the other handpicked posts, excluding the featured one --}}
+        {{#get "posts" filter="tag:handpicked+tag:-handpicked-featured" limit="2" as |regularPosts|}}
+            {{#if pinnedPost}}
+                {{> "handpicked-posts" pinnedPost=pinnedPost regularPosts=regularPosts}}
+            {{else if regularPosts}}
+                {{> "handpicked-posts" regularPosts=regularPosts}}
+            {{/if}}
+        {{/get}}
     {{/get}}
 
     {{!-- About Section --}}
