@@ -5,12 +5,12 @@
     {{!-- Hero Section --}}
     <section class="mm-hero">
         <div class="mm-hero-content gh-canvas">
-            <h1 class="mm-hero-title">Lo cotidiano, visto de cerca, dice más de lo que parece.</h1>
+            <h1 class="mm-hero-title">Lo cotidiano, visto de cerca, <span class="accent-word">dice más de lo que parece.</span></h1>
             
             <div class="mm-hero-grid">
                 {{!-- Left: Image/Visual --}}
                 <div class="mm-hero-visual">
-                    <img src="{{asset "images/hiker-plate.webp"}}" alt="Newsletter Preview" class="mm-hero-image" width="450" height="450" loading="eager">
+                    <img src="{{asset "images/plate-cool.png"}}" alt="Newsletter Preview" class="mm-hero-image" width="450" height="450" loading="eager">
                 </div>
                 
                 {{!-- Right: Form and Description --}}
@@ -19,7 +19,7 @@
                         <span class="mm-hero-text">Historias breves que se leen rápido y se mastican despacio.</span>
                     </div>
                     
-                    <p class="mm-hero-description">Todos los miércoles, un bocado nuevo en tu bandeja de entrada.</p>
+                    <p class="mm-hero-description">Todos los <strong>miércoles</strong>, un <em>bocado</em> nuevo en tu bandeja de entrada.</p>
                     
                     {{!-- Newsletter CTA --}}
                     {{#if @site.members_enabled}}
@@ -29,7 +29,7 @@
                                     <div class="mm-form-wrapper">
                                         <input class="mm-email-input" type="email" name="email" data-members-email placeholder="Tu email aquí" required="true">
                                         <button class="mm-submit-btn" type="submit" aria-label="Suscribirse">
-                                            SUMATE GRATIS
+                                            Sumate gratis
                                         </button>
                                     </div>
                                     <p class="mm-privacy-note">Tu información está protegida y nunca envío spam.</p>

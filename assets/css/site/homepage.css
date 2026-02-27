@@ -1,5 +1,5 @@
 .homepage-main {
-    background: #222535;
+    background: #262632;
     font-size: 2.2rem;
     min-height: 100vh; /* Prevent layout shift by reserving minimum space */
     contain: layout; /* Improve rendering performance */
@@ -7,11 +7,23 @@
 
 /* Hero Section */
 .mm-hero {
-    background: #222535;
-    background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></defs><rect width="200" height="200" filter="url(%23noise)" opacity="0.05"/></svg>');
-    background-repeat: repeat;
+    background: linear-gradient(160deg, #191c2e 0%, #1e2235 40%, #252940 100%);
     padding: 4rem 0 5rem;
     border-bottom: 1px solid #3a3d4f;
+    position: relative;
+}
+
+.mm-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></defs><rect width="200" height="200" filter="url(%23noise)" opacity="0.05"/></svg>');
+    background-repeat: repeat;
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 .mm-hero-content {
@@ -19,28 +31,30 @@
     margin: 0 auto;
     padding: 0 4rem;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .mm-hero-title {
     font-family: var(--font-display);
     font-size: 72px;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.1;
     margin-bottom: 3rem;
-    color: #ffffff;
+    color: #ececec;
     letter-spacing: -0.02em;
     text-align: center;
 }
 
 .accent-word {
-    color: #5271FF;
+    color: #4f61e3;
 }
 
 /* Two Column Grid */
 .mm-hero-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 6rem;
+    gap: 4.5rem;
     align-items: center;
 }
 
@@ -57,7 +71,7 @@
     max-width: 450px;
     height: auto;
     display: block;
-    aspect-ratio: 1 / 1; /* Reserve space to prevent layout shift */
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
 }
 
 /* Right: Form Section */
@@ -77,14 +91,14 @@
 .mm-hero-text {
     font-size: 2.2rem;
     font-weight: 900;
-    color: #f1f1f1;
+    color: #e0e0e6;
     line-height: 1.4;
     letter-spacing: -0.01em;
 }
 
 .mm-hero-description {
     font-size: 1.7rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.7);
     line-height: 1.6;
     margin-bottom: 2.5rem;
 }
@@ -102,16 +116,16 @@
 .mm-email-input {
     width: 100%;
     padding: 1.8rem 13rem 1.8rem 2.2rem;
-    border: 1px solid #4a4d5e;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 25px;
     font-size: 1.6rem;
     color: #ffffff;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     transition: all 0.2s ease;
 }
 
 .mm-email-input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.45);
 }
 
 .mm-email-input:focus {
@@ -126,22 +140,20 @@
     right: 0px;
     top: 50%;
     transform: translateY(-50%);
-    padding: 1.0rem 2.2rem;
+    padding: 1.1rem 2.4rem;
     background: #5271FF;
     color: #ffffff;
     border: none;
     border-radius: 25px;
-    font-size: 1.45rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
     cursor: pointer;
     transition: all 0.2s ease;
     white-space: nowrap;
 }
 
 .mm-submit-btn:hover {
-    background: #4a5fe6;
+    background: #4f61e3;
     box-shadow: 0 4px 12px rgba(82, 113, 255, 0.4);
 }
 
@@ -169,7 +181,7 @@
 
 .mm-privacy-note {
     font-size: 1.45rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.45);
     margin: 0;
     line-height: 1.5;
     font-style: italic;
