@@ -89,6 +89,24 @@
         </div>
     </section>
 
+    {{!-- Book Promo Section --}}
+    <section class="mm-book-promo">
+        <div class="mm-book-content gh-canvas">
+            <div class="mm-book-grid">
+                <div class="mm-book-visual">
+                    <div class="mm-book-image-wrapper">
+                        <img src="{{asset "images/book.png"}}" alt="La Bestia" class="mm-book-image" loading="lazy">
+                    </div>
+                </div>
+                <div class="mm-book-text">
+                    <h2 class="mm-book-title">Mi primer <span class="accent-word">libro</span></h2>
+                    <p class="mm-book-description">La Bestia: Bocados para reconocer lo que te frena y empezar a domarlo.</p>
+                    <a href="/bestia/" class="mm-book-link">Conocé más</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{!-- Latest Post Section - Recién salido del horno --}}
     {{#get "posts" limit="1" as |latest|}}
         {{#foreach latest}}
