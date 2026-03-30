@@ -47,7 +47,7 @@
 }
 
 .accent-word {
-    color: #4f61e3;
+    color: #5271ff;
 }
 
 /* Two Column Grid */
@@ -91,14 +91,14 @@
 .mm-hero-text {
     font-size: 2.2rem;
     font-weight: 900;
-    color: #e0e0e6;
+    color: #ffffff;
     line-height: 1.4;
     letter-spacing: -0.01em;
 }
 
 .mm-hero-description {
     font-size: 1.7rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: #ffffff;
     line-height: 1.6;
     margin-bottom: 2.5rem;
 }
