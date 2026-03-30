@@ -258,7 +258,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border: 8px solid #F1F1F1;
+    border: 8px solid #ffffff;
     border-radius: 16px;
     pointer-events: none;
 }
@@ -269,7 +269,7 @@
     top: -8px;
     left: -12px;
     background: #5271FF;
-    color: #F1F1F1;
+    color: #ffffff;
     padding: 1rem 2rem 1.1rem 1.8rem;
     font-size: 1.25rem;
     font-weight: 700;
@@ -410,7 +410,7 @@
     font-family: var(--font-display);
     font-size: clamp(4rem, 5.5vw, 6.1rem);
     font-weight: 600;
-    color: #f1f1f1;
+    color: #ffffff;
     margin-bottom: 4rem;
     letter-spacing: -0.02em;
     text-align: center;
@@ -420,7 +420,7 @@
     font-family: var(--font-post-body);
     font-size: 2.3rem;
     line-height: 1.7;
-    color: #f1f1f1;
+    color: #ffffff;
 }
 
 .mm-about-description p {
@@ -548,7 +548,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border: 6px solid #F1F1F1;
+    border: 6px solid #ffffff;
     border-radius: 12px;
     pointer-events: none;
 }
@@ -563,14 +563,14 @@
     font-family: var(--font-display);
     font-size: clamp(3rem, 4vw, 4.2rem);
     font-weight: 600;
-    color: #f1f1f1;
+    color: #ffffff;
     margin-bottom: 1.5rem;
 }
 
 .mm-book-description {
     font-family: var(--font-post-body);
     font-size: 2rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: #ffffff;
     line-height: 1.6;
     margin-bottom: 3rem;
 }
@@ -654,7 +654,7 @@
 .mm-item-link {
     font-size: 1.9rem;
     font-weight: 600;
-    color: #f1f1f1;
+    color: #ffffff;
     text-decoration: none;
     line-height: 1.4;
     transition: color 0.2s ease;
