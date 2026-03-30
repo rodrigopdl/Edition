@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(yarn zip:*)"
+      "Bash(yarn zip:*)",
+      "Bash(ghost version:*)",
+      "Read(//Users/rodrigopdl/**)",
+      "Read(//usr/local/lib/node_modules/ghost-cli/**)",
+      "Bash(ghost status:*)",
+      "Bash(ghost start:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001/ghost/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:2368/ghost/)",
+      "Bash(curl:*)"
     ]
   }
 }

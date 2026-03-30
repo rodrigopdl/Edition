@@ -430,8 +430,6 @@
     align-items: flex-start; /* Align to top instead of center */
     justify-content: center;
     overflow: hidden;
-    box-shadow: 0 5px 20px #5271FF, 
-                0 2px 8px #5271FF;
 }
 
 .mm-profile-img {
