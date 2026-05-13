@@ -5,22 +5,22 @@
     {{!-- Hero Section --}}
     <section class="mm-hero">
         <div class="mm-hero-content gh-canvas">
-            <h1 class="mm-hero-title"><span class="accent-word">Una pausa semanal</span> para frenar y pensar mejor.</h1>
-            
+            <h1 class="mm-hero-title">Liderá <span class="accent-word">siendo vos.</span></h1>
+
             <div class="mm-hero-grid">
                 {{!-- Left: Image/Visual --}}
                 <div class="mm-hero-visual">
                     <img src="{{asset "images/plate-cool.png"}}" alt="Newsletter Preview" class="mm-hero-image" width="450" height="450" loading="eager">
                 </div>
-                
+
                 {{!-- Right: Form and Description --}}
                 <div class="mm-hero-form-section">
                     <div class="mm-hero-stat">
-                        <span class="mm-hero-text">Cada miércoles, un <em>bocado</em> que se lee rápido pero se queda con vos.</span>
+                        <span class="mm-hero-text">Cada miércoles, un <em>bocado</em> para conocerte un poco mejor.</span>
                     </div>
-                    
-                    <p class="mm-hero-description">Y el primero de cada mes, uno que <strong class="mm-hand-circle">solo llega por email</strong>.</p>
-                    
+
+                    <p class="mm-hero-description">El primero de cada mes es <strong class="mm-hand-circle">exclusivo para suscriptores</strong>.</p>
+
                     {{!-- Newsletter CTA --}}
                     {{#if @site.members_enabled}}
                         {{#unless @site.members_invite_only}}
@@ -29,7 +29,7 @@
                                     <div class="mm-form-wrapper">
                                         <input class="mm-email-input" type="email" name="email" data-members-email placeholder="Tu email aquí" required="true">
                                         <button class="mm-submit-btn" type="submit" aria-label="Suscribirse">
-                                            Quiero el próximo
+                                            Suscribirme
                                         </button>
                                     </div>
                                     <p class="mm-privacy-note">Tu información está protegida y nunca envío spam.</p>
@@ -70,9 +70,7 @@
             <div class="mm-about-grid">
                 <div class="mm-about-text">
                     <div class="mm-about-description">
-                        <p>Trabajo como <span class="accent-word"><strong>Insight Strategist</strong></span> en WyeWorks.
-Me interesa entender cómo pensamos, cómo decidimos y por qué a veces nos frenamos sin darnos cuenta.
-Escribo sobre liderazgo, ruido interno y esas pequeñas cosas del día a día que, si las mirás de cerca, dicen más de lo que parece...</p>
+                        <p>Insight Strategist en WyeWorks. Un día descubrí que si quería liderar a otros, primero tenía que aprender a liderarme a mí mismo. Escribo sobre ese camino todos los miércoles: lo que me frena, lo que aprendo, y lo que voy descubriendo de mí en el proceso.</p>
                     </div>
                 </div>
                 <div class="mm-about-image">
@@ -82,24 +80,6 @@ Escribo sobre liderazgo, ruido interno y esas pequeñas cosas del día a día qu
             
             <div class="mm-about-actions">
                 <a href="/acerca" class="mm-action-link">Sobre Para Masticar</a>
-            </div>
-        </div>
-    </section>
-
-    {{!-- Book Promo Section --}}
-    <section class="mm-book-promo">
-        <div class="mm-book-content gh-canvas">
-            <div class="mm-book-grid">
-                <div class="mm-book-visual">
-                    <div class="mm-book-image-wrapper">
-                        <img src="{{asset "images/cover-es.jpg"}}" alt="La Bestia" class="mm-book-image" loading="lazy">
-                    </div>
-                </div>
-                <div class="mm-book-text">
-                    <h2 class="mm-book-title"><span class="accent-word">La Bestia</span></h2>
-                    <p class="mm-book-description">23 bocados para ponerle nombre a esa voz que te frena.</p>
-                    <a href="/bestia/" class="mm-book-link">Ver el libro</a>
-                </div>
             </div>
         </div>
     </section>
@@ -122,13 +102,13 @@ Escribo sobre liderazgo, ruido interno y esas pequeñas cosas del día a día qu
                                 {{/if}}
                             </a>
                         </div>
-                        
+
                         {{!-- Right: Post Content --}}
                         <div class="mm-latest-text">
                             <h3 class="mm-latest-title">
                                 <a href="{{url}}">{{title}}</a>
                             </h3>
-                            
+
                             <p class="mm-latest-excerpt">
                                 {{#if custom_excerpt}}
                                     {{custom_excerpt}}...
@@ -142,6 +122,24 @@ Escribo sobre liderazgo, ruido interno y esas pequeñas cosas del día a día qu
             </section>
         {{/foreach}}
     {{/get}}
+
+    {{!-- Book Promo Section --}}
+    <section class="mm-book-promo">
+        <div class="mm-book-content gh-canvas">
+            <div class="mm-book-grid">
+                <div class="mm-book-visual">
+                    <div class="mm-book-image-wrapper">
+                        <img src="{{asset "images/cover-es.jpg"}}" alt="La Bestia" class="mm-book-image" loading="lazy">
+                    </div>
+                </div>
+                <div class="mm-book-text">
+                    <h2 class="mm-book-title"><span class="accent-word">La Bestia</span></h2>
+                    <p class="mm-book-description">Un libro sobre esa voz interior que te frena, te hace dudar, y te aleja de quien realmente sos. Leerlo es el primer paso para conocerte mejor.</p>
+                    <a href="/bestia/" class="mm-book-link">Ver el libro</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     {{!-- Content Sections --}}
     <section class="mm-content-sections">
