@@ -266,7 +266,7 @@
     border-radius: 0 12px 12px 0;
     font-style: italic;
     color: #ffffff;
-    font-size: 2.42rem;
+    font-size: 1em;
     line-height: 1.7;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     text-align: left;
@@ -431,7 +431,6 @@
     }
     
     .gh-content blockquote {
-        font-size: 2.09rem;
         padding: 2.5rem 2rem 2.5rem 4.5rem;
     }
     
