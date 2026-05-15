@@ -2,10 +2,10 @@
 
 <section class="single-cta">
     {{#has visibility="paid"}}
-        <h2 class="single-cta-title">Este bocado es exclusivo para suscriptores</h2>
+        <h2 class="single-cta-title">Este bocado no termina acá...</h2>
     {{/has}}
     {{#has visibility="members"}}
-        <h2 class="single-cta-title">Este bocado es exclusivo para suscriptores</h2>
+        <h2 class="single-cta-title">Este bocado no termina acá...</h2>
     {{/has}}
     {{#has visibility="filter"}}
         <h2 class="single-cta-title">Este bocado es solo para suscriptores de {{tiers}}</h2>
@@ -13,7 +13,7 @@
     {{#if @member}}
         <a class="single-cta-button" href="#/portal/account/plans" data-portal="account/plans">Actualizar ahora</a>
     {{else}}
-        <a class="single-cta-button" href="#/portal/signup" data-portal="signup">Suscribirme</a>
+        <a class="single-cta-button" href="#/portal/signup" data-portal="signup">Suscribirme para seguir leyendo</a>
         <br>
         <a class="single-cta-footer" href="#/portal/signin" data-portal="signin">¿Ya sos parte? Iniciá sesión.</a>
     {{/if}}
