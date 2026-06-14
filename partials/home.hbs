@@ -4,7 +4,7 @@
 
     {{!-- 1. Hero ------------------------------------------------------------ --}}
     <section class="mm-v2-hero" aria-labelledby="hero-title">
-        <div class="mm-canvas">
+        <div class="mm-canvas mm-canvas--wide">
             <div class="mm-hero__inner">
                 <h1 class="mm-hero__title" id="hero-title">
                     Ayudo a líderes a <span class="mm-accent">pensar mejor.</span>
@@ -58,33 +58,35 @@
         </div>
     </section>
 
-    {{!-- 3. Quizás esto es para vos si... ----------------------------------- --}}
+    {{!-- 3. Esto es para vos si... ------------------------------------------ --}}
     <section class="mm-fit" aria-labelledby="fit-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <header class="mm-fit__header">
-                <p class="mm-eyebrow">Para quién</p>
-                <h2 class="mm-v2-title" id="fit-title">
-                    Quizás esto es <span class="mm-accent">para vos si…</span>
-                </h2>
-            </header>
+        <div class="mm-canvas">
+            <div class="mm-fit__inner">
+                <header class="mm-fit__header">
+                    <p class="mm-eyebrow">Para quién</p>
+                    <h2 class="mm-v2-title" id="fit-title">
+                        Esto es <span class="mm-accent">para vos si…</span>
+                    </h2>
+                </header>
 
-            <ol class="mm-fit__list">
-                <li class="mm-fit__item">
-                    Estás liderando algo importante y necesitás pensar mejor antes de avanzar.
-                </li>
-                <li class="mm-fit__item">
-                    Hay una decisión, tensión o conversación que viene ocupando demasiado espacio mental.
-                </li>
-                <li class="mm-fit__item">
-                    Querés generar un espacio en tu equipo para frenar, pensar y conversar de una forma distinta.
-                </li>
-                <li class="mm-fit__item">
-                    Tu equipo está creciendo, cambiando o atravesando un momento que necesita más claridad.
-                </li>
-                <li class="mm-fit__item">
-                    No querés una receta genérica. Querés un espacio para ordenar lo que está pasando y mirarlo con más profundidad.
-                </li>
-            </ol>
+                <ul class="mm-fit__list">
+                    <li class="mm-fit__item">
+                        Estás liderando algo importante y necesitás pensar mejor antes de avanzar.
+                    </li>
+                    <li class="mm-fit__item">
+                        Hay una decisión, tensión o conversación que viene ocupando demasiado espacio mental.
+                    </li>
+                    <li class="mm-fit__item">
+                        Querés generar un espacio en tu equipo para frenar, pensar y conversar de una forma distinta.
+                    </li>
+                    <li class="mm-fit__item">
+                        Tu equipo está creciendo, cambiando o atravesando un momento que necesita más claridad.
+                    </li>
+                    <li class="mm-fit__item">
+                        No querés una receta genérica. Querés un espacio para ordenar lo que está pasando y mirarlo con más profundidad.
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -100,7 +102,6 @@
 
             <div class="mm-ways__grid">
                 <article class="mm-way">
-                    <span class="mm-way__num" aria-hidden="true">01</span>
                     <h3 class="mm-way__title">Conversaciones de claridad</h3>
                     <p class="mm-way__text">
                         Espacios individuales para líderes, founders o personas que
@@ -114,7 +115,6 @@
                 </article>
 
                 <article class="mm-way">
-                    <span class="mm-way__num" aria-hidden="true">02</span>
                     <h3 class="mm-way__title">Masticadas</h3>
                     <p class="mm-way__text">
                         Experiencias de conversación para equipos y organizaciones. No son
@@ -128,7 +128,6 @@
                 </article>
 
                 <article class="mm-way mm-way--feature">
-                    <span class="mm-way__num" aria-hidden="true">03</span>
                     <h3 class="mm-way__title">Acompañamiento Para Masticar</h3>
                     <p class="mm-way__text">
                         Un acompañamiento continuo para líderes que no quieren pensar solos
@@ -147,16 +146,21 @@
     {{!-- 5. Testimonio ------------------------------------------------------ --}}
     <section class="mm-testimonial" aria-labelledby="testimonial-title">
         <div class="mm-canvas">
-            <p class="mm-eyebrow mm-eyebrow--muted">Una voz</p>
+            <p class="mm-eyebrow mm-eyebrow--muted">Testimonio</p>
             <figure class="mm-testimonial__figure">
                 <blockquote class="mm-testimonial__quote" id="testimonial-title">
                     <span class="mm-testimonial__mark" aria-hidden="true">“</span>Trabajar con Rodri nos ayudó a pensar mejor conversaciones, decisiones y tensiones que eran importantes para el equipo.
                 </blockquote>
                 <figcaption class="mm-testimonial__cite">
-                    <div class="mm-testimonial__avatar" aria-hidden="true">
-                        {{!-- Si más adelante agregás images/jose.jpg, descomentar la línea siguiente y borrar el span de iniciales --}}
-                        {{!-- <img src="{{asset "images/jose.jpg"}}" alt="" class="mm-testimonial__avatar-img"> --}}
-                        <span class="mm-testimonial__initials">J</span>
+                    <div class="mm-testimonial__avatar">
+                        <img
+                            src="{{asset "images/Jose.webp"}}"
+                            alt="José, Founder &amp; CEO de WyeWorks"
+                            class="mm-testimonial__avatar-img"
+                            width="120"
+                            height="120"
+                            loading="lazy"
+                        >
                     </div>
                     <div class="mm-testimonial__person">
                         <span class="mm-testimonial__name">José</span>
@@ -265,8 +269,8 @@
             <p class="mm-closing__text">
                 Si estás atravesando una decisión, una tensión o una conversación importante,
                 podés escribirme y contarme brevemente qué está pasando. Si siento que puedo
-                ayudarte, coordinamos una primera conversación exploratoria para entender mejor
-                la situación y ver qué forma de trabajo tiene sentido.
+                ayudarte, coordinamos una primera conversación exploratoria para entender qué
+                forma de trabajo tiene sentido.
             </p>
             <div class="mm-actions mm-actions--center">
                 <a href="/conversar" class="mm-btn mm-btn--primary mm-btn--lg">
