@@ -5,24 +5,34 @@
    the .mm-v2 ruleset.
    ========================================================================== */
 
-/* Slightly tighter hero: this page is a continuation, not a destination. */
+/* Hero: continuation of the home CTA, more intimate, less ceremonial. */
 .mm-conv .mm-conv-hero {
-    padding-top: clamp(6rem, 9vw, 9rem);
-    padding-bottom: clamp(5.6rem, 8vw, 8rem);
+    padding-top: clamp(5.6rem, 8vw, 8rem);
+    padding-bottom: clamp(5rem, 7vw, 7rem);
 }
 
 .mm-conv .mm-conv-hero .mm-hero__title {
-    font-size: clamp(4rem, 6.6vw, 7.6rem);
+    font-size: clamp(3.6rem, 5.6vw, 6.4rem);
     max-width: 18ch;
     margin-bottom: var(--space-6);
 }
 
 .mm-conv .mm-conv-hero .mm-hero__inner > .mm-eyebrow {
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-5);
     align-self: center;
 }
 
-/* --- 2) When --------------------------------------------------------- */
+.mm-conv .mm-conv-hero .mm-hero__lede {
+    font-size: clamp(1.8rem, 1.5vw, 2rem);
+    max-width: 56ch;
+}
+
+.mm-conv .mm-conv-hero .mm-v2-hero .mm-actions,
+.mm-conv .mm-conv-hero .mm-actions {
+    margin-top: var(--space-6);
+}
+
+/* --- When (now after form, used as supporting context) -------------- */
 .mm-conv .mm-conv-when {
     padding-block: var(--section-py-tight);
     background: var(--surface-0);
@@ -46,7 +56,7 @@
 }
 
 .mm-conv .mm-conv-when__header {
-    margin-bottom: var(--space-7);
+    margin-bottom: var(--space-6);
 }
 
 .mm-conv .mm-conv-when__header .mm-eyebrow {
@@ -55,6 +65,7 @@
 
 .mm-conv .mm-conv-when__header .mm-v2-title {
     margin: 0;
+    font-size: clamp(2.6rem, 3.4vw, 3.6rem);
 }
 
 .mm-conv .mm-conv-when__list {
@@ -64,10 +75,10 @@
 }
 
 .mm-conv .mm-conv-when__item {
-    padding: var(--space-5) 0;
+    padding: var(--space-4) 0;
     border-bottom: 1px solid rgba(244, 241, 234, 0.08);
     font-family: var(--font-post-body);
-    font-size: clamp(1.7rem, 1.6vw, 1.95rem);
+    font-size: clamp(1.65rem, 1.5vw, 1.85rem);
     line-height: 1.55;
     color: var(--ink-2);
     text-wrap: pretty;
@@ -87,9 +98,9 @@
     color: var(--ink);
 }
 
-/* --- 3) Paths -------------------------------------------------------- */
+/* --- Paths (now after When, lighter feel) --------------------------- */
 .mm-conv .mm-conv-paths {
-    padding-block: var(--section-py);
+    padding-block: var(--section-py-tight);
     background: var(--surface-1);
     position: relative;
 }
@@ -114,11 +125,11 @@
 }
 
 .mm-conv .mm-conv-path {
-    padding: var(--space-7) var(--space-6);
+    padding: var(--space-6) var(--space-5);
     border-right: 1px solid rgba(244, 241, 234, 0.10);
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--space-3);
 }
 
 .mm-conv .mm-conv-path:last-child {
@@ -127,7 +138,7 @@
 
 .mm-conv .mm-conv-path__title {
     font-family: var(--font-display);
-    font-size: 1.9rem;
+    font-size: 1.75rem;
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.015em;
@@ -137,8 +148,8 @@
 
 .mm-conv .mm-conv-path__text {
     font-family: var(--font-post-body);
-    font-size: 1.65rem;
-    line-height: 1.6;
+    font-size: 1.55rem;
+    line-height: 1.55;
     color: var(--ink-2);
     margin: 0;
 }
@@ -376,6 +387,30 @@
     overflow: hidden;
 }
 
+/* Submit feedback (success / error) — appears inline below the button. */
+.mm-conv .mm-conv-form__status {
+    margin: var(--space-4) 0 0;
+    font-family: var(--font-post-body);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: var(--ink-2);
+    min-height: 1.5em;
+    text-wrap: pretty;
+}
+
+.mm-conv .mm-conv-form__status:empty {
+    margin: 0;
+    min-height: 0;
+}
+
+.mm-conv .mm-conv-form__status[data-state="success"] {
+    color: var(--brand);
+}
+
+.mm-conv .mm-conv-form__status[data-state="error"] {
+    color: #ff8b8b;
+}
+
 .mm-conv .mm-conv-form__fallback {
     margin: var(--space-5) 0 0;
     font-family: var(--font-post-body);
@@ -449,29 +484,40 @@
 
 @media (max-width: 640px) {
     .mm-conv .mm-conv-hero {
-        padding-top: clamp(5.6rem, 12vw, 7.6rem);
-        padding-bottom: clamp(4.8rem, 10vw, 6.4rem);
+        padding-top: clamp(4.8rem, 11vw, 6.4rem);
+        padding-bottom: clamp(4rem, 9vw, 5.6rem);
     }
 
     .mm-conv .mm-conv-hero .mm-hero__title {
-        font-size: clamp(3rem, 9vw, 4.2rem);
+        font-size: clamp(2.8rem, 8vw, 3.8rem);
+        line-height: 1.06;
+        letter-spacing: -0.02em;
+    }
+
+    .mm-conv .mm-conv-hero .mm-hero__lede {
+        font-size: 1.55rem;
+        line-height: 1.6;
     }
 
     .mm-conv .mm-conv-when__item {
-        font-size: 1.6rem;
-        padding: var(--space-4) 0;
+        font-size: 1.55rem;
+        padding: var(--space-3) 0;
+    }
+
+    .mm-conv .mm-conv-when__header .mm-v2-title {
+        font-size: 2.2rem;
     }
 
     .mm-conv .mm-conv-path {
-        padding: var(--space-6) var(--space-5);
+        padding: var(--space-5) var(--space-5);
     }
 
     .mm-conv .mm-conv-path__title {
-        font-size: 1.75rem;
+        font-size: 1.65rem;
     }
 
     .mm-conv .mm-conv-path__text {
-        font-size: 1.55rem;
+        font-size: 1.5rem;
     }
 
     .mm-conv .mm-conv-how__step {
@@ -509,7 +555,12 @@
     .mm-conv .mm-conv-field__input,
     .mm-conv .mm-conv-field__textarea {
         font-size: 1.5rem;
-        padding: 1.2rem 1.5rem;
+        padding: 1.15rem 1.5rem;
+        line-height: 1.4;
+    }
+
+    .mm-conv .mm-conv-field__textarea {
+        min-height: 10rem;
     }
 
     .mm-conv .mm-conv-closing__title {
