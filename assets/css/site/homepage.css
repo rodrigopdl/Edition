@@ -1420,16 +1420,27 @@ main.mm-v2 {
     position: relative;
 }
 
-.mm-v2 .mm-intro__figure::before {
+/* Cream frame — coherente con las cover images de bocados */
+.mm-v2 .mm-intro__frame {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1a1d2e;
+    box-shadow:
+        0 30px 60px -30px rgba(0, 0, 0, 0.55),
+        0 5px 20px rgba(82, 113, 255, 0.18),
+        0 2px 8px rgba(82, 113, 255, 0.12);
+}
+
+.mm-v2 .mm-intro__frame::after {
     content: "";
     position: absolute;
-    inset: -1.6rem -1.6rem auto auto;
-    width: 60%;
-    height: 60%;
-    border: 1px solid rgba(82, 113, 255, 0.35);
-    border-radius: 4px;
-    z-index: 0;
+    inset: 0;
+    border: 6px solid #f1f1f1;
+    border-radius: 12px;
     pointer-events: none;
+    z-index: 2;
 }
 
 .mm-v2 .mm-intro__img {
@@ -1440,13 +1451,9 @@ main.mm-v2 {
     object-fit: cover;
     object-position: center 22%;
     aspect-ratio: 4 / 5;
-    border-radius: 4px;
+    border-radius: 12px;
     position: relative;
     z-index: 1;
-    box-shadow:
-        0 30px 60px -30px rgba(0, 0, 0, 0.6),
-        inset 0 0 0 1px rgba(244, 241, 234, 0.06);
-    filter: saturate(0.96);
 }
 
 .mm-v2 .mm-intro__text {
@@ -1529,7 +1536,7 @@ main.mm-v2 {
     color: var(--ink);
 }
 
-/* --- 4) Ways ---------------------------------------------------------- */
+/* --- 4) Ways — editorial paper cards --------------------------------- */
 .mm-v2 .mm-ways__grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1537,64 +1544,66 @@ main.mm-v2 {
     align-items: stretch;
 }
 
-/* Card surface: warm paper on dark canvas — gives them real presence */
+/* Cream paper card. No box-shadow heroics, no SaaS rounded chunk —
+   just a clean editorial surface that reads like a printed card on a tray. */
 .mm-v2 .mm-way {
     display: flex;
     flex-direction: column;
-    padding: var(--space-7) var(--space-6) var(--space-6);
-    background: #f1f1f1;
+    padding: clamp(3.2rem, 3.6vw, 4rem) clamp(2.8rem, 3.2vw, 3.6rem) clamp(3rem, 3.4vw, 3.6rem);
+    background: #f1ece2;
     color: var(--ink-on-paper);
-    border: 1px solid rgba(29, 32, 48, 0.06);
-    border-radius: 4px;
+    border: 0;
+    border-radius: 2px;
     box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.6) inset,
-        0 24px 48px -28px rgba(0, 0, 0, 0.45);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+        0 1px 0 rgba(255, 255, 255, 0.55) inset,
+        0 20px 40px -32px rgba(0, 0, 0, 0.45);
+    transition: transform 0.3s ease;
     position: relative;
+    isolation: isolate;
 }
 
+/* hairline rule on top — never a "tab" */
 .mm-v2 .mm-way::before {
     content: "";
     position: absolute;
-    top: 0; left: 0;
-    width: 3.6rem;
-    height: 2px;
+    top: 0;
+    left: clamp(2.8rem, 3.2vw, 3.6rem);
+    width: 2.8rem;
+    height: 1px;
     background: var(--brand);
 }
 
 .mm-v2 .mm-way:hover {
-    transform: translateY(-4px);
-    box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.6) inset,
-        0 32px 60px -28px rgba(0, 0, 0, 0.55);
+    transform: translateY(-3px);
 }
 
 .mm-v2 .mm-way__num {
     font-family: var(--font-display);
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 700;
-    letter-spacing: 0.22em;
-    color: var(--brand);
-    margin-bottom: var(--space-5);
+    letter-spacing: 0.24em;
+    color: rgba(82, 113, 255, 0.85);
+    margin-bottom: var(--space-6);
+    text-transform: uppercase;
 }
 
 .mm-v2 .mm-way__title {
     font-family: var(--font-display);
-    font-size: 2.2rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.015em;
+    font-size: clamp(2.2rem, 2.2vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
     color: var(--ink-on-paper);
-    margin: 0 0 var(--space-4);
+    margin: 0 0 var(--space-5);
     text-wrap: balance;
 }
 
 .mm-v2 .mm-way__text {
     font-family: var(--font-post-body);
     font-size: 1.7rem;
-    line-height: 1.6;
-    color: rgba(29, 32, 48, 0.72);
-    margin: 0 0 var(--space-6);
+    line-height: 1.65;
+    color: rgba(29, 32, 48, 0.75);
+    margin: 0 0 var(--space-7);
     flex: 1;
 }
 
@@ -1604,12 +1613,13 @@ main.mm-v2 {
     gap: 0.6rem;
     color: var(--brand);
     font-family: var(--font-display);
-    font-size: 1.45rem;
+    font-size: 1.4rem;
     font-weight: 700;
+    letter-spacing: 0.02em;
     text-decoration: none;
     align-self: flex-start;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 2px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(82, 113, 255, 0.25);
     transition: border-color 0.2s ease;
 }
 
@@ -1626,40 +1636,18 @@ main.mm-v2 {
     transform: translateX(4px);
 }
 
-/* Feature card: brand-toned paper, slightly lifted */
+/* Feature card: slightly brighter paper + sustained rule, no badge */
 .mm-v2 .mm-way--feature {
-    background: #ffffff;
-    border-color: rgba(82, 113, 255, 0.18);
+    background: #f5f0e3;
     box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.8) inset,
-        0 28px 56px -24px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(82, 113, 255, 0.10);
+        0 1px 0 rgba(255, 255, 255, 0.65) inset,
+        0 24px 48px -28px rgba(0, 0, 0, 0.5);
 }
 
 .mm-v2 .mm-way--feature::before {
-    height: 3px;
-    width: 4.4rem;
-}
-
-.mm-v2 .mm-way--feature::after {
-    content: "Más profundo";
-    position: absolute;
-    top: var(--space-5);
-    right: var(--space-5);
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--brand);
-    padding: 0.5rem 1rem;
-    border: 1px solid rgba(82, 113, 255, 0.4);
-    border-radius: 999px;
-    line-height: 1;
-}
-
-.mm-v2 .mm-way--feature .mm-way__title {
-    color: var(--ink-on-paper);
+    width: 100%;
+    left: 0;
+    background: linear-gradient(90deg, var(--brand) 0%, var(--brand) 4.8rem, rgba(82, 113, 255, 0.15) 4.8rem, rgba(82, 113, 255, 0.15) 100%);
 }
 
 /* --- 5) Testimonial --------------------------------------------------- */
@@ -1703,18 +1691,16 @@ main.mm-v2 {
 .mm-v2 .mm-testimonial__quote {
     font-family: var(--font-post-body);
     font-style: italic;
-    font-size: clamp(2.8rem, 3.6vw, 4.2rem);
-    line-height: 1.32;
-    letter-spacing: -0.01em;
+    font-size: clamp(2.6rem, 3.2vw, 3.8rem);
+    line-height: 1.35;
+    letter-spacing: -0.005em;
     color: var(--ink);
-    margin: 0 0 var(--space-8);
+    margin: 0 auto var(--space-8);
     padding: 0;
     border: 0;
     position: relative;
-    text-wrap: balance;
-    max-width: 22ch;
-    margin-inline: auto;
-    margin-bottom: var(--space-8);
+    text-wrap: pretty;
+    max-width: 38ch;
 }
 
 .mm-v2 .mm-testimonial__mark {
@@ -1735,22 +1721,33 @@ main.mm-v2 {
     gap: var(--space-4);
     font-style: normal;
     text-align: left;
+    margin-bottom: var(--space-7);
 }
 
 .mm-v2 .mm-testimonial__avatar {
-    width: 5.6rem;
-    height: 5.6rem;
+    width: 5.2rem;
+    height: 5.2rem;
     border-radius: 50%;
     overflow: hidden;
-    background: linear-gradient(135deg, #5271ff 0%, #4a5fe6 100%);
-    color: #ffffff;
+    background: #f1ece2;
+    color: var(--ink-on-paper);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     box-shadow:
-        0 12px 24px -12px rgba(0, 0, 0, 0.5),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        0 8px 18px -10px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 1px rgba(29, 32, 48, 0.06);
+    position: relative;
+}
+
+.mm-v2 .mm-testimonial__avatar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    pointer-events: none;
 }
 
 .mm-v2 .mm-testimonial__avatar-img {
@@ -1761,11 +1758,15 @@ main.mm-v2 {
 }
 
 .mm-v2 .mm-testimonial__initials {
-    font-family: var(--font-display);
-    font-size: 2.2rem;
+    font-family: var(--font-post-body);
+    font-style: italic;
+    font-size: 2.4rem;
     font-weight: 600;
-    letter-spacing: 0;
+    color: var(--brand);
+    letter-spacing: -0.01em;
     line-height: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .mm-v2 .mm-testimonial__person {
@@ -1793,8 +1794,38 @@ main.mm-v2 {
     line-height: 1.2;
 }
 
-.mm-v2 .mm-testimonial .mm-actions {
-    margin-top: var(--space-8);
+.mm-v2 .mm-testimonial__figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mm-v2 .mm-testimonial__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--brand);
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(82, 113, 255, 0.35);
+    transition: border-color 0.2s ease;
+}
+
+.mm-v2 .mm-testimonial__link:hover {
+    border-bottom-color: var(--brand);
+}
+
+.mm-v2 .mm-testimonial__link span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.mm-v2 .mm-testimonial__link:hover span {
+    transform: translateX(4px);
 }
 
 /* --- 6) Bestia -------------------------------------------------------- */
@@ -2000,20 +2031,12 @@ main.mm-v2 {
 
 .mm-v2 .mm-closing__text {
     font-family: var(--font-post-body);
-    font-size: clamp(1.9rem, 1.6vw, 2.05rem);
-    line-height: 1.65;
+    font-size: clamp(1.9rem, 1.6vw, 2.1rem);
+    line-height: 1.7;
     color: var(--ink-2);
-    max-width: 56ch;
+    max-width: 58ch;
     margin: 0 auto var(--space-7);
     text-wrap: pretty;
-}
-
-.mm-v2 .mm-closing__text p {
-    margin: 0 0 var(--space-5);
-}
-
-.mm-v2 .mm-closing__text p:last-child {
-    margin-bottom: 0;
 }
 
 /* --- Responsive ------------------------------------------------------- */
@@ -2029,9 +2052,8 @@ main.mm-v2 {
         width: 100%;
     }
 
-    .mm-v2 .mm-intro__figure::before {
-        width: 50%;
-        height: 50%;
+    .mm-v2 .mm-intro__frame::after {
+        border-width: 5px;
     }
 
     .mm-v2 .mm-intro__text {
@@ -2113,10 +2135,8 @@ main.mm-v2 {
         padding: var(--space-6) var(--space-5);
     }
 
-    .mm-v2 .mm-way--feature::after {
-        top: var(--space-4);
-        right: var(--space-4);
-        font-size: 1rem;
+    .mm-v2 .mm-way::before {
+        left: var(--space-5);
     }
 
     .mm-v2 .mm-bocados__panel {

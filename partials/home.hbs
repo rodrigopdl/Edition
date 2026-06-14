@@ -6,15 +6,13 @@
     <section class="mm-v2-hero" aria-labelledby="hero-title">
         <div class="mm-canvas">
             <div class="mm-hero__inner">
-                <p class="mm-eyebrow">Para Masticar — Rodri</p>
-
                 <h1 class="mm-hero__title" id="hero-title">
                     Ayudo a líderes a <span class="mm-accent">pensar mejor.</span>
                 </h1>
 
                 <div class="mm-hero__lede">
                     <p>Trabajo con líderes, founders y equipos que están atravesando decisiones importantes, conversaciones difíciles o momentos de cambio.</p>
-                    <p>Los ayudo a ordenar ideas, mirar mejor lo que está pasando y crear el espacio necesario para pensar con más claridad.</p>
+                    <p>Los ayudo a ordenar ideas, mirar mejor lo que está pasando y abrir conversaciones que traigan más claridad.</p>
                 </div>
 
                 <div class="mm-actions">
@@ -32,14 +30,16 @@
         <div class="mm-canvas">
             <div class="mm-intro__grid">
                 <figure class="mm-intro__figure">
-                    <img
-                        src="{{asset "images/rodri3.jpg"}}"
-                        alt="Rodri"
-                        class="mm-intro__img"
-                        width="900"
-                        height="1100"
-                        loading="lazy"
-                    >
+                    <div class="mm-intro__frame">
+                        <img
+                            src="{{asset "images/rodri3.jpg"}}"
+                            alt="Rodri"
+                            class="mm-intro__img"
+                            width="900"
+                            height="1100"
+                            loading="lazy"
+                        >
+                    </div>
                 </figure>
 
                 <div class="mm-intro__text">
@@ -146,13 +146,11 @@
 
     {{!-- 5. Testimonio ------------------------------------------------------ --}}
     <section class="mm-testimonial" aria-labelledby="testimonial-title">
-        <div class="mm-canvas mm-canvas--narrow">
+        <div class="mm-canvas">
             <p class="mm-eyebrow mm-eyebrow--muted">Una voz</p>
             <figure class="mm-testimonial__figure">
                 <blockquote class="mm-testimonial__quote" id="testimonial-title">
-                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>
-                    Trabajar con Rodri nos ayudó a pensar mejor conversaciones,
-                    decisiones y tensiones que eran importantes para el equipo.
+                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>Trabajar con Rodri nos ayudó a pensar mejor conversaciones, decisiones y tensiones que eran importantes para el equipo.
                 </blockquote>
                 <figcaption class="mm-testimonial__cite">
                     <div class="mm-testimonial__avatar" aria-hidden="true">
@@ -165,10 +163,11 @@
                         <span class="mm-testimonial__role">Founder &amp; CEO, WyeWorks</span>
                     </div>
                 </figcaption>
+                <a href="/testimonios" class="mm-testimonial__link">
+                    Leer testimonio completo
+                    <span aria-hidden="true">→</span>
+                </a>
             </figure>
-            <div class="mm-actions mm-actions--center">
-                <a href="/testimonios" class="mm-btn mm-btn--text">Leer testimonio completo</a>
-            </div>
         </div>
     </section>
 
@@ -191,7 +190,6 @@
                     </h2>
                     <div class="mm-prose">
                         <p>Gran parte de mi trabajo nace de una idea: todos tenemos una Bestia. Esa voz interior que nos frena, nos hace dudar, nos empuja a evitar conversaciones importantes o nos aleja de la persona que queremos ser.</p>
-                        <p>Escribí un libro sobre eso.</p>
                     </div>
                     <div class="mm-actions">
                         <a href="/bestia/" class="mm-btn mm-btn--ghost">Ver el libro</a>
@@ -214,7 +212,13 @@
                             Una puerta de entrada al universo Para Masticar.
                         </p>
                         <div class="mm-actions">
-                            <a href="/" class="mm-btn mm-btn--ghost">Leer bocados</a>
+                            {{#get "posts" limit="1" as |latest|}}
+                                {{#foreach latest}}
+                                    <a href="{{url}}" class="mm-btn mm-btn--ghost">Leer el último bocado</a>
+                                {{/foreach}}
+                            {{else}}
+                                <a href="/" class="mm-btn mm-btn--ghost">Leer bocados</a>
+                            {{/get}}
                         </div>
                     </div>
 
@@ -234,8 +238,8 @@
                                             placeholder="tu@email.com"
                                             required="true"
                                         >
-                                        <button class="mm-bocados__btn" type="submit" aria-label="Suscribirse">
-                                            Suscribirme
+                                        <button class="mm-bocados__btn" type="submit" aria-label="Suscribirse a Bocados">
+                                            Recibir bocados
                                         </button>
                                     </div>
                                     <p class="mm-bocados__note">
@@ -258,10 +262,12 @@
             <h2 class="mm-closing__title" id="closing-title">
                 Hay cosas que conviene <span class="mm-accent">no pensar solo.</span>
             </h2>
-            <div class="mm-closing__text">
-                <p>Si estás atravesando una decisión, una tensión o una conversación importante, podés escribirme y contarme brevemente qué está pasando.</p>
-                <p>Si siento que puedo ayudarte, coordinamos una primera conversación exploratoria para entender mejor la situación y ver qué forma de trabajo tiene sentido.</p>
-            </div>
+            <p class="mm-closing__text">
+                Si estás atravesando una decisión, una tensión o una conversación importante,
+                podés escribirme y contarme brevemente qué está pasando. Si siento que puedo
+                ayudarte, coordinamos una primera conversación exploratoria para entender mejor
+                la situación y ver qué forma de trabajo tiene sentido.
+            </p>
             <div class="mm-actions mm-actions--center">
                 <a href="/conversar" class="mm-btn mm-btn--primary mm-btn--lg">
                     Solicitar una conversación
