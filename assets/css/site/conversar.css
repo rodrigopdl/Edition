@@ -32,73 +32,7 @@
     margin-top: var(--space-6);
 }
 
-/* --- When (now after form, used as supporting context) -------------- */
-.mm-conv .mm-conv-when {
-    padding-block: var(--section-py-tight);
-    background: var(--surface-0);
-    position: relative;
-}
-
-.mm-conv .mm-conv-when::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(1160px, calc(100% - 4rem));
-    height: 1px;
-    background: rgba(244, 241, 234, 0.06);
-}
-
-.mm-conv .mm-conv-when__inner {
-    max-width: 640px;
-    margin: 0 auto;
-}
-
-.mm-conv .mm-conv-when__header {
-    margin-bottom: var(--space-6);
-}
-
-.mm-conv .mm-conv-when__header .mm-eyebrow {
-    margin-bottom: var(--space-4);
-}
-
-.mm-conv .mm-conv-when__header .mm-v2-title {
-    margin: 0;
-    font-size: clamp(2.6rem, 3.4vw, 3.6rem);
-}
-
-.mm-conv .mm-conv-when__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.mm-conv .mm-conv-when__item {
-    padding: var(--space-4) 0;
-    border-bottom: 1px solid rgba(244, 241, 234, 0.08);
-    font-family: var(--font-post-body);
-    font-size: clamp(1.65rem, 1.5vw, 1.85rem);
-    line-height: 1.55;
-    color: var(--ink-2);
-    text-wrap: pretty;
-    transition: color 0.2s ease;
-}
-
-.mm-conv .mm-conv-when__item:first-child {
-    padding-top: 0;
-}
-
-.mm-conv .mm-conv-when__item:last-child {
-    border-bottom: 0;
-    padding-bottom: 0;
-}
-
-.mm-conv .mm-conv-when__item:hover {
-    color: var(--ink);
-}
-
-/* --- Paths (now after When, lighter feel) --------------------------- */
+/* --- Paths ---------------------------------------------------------- */
 .mm-conv .mm-conv-paths {
     padding-block: var(--section-py-tight);
     background: var(--surface-1);
@@ -154,83 +88,7 @@
     margin: 0;
 }
 
-/* --- 4) How ---------------------------------------------------------- */
-.mm-conv .mm-conv-how {
-    padding-block: var(--section-py);
-    background: var(--surface-0);
-    position: relative;
-}
-
-.mm-conv .mm-conv-how::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(1160px, calc(100% - 4rem));
-    height: 1px;
-    background: rgba(244, 241, 234, 0.06);
-}
-
-.mm-conv .mm-conv-how__header {
-    max-width: 580px;
-    margin: 0 auto var(--space-8);
-    text-align: center;
-}
-
-.mm-conv .mm-conv-how__header .mm-eyebrow {
-    justify-content: center;
-    margin-bottom: var(--space-4);
-}
-
-.mm-conv .mm-conv-how__header .mm-v2-title {
-    margin: 0;
-}
-
-.mm-conv .mm-conv-how__list {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    max-width: 640px;
-    counter-reset: how;
-}
-
-.mm-conv .mm-conv-how__step {
-    display: grid;
-    grid-template-columns: 4.4rem minmax(0, 1fr);
-    align-items: baseline;
-    gap: var(--space-5);
-    padding: var(--space-5) 0;
-    border-bottom: 1px solid rgba(244, 241, 234, 0.08);
-}
-
-.mm-conv .mm-conv-how__step:first-child {
-    padding-top: 0;
-}
-
-.mm-conv .mm-conv-how__step:last-child {
-    border-bottom: 0;
-    padding-bottom: 0;
-}
-
-.mm-conv .mm-conv-how__num {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    color: var(--brand);
-    line-height: 1.6;
-}
-
-.mm-conv .mm-conv-how__step p {
-    margin: 0;
-    font-family: var(--font-post-body);
-    font-size: clamp(1.7rem, 1.6vw, 1.95rem);
-    line-height: 1.55;
-    color: var(--ink-2);
-}
-
-/* --- 5) Form -------------------------------------------------------- */
+/* --- Form ----------------------------------------------------------- */
 .mm-conv .mm-conv-form-section {
     padding-block: var(--section-py);
     background: var(--surface-1);
@@ -254,7 +112,7 @@
     background: linear-gradient(180deg, rgba(244,241,234,0.05) 0%, rgba(244,241,234,0.02) 100%);
     border: 1px solid rgba(244, 241, 234, 0.10);
     border-radius: 4px;
-    padding: clamp(3.6rem, 5vw, 5.6rem) clamp(2.8rem, 5vw, 5rem);
+    padding: clamp(3.2rem, 4.5vw, 4.8rem) clamp(2.8rem, 5vw, 5rem);
     position: relative;
 }
 
@@ -269,7 +127,7 @@
 }
 
 .mm-conv .mm-conv-form__header {
-    margin-bottom: var(--space-7);
+    margin-bottom: var(--space-6);
 }
 
 .mm-conv .mm-conv-form__header .mm-eyebrow {
@@ -294,13 +152,13 @@
 .mm-conv .mm-conv-form {
     display: flex;
     flex-direction: column;
-    gap: var(--space-5);
+    gap: var(--space-4);
 }
 
 .mm-conv .mm-conv-form__row {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-5);
+    gap: var(--space-4);
 }
 
 .mm-conv .mm-conv-form__row--two {
@@ -374,7 +232,7 @@
 }
 
 .mm-conv .mm-conv-form .mm-actions {
-    margin-top: var(--space-5);
+    margin-top: var(--space-4);
     justify-content: flex-start;
 }
 
@@ -431,37 +289,6 @@
     color: var(--brand);
 }
 
-/* --- 6) Closing ----------------------------------------------------- */
-.mm-conv .mm-conv-closing {
-    padding-block: var(--section-py);
-    background: var(--surface-0);
-    text-align: center;
-    position: relative;
-}
-
-.mm-conv .mm-conv-closing::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(1160px, calc(100% - 4rem));
-    height: 1px;
-    background: rgba(244, 241, 234, 0.06);
-}
-
-.mm-conv .mm-conv-closing__title {
-    font-family: var(--font-display);
-    font-size: clamp(2.6rem, 4vw, 3.8rem);
-    font-weight: 600;
-    line-height: 1.18;
-    letter-spacing: -0.025em;
-    color: var(--ink);
-    margin: 0 auto var(--space-6);
-    max-width: 36ch;
-    text-wrap: balance;
-}
-
 /* --- Responsive ----------------------------------------------------- */
 @media (max-width: 760px) {
     .mm-conv .mm-conv-form__row--two {
@@ -499,15 +326,6 @@
         line-height: 1.6;
     }
 
-    .mm-conv .mm-conv-when__item {
-        font-size: 1.55rem;
-        padding: var(--space-3) 0;
-    }
-
-    .mm-conv .mm-conv-when__header .mm-v2-title {
-        font-size: 2.2rem;
-    }
-
     .mm-conv .mm-conv-path {
         padding: var(--space-5) var(--space-5);
     }
@@ -518,21 +336,6 @@
 
     .mm-conv .mm-conv-path__text {
         font-size: 1.5rem;
-    }
-
-    .mm-conv .mm-conv-how__step {
-        grid-template-columns: 3rem minmax(0, 1fr);
-        gap: var(--space-3);
-        padding: var(--space-4) 0;
-    }
-
-    .mm-conv .mm-conv-how__num {
-        font-size: 1.1rem;
-        letter-spacing: 0.18em;
-    }
-
-    .mm-conv .mm-conv-how__step p {
-        font-size: 1.6rem;
     }
 
     .mm-conv .mm-conv-form__panel {
@@ -561,9 +364,5 @@
 
     .mm-conv .mm-conv-field__textarea {
         min-height: 10rem;
-    }
-
-    .mm-conv .mm-conv-closing__title {
-        font-size: clamp(2.2rem, 7.5vw, 2.8rem);
     }
 }
