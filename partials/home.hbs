@@ -1,166 +1,247 @@
 {{!< default}}
 
-<main class="homepage-main">
+<main class="homepage-main mm-v2">
 
-    {{!-- Hero Section --}}
-    <section class="mm-hero">
-        <div class="mm-hero-content gh-canvas">
-            <h1 class="mm-hero-title">Liderá <span class="accent-word">siendo vos.</span></h1>
-
-            <div class="mm-hero-grid">
-                {{!-- Left: Image/Visual --}}
-                <div class="mm-hero-visual">
-                    <img src="{{asset "images/plate-cool.png"}}" alt="Newsletter Preview" class="mm-hero-image" width="450" height="450" loading="eager">
+    {{!-- 1. Hero ------------------------------------------------------------ --}}
+    <section class="mm-v2-hero" aria-labelledby="hero-title">
+        <div class="mm-canvas">
+            <div class="mm-hero__grid">
+                <div class="mm-hero__text">
+                    <p class="mm-eyebrow">Para Masticar</p>
+                    <h1 class="mm-hero__title" id="hero-title">
+                        Ayudo a líderes a <span class="mm-accent">pensar mejor.</span>
+                    </h1>
+                    <p class="mm-hero__lede">
+                        Trabajo con líderes, founders y equipos que necesitan ordenar ideas,
+                        tomar mejores decisiones y tener conversaciones que vienen postergando.
+                    </p>
+                    <div class="mm-actions">
+                        <a href="/conversar" class="mm-btn mm-btn--primary">
+                            Solicitar una conversación
+                        </a>
+                        <a href="/" class="mm-btn mm-btn--text">Leer un bocado</a>
+                    </div>
                 </div>
 
-                {{!-- Right: Form and Description --}}
-                <div class="mm-hero-form-section">
-                    <div class="mm-hero-stat">
-                        <span class="mm-hero-text">Cada miércoles, un <em>bocado</em> de liderazgo para conocerte un poco mejor.</span>
+                <aside class="mm-hero__aside" aria-hidden="true">
+                    <figure class="mm-card mm-card--quote">
+                        <div class="mm-card__rule"></div>
+                        <blockquote class="mm-card__quote">
+                            Lo más difícil no era la decisión.
+                            <br>
+                            Era animarse a tener la conversación.
+                        </blockquote>
+                        <figcaption class="mm-card__caption">
+                            Un bocado de los miércoles
+                        </figcaption>
+                    </figure>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 2. Presentación ---------------------------------------------------- --}}
+    <section class="mm-intro" aria-labelledby="intro-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-intro__grid">
+                <div class="mm-portrait">
+                    <img
+                        src="{{asset "images/rodri3.jpg"}}"
+                        alt="Rodri"
+                        class="mm-portrait__img"
+                        width="600"
+                        height="600"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="mm-intro__text">
+                    <h2 class="mm-v2-title" id="intro-title">
+                        Hola, <span class="mm-accent">soy Rodri.</span>
+                    </h2>
+                    <div class="mm-prose">
+                        <p>Durante más de una década trabajé en tecnología. En los últimos años, gran parte de mi trabajo giró alrededor de acompañar líderes, facilitar conversaciones difíciles y ayudar a equipos a encontrar claridad en momentos complejos.</p>
+                        <p>En paralelo fui construyendo <em>Para Masticar</em>: una serie de bocados, charlas, masticadas y libros sobre liderazgo, autoconocimiento y desarrollo personal.</p>
+                        <p>Con el tiempo entendí que todo eso era parte de un mismo trabajo: ayudar a personas y organizaciones a ver con más claridad aquello que hoy les impide avanzar.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <p class="mm-hero-description">El primero de cada mes es <strong class="mm-hand-circle">exclusivo para suscriptores</strong>.</p>
+    {{!-- 3. Formas de trabajar juntos --------------------------------------- --}}
+    <section class="mm-ways" aria-labelledby="ways-title">
+        <div class="mm-canvas">
+            <header class="mm-section-header">
+                <p class="mm-eyebrow">Formas de trabajar juntos</p>
+                <h2 class="mm-v2-title" id="ways-title">
+                    Tres maneras de <span class="mm-accent">conversar.</span>
+                </h2>
+            </header>
 
-                    {{!-- Newsletter CTA --}}
-                    {{#if @site.members_enabled}}
-                        {{#unless @site.members_invite_only}}
-                            {{#unless @member}}
-                                <form class="mm-newsletter-form" data-members-form>
-                                    <div class="mm-form-wrapper">
-                                        <input class="mm-email-input" type="email" name="email" data-members-email placeholder="Tu email aquí" required="true">
-                                        <button class="mm-submit-btn" type="submit" aria-label="Suscribirse">
+            <div class="mm-ways__grid">
+                <article class="mm-way">
+                    <span class="mm-way__num" aria-hidden="true">01</span>
+                    <h3 class="mm-way__title">Conversaciones de claridad</h3>
+                    <p class="mm-way__text">
+                        Espacios individuales para líderes, founders o personas que
+                        necesitan pensar mejor un desafío importante. Pueden ser
+                        conversaciones puntuales o parte de un proceso más largo.
+                    </p>
+                    <a href="/conversar" class="mm-way__link">
+                        Solicitar una conversación
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </article>
+
+                <article class="mm-way">
+                    <span class="mm-way__num" aria-hidden="true">02</span>
+                    <h3 class="mm-way__title">Masticadas</h3>
+                    <p class="mm-way__text">
+                        Experiencias de conversación para equipos y organizaciones. No
+                        son charlas tradicionales ni capacitaciones. Son espacios diseñados
+                        para frenar, pensar y abrir conversaciones que normalmente no ocurren.
+                    </p>
+                    <a href="/masticadas" class="mm-way__link">
+                        Ver masticadas
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </article>
+
+                <article class="mm-way mm-way--feature">
+                    <span class="mm-way__num" aria-hidden="true">03</span>
+                    <h3 class="mm-way__title">Partner Para Masticar</h3>
+                    <p class="mm-way__text">
+                        Un acompañamiento continuo para líderes, founders o equipos de
+                        liderazgo. Incluye conversaciones periódicas, intercambio asincrónico
+                        y una mirada externa para navegar decisiones, tensiones,
+                        conversaciones difíciles y oportunidades de trabajo con el equipo.
+                    </p>
+                    <a href="/conversar" class="mm-way__link">
+                        Conversemos
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 4. La Bestia ------------------------------------------------------- --}}
+    <section class="mm-bestia" aria-labelledby="bestia-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-bestia__grid">
+                <div class="mm-bestia__visual">
+                    <img
+                        src="{{asset "images/cover-es.jpg"}}"
+                        alt="La Bestia, libro de Rodri"
+                        class="mm-bestia__book"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="mm-bestia__text">
+                    <p class="mm-eyebrow">El libro</p>
+                    <h2 class="mm-v2-title" id="bestia-title">
+                        <span class="mm-accent">La Bestia.</span>
+                    </h2>
+                    <div class="mm-prose">
+                        <p>Gran parte de mi trabajo nace de una idea: todos tenemos una Bestia.</p>
+                        <p>Esa voz interior que nos frena, nos hace dudar, nos empuja a evitar conversaciones importantes o nos aleja de la persona que queremos ser.</p>
+                        <p>Escribí un libro sobre eso.</p>
+                    </div>
+                    <div class="mm-actions">
+                        <a href="/bestia/" class="mm-btn mm-btn--ghost">Ver el libro</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 5. Bocados --------------------------------------------------------- --}}
+    <section class="mm-bocados" aria-labelledby="bocados-title">
+        <div class="mm-canvas">
+            <div class="mm-bocados__grid">
+                <div class="mm-bocados__text">
+                    <p class="mm-eyebrow">Newsletter</p>
+                    <h2 class="mm-v2-title" id="bocados-title">Bocados.</h2>
+                    <div class="mm-prose">
+                        <p>Cada semana comparto ideas, historias y reflexiones para pensar mejor.</p>
+                        <p>Los bocados son una forma de entrar al universo de Para Masticar y conocer cómo miro temas como liderazgo, miedo, incertidumbre, aprendizaje, identidad y conversaciones difíciles.</p>
+                    </div>
+                    <div class="mm-actions">
+                        <a href="/" class="mm-btn mm-btn--ghost">Leer bocados</a>
+                        {{#if @site.members_enabled}}
+                            {{#unless @site.members_invite_only}}
+                                {{#unless @member}}
+                                    <a href="#bocados-form" class="mm-btn mm-btn--text">Recibir por email</a>
+                                {{/unless}}
+                            {{/unless}}
+                        {{/if}}
+                    </div>
+                </div>
+
+                {{#if @site.members_enabled}}
+                    {{#unless @site.members_invite_only}}
+                        {{#unless @member}}
+                            <aside class="mm-subscribe" id="bocados-form">
+                                <p class="mm-subscribe__label">Recibí un bocado cada miércoles.</p>
+                                <form class="mm-subscribe__form" data-members-form>
+                                    <label for="mm-bocados-email" class="mm-visually-hidden">Tu email</label>
+                                    <div class="mm-subscribe__field">
+                                        <input
+                                            id="mm-bocados-email"
+                                            class="mm-subscribe__input"
+                                            type="email"
+                                            name="email"
+                                            data-members-email
+                                            placeholder="tu@email.com"
+                                            required="true"
+                                        >
+                                        <button class="mm-subscribe__btn" type="submit" aria-label="Suscribirse">
                                             Suscribirme
                                         </button>
                                     </div>
-                                    <p class="mm-privacy-note">Tu información está protegida y nunca envío spam.</p>
+                                    <p class="mm-subscribe__note">
+                                        Sin spam. El primero de cada mes es exclusivo para suscriptores.
+                                    </p>
                                     <p class="error-message"></p>
                                     <p class="success-message"></p>
                                 </form>
-                            {{else}}
-                                <div class="mm-member-welcome">
-                                    <p>¡Bienvenido! Ya estás suscrito a Para masticar.</p>
-                                    <a href="#/portal/account" class="mm-account-link" data-portal="account">Ver mi cuenta</a>
-                                </div>
-                            {{/unless}}
+                            </aside>
                         {{/unless}}
-                    {{/if}}
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{!-- Handpicked Posts Section - Best Posts for New Visitors --}}
-    {{!-- First get the pinned/featured post --}}
-    {{#get "posts" filter="tag:handpicked-featured" limit="1" as |pinnedPost|}}
-        {{!-- Then get the other handpicked posts, excluding the featured one --}}
-        {{#get "posts" filter="tag:handpicked+tag:-handpicked-featured" limit="2" as |regularPosts|}}
-            {{#if pinnedPost}}
-                {{> "handpicked-posts" pinnedPost=pinnedPost regularPosts=regularPosts}}
-            {{else if regularPosts}}
-                {{> "handpicked-posts" regularPosts=regularPosts}}
-            {{/if}}
-        {{/get}}
-    {{/get}}
-
-    {{!-- About Section --}}
-    <section class="mm-about">
-        <div class="mm-about-content gh-canvas">
-            <h2 class="mm-about-title">Hola, <span class="accent-word">soy Rodri</span></h2>
-            
-            <div class="mm-about-grid">
-                <div class="mm-about-text">
-                    <div class="mm-about-description">
-                        <p>Insight Strategist en WyeWorks. Un día descubrí que si quería liderar a otros, primero tenía que aprender a liderarme a mí mismo. Escribo sobre ese camino todos los miércoles: lo que me frena, lo que aprendo, y lo que voy descubriendo de mí en el proceso.</p>
-                    </div>
-                </div>
-                <div class="mm-about-image">
-                    <img src="{{asset "images/rodri3.jpg"}}" alt="{{@site.title}}" class="mm-profile-img" width="321" height="320" loading="lazy">
-                </div>
-            </div>
-            
-            <div class="mm-about-actions">
-                <a href="/acerca" class="mm-action-link">Sobre Para Masticar</a>
-            </div>
-        </div>
-    </section>
-
-    {{!-- Latest Post Section - Recién salido del horno --}}
-    {{#get "posts" limit="1" as |latest|}}
-        {{#foreach latest}}
-            <section class="mm-latest-post">
-                <div class="mm-latest-content gh-canvas">
-                    <div class="mm-latest-grid">
-                        {{!-- Left: Post Image --}}
-                        <div class="mm-latest-image-container">
-                            <a href="{{url}}" class="mm-latest-image-link">
-                                {{#if feature_image}}
-                                    <img src="{{img_url feature_image size="m"}}" alt="{{title}}" class="mm-latest-image" width="600" height="400" loading="eager">
-                                {{else}}
-                                    <div class="mm-latest-image-placeholder">
-                                        <span class="mm-placeholder-text">{{title}}</span>
-                                    </div>
-                                {{/if}}
-                            </a>
-                        </div>
-
-                        {{!-- Right: Post Content --}}
-                        <div class="mm-latest-text">
-                            <h3 class="mm-latest-title">
-                                <a href="{{url}}">{{title}}</a>
-                            </h3>
-
-                            <p class="mm-latest-excerpt">
-                                {{#if custom_excerpt}}
-                                    {{custom_excerpt}}...
-                                {{else}}
-                                    {{excerpt words="30"}}...
-                                {{/if}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        {{/foreach}}
-    {{/get}}
-
-    {{!-- Book Promo Section --}}
-    <section class="mm-book-promo">
-        <div class="mm-book-content gh-canvas">
-            <div class="mm-book-grid">
-                <div class="mm-book-visual">
-                    <div class="mm-book-image-wrapper">
-                        <img src="{{asset "images/cover-es.jpg"}}" alt="La Bestia" class="mm-book-image" loading="lazy">
-                    </div>
-                </div>
-                <div class="mm-book-text">
-                    <h2 class="mm-book-title"><span class="accent-word">La Bestia</span></h2>
-                    <p class="mm-book-description">Un libro sobre esa voz interior que te frena, te hace dudar, y te aleja de quien realmente sos. Leerlo es el primer paso para conocerte mejor.</p>
-                    <a href="/bestia/" class="mm-book-link">Ver el libro</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{!-- Content Sections --}}
-    <section class="mm-content-sections">
-        <div class="mm-sections-wrapper">            
-            {{!-- Últimos Bocados (Latest Posts) --}}
-            {{#get "posts" limit="6" as |latest|}}
-                {{> "post-list-section" posts=latest title="Últimos bocados"}}
-            {{/get}}
-            
-            {{!-- Los Favoritos (Featured Posts Only) --}}
-            {{#get "posts" filter="featured:true" limit="6" as |featured|}}
-                {{#if featured}}
-                    {{> "post-list-section" posts=featured title="Favoritos de la comunidad"}}
+                    {{/unless}}
                 {{/if}}
+            </div>
+
+            {{#get "posts" filter="tag:handpicked-featured" limit="1" as |pinnedPost|}}
+                {{#get "posts" filter="tag:handpicked+tag:-handpicked-featured" limit="2" as |regularPosts|}}
+                    {{#if pinnedPost}}
+                        {{> "handpicked-posts" pinnedPost=pinnedPost regularPosts=regularPosts}}
+                    {{else if regularPosts}}
+                        {{> "handpicked-posts" regularPosts=regularPosts}}
+                    {{/if}}
+                {{/get}}
             {{/get}}
         </div>
     </section>
 
-    {{> "bottom-cta"}}
+    {{!-- 6. Cierre ---------------------------------------------------------- --}}
+    <section class="mm-closing" aria-labelledby="closing-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <p class="mm-eyebrow mm-eyebrow--muted">Si llegaste hasta acá</p>
+            <h2 class="mm-closing__title" id="closing-title">
+                Quizás hay algo que <span class="mm-accent">te tiene dando vueltas.</span>
+            </h2>
+            <p class="mm-closing__text">
+                Quizás no estés buscando una charla, una sesión o una masticada.
+                Si sentís que necesitás pensar mejor una situación, podemos conversar.
+            </p>
+            <div class="mm-actions mm-actions--center">
+                <a href="/conversar" class="mm-btn mm-btn--primary mm-btn--lg">
+                    Solicitar una conversación
+                </a>
+            </div>
+        </div>
+    </section>
 
 </main>
 
-{{!-- Custom body classes for homepage --}}
-{{#contentFor "body_class"}}homepage-mm-style{{/contentFor}}
+{{#contentFor "body_class"}}homepage-mm-v2{{/contentFor}}

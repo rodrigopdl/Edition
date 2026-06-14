@@ -11,7 +11,17 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:2368/ghost/)",
       "Bash(curl:*)",
       "Bash(find /Users/rodrigopdl -maxdepth 4 -name config.development.json -path */versions/* -o -name config.development.json -path */ghost/*)",
-      "Bash(netstat -an -p tcp)"
+      "Bash(netstat -an -p tcp)",
+      "Bash(npx gulp *)",
+      "Bash(npx gscan *)",
+      "Bash(sed -n '1,1048p' assets/css/site/homepage.css)",
+      "Read(//tmp/**)",
+      "Bash(grep -oE \"\\\\.mm-v2[^,{ ]*\" assets/built/screen.css)",
+      "Bash(grep -oE \"mm-v2[^,{}]*\" assets/built/screen.css)",
+      "Bash(md5 assets/built/screen.css)",
+      "Bash(grep -n \"^.mm-hero \\\\|^.mm-hero{\\\\|^.mm-hero,\" assets/built/screen.css)",
+      "Bash(grep -oE \"\\\\.mm-hero[^a-zA-Z0-9_-][^{,]*\\\\{\" assets/built/screen.css)",
+      "Bash(grep -boE \"[^,{}]*mm-section-title[^,{}]*\\\\{[^}]*\\\\}\" assets/built/screen.css)"
     ]
   }
 }
