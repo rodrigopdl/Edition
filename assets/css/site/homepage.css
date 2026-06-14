@@ -1386,38 +1386,25 @@ main.mm-v2 {
 
 .mm-v2 .mm-hero__lede {
     font-family: var(--font-post-body);
-    font-size: clamp(1.95rem, 1.7vw, 2.3rem);
-    line-height: 1.55;
+    font-size: clamp(1.95rem, 1.7vw, 2.25rem);
+    line-height: 1.6;
     color: var(--ink-2);
-    max-width: 62ch;
+    max-width: 58ch;
     margin: 0 auto;
     text-wrap: pretty;
+}
+
+.mm-v2 .mm-hero__lede p {
+    margin: 0 0 var(--space-4);
+}
+
+.mm-v2 .mm-hero__lede p:last-child {
+    margin-bottom: 0;
 }
 
 .mm-v2 .mm-v2-hero .mm-actions {
     justify-content: center;
     margin-top: var(--space-7);
-}
-
-.mm-v2 .mm-hero__rule {
-    width: 6rem;
-    height: 1px;
-    margin: var(--space-9) auto 0;
-    background: rgba(244, 241, 234, 0.18);
-    position: relative;
-}
-
-.mm-v2 .mm-hero__rule::after {
-    content: "";
-    position: absolute;
-    top: -3px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--brand);
-    box-shadow: 0 0 0 4px rgba(82, 113, 255, 0.18);
 }
 
 /* --- 2) Intro --------------------------------------------------------- */
@@ -1462,66 +1449,84 @@ main.mm-v2 {
     filter: saturate(0.96);
 }
 
-.mm-v2 .mm-intro__caption {
-    margin-top: var(--space-3);
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-4);
-    position: relative;
-    z-index: 1;
-}
-
 .mm-v2 .mm-intro__text {
     min-width: 0;
+    max-width: 56ch;
 }
 
 .mm-v2 .mm-intro__text .mm-v2-title {
+    margin-bottom: var(--space-7);
+}
+
+.mm-v2 .mm-prose--intro {
+    font-size: 1.9rem;
+    line-height: 1.75;
+}
+
+.mm-v2 .mm-prose--intro p {
     margin-bottom: var(--space-6);
 }
 
+.mm-v2 .mm-prose--intro p:last-child {
+    margin-bottom: 0;
+}
+
 /* --- 3) Fit ----------------------------------------------------------- */
-.mm-v2 .mm-fit__grid {
+.mm-v2 .mm-fit {
+    text-align: left;
+}
+
+.mm-v2 .mm-fit__header {
+    max-width: 640px;
+    margin: 0 0 var(--space-8);
+}
+
+.mm-v2 .mm-fit__header .mm-eyebrow {
+    margin-bottom: var(--space-4);
+}
+
+.mm-v2 .mm-fit__header .mm-v2-title {
+    margin: 0;
+}
+
+.mm-v2 .mm-fit__list {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0;
-    border-top: 1px solid rgba(244, 241, 234, 0.08);
-    border-left: 1px solid rgba(244, 241, 234, 0.08);
-    max-width: 980px;
-    margin-inline: auto;
+    counter-reset: fit;
+    border-top: 1px solid rgba(244, 241, 234, 0.10);
 }
 
 .mm-v2 .mm-fit__item {
+    counter-increment: fit;
     position: relative;
-    padding: var(--space-7) var(--space-6);
-    border-right: 1px solid rgba(244, 241, 234, 0.08);
-    border-bottom: 1px solid rgba(244, 241, 234, 0.08);
-    display: flex;
-    gap: var(--space-4);
-    align-items: flex-start;
-}
-
-.mm-v2 .mm-fit__item p {
-    margin: 0;
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: var(--space-5);
+    padding: var(--space-6) 0;
+    border-bottom: 1px solid rgba(244, 241, 234, 0.10);
     font-family: var(--font-post-body);
-    font-size: 1.8rem;
+    font-size: clamp(1.85rem, 1.9vw, 2.15rem);
     line-height: 1.55;
     color: var(--ink-2);
+    transition: color 0.2s ease;
 }
 
-.mm-v2 .mm-fit__mark {
-    flex-shrink: 0;
-    margin-top: 0.85rem;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--brand);
-    box-shadow: 0 0 0 4px rgba(82, 113, 255, 0.12);
+.mm-v2 .mm-fit__item::before {
+    content: counter(fit, decimal-leading-zero);
+    font-family: var(--font-display);
+    font-style: normal;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--brand);
+    line-height: 1.6;
+    align-self: center;
+}
+
+.mm-v2 .mm-fit__item:hover {
+    color: var(--ink);
 }
 
 /* --- 4) Ways ---------------------------------------------------------- */
@@ -1529,16 +1534,22 @@ main.mm-v2 {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-5);
+    align-items: stretch;
 }
 
+/* Card surface: warm paper on dark canvas — gives them real presence */
 .mm-v2 .mm-way {
     display: flex;
     flex-direction: column;
     padding: var(--space-7) var(--space-6) var(--space-6);
-    background: linear-gradient(180deg, rgba(244,241,234,0.035), rgba(244,241,234,0.015));
-    border: 1px solid rgba(244, 241, 234, 0.08);
+    background: #f1f1f1;
+    color: var(--ink-on-paper);
+    border: 1px solid rgba(29, 32, 48, 0.06);
     border-radius: 4px;
-    transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.6) inset,
+        0 24px 48px -28px rgba(0, 0, 0, 0.45);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     position: relative;
 }
 
@@ -1546,21 +1557,21 @@ main.mm-v2 {
     content: "";
     position: absolute;
     top: 0; left: 0;
-    width: 3rem;
-    height: 1px;
+    width: 3.6rem;
+    height: 2px;
     background: var(--brand);
-    opacity: 0.7;
 }
 
 .mm-v2 .mm-way:hover {
-    border-color: rgba(82, 113, 255, 0.4);
-    transform: translateY(-3px);
-    background: linear-gradient(180deg, rgba(82,113,255,0.08), rgba(244,241,234,0.015));
+    transform: translateY(-4px);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.6) inset,
+        0 32px 60px -28px rgba(0, 0, 0, 0.55);
 }
 
 .mm-v2 .mm-way__num {
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 0.22em;
     color: var(--brand);
@@ -1572,8 +1583,8 @@ main.mm-v2 {
     font-size: 2.2rem;
     font-weight: 700;
     line-height: 1.2;
-    letter-spacing: -0.01em;
-    color: var(--ink);
+    letter-spacing: -0.015em;
+    color: var(--ink-on-paper);
     margin: 0 0 var(--space-4);
     text-wrap: balance;
 }
@@ -1582,7 +1593,7 @@ main.mm-v2 {
     font-family: var(--font-post-body);
     font-size: 1.7rem;
     line-height: 1.6;
-    color: var(--ink-2);
+    color: rgba(29, 32, 48, 0.72);
     margin: 0 0 var(--space-6);
     flex: 1;
 }
@@ -1597,6 +1608,13 @@ main.mm-v2 {
     font-weight: 700;
     text-decoration: none;
     align-self: flex-start;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color 0.2s ease;
+}
+
+.mm-v2 .mm-way__link:hover {
+    border-bottom-color: var(--brand);
 }
 
 .mm-v2 .mm-way__link span {
@@ -1608,14 +1626,60 @@ main.mm-v2 {
     transform: translateX(4px);
 }
 
+/* Feature card: brand-toned paper, slightly lifted */
 .mm-v2 .mm-way--feature {
-    background: linear-gradient(180deg, rgba(82,113,255,0.10), rgba(82,113,255,0.02));
-    border-color: rgba(82, 113, 255, 0.28);
+    background: #ffffff;
+    border-color: rgba(82, 113, 255, 0.18);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.8) inset,
+        0 28px 56px -24px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(82, 113, 255, 0.10);
+}
+
+.mm-v2 .mm-way--feature::before {
+    height: 3px;
+    width: 4.4rem;
+}
+
+.mm-v2 .mm-way--feature::after {
+    content: "Más profundo";
+    position: absolute;
+    top: var(--space-5);
+    right: var(--space-5);
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brand);
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(82, 113, 255, 0.4);
+    border-radius: 999px;
+    line-height: 1;
+}
+
+.mm-v2 .mm-way--feature .mm-way__title {
+    color: var(--ink-on-paper);
 }
 
 /* --- 5) Testimonial --------------------------------------------------- */
 .mm-v2 .mm-testimonial {
     text-align: center;
+    position: relative;
+}
+
+.mm-v2 .mm-testimonial::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(60rem 40rem at 50% 0%, rgba(82, 113, 255, 0.06), transparent 60%);
+    pointer-events: none;
+}
+
+.mm-v2 .mm-testimonial > .mm-canvas {
+    position: relative;
+    z-index: 1;
 }
 
 .mm-v2 .mm-testimonial > .mm-canvas > .mm-eyebrow {
@@ -1639,40 +1703,75 @@ main.mm-v2 {
 .mm-v2 .mm-testimonial__quote {
     font-family: var(--font-post-body);
     font-style: italic;
-    font-size: clamp(2.4rem, 3vw, 3.4rem);
-    line-height: 1.4;
+    font-size: clamp(2.8rem, 3.6vw, 4.2rem);
+    line-height: 1.32;
+    letter-spacing: -0.01em;
     color: var(--ink);
-    margin: 0 0 var(--space-7);
+    margin: 0 0 var(--space-8);
     padding: 0;
     border: 0;
     position: relative;
     text-wrap: balance;
+    max-width: 22ch;
+    margin-inline: auto;
+    margin-bottom: var(--space-8);
 }
 
 .mm-v2 .mm-testimonial__mark {
     font-family: var(--font-post-body);
-    font-size: 1.4em;
     font-style: normal;
+    font-size: 1.6em;
+    font-weight: 700;
     color: var(--brand);
     line-height: 0;
-    vertical-align: -0.05em;
-    margin-right: 0.05em;
+    vertical-align: -0.18em;
+    margin-right: 0.04em;
+    display: inline-block;
 }
 
 .mm-v2 .mm-testimonial__cite {
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
     align-items: center;
-    gap: var(--space-2);
+    gap: var(--space-4);
     font-style: normal;
+    text-align: left;
 }
 
-.mm-v2 .mm-testimonial__cite::before {
-    content: "";
-    width: 3.2rem;
-    height: 1px;
-    background: rgba(244, 241, 234, 0.2);
-    margin-bottom: var(--space-3);
+.mm-v2 .mm-testimonial__avatar {
+    width: 5.6rem;
+    height: 5.6rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #5271ff 0%, #4a5fe6 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow:
+        0 12px 24px -12px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.mm-v2 .mm-testimonial__avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.mm-v2 .mm-testimonial__initials {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1;
+}
+
+.mm-v2 .mm-testimonial__person {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
 }
 
 .mm-v2 .mm-testimonial__name {
@@ -1681,19 +1780,21 @@ main.mm-v2 {
     font-weight: 700;
     letter-spacing: -0.005em;
     color: var(--ink);
+    line-height: 1.2;
 }
 
 .mm-v2 .mm-testimonial__role {
     font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--ink-3);
+    line-height: 1.2;
 }
 
 .mm-v2 .mm-testimonial .mm-actions {
-    margin-top: var(--space-7);
+    margin-top: var(--space-8);
 }
 
 /* --- 6) Bestia -------------------------------------------------------- */
@@ -1729,19 +1830,40 @@ main.mm-v2 {
     margin-top: var(--space-7);
 }
 
-/* --- 7) Bocados (compact) -------------------------------------------- */
-.mm-v2 .mm-bocados__row {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-    gap: clamp(3.6rem, 6vw, 6rem);
-    align-items: center;
+/* --- 7) Bocados (compact, paneled) ----------------------------------- */
+.mm-v2 .mm-bocados__panel {
+    background:
+        linear-gradient(180deg,
+            rgba(244, 241, 234, 0.05) 0%,
+            rgba(244, 241, 234, 0.02) 100%);
+    border: 1px solid rgba(244, 241, 234, 0.10);
+    border-radius: 4px;
+    padding: clamp(3.6rem, 5vw, 5.6rem) clamp(2.8rem, 5vw, 5rem);
     max-width: 1040px;
     margin-inline: auto;
+    position: relative;
+}
+
+.mm-v2 .mm-bocados__panel::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 4rem;
+    height: 2px;
+    background: var(--brand);
+    opacity: 0.7;
+}
+
+.mm-v2 .mm-bocados__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(3.2rem, 6vw, 5.6rem);
+    align-items: start;
 }
 
 .mm-v2 .mm-bocados__title {
     font-family: var(--font-display);
-    font-size: clamp(2.6rem, 3.4vw, 3.6rem);
+    font-size: clamp(2.6rem, 3.2vw, 3.4rem);
     font-weight: 600;
     color: var(--ink);
     margin: 0 0 var(--space-4);
@@ -1754,14 +1876,29 @@ main.mm-v2 {
     font-size: 1.7rem;
     line-height: 1.6;
     color: var(--ink-2);
-    margin: 0;
-    max-width: 48ch;
+    margin: 0 0 var(--space-6);
+    max-width: 44ch;
+}
+
+.mm-v2 .mm-bocados__text .mm-actions {
+    margin-top: 0;
 }
 
 .mm-v2 .mm-bocados__form {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
+}
+
+.mm-v2 .mm-bocados__form-label {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    line-height: 1;
 }
 
 .mm-v2 .mm-bocados__field {
@@ -1897,13 +2034,18 @@ main.mm-v2 {
         height: 50%;
     }
 
-    .mm-v2 .mm-fit__grid {
-        grid-template-columns: minmax(0, 1fr);
+    .mm-v2 .mm-intro__text {
+        max-width: none;
+    }
+
+    .mm-v2 .mm-fit__item {
+        grid-template-columns: 4.2rem minmax(0, 1fr);
+        gap: var(--space-4);
     }
 
     .mm-v2 .mm-ways__grid {
         grid-template-columns: minmax(0, 1fr);
-        gap: var(--space-4);
+        gap: var(--space-5);
     }
 
     .mm-v2 .mm-bestia__grid {
@@ -1922,6 +2064,11 @@ main.mm-v2 {
     .mm-v2 .mm-bocados__row {
         grid-template-columns: minmax(0, 1fr);
         gap: var(--space-6);
+    }
+
+    .mm-v2 .mm-bocados__text {
+        padding-bottom: var(--space-5);
+        border-bottom: 1px solid rgba(244, 241, 234, 0.08);
     }
 }
 
@@ -1958,10 +2105,21 @@ main.mm-v2 {
     }
 
     .mm-v2 .mm-fit__item {
-        padding: var(--space-6) var(--space-5);
+        font-size: 1.8rem;
+        padding: var(--space-5) 0;
     }
 
     .mm-v2 .mm-way {
+        padding: var(--space-6) var(--space-5);
+    }
+
+    .mm-v2 .mm-way--feature::after {
+        top: var(--space-4);
+        right: var(--space-4);
+        font-size: 1rem;
+    }
+
+    .mm-v2 .mm-bocados__panel {
         padding: var(--space-6) var(--space-5);
     }
 
@@ -1974,7 +2132,14 @@ main.mm-v2 {
     }
 
     .mm-v2 .mm-testimonial__quote {
-        font-size: 2.1rem;
+        font-size: 2.2rem;
+        max-width: none;
+    }
+
+    .mm-v2 .mm-testimonial__cite {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-3);
     }
 }
 
