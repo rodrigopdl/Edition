@@ -1295,7 +1295,7 @@ main.mm-v2 {
     position: relative;
 }
 
-.mm-v2 .mm-v2-hero    { background: var(--surface-1); padding-top: clamp(9rem, 14vw, 16rem); padding-bottom: clamp(9rem, 14vw, 15rem); }
+.mm-v2 .mm-v2-hero    { background: var(--surface-1); padding-top: clamp(7rem, 10vw, 11rem); padding-bottom: clamp(6.4rem, 9vw, 10rem); }
 .mm-v2 .mm-intro      { background: var(--surface-0); }
 .mm-v2 .mm-ways       { background: var(--surface-1); }
 .mm-v2 .mm-testimonial{ background: var(--surface-0); padding-block: var(--section-py-tight); }
@@ -1357,7 +1357,7 @@ main.mm-v2 {
     line-height: 1;
     letter-spacing: -0.03em;
     color: var(--ink);
-    margin: 0 0 var(--space-8);
+    margin: 0 0 var(--space-7);
     text-wrap: balance;
     max-width: 16ch;
     /* iOS Safari rendering: stop auto text-size-adjust, force antialiased
@@ -1398,7 +1398,7 @@ main.mm-v2 {
 
 .mm-v2 .mm-v2-hero .mm-actions {
     justify-content: center;
-    margin-top: var(--space-8);
+    margin-top: var(--space-7);
 }
 
 /* --- 2) Intro --------------------------------------------------------- */
@@ -1484,7 +1484,7 @@ main.mm-v2 {
 .mm-v2 .mm-way {
     display: flex;
     flex-direction: column;
-    padding: clamp(3.2rem, 3.6vw, 4rem) clamp(2.8rem, 3.2vw, 3.6rem) clamp(3rem, 3.4vw, 3.6rem);
+    padding: clamp(2.6rem, 3vw, 3.2rem) clamp(2.4rem, 2.8vw, 3rem) clamp(2.4rem, 2.8vw, 2.8rem);
     background: #f1ece2;
     color: var(--ink-on-paper);
     border: 0;
@@ -1502,8 +1502,8 @@ main.mm-v2 {
     content: "";
     position: absolute;
     top: 0;
-    left: clamp(2.8rem, 3.2vw, 3.6rem);
-    width: 2.8rem;
+    left: clamp(2.4rem, 2.8vw, 3rem);
+    width: 2.4rem;
     height: 1px;
     background: var(--brand);
 }
@@ -1514,21 +1514,21 @@ main.mm-v2 {
 
 .mm-v2 .mm-way__title {
     font-family: var(--font-display);
-    font-size: clamp(2.2rem, 2.2vw, 2.6rem);
+    font-size: clamp(2rem, 2vw, 2.4rem);
     font-weight: 600;
-    line-height: 1.15;
+    line-height: 1.18;
     letter-spacing: -0.02em;
     color: var(--ink-on-paper);
-    margin: 0 0 var(--space-5);
+    margin: 0 0 var(--space-4);
     text-wrap: balance;
 }
 
 .mm-v2 .mm-way__text {
     font-family: var(--font-post-body);
-    font-size: 1.7rem;
-    line-height: 1.65;
+    font-size: 1.6rem;
+    line-height: 1.55;
     color: rgba(29, 32, 48, 0.75);
-    margin: 0 0 var(--space-7);
+    margin: 0 0 var(--space-6);
     flex: 1;
 }
 
@@ -1539,10 +1539,10 @@ main.mm-v2 {
     gap: 0.7rem;
     align-self: flex-start;
     position: relative;
-    padding-top: var(--space-4);
+    padding-top: var(--space-3);
     color: var(--brand);
     font-family: var(--font-display);
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 0.005em;
     text-decoration: none;
