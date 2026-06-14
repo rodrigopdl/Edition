@@ -1577,18 +1577,21 @@ main.mm-v2 {
     transform: translateX(4px);
 }
 
-/* Feature card: slightly brighter paper + sustained rule, no badge */
+/* Feature card: warmer paper, full brand rule on top, deeper shadow.
+   Reads clearly as the deepest offer without becoming a pricing card. */
 .mm-v2 .mm-way--feature {
-    background: #f5f0e3;
+    background: #fbf6e8;
     box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.65) inset,
-        0 24px 48px -28px rgba(0, 0, 0, 0.5);
+        0 1px 0 rgba(255, 255, 255, 0.75) inset,
+        0 36px 60px -30px rgba(0, 0, 0, 0.55),
+        0 12px 24px -16px rgba(82, 113, 255, 0.35);
 }
 
 .mm-v2 .mm-way--feature::before {
     width: 100%;
     left: 0;
-    background: linear-gradient(90deg, var(--brand) 0%, var(--brand) 4.8rem, rgba(82, 113, 255, 0.15) 4.8rem, rgba(82, 113, 255, 0.15) 100%);
+    height: 2px;
+    background: var(--brand);
 }
 
 /* --- 4) Testimonial --------------------------------------------------- */
