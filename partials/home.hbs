@@ -5,76 +5,102 @@
     {{!-- 1. Hero ------------------------------------------------------------ --}}
     <section class="mm-v2-hero" aria-labelledby="hero-title">
         <div class="mm-canvas">
-            <div class="mm-hero__grid">
-                <div class="mm-hero__text">
-                    <p class="mm-eyebrow">Para Masticar</p>
-                    <h1 class="mm-hero__title" id="hero-title">
-                        Ayudo a líderes a <span class="mm-accent">pensar mejor.</span>
-                    </h1>
-                    <p class="mm-hero__lede">
-                        Trabajo con líderes, founders y equipos que necesitan ordenar ideas,
-                        tomar mejores decisiones y tener conversaciones que vienen postergando.
-                    </p>
-                    <div class="mm-actions">
-                        <a href="/conversar" class="mm-btn mm-btn--primary">
-                            Solicitar una conversación
-                        </a>
-                        <a href="/" class="mm-btn mm-btn--text">Leer un bocado</a>
-                    </div>
+            <div class="mm-hero__inner">
+                <p class="mm-eyebrow">Para Masticar — Rodri</p>
+
+                <h1 class="mm-hero__title" id="hero-title">
+                    Ayudo a líderes a <span class="mm-accent">pensar mejor.</span>
+                </h1>
+
+                <p class="mm-hero__lede">
+                    Trabajo con líderes, founders y equipos que están atravesando
+                    decisiones importantes, conversaciones difíciles o momentos de cambio.
+                    Los ayudo a ordenar ideas, mirar mejor lo que está pasando y
+                    encontrar próximos pasos con más claridad.
+                </p>
+
+                <div class="mm-actions">
+                    <a href="/conversar" class="mm-btn mm-btn--primary">
+                        Solicitar una conversación
+                    </a>
+                    <a href="/" class="mm-btn mm-btn--text">Leer un bocado</a>
                 </div>
 
-                <aside class="mm-hero__aside" aria-hidden="true">
-                    <figure class="mm-card mm-card--quote">
-                        <div class="mm-card__rule"></div>
-                        <blockquote class="mm-card__quote">
-                            Lo más difícil no era la decisión.
-                            <br>
-                            Era animarse a tener la conversación.
-                        </blockquote>
-                        <figcaption class="mm-card__caption">
-                            Un bocado de los miércoles
-                        </figcaption>
-                    </figure>
-                </aside>
+                <div class="mm-hero__rule" aria-hidden="true"></div>
             </div>
         </div>
     </section>
 
-    {{!-- 2. Presentación ---------------------------------------------------- --}}
+    {{!-- 2. Hola, soy Rodri ------------------------------------------------- --}}
     <section class="mm-intro" aria-labelledby="intro-title">
-        <div class="mm-canvas mm-canvas--narrow">
+        <div class="mm-canvas">
             <div class="mm-intro__grid">
-                <div class="mm-portrait">
+                <figure class="mm-intro__figure">
                     <img
                         src="{{asset "images/rodri3.jpg"}}"
                         alt="Rodri"
-                        class="mm-portrait__img"
-                        width="600"
-                        height="600"
+                        class="mm-intro__img"
+                        width="900"
+                        height="1100"
                         loading="lazy"
                     >
-                </div>
+                    <figcaption class="mm-intro__caption">Rodri · Para Masticar</figcaption>
+                </figure>
+
                 <div class="mm-intro__text">
+                    <p class="mm-eyebrow">Acerca</p>
                     <h2 class="mm-v2-title" id="intro-title">
                         Hola, <span class="mm-accent">soy Rodri.</span>
                     </h2>
                     <div class="mm-prose">
-                        <p>Durante más de una década trabajé en tecnología. En los últimos años, gran parte de mi trabajo giró alrededor de acompañar líderes, facilitar conversaciones difíciles y ayudar a equipos a encontrar claridad en momentos complejos.</p>
-                        <p>En paralelo fui construyendo <em>Para Masticar</em>: una serie de bocados, charlas, masticadas y libros sobre liderazgo, autoconocimiento y desarrollo personal.</p>
-                        <p>Con el tiempo entendí que todo eso era parte de un mismo trabajo: ayudar a personas y organizaciones a ver con más claridad aquello que hoy les impide avanzar.</p>
+                        <p>Durante más de una década trabajé en tecnología. Estudié sistemas, fui desarrollador y pasé muchos años cerca de equipos, líderes y organizaciones reales.</p>
+                        <p>Con el tiempo mi atención empezó a moverse hacia otro lugar: cómo pensamos, cómo lideramos, cómo conversamos y qué nos frena cuando intentamos avanzar.</p>
+                        <p>No llegué a esto desde el coaching tradicional. Llegué desde una mezcla propia de tecnología, liderazgo, psicología, escritura, autoconocimiento y experiencia acompañando personas y equipos en momentos de cambio, tensión o incertidumbre.</p>
+                        <p><em>Para Masticar</em> nació como un lugar para compartir ideas. Hoy también es la forma en que esas ideas se transforman en conversaciones, masticadas y acompañamiento para líderes y organizaciones que necesitan más claridad.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 3. Formas de trabajar juntos --------------------------------------- --}}
+    {{!-- 3. Esto puede ser para vos si... ----------------------------------- --}}
+    <section class="mm-fit" aria-labelledby="fit-title">
+        <div class="mm-canvas">
+            <header class="mm-section-header">
+                <p class="mm-eyebrow">Para quién</p>
+                <h2 class="mm-v2-title" id="fit-title">
+                    Esto puede ser <span class="mm-accent">para vos si…</span>
+                </h2>
+            </header>
+
+            <ul class="mm-fit__grid">
+                <li class="mm-fit__item">
+                    <span class="mm-fit__mark" aria-hidden="true"></span>
+                    <p>Estás liderando algo importante y necesitás pensar mejor antes de avanzar.</p>
+                </li>
+                <li class="mm-fit__item">
+                    <span class="mm-fit__mark" aria-hidden="true"></span>
+                    <p>Hay una decisión, tensión o conversación que viene ocupando demasiado espacio mental.</p>
+                </li>
+                <li class="mm-fit__item">
+                    <span class="mm-fit__mark" aria-hidden="true"></span>
+                    <p>Tu equipo está creciendo, cambiando o atravesando un momento que necesita más claridad.</p>
+                </li>
+                <li class="mm-fit__item">
+                    <span class="mm-fit__mark" aria-hidden="true"></span>
+                    <p>No querés una receta genérica. Querés un espacio para ordenar lo que está pasando y encontrar una forma más clara de actuar.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    {{!-- 4. Formas de trabajar juntos --------------------------------------- --}}
     <section class="mm-ways" aria-labelledby="ways-title">
         <div class="mm-canvas">
             <header class="mm-section-header">
-                <p class="mm-eyebrow">Formas de trabajar juntos</p>
+                <p class="mm-eyebrow">Servicios</p>
                 <h2 class="mm-v2-title" id="ways-title">
-                    Tres maneras de <span class="mm-accent">conversar.</span>
+                    Formas de <span class="mm-accent">trabajar juntos.</span>
                 </h2>
             </header>
 
@@ -84,8 +110,8 @@
                     <h3 class="mm-way__title">Conversaciones de claridad</h3>
                     <p class="mm-way__text">
                         Espacios individuales para líderes, founders o personas que
-                        necesitan pensar mejor un desafío importante. Pueden ser
-                        conversaciones puntuales o parte de un proceso más largo.
+                        necesitan pensar mejor un desafío puntual. Pueden ser conversaciones
+                        únicas o parte de un proceso más largo.
                     </p>
                     <a href="/conversar" class="mm-way__link">
                         Solicitar una conversación
@@ -97,9 +123,9 @@
                     <span class="mm-way__num" aria-hidden="true">02</span>
                     <h3 class="mm-way__title">Masticadas</h3>
                     <p class="mm-way__text">
-                        Experiencias de conversación para equipos y organizaciones. No
-                        son charlas tradicionales ni capacitaciones. Son espacios diseñados
-                        para frenar, pensar y abrir conversaciones que normalmente no ocurren.
+                        Experiencias de conversación para equipos y organizaciones. No son
+                        charlas tradicionales ni capacitaciones. Son espacios diseñados para
+                        frenar, pensar y abrir conversaciones que normalmente no ocurren.
                     </p>
                     <a href="/masticadas" class="mm-way__link">
                         Ver masticadas
@@ -109,12 +135,11 @@
 
                 <article class="mm-way mm-way--feature">
                     <span class="mm-way__num" aria-hidden="true">03</span>
-                    <h3 class="mm-way__title">Partner Para Masticar</h3>
+                    <h3 class="mm-way__title">Acompañamiento Para Masticar</h3>
                     <p class="mm-way__text">
-                        Un acompañamiento continuo para líderes, founders o equipos de
-                        liderazgo. Incluye conversaciones periódicas, intercambio asincrónico
-                        y una mirada externa para navegar decisiones, tensiones,
-                        conversaciones difíciles y oportunidades de trabajo con el equipo.
+                        Un acompañamiento continuo para líderes que no quieren pensar solos
+                        sus desafíos más importantes. Una relación sostenida para ordenar
+                        decisiones, tensiones, conversaciones y próximos pasos con más claridad.
                     </p>
                     <a href="/conversar" class="mm-way__link">
                         Conversemos
@@ -125,7 +150,28 @@
         </div>
     </section>
 
-    {{!-- 4. La Bestia ------------------------------------------------------- --}}
+    {{!-- 5. Testimonio ------------------------------------------------------ --}}
+    <section class="mm-testimonial" aria-labelledby="testimonial-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <p class="mm-eyebrow mm-eyebrow--muted">Voces</p>
+            <figure class="mm-testimonial__figure">
+                <blockquote class="mm-testimonial__quote" id="testimonial-title">
+                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>
+                    Trabajar con Rodri nos ayudó a pensar mejor conversaciones,
+                    decisiones y tensiones que eran importantes para el equipo.
+                </blockquote>
+                <figcaption class="mm-testimonial__cite">
+                    <span class="mm-testimonial__name">José</span>
+                    <span class="mm-testimonial__role">Founder &amp; CEO, WyeWorks</span>
+                </figcaption>
+            </figure>
+            <div class="mm-actions mm-actions--center">
+                <a href="/testimonios" class="mm-btn mm-btn--text">Leer testimonio completo</a>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 6. La Bestia ------------------------------------------------------- --}}
     <section class="mm-bestia" aria-labelledby="bestia-title">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-bestia__grid">
@@ -143,8 +189,7 @@
                         <span class="mm-accent">La Bestia.</span>
                     </h2>
                     <div class="mm-prose">
-                        <p>Gran parte de mi trabajo nace de una idea: todos tenemos una Bestia.</p>
-                        <p>Esa voz interior que nos frena, nos hace dudar, nos empuja a evitar conversaciones importantes o nos aleja de la persona que queremos ser.</p>
+                        <p>Gran parte de mi trabajo nace de una idea: todos tenemos una Bestia. Esa voz interior que nos frena, nos hace dudar, nos empuja a evitar conversaciones importantes o nos aleja de la persona que queremos ser.</p>
                         <p>Escribí un libro sobre eso.</p>
                     </div>
                     <div class="mm-actions">
@@ -155,85 +200,65 @@
         </div>
     </section>
 
-    {{!-- 5. Bocados --------------------------------------------------------- --}}
+    {{!-- 7. Bocados (compacto) --------------------------------------------- --}}
     <section class="mm-bocados" aria-labelledby="bocados-title">
         <div class="mm-canvas">
-            <div class="mm-bocados__grid">
+            <div class="mm-bocados__row">
                 <div class="mm-bocados__text">
                     <p class="mm-eyebrow">Newsletter</p>
-                    <h2 class="mm-v2-title" id="bocados-title">Bocados.</h2>
-                    <div class="mm-prose">
-                        <p>Cada semana comparto ideas, historias y reflexiones para pensar mejor.</p>
-                        <p>Los bocados son una forma de entrar al universo de Para Masticar y conocer cómo miro temas como liderazgo, miedo, incertidumbre, aprendizaje, identidad y conversaciones difíciles.</p>
-                    </div>
-                    <div class="mm-actions">
-                        <a href="/" class="mm-btn mm-btn--ghost">Leer bocados</a>
-                        {{#if @site.members_enabled}}
-                            {{#unless @site.members_invite_only}}
-                                {{#unless @member}}
-                                    <a href="#bocados-form" class="mm-btn mm-btn--text">Recibir por email</a>
-                                {{/unless}}
-                            {{/unless}}
-                        {{/if}}
-                    </div>
+                    <h2 class="mm-bocados__title" id="bocados-title">Bocados.</h2>
+                    <p class="mm-bocados__lede">
+                        Cada semana comparto ideas, historias y reflexiones para pensar mejor.
+                        Una puerta de entrada al universo Para Masticar.
+                    </p>
                 </div>
 
                 {{#if @site.members_enabled}}
                     {{#unless @site.members_invite_only}}
                         {{#unless @member}}
-                            <aside class="mm-subscribe" id="bocados-form">
-                                <p class="mm-subscribe__label">Recibí un bocado cada miércoles.</p>
-                                <form class="mm-subscribe__form" data-members-form>
-                                    <label for="mm-bocados-email" class="mm-visually-hidden">Tu email</label>
-                                    <div class="mm-subscribe__field">
-                                        <input
-                                            id="mm-bocados-email"
-                                            class="mm-subscribe__input"
-                                            type="email"
-                                            name="email"
-                                            data-members-email
-                                            placeholder="tu@email.com"
-                                            required="true"
-                                        >
-                                        <button class="mm-subscribe__btn" type="submit" aria-label="Suscribirse">
-                                            Suscribirme
-                                        </button>
-                                    </div>
-                                    <p class="mm-subscribe__note">
-                                        Sin spam. El primero de cada mes es exclusivo para suscriptores.
-                                    </p>
-                                    <p class="error-message"></p>
-                                    <p class="success-message"></p>
-                                </form>
-                            </aside>
+                            <form class="mm-bocados__form" data-members-form>
+                                <label for="mm-bocados-email" class="mm-visually-hidden">Tu email</label>
+                                <div class="mm-bocados__field">
+                                    <input
+                                        id="mm-bocados-email"
+                                        class="mm-bocados__input"
+                                        type="email"
+                                        name="email"
+                                        data-members-email
+                                        placeholder="tu@email.com"
+                                        required="true"
+                                    >
+                                    <button class="mm-bocados__btn" type="submit" aria-label="Suscribirse">
+                                        Recibir por email
+                                    </button>
+                                </div>
+                                <p class="mm-bocados__note">
+                                    Sin spam. <a href="/">Leer bocados primero</a>.
+                                </p>
+                                <p class="error-message"></p>
+                                <p class="success-message"></p>
+                            </form>
+                        {{else}}
+                            <div class="mm-bocados__member">
+                                <a href="/" class="mm-btn mm-btn--ghost">Leer bocados</a>
+                            </div>
                         {{/unless}}
                     {{/unless}}
                 {{/if}}
             </div>
-
-            {{#get "posts" filter="tag:handpicked-featured" limit="1" as |pinnedPost|}}
-                {{#get "posts" filter="tag:handpicked+tag:-handpicked-featured" limit="2" as |regularPosts|}}
-                    {{#if pinnedPost}}
-                        {{> "handpicked-posts" pinnedPost=pinnedPost regularPosts=regularPosts}}
-                    {{else if regularPosts}}
-                        {{> "handpicked-posts" regularPosts=regularPosts}}
-                    {{/if}}
-                {{/get}}
-            {{/get}}
         </div>
     </section>
 
-    {{!-- 6. Cierre ---------------------------------------------------------- --}}
+    {{!-- 8. Cierre ---------------------------------------------------------- --}}
     <section class="mm-closing" aria-labelledby="closing-title">
         <div class="mm-canvas mm-canvas--narrow">
-            <p class="mm-eyebrow mm-eyebrow--muted">Si llegaste hasta acá</p>
             <h2 class="mm-closing__title" id="closing-title">
-                Quizás hay algo que <span class="mm-accent">te tiene dando vueltas.</span>
+                Hay cosas que conviene <span class="mm-accent">no pensar solo.</span>
             </h2>
-            <p class="mm-closing__text">
-                Quizás no estés buscando una charla, una sesión o una masticada.
-                Si sentís que necesitás pensar mejor una situación, podemos conversar.
-            </p>
+            <div class="mm-closing__text">
+                <p>Si estás atravesando una decisión, una tensión o una conversación importante, podés escribirme y contarme brevemente qué está pasando.</p>
+                <p>Si siento que puedo ayudarte, coordinamos una primera conversación para entender mejor la situación y ver qué forma de trabajo tiene sentido.</p>
+            </div>
             <div class="mm-actions mm-actions--center">
                 <a href="/conversar" class="mm-btn mm-btn--primary mm-btn--lg">
                     Solicitar una conversación
