@@ -7,8 +7,8 @@
 
 /* Hero: continuation of the home CTA, more intimate, less ceremonial. */
 .mm-conv .mm-conv-hero {
-    padding-top: clamp(5.6rem, 8vw, 8rem);
-    padding-bottom: clamp(5rem, 7vw, 7rem);
+    padding-top: clamp(4.4rem, 6vw, 6rem);
+    padding-bottom: clamp(3.8rem, 5vw, 5rem);
 }
 
 .mm-conv .mm-conv-hero .mm-hero__title {
@@ -24,7 +24,8 @@
 
 .mm-conv .mm-conv-hero .mm-hero__lede {
     font-size: clamp(1.8rem, 1.5vw, 2rem);
-    max-width: 56ch;
+    line-height: 1.65;
+    max-width: 64ch;
 }
 
 .mm-conv .mm-conv-hero .mm-v2-hero .mm-actions,
@@ -90,40 +91,32 @@
 
 /* --- Form ----------------------------------------------------------- */
 .mm-conv .mm-conv-form-section {
-    padding-block: var(--section-py);
+    padding-block: var(--section-py-tight);
     background: var(--surface-1);
     position: relative;
 }
 
-.mm-conv .mm-conv-form-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(1160px, calc(100% - 4rem));
-    height: 1px;
-    background: rgba(244, 241, 234, 0.06);
-}
-
 .mm-conv .mm-conv-form__panel {
-    max-width: 760px;
+    max-width: 840px;
     margin: 0 auto;
-    background: linear-gradient(180deg, rgba(244,241,234,0.05) 0%, rgba(244,241,234,0.02) 100%);
-    border: 1px solid rgba(244, 241, 234, 0.10);
+    background: linear-gradient(180deg, rgba(244,241,234,0.06) 0%, rgba(244,241,234,0.025) 100%);
+    border: 1px solid rgba(244, 241, 234, 0.12);
     border-radius: 4px;
-    padding: clamp(3.2rem, 4.5vw, 4.8rem) clamp(2.8rem, 5vw, 5rem);
+    padding: clamp(3.2rem, 4.4vw, 4.8rem) clamp(3rem, 5.2vw, 5.6rem);
     position: relative;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.04) inset,
+        0 30px 60px -32px rgba(0, 0, 0, 0.45);
 }
 
 .mm-conv .mm-conv-form__panel::before {
     content: "";
     position: absolute;
     top: 0; left: 0;
-    width: 4rem;
+    width: 4.4rem;
     height: 2px;
     background: var(--brand);
-    opacity: 0.7;
+    opacity: 0.85;
 }
 
 .mm-conv .mm-conv-form__header {
@@ -270,7 +263,7 @@
 }
 
 .mm-conv .mm-conv-form__fallback {
-    margin: var(--space-5) 0 0;
+    margin: var(--space-4) 0 0;
     font-family: var(--font-post-body);
     font-size: 1.45rem;
     line-height: 1.5;
@@ -311,8 +304,8 @@
 
 @media (max-width: 640px) {
     .mm-conv .mm-conv-hero {
-        padding-top: clamp(4.8rem, 11vw, 6.4rem);
-        padding-bottom: clamp(4rem, 9vw, 5.6rem);
+        padding-top: clamp(4.4rem, 10vw, 5.6rem);
+        padding-bottom: clamp(3.6rem, 8vw, 4.8rem);
     }
 
     .mm-conv .mm-conv-hero .mm-hero__title {
