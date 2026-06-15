@@ -1,17 +1,17 @@
+{{!--
+    Related posts always render (template uses {{post.tags}} / {{post.id}}
+    which only resolve outside the {{#post}} block).
+--}}
+{{#if @custom.show_related_posts}}
+    {{> "related-posts"}}
+{{/if}}
+
+{{!-- Bottom subscribe form: skip on paywalled posts. --}}
 {{#post}}
     {{#if access}}
-        {{!-- Open post: related posts first, then the subscribe block. --}}
-        {{#if @custom.show_related_posts}}
-            {{> "related-posts"}}
-        {{/if}}
         {{> "bottom-cta"}}
     {{else}}
-        {{!-- Paywalled post: skip bottom-cta (already shown inline),
-             keep related posts visible after the paywall. --}}
         {{> "bottom-cta" paywalled=true}}
-        {{#if @custom.show_related_posts}}
-            {{> "related-posts"}}
-        {{/if}}
     {{/if}}
 
     {{> "comments"}}

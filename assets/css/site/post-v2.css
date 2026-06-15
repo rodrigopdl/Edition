@@ -7,7 +7,7 @@
 
 /* The body class is set per-post via partials/content.hbs. Smooth scroll
    inside posts is not needed; we only need the body context for surface. */
-body.page-mm-post {
+body.post-template {
     background: var(--surface-1, #222538);
 }
 
@@ -61,8 +61,8 @@ body.page-mm-post {
     font: inherit;
 }
 
-body.page-mm-post .mm-post .mm-post-title,
-body.post-template.page-mm-post .single-title {
+body.post-template .mm-post .mm-post-title,
+body.post-template .single-title {
     font-family: var(--font-display);
     font-size: clamp(3.4rem, 5.2vw, 5.6rem);
     font-weight: 600;
@@ -86,25 +86,10 @@ body.post-template.page-mm-post .single-title {
     font-style: italic;
 }
 
-/* Feature image — soft frame, no glow. Override legacy blue box-shadow. */
-body.page-mm-post .mm-post .mm-post-media,
-body.post-template.page-mm-post .single-media {
-    margin: clamp(4rem, 5vw, 6rem) auto 0 !important;
-    padding: 0;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: none;
-}
-
-body.page-mm-post .mm-post .mm-post-media img,
-body.post-template.page-mm-post .single-media img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-    box-shadow:
-        0 24px 50px -32px rgba(0, 0, 0, 0.45),
-        inset 0 0 0 1px rgba(244, 241, 234, 0.06) !important;
+/* Feature image hidden on all posts — the article reads as pure editorial. */
+body.post-template .mm-post .mm-post-media,
+body.post-template .single-media {
+    display: none !important;
 }
 
 .mm-post .mm-post-media figcaption {
@@ -142,23 +127,32 @@ body.post-template.page-mm-post .single-media img {
     margin-bottom: 0;
 }
 
-.mm-post-content > h2 {
+/* Headings inside the body — override legacy blue
+   `.gh-content h1..h6 { color: #5271FF }` with the editorial ink color. */
+body.post-template .mm-post-content h1,
+body.post-template .mm-post-content h2,
+body.post-template .mm-post-content h3,
+body.post-template .mm-post-content h4,
+body.post-template .mm-post-content h5,
+body.post-template .mm-post-content h6 {
+    color: var(--ink) !important;
     font-family: var(--font-display);
-    font-size: clamp(2.6rem, 3.2vw, 3.4rem);
     font-weight: 600;
+}
+
+.mm-post-content > h2,
+.mm-post-content h2 {
+    font-size: clamp(2.6rem, 3.2vw, 3.4rem);
     line-height: 1.2;
     letter-spacing: -0.02em;
-    color: var(--ink);
     margin: clamp(4rem, 5vw, 5.6rem) 0 var(--space-5);
 }
 
-.mm-post-content > h3 {
-    font-family: var(--font-display);
+.mm-post-content > h3,
+.mm-post-content h3 {
     font-size: clamp(2.1rem, 2.4vw, 2.6rem);
-    font-weight: 600;
     line-height: 1.25;
     letter-spacing: -0.015em;
-    color: var(--ink);
     margin: clamp(3rem, 4vw, 4.4rem) 0 var(--space-4);
 }
 
@@ -667,7 +661,7 @@ body.post-template.page-mm-post .single-media img {
    needed here. Share legacy colors still need to be neutralized below. */
 
 /* Legacy share styles can override ours — neutralize the loud colors. */
-body.page-mm-post .mm-post .share {
+body.post-template .mm-post .share {
     background: transparent;
     padding: 0;
     display: block;
@@ -675,12 +669,12 @@ body.page-mm-post .mm-post .share {
     text-align: center;
 }
 
-body.page-mm-post .mm-post .share-link,
-body.page-mm-post .mm-post .share-link-whatsapp,
-body.page-mm-post .mm-post .share-link-facebook,
-body.page-mm-post .mm-post .share-link-twitter,
-body.page-mm-post .mm-post .share-link-linkedin,
-body.page-mm-post .mm-post .share-link-copy {
+body.post-template .mm-post .share-link,
+body.post-template .mm-post .share-link-whatsapp,
+body.post-template .mm-post .share-link-facebook,
+body.post-template .mm-post .share-link-twitter,
+body.post-template .mm-post .share-link-linkedin,
+body.post-template .mm-post .share-link-copy {
     height: auto;
     background-color: transparent !important;
     color: var(--ink-2);
@@ -689,7 +683,7 @@ body.page-mm-post .mm-post .share-link-copy {
     letter-spacing: 0.01em;
 }
 
-body.page-mm-post .mm-post .share-link:hover {
+body.post-template .mm-post .share-link:hover {
     opacity: 1;
     transform: none;
 }
