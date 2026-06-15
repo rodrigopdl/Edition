@@ -297,11 +297,27 @@
 
 .mm-mast .mm-mast-voices__item {
     margin: 0;
-    padding: var(--space-6) var(--space-5);
+    padding: var(--space-7) var(--space-6);
     border-right: 1px solid rgba(244, 241, 234, 0.10);
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
+    align-items: flex-start;
+    gap: var(--space-5);
+    position: relative;
+}
+
+.mm-mast .mm-mast-voices__item::before {
+    content: "“";
+    position: absolute;
+    top: var(--space-4);
+    left: var(--space-6);
+    font-family: var(--font-post-body);
+    font-style: normal;
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: var(--brand);
+    line-height: 1;
+    opacity: 0.6;
 }
 
 .mm-mast .mm-mast-voices__item:last-child {
@@ -311,21 +327,25 @@
 .mm-mast .mm-mast-voices__item blockquote {
     font-family: var(--font-post-body);
     font-style: italic;
-    font-size: 1.55rem;
+    font-size: 1.7rem;
     line-height: 1.55;
     color: var(--ink-2);
-    margin: 0;
+    margin: var(--space-4) 0 0;
     padding: 0;
     border: 0;
     text-wrap: pretty;
+    flex: 1;
 }
 
 .mm-mast .mm-mast-voices__item figcaption {
     font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     color: var(--ink);
+    padding-top: var(--space-3);
+    border-top: 1px solid rgba(244, 241, 234, 0.10);
+    align-self: stretch;
 }
 
 /* --- 5) After (what remains) --------------------------------------- */
@@ -346,8 +366,53 @@
     background: rgba(244, 241, 234, 0.06);
 }
 
-.mm-mast .mm-mast-after .mm-v2-title {
-    margin-bottom: var(--space-6);
+.mm-mast .mm-mast-after__inner {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.mm-mast .mm-mast-after__inner .mm-eyebrow {
+    margin-bottom: var(--space-4);
+}
+
+.mm-mast .mm-mast-after__inner .mm-v2-title {
+    margin: 0 0 var(--space-6);
+}
+
+.mm-mast .mm-mast-after__lede {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.85rem, 1.7vw, 2.05rem);
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0 0 var(--space-6);
+    text-wrap: pretty;
+}
+
+.mm-mast .mm-mast-after__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-6);
+    border-top: 1px solid rgba(244, 241, 234, 0.10);
+}
+
+.mm-mast .mm-mast-after__list li {
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid rgba(244, 241, 234, 0.10);
+    font-family: var(--font-post-body);
+    font-style: italic;
+    font-size: clamp(1.65rem, 1.5vw, 1.85rem);
+    line-height: 1.45;
+    color: var(--ink-2);
+    text-wrap: pretty;
+}
+
+.mm-mast .mm-mast-after__coda {
+    font-family: var(--font-post-body);
+    font-size: 1.65rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0;
+    text-wrap: pretty;
 }
 
 /* --- 6) Form ------------------------------------------------------- */
@@ -614,11 +679,23 @@
     }
 
     .mm-mast .mm-mast-voices__item {
-        padding: var(--space-5) 0;
+        padding: var(--space-6) var(--space-5);
+        gap: var(--space-4);
+    }
+
+    .mm-mast .mm-mast-voices__item::before {
+        top: var(--space-4);
+        left: var(--space-5);
+        font-size: 2.8rem;
     }
 
     .mm-mast .mm-mast-voices__item blockquote {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+        margin-top: var(--space-3);
+    }
+
+    .mm-mast .mm-mast-voices__item figcaption {
+        font-size: 1.25rem;
     }
 
     .mm-mast .mm-mast-real__grid {
