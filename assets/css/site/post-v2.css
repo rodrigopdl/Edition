@@ -258,21 +258,25 @@ body.post-template .gh-content a:not(.kg-btn):not(.kg-bookmark-container):not(.m
     opacity: 1 !important;
 }
 
-/* Bold — warm cream highlight, slightly brighter than body text. */
-body.post-template .mm-post-content strong,
-body.post-template .mm-post-content b,
-body.post-template .gh-content strong,
-body.post-template .gh-content b {
+/* Bold — warm cream highlight, slightly brighter than body text.
+   Only style strong/em/b/i that are NOT inside a link, so links keep
+   full control over their own color (including hover transitions). */
+body.post-template .mm-post-content :is(strong, b):not(a strong):not(a b),
+body.post-template .gh-content :is(strong, b):not(a strong):not(a b) {
     color: #ffffff;
     font-weight: 600;
 }
 
-body.post-template .mm-post-content em,
-body.post-template .mm-post-content i,
-body.post-template .gh-content em,
-body.post-template .gh-content i {
+body.post-template .mm-post-content :is(em, i):not(a em):not(a i),
+body.post-template .gh-content :is(em, i):not(a em):not(a i) {
     color: var(--ink);
     font-style: italic;
+}
+
+/* Inside a link: inherit the link's color so hover transitions work. */
+body.post-template .mm-post-content a :is(em, i, strong, b),
+body.post-template .gh-content a :is(em, i, strong, b) {
+    color: inherit;
 }
 
 /* Image inside content — same calm frame as the feature image */
