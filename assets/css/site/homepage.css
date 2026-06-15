@@ -1297,8 +1297,8 @@ main.mm-v2 {
 
 .mm-v2 .mm-v2-hero    { background: var(--surface-1); padding-top: clamp(7rem, 10vw, 11rem); padding-bottom: clamp(6.4rem, 9vw, 10rem); }
 .mm-v2 .mm-intro      { background: var(--surface-0); }
-.mm-v2 .mm-ways       { background: var(--surface-1); }
-.mm-v2 .mm-testimonial{ background: var(--surface-0); padding-block: var(--section-py-tight); }
+.mm-v2 .mm-testimonial{ background: var(--surface-1); padding-block: var(--section-py-tight); }
+.mm-v2 .mm-ways       { background: var(--surface-0); }
 .mm-v2 .mm-bestia     { background: var(--surface-1); }
 .mm-v2 .mm-bocados    { background: var(--surface-0); padding-block: var(--section-py-tight); }
 .mm-v2 .mm-closing    { background: var(--surface-1); }
