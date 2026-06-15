@@ -5,6 +5,15 @@
    the .mm-v2 ruleset.
    ========================================================================== */
 
+/* Smooth in-page scroll for the hero "Escribirme" anchor. Apply to both
+   <html> (which actually owns the scroll on most browsers) and <body>
+   when the conversar page is active. prefers-reduced-motion is honored
+   automatically by the browser. */
+html:has(body.page-conversar),
+body.page-conversar {
+    scroll-behavior: smooth;
+}
+
 /* Hero: continuation of the home CTA, more intimate, less ceremonial. */
 .mm-conv .mm-conv-hero {
     padding-top: clamp(4.4rem, 6vw, 6rem);
