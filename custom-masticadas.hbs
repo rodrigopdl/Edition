@@ -16,7 +16,7 @@ Template Name: Masticadas
                 </h1>
 
                 <div class="mm-hero__lede">
-                    <p>Las masticadas son experiencias de conversación para equipos y organizaciones que necesitan frenar, pensar y abrir conversaciones importantes.</p>
+                    <p>Las masticadas son experiencias de conversación para equipos y organizaciones que necesitan frenar, pensar y abrir conversaciones que vienen necesitando tener.</p>
                     <p>No son charlas tradicionales ni capacitaciones. Son espacios diseñados para mirar lo que está pasando, poner en palabras lo que suele quedar enterrado y encontrar más claridad juntos.</p>
                 </div>
 
@@ -87,13 +87,12 @@ Template Name: Masticadas
             </header>
 
             {{!--
-                Cuando estén disponibles las fotos reales, reemplazar los assets:
-                  - images/masticada-fernandez-secco.webp
-                  - images/masticada-selecta.webp
-                Mientras tanto: talks-wyeworks y talks-lameetup como placeholders
-                visualmente coherentes.
+                Solo se muestran las masticadas con foto propia disponible.
+                Cuando tengas una foto real de Selecta, agregar el asset como
+                "images/masticada-selecta.webp" y descomentar el tercer <figure>
+                de abajo.
             --}}
-            <div class="mm-mast-real__grid">
+            <div class="mm-mast-real__grid mm-mast-real__grid--two">
                 <figure class="mm-mast-real__item">
                     <div class="mm-mast-real__frame">
                         <img
@@ -118,10 +117,11 @@ Template Name: Masticadas
                     <figcaption class="mm-mast-real__caption">WyeWorks</figcaption>
                 </figure>
 
+                {{!--
                 <figure class="mm-mast-real__item">
                     <div class="mm-mast-real__frame">
                         <img
-                            src="{{asset "images/talks-wyeworks.webp"}}"
+                            src="{{asset "images/masticada-selecta.webp"}}"
                             alt="Masticada en Selecta"
                             class="mm-mast-real__img"
                             loading="lazy"
@@ -129,6 +129,7 @@ Template Name: Masticadas
                     </div>
                     <figcaption class="mm-mast-real__caption">Selecta</figcaption>
                 </figure>
+                --}}
             </div>
         </div>
     </section>
@@ -193,6 +194,9 @@ Template Name: Masticadas
                         Si te gustaría llevar una masticada a tu equipo, escribime y contame
                         brevemente qué está pasando. No hace falta que tengas el tema cerrado.
                         Podemos empezar por entender qué conversación tendría sentido abrir.
+                    </p>
+                    <p class="mm-mast-form__byline">
+                        Facilitadas por Rodri, creador de Para Masticar y autor de <em>La Bestia</em>.
                     </p>
                 </header>
 
@@ -281,7 +285,6 @@ Template Name: Masticadas
                     <p id="mm-mast-form-status" class="mm-mast-form__status" role="status" aria-live="polite"></p>
 
                     <p class="mm-mast-form__fallback">
-                        Facilitadas por Rodri, creador de Para Masticar y autor de <em>La Bestia</em>.
                         También podés escribirme a
                         <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.
                     </p>
