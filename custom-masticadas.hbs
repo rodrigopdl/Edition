@@ -29,49 +29,39 @@ Template Name: Masticadas
 
     {{!-- 2. No es una charla. Es una ronda. -------------------------------- --}}
     <section class="mm-mast-what" aria-labelledby="mast-what-title">
-        <div class="mm-canvas">
-            <div class="mm-mast-what__grid">
-                <div class="mm-mast-what__text">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-what__inner">
+                <header class="mm-mast-what__header">
                     <p class="mm-eyebrow">Qué es</p>
                     <h2 class="mm-v2-title" id="mast-what-title">
                         No es una charla. <span class="mm-accent">Es una ronda.</span>
                     </h2>
-                    <div class="mm-prose">
-                        <p>Nos sentamos en ronda, con música tenue de fondo, y masticamos juntos una pregunta, una tensión o un tema que el equipo necesita mirar con más calma.</p>
-                        <p>No hay diapositivas, no hay dinámicas forzadas y no hay recetas genéricas. Hay una conversación guiada, cuidada y suficientemente profunda como para que aparezcan cosas que normalmente no aparecen en la urgencia del día a día.</p>
-                        <p>En un equipo, <em>La Bestia</em> también aparece: cuando postergamos conversaciones, evitamos feedback, callamos ideas o reaccionamos desde el miedo. Una masticada no busca enseñar liderazgo desde un manual. Busca abrir un espacio para mirarse con más honestidad en medio de lo que se vive con otros.</p>
-                    </div>
+                </header>
 
-                    <dl class="mm-mast-what__meta">
-                        <div class="mm-mast-what__meta-item">
-                            <dt>Duración</dt>
-                            <dd>90 a 120 minutos</dd>
-                        </div>
-                        <div class="mm-mast-what__meta-item">
-                            <dt>Formato</dt>
-                            <dd>Ronda, música ambiente, conversación guiada</dd>
-                        </div>
-                        <div class="mm-mast-what__meta-item">
-                            <dt>Grupos</dt>
-                            <dd>Equipos o grupos reducidos</dd>
-                        </div>
-                        <div class="mm-mast-what__meta-item">
-                            <dt>Diseño</dt>
-                            <dd>A medida del momento del equipo</dd>
-                        </div>
-                    </dl>
+                <div class="mm-prose mm-mast-what__prose">
+                    <p>Nos sentamos en ronda, con música tenue de fondo, y masticamos juntos una pregunta, una tensión o un tema que el equipo necesita mirar con más calma.</p>
+                    <p>No hay diapositivas, no hay dinámicas forzadas y no hay recetas genéricas. Hay una conversación guiada, cuidada y suficientemente profunda como para que aparezcan cosas que normalmente no aparecen en la urgencia del día a día.</p>
+                    <p>En un equipo, <em>La Bestia</em> también aparece: cuando postergamos conversaciones, evitamos feedback, callamos ideas o reaccionamos desde el miedo. Una masticada no busca enseñar liderazgo desde un manual. Busca abrir un espacio para mirarse con más honestidad en medio de lo que se vive con otros.</p>
                 </div>
 
-                <figure class="mm-mast-what__figure">
-                    <div class="mm-mast-what__frame">
-                        <img
-                            src="{{asset "images/talks-wyeworks.webp"}}"
-                            alt="Una masticada en curso, equipo conversando en ronda"
-                            class="mm-mast-what__img"
-                            loading="lazy"
-                        >
+                <dl class="mm-mast-what__meta">
+                    <div class="mm-mast-what__meta-item">
+                        <dt>Duración</dt>
+                        <dd>90 a 120 minutos</dd>
                     </div>
-                </figure>
+                    <div class="mm-mast-what__meta-item">
+                        <dt>Formato</dt>
+                        <dd>Ronda, música ambiente, conversación guiada</dd>
+                    </div>
+                    <div class="mm-mast-what__meta-item">
+                        <dt>Grupos</dt>
+                        <dd>Equipos o grupos reducidos</dd>
+                    </div>
+                    <div class="mm-mast-what__meta-item">
+                        <dt>Diseño</dt>
+                        <dd>A medida del momento del equipo</dd>
+                    </div>
+                </dl>
             </div>
         </div>
     </section>
@@ -86,17 +76,11 @@ Template Name: Masticadas
                 </h2>
             </header>
 
-            {{!--
-                Solo se muestran las masticadas con foto propia disponible.
-                Cuando tengas una foto real de Selecta, agregar el asset como
-                "images/masticada-selecta.webp" y descomentar el tercer <figure>
-                de abajo.
-            --}}
-            <div class="mm-mast-real__grid mm-mast-real__grid--two">
+            <div class="mm-mast-real__grid">
                 <figure class="mm-mast-real__item">
                     <div class="mm-mast-real__frame">
                         <img
-                            src="{{asset "images/talks-wyeworks.webp"}}"
+                            src="{{asset "images/masticada-fernandez.jpg"}}"
                             alt="Masticada en Fernández Secco"
                             class="mm-mast-real__img"
                             loading="lazy"
@@ -108,7 +92,7 @@ Template Name: Masticadas
                 <figure class="mm-mast-real__item">
                     <div class="mm-mast-real__frame">
                         <img
-                            src="{{asset "images/talks-lameetup.webp"}}"
+                            src="{{asset "images/masticada-wyeworks.jpg"}}"
                             alt="Masticada en WyeWorks"
                             class="mm-mast-real__img"
                             loading="lazy"
@@ -117,11 +101,10 @@ Template Name: Masticadas
                     <figcaption class="mm-mast-real__caption">WyeWorks</figcaption>
                 </figure>
 
-                {{!--
                 <figure class="mm-mast-real__item">
                     <div class="mm-mast-real__frame">
                         <img
-                            src="{{asset "images/masticada-selecta.webp"}}"
+                            src="{{asset "images/masticada-selecta.png"}}"
                             alt="Masticada en Selecta"
                             class="mm-mast-real__img"
                             loading="lazy"
@@ -129,7 +112,6 @@ Template Name: Masticadas
                     </div>
                     <figcaption class="mm-mast-real__caption">Selecta</figcaption>
                 </figure>
-                --}}
             </div>
         </div>
     </section>
