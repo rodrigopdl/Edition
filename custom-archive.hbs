@@ -3,85 +3,142 @@
 Template Name: Archive
 --}}
 
-<main class="archive-main">
+<main class="homepage-main mm-v2 mm-boc">
 
-    {{!-- Hero Section --}}
-    <section class="archive-hero">
-        <div class="gh-canvas">
-            <h1 class="archive-title">Todos los <span class="accent-word">bocados</span></h1>
-            <p class="archive-description">Explorá el archivo completo organizado por orden de publicación. Usá <button class="archive-search-inline search-trigger">el buscador</button> para encontrar bocados específicos por título, contenido o etiquetas.</p>
-        </div>
-    </section>
+    {{!-- 1. Hero ----------------------------------------------------------- --}}
+    <section class="mm-v2-hero mm-boc-hero" aria-labelledby="boc-title">
+        <div class="mm-canvas mm-canvas--wide">
+            <div class="mm-hero__inner">
+                <p class="mm-eyebrow">Bocados</p>
 
-    {{!-- Random Post Button --}}
-    <section class="archive-random-section">
-        <div class="gh-canvas">
-            <div class="related-random-button-wrapper">
-                <button class="related-random-button" id="randomPostButton">
-                    <span class="random-button-text">Bocado sorpresa</span>
-                    <svg class="random-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 12 20 22 4 22 4 12"></polyline>
-                        <rect x="2" y="7" width="20" height="5"></rect>
-                        <line x1="12" y1="22" x2="12" y2="7"></line>
-                        <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
-                        <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
-                    </svg>
-                </button>
+                <h1 class="mm-hero__title" id="boc-title">
+                    Bocados para <span class="mm-accent">pensar mejor.</span>
+                </h1>
+
+                <div class="mm-hero__lede">
+                    <p>Textos cortos que se leen rápido pero se quedan dando vueltas.</p>
+                </div>
+
+                <div class="mm-actions mm-actions--center">
+                    <a href="#mm-boc-subscribe" class="mm-btn mm-btn--primary mm-btn--lg">Recibirlos por correo</a>
+                </div>
             </div>
         </div>
     </section>
 
-    {{!-- All Posts Archive Grid --}}
-    <section class="archive-grid-section">
-        <div class="archive-grid-container">
-            {{#get "posts" limit="18" as |initial_posts|}}
-                {{#if initial_posts}}
-                    <div class="archive-grid" id="archiveGrid" data-page="1" data-per-page="18">
-                        {{#foreach initial_posts}}
-                        <article class="archive-card">
-                            <a href="{{url}}" class="archive-card-link">
-                                <div class="archive-card-image">
-                                    <div class="archive-card-image-inner">
-                                        {{#if feature_image}}
-                                            <img
-                                                srcset="{{img_url feature_image size="s"}} 400w,
-                                                        {{img_url feature_image size="m"}} 750w"
-                                                sizes="(min-width: 1200px) 360px, (min-width: 768px) 45vw, 90vw"
-                                                src="{{img_url feature_image size="m"}}"
-                                                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                                                loading="lazy"
-                                            >
+    {{!-- 2. Archivo de bocados --------------------------------------------- --}}
+    <section class="mm-boc-archive" id="mm-boc-archive" aria-labelledby="boc-archive-title">
+        <div class="mm-canvas">
+            <header class="mm-boc-archive__header">
+                <p class="mm-eyebrow">Archivo</p>
+                <h2 class="mm-v2-title" id="boc-archive-title">
+                    Últimos <span class="mm-accent">bocados.</span>
+                </h2>
+                <p class="mm-boc-archive__search">
+                    ¿Buscás algo puntual?
+                    <button type="button" class="mm-boc-search__btn search-trigger">
+                        Usá el buscador
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </p>
+            </header>
+
+            <div class="mm-boc-archive__container">
+                {{#get "posts" limit="18" as |initial_posts|}}
+                    {{#if initial_posts}}
+                        <ul class="archive-grid mm-boc-archive__list" id="archiveGrid" data-page="1" data-per-page="18">
+                            {{#foreach initial_posts}}
+                            <li class="archive-card mm-boc-archive__item">
+                                <a href="{{url}}" class="archive-card-link mm-boc-archive__item-link">
+                                    <div class="mm-boc-archive__item-meta">
+                                        <time class="mm-boc-archive__item-date" datetime="{{date format="YYYY-MM-DD"}}">
+                                            {{date format="D MMM YYYY"}}
+                                        </time>
+                                    </div>
+                                    <h3 class="archive-card-title mm-boc-archive__item-title">{{title}}</h3>
+                                    {{#if custom_excerpt}}
+                                        <p class="mm-boc-archive__item-excerpt">{{custom_excerpt}}</p>
+                                    {{else}}
+                                        {{#if excerpt}}
+                                            <p class="mm-boc-archive__item-excerpt">{{excerpt words="28"}}</p>
                                         {{/if}}
-                                    </div>
-                                    <div class="archive-card-overlay">
-                                        <h3 class="archive-card-title">{{title}}</h3>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        {{/foreach}}
-                    </div>
-                    
-                    {{!-- Load More Button --}}
-                    <div class="archive-load-more-wrapper">
-                        <button class="archive-load-more-button" id="loadMoreButton">
-                            <span class="load-more-text">Más bocados</span>
-                            <svg class="load-more-spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" opacity="0.25"/>
-                                <path d="M12 2 A10 10 0 0 1 22 12" opacity="0.75"/>
-                            </svg>
-                        </button>
-                    </div>
-                {{else}}
-                    <p class="archive-empty">No se encontraron bocados.</p>
-                {{/if}}
-            {{/get}}
+                                    {{/if}}
+                                </a>
+                            </li>
+                            {{/foreach}}
+                        </ul>
+
+                        <div class="mm-boc-archive__load-more">
+                            <button class="archive-load-more-button mm-boc-archive__load-more-btn" id="loadMoreButton" type="button">
+                                <span class="load-more-text">Más bocados</span>
+                                <svg class="load-more-spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10" opacity="0.25"/>
+                                    <path d="M12 2 A10 10 0 0 1 22 12" opacity="0.75"/>
+                                </svg>
+                            </button>
+                        </div>
+                    {{else}}
+                        <p class="mm-boc-archive__empty">No se encontraron bocados.</p>
+                    {{/if}}
+                {{/get}}
+            </div>
         </div>
     </section>
 
-    {{> "bottom-cta"}}
+    {{!-- 3. Suscripción ----------------------------------------------------- --}}
+    <section class="mm-boc-subscribe" id="mm-boc-subscribe" aria-labelledby="boc-subscribe-title">
+        <div class="mm-canvas">
+            <div class="mm-boc-subscribe__panel">
+                <header class="mm-boc-subscribe__header">
+                    <p class="mm-eyebrow">Suscribirse</p>
+                    <h2 class="mm-v2-title" id="boc-subscribe-title">
+                        Recibí bocados <span class="mm-accent">para masticar.</span>
+                    </h2>
+                    <p class="mm-boc-subscribe__lede">
+                        Cada miércoles envío un texto breve para frenar, mirar mejor y seguir pensando. Sin ruido, sin recetas. Solo algo que valga la pena masticar. 
+                    </p>
+                    <p class="mm-boc-subscribe__lede">
+                        El primero de cada mes es exclusivo para suscriptores.
+                    </p>
+                </header>
+
+                {{#if @site.members_enabled}}
+                    {{#unless @site.members_invite_only}}
+                        {{#unless @member}}
+                            <form class="mm-boc-subscribe__form" data-members-form>
+                                <label for="mm-boc-email" class="mm-visually-hidden">Tu email</label>
+                                <div class="mm-boc-subscribe__field">
+                                    <input
+                                        id="mm-boc-email"
+                                        class="mm-boc-subscribe__input"
+                                        type="email"
+                                        name="email"
+                                        data-members-email
+                                        placeholder="tu@email.com"
+                                        required="true"
+                                    >
+                                    <button class="mm-boc-subscribe__btn" type="submit" aria-label="Suscribirme a Bocados">
+                                        Suscribirme
+                                    </button>
+                                </div>
+                                <p class="mm-boc-subscribe__note">
+                                    Sin spam. Cancelás cuando quieras.
+                                </p>
+                                <p class="error-message"></p>
+                                <p class="success-message">Listo. Ya estás adentro. Te voy a mandar el próximo bocado.</p>
+                            </form>
+                        {{else}}
+                            <div class="mm-boc-subscribe__member">
+                                <p>Ya estás recibiendo bocados. Gracias por leer.</p>
+                                <a href="#/portal/account" data-portal="account" class="mm-btn mm-btn--ghost">Ver mi cuenta</a>
+                            </div>
+                        {{/unless}}
+                    {{/unless}}
+                {{/if}}
+            </div>
+        </div>
+    </section>
 
 </main>
 
-{{#contentFor "body_class"}}archive-page{{/contentFor}}
-
+{{#contentFor "body_class"}}archive-page homepage-mm-v2 page-bocados{{/contentFor}}

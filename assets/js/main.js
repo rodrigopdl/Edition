@@ -318,11 +318,10 @@ function archiveLoadMore() {
         var apiUrl = window.ghostConfig ? window.ghostConfig.apiUrl : '/ghost/api/content';
         var apiKey = window.ghostConfig ? window.ghostConfig.apiKey : '';
         
-        var url = apiUrl + '/posts/?key=' + apiKey + 
-                  '&limit=' + perPage + 
+        var url = apiUrl + '/posts/?key=' + apiKey +
+                  '&limit=' + perPage +
                   '&page=' + nextPage +
-                  '&include=tags' +
-                  '&fields=id,title,url,feature_image,feature_image_alt';
+                  '&fields=id,title,url,custom_excerpt,excerpt,published_at';
         
         fetch(url)
             .then(function(response) {
@@ -374,60 +373,55 @@ function archiveLoadMore() {
 
 function createArchiveCard(post) {
     'use strict';
-    
-    // Create article element
-    var article = document.createElement('article');
-    article.className = 'archive-card';
-    
-    // Create link
+
+    // Editorial list item: date + title + excerpt, no image.
+    var item = document.createElement('li');
+    item.className = 'archive-card mm-boc-archive__item';
+
     var link = document.createElement('a');
     link.href = post.url;
-    link.className = 'archive-card-link';
-    
-    // Create image container
-    var imageDiv = document.createElement('div');
-    imageDiv.className = 'archive-card-image';
-    
-    // Create image inner container
-    var imageInner = document.createElement('div');
-    imageInner.className = 'archive-card-image-inner';
-    
-    // Create image if available
-    if (post.feature_image) {
-        var img = document.createElement('img');
-        
-        // Generate srcset for responsive images
-        var baseUrl = post.feature_image;
-        var smallUrl = baseUrl.replace(/\/content\/images\//, '/content/images/size/w400/');
-        var mediumUrl = baseUrl.replace(/\/content\/images\//, '/content/images/size/w750/');
-        
-        img.srcset = smallUrl + ' 400w, ' + mediumUrl + ' 750w';
-        img.sizes = '(min-width: 1200px) 360px, (min-width: 768px) 45vw, 90vw';
-        img.src = mediumUrl;
-        img.alt = post.feature_image_alt || post.title;
-        img.loading = 'lazy';
-        
-        imageInner.appendChild(img);
+    link.className = 'archive-card-link mm-boc-archive__item-link';
+
+    // Meta wrapper with date
+    var meta = document.createElement('div');
+    meta.className = 'mm-boc-archive__item-meta';
+
+    if (post.published_at) {
+        var dateObj = new Date(post.published_at);
+        if (!isNaN(dateObj.getTime())) {
+            var time = document.createElement('time');
+            time.className = 'mm-boc-archive__item-date';
+            time.dateTime = dateObj.toISOString().slice(0, 10);
+
+            var months = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+            time.textContent = dateObj.getDate() + ' ' + months[dateObj.getMonth()] + ' ' + dateObj.getFullYear();
+
+            meta.appendChild(time);
+        }
     }
-    
-    imageDiv.appendChild(imageInner);
-    
-    // Create overlay with title
-    var overlay = document.createElement('div');
-    overlay.className = 'archive-card-overlay';
-    
+    link.appendChild(meta);
+
     var title = document.createElement('h3');
-    title.className = 'archive-card-title';
+    title.className = 'archive-card-title mm-boc-archive__item-title';
     title.textContent = post.title;
-    
-    overlay.appendChild(title);
-    imageDiv.appendChild(overlay);
-    
-    // Assemble the card
-    link.appendChild(imageDiv);
-    article.appendChild(link);
-    
-    return article;
+    link.appendChild(title);
+
+    var excerptText = post.custom_excerpt || post.excerpt || '';
+    if (excerptText) {
+        // Trim to ~28 words to match Handlebars excerpt words="28"
+        var words = excerptText.split(/\s+/).filter(Boolean);
+        if (words.length > 28) {
+            excerptText = words.slice(0, 28).join(' ') + '…';
+        }
+        var excerpt = document.createElement('p');
+        excerpt.className = 'mm-boc-archive__item-excerpt';
+        excerpt.textContent = excerptText;
+        link.appendChild(excerpt);
+    }
+
+    item.appendChild(link);
+
+    return item;
 }
 
 function shuffleRelatedPosts() {
