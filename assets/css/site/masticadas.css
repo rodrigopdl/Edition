@@ -1,0 +1,673 @@
+/* ==========================================================================
+   /masticadas — page-specific styles
+   Scoped under .mm-mast (added to <main>) so they never leak elsewhere.
+   Inherits tokens, layout primitives, buttons and typography from .mm-v2.
+   ========================================================================== */
+
+/* --- 1) Hero -------------------------------------------------------- */
+.mm-mast .mm-mast-hero {
+    padding-top: clamp(5rem, 7vw, 7rem);
+    padding-bottom: clamp(4.4rem, 6vw, 6rem);
+}
+
+.mm-mast .mm-mast-hero .mm-hero__title {
+    font-size: clamp(3.6rem, 5.6vw, 6.4rem);
+    max-width: 22ch;
+    margin-bottom: var(--space-6);
+}
+
+.mm-mast .mm-mast-hero .mm-hero__inner > .mm-eyebrow {
+    margin-bottom: var(--space-5);
+    align-self: center;
+}
+
+.mm-mast .mm-mast-hero .mm-hero__lede {
+    font-size: clamp(1.8rem, 1.5vw, 2rem);
+    line-height: 1.65;
+    max-width: 64ch;
+}
+
+.mm-mast .mm-mast-hero .mm-actions {
+    margin-top: var(--space-6);
+}
+
+/* --- 2) What is a masticada ----------------------------------------- */
+.mm-mast .mm-mast-what {
+    padding-block: var(--section-py);
+    background: var(--surface-0);
+    position: relative;
+}
+
+.mm-mast .mm-mast-what::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1160px, calc(100% - 4rem));
+    height: 1px;
+    background: rgba(244, 241, 234, 0.06);
+}
+
+.mm-mast .mm-mast-what__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(3.6rem, 6vw, 6.4rem);
+    align-items: center;
+}
+
+.mm-mast .mm-mast-what__text .mm-v2-title {
+    margin-bottom: var(--space-6);
+}
+
+.mm-mast .mm-mast-what__meta {
+    margin: var(--space-7) 0 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(244, 241, 234, 0.10);
+}
+
+.mm-mast .mm-mast-what__meta-item {
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid rgba(244, 241, 234, 0.10);
+}
+
+.mm-mast .mm-mast-what__meta-item:nth-child(odd) {
+    border-right: 1px solid rgba(244, 241, 234, 0.10);
+    padding-right: var(--space-5);
+}
+
+.mm-mast .mm-mast-what__meta-item:nth-child(even) {
+    padding-left: var(--space-5);
+}
+
+.mm-mast .mm-mast-what__meta-item dt {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin: 0 0 0.6rem;
+    line-height: 1;
+}
+
+.mm-mast .mm-mast-what__meta-item dd {
+    font-family: var(--font-post-body);
+    font-size: 1.55rem;
+    line-height: 1.4;
+    color: var(--ink-2);
+    margin: 0;
+}
+
+.mm-mast .mm-mast-what__figure {
+    margin: 0;
+}
+
+.mm-mast .mm-mast-what__frame {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--surface-2);
+    box-shadow:
+        0 24px 50px -28px rgba(0, 0, 0, 0.5),
+        0 2px 12px rgba(82, 113, 255, 0.06);
+}
+
+.mm-mast .mm-mast-what__frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 4px solid #f1f1f1;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.mm-mast .mm-mast-what__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* --- 3) Real world (photos) ---------------------------------------- */
+.mm-mast .mm-mast-real {
+    padding-block: var(--section-py);
+    background: var(--surface-1);
+    position: relative;
+}
+
+.mm-mast .mm-mast-real::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1160px, calc(100% - 4rem));
+    height: 1px;
+    background: rgba(244, 241, 234, 0.06);
+}
+
+.mm-mast .mm-mast-real__header {
+    max-width: 640px;
+    margin: 0 auto var(--space-8);
+    text-align: center;
+}
+
+.mm-mast .mm-mast-real__header .mm-eyebrow {
+    justify-content: center;
+    margin-bottom: var(--space-4);
+}
+
+.mm-mast .mm-mast-real__header .mm-v2-title {
+    margin: 0;
+    font-size: clamp(2.6rem, 3.4vw, 3.8rem);
+}
+
+.mm-mast .mm-mast-real__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+}
+
+.mm-mast .mm-mast-real__item {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.mm-mast .mm-mast-real__frame {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--surface-2);
+    box-shadow:
+        0 20px 40px -28px rgba(0, 0, 0, 0.5),
+        0 2px 10px rgba(82, 113, 255, 0.05);
+}
+
+.mm-mast .mm-mast-real__frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px solid #f1f1f1;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.mm-mast .mm-mast-real__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.mm-mast .mm-mast-real__caption {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-top: var(--space-2);
+}
+
+/* --- 4) Voices (testimonials) -------------------------------------- */
+.mm-mast .mm-mast-voices {
+    padding-block: var(--section-py);
+    background: var(--surface-0);
+    position: relative;
+    text-align: center;
+}
+
+.mm-mast .mm-mast-voices::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1160px, calc(100% - 4rem));
+    height: 1px;
+    background: rgba(244, 241, 234, 0.06);
+}
+
+.mm-mast .mm-mast-voices > .mm-canvas > .mm-eyebrow {
+    justify-content: center;
+    margin-bottom: var(--space-7);
+}
+
+.mm-mast .mm-mast-voices > .mm-canvas > .mm-eyebrow::after {
+    content: "";
+    width: 2.4rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.6;
+}
+
+.mm-mast .mm-mast-voices__feature {
+    max-width: 760px;
+    margin: 0 auto var(--space-9);
+    padding: 0;
+}
+
+.mm-mast .mm-mast-voices__quote {
+    font-family: var(--font-post-body);
+    font-style: italic;
+    font-size: clamp(2.4rem, 3vw, 3.4rem);
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    border: 0;
+    text-wrap: pretty;
+}
+
+.mm-mast .mm-mast-voices__mark {
+    font-family: var(--font-post-body);
+    font-style: normal;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--brand);
+    line-height: 0;
+    vertical-align: -0.18em;
+    margin-right: 0.05em;
+    display: inline-block;
+}
+
+.mm-mast .mm-mast-voices__cite {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.mm-mast .mm-mast-voices__cite::before {
+    content: "";
+    width: 2.4rem;
+    height: 1px;
+    background: rgba(244, 241, 234, 0.25);
+    margin-bottom: var(--space-2);
+}
+
+.mm-mast .mm-mast-voices__name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+}
+
+.mm-mast .mm-mast-voices__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid rgba(244, 241, 234, 0.10);
+    border-bottom: 1px solid rgba(244, 241, 234, 0.10);
+    text-align: left;
+}
+
+.mm-mast .mm-mast-voices__item {
+    margin: 0;
+    padding: var(--space-6) var(--space-5);
+    border-right: 1px solid rgba(244, 241, 234, 0.10);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.mm-mast .mm-mast-voices__item:last-child {
+    border-right: 0;
+}
+
+.mm-mast .mm-mast-voices__item blockquote {
+    font-family: var(--font-post-body);
+    font-style: italic;
+    font-size: 1.55rem;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-wrap: pretty;
+}
+
+.mm-mast .mm-mast-voices__item figcaption {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+}
+
+/* --- 5) After (what remains) --------------------------------------- */
+.mm-mast .mm-mast-after {
+    padding-block: var(--section-py);
+    background: var(--surface-1);
+    position: relative;
+}
+
+.mm-mast .mm-mast-after::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1160px, calc(100% - 4rem));
+    height: 1px;
+    background: rgba(244, 241, 234, 0.06);
+}
+
+.mm-mast .mm-mast-after .mm-v2-title {
+    margin-bottom: var(--space-6);
+}
+
+/* --- 6) Form ------------------------------------------------------- */
+.mm-mast .mm-mast-form-section {
+    padding-block: var(--section-py-tight);
+    background: var(--surface-1);
+    position: relative;
+}
+
+.mm-mast .mm-mast-form-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1160px, calc(100% - 4rem));
+    height: 1px;
+    background: rgba(244, 241, 234, 0.06);
+}
+
+.mm-mast .mm-mast-form__panel {
+    max-width: 840px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, rgba(244,241,234,0.06) 0%, rgba(244,241,234,0.025) 100%);
+    border: 1px solid rgba(244, 241, 234, 0.12);
+    border-radius: 4px;
+    padding: clamp(3.2rem, 4.4vw, 4.8rem) clamp(3rem, 5.2vw, 5.6rem);
+    position: relative;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.04) inset,
+        0 30px 60px -32px rgba(0, 0, 0, 0.45);
+}
+
+.mm-mast .mm-mast-form__panel::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 4.4rem;
+    height: 2px;
+    background: var(--brand);
+    opacity: 0.85;
+}
+
+.mm-mast .mm-mast-form__header {
+    margin-bottom: var(--space-6);
+}
+
+.mm-mast .mm-mast-form__header .mm-eyebrow {
+    margin-bottom: var(--space-4);
+}
+
+.mm-mast .mm-mast-form__header .mm-v2-title {
+    font-size: clamp(2.6rem, 3.2vw, 3.6rem);
+    margin: 0 0 var(--space-4);
+    text-wrap: balance;
+}
+
+.mm-mast .mm-mast-form__lede {
+    font-family: var(--font-post-body);
+    font-size: 1.65rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 56ch;
+}
+
+.mm-mast .mm-mast-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.mm-mast .mm-mast-form__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+}
+
+.mm-mast .mm-mast-form__row--two {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.mm-mast .mm-mast-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.mm-mast .mm-mast-field__label {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    line-height: 1;
+}
+
+.mm-mast .mm-mast-field__input,
+.mm-mast .mm-mast-field__textarea {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 1.4rem 1.8rem;
+    background: rgba(244, 241, 234, 0.05);
+    border: 1px solid rgba(244, 241, 234, 0.12);
+    border-radius: 6px;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 500;
+    line-height: 1.45;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mm-mast .mm-mast-field__textarea {
+    resize: vertical;
+    min-height: 12rem;
+}
+
+.mm-mast .mm-mast-field__input::placeholder,
+.mm-mast .mm-mast-field__textarea::placeholder {
+    color: var(--ink-4);
+}
+
+.mm-mast .mm-mast-field__input:focus,
+.mm-mast .mm-mast-field__textarea:focus {
+    outline: 0;
+    border-color: var(--brand);
+    background: rgba(244, 241, 234, 0.08);
+    box-shadow: 0 0 0 3px rgba(82, 113, 255, 0.18);
+}
+
+.mm-mast .mm-mast-form .mm-actions {
+    margin-top: var(--space-4);
+    justify-content: flex-start;
+}
+
+.mm-mast .mm-mast-form__honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.mm-mast .mm-mast-form__status {
+    margin: var(--space-4) 0 0;
+    font-family: var(--font-post-body);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: var(--ink-2);
+    min-height: 1.5em;
+    text-wrap: pretty;
+}
+
+.mm-mast .mm-mast-form__status:empty {
+    margin: 0;
+    min-height: 0;
+}
+
+.mm-mast .mm-mast-form__status[data-state="success"] {
+    color: var(--brand);
+}
+
+.mm-mast .mm-mast-form__status[data-state="error"] {
+    color: #ff8b8b;
+}
+
+.mm-mast .mm-mast-form__fallback {
+    margin: var(--space-4) 0 0;
+    font-family: var(--font-post-body);
+    font-size: 1.45rem;
+    line-height: 1.5;
+    color: var(--ink-3);
+}
+
+.mm-mast .mm-mast-form__fallback a {
+    color: var(--ink-2);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s ease;
+}
+
+.mm-mast .mm-mast-form__fallback a:hover {
+    color: var(--brand);
+}
+
+/* --- Responsive ---------------------------------------------------- */
+@media (max-width: 880px) {
+    .mm-mast .mm-mast-what__grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-7);
+    }
+
+    .mm-mast .mm-mast-what__figure {
+        max-width: 420px;
+        margin-inline: auto;
+    }
+
+    .mm-mast .mm-mast-real__grid,
+    .mm-mast .mm-mast-voices__grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .mm-mast .mm-mast-voices__item {
+        border-right: 0;
+        border-bottom: 1px solid rgba(244, 241, 234, 0.10);
+    }
+
+    .mm-mast .mm-mast-voices__item:last-child {
+        border-bottom: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .mm-mast .mm-mast-hero {
+        padding-top: clamp(4.4rem, 10vw, 5.6rem);
+        padding-bottom: clamp(3.6rem, 8vw, 4.8rem);
+    }
+
+    .mm-mast .mm-mast-hero .mm-hero__title {
+        font-size: clamp(2.8rem, 8vw, 3.8rem);
+        line-height: 1.06;
+        letter-spacing: -0.02em;
+    }
+
+    .mm-mast .mm-mast-hero .mm-hero__lede {
+        font-size: 1.55rem;
+        line-height: 1.6;
+    }
+
+    .mm-mast .mm-mast-what__meta {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .mm-mast .mm-mast-what__meta-item:nth-child(odd) {
+        border-right: 0;
+        padding-right: 0;
+    }
+
+    .mm-mast .mm-mast-what__meta-item:nth-child(even) {
+        padding-left: 0;
+    }
+
+    .mm-mast .mm-mast-what__frame::after,
+    .mm-mast .mm-mast-real__frame::after {
+        border-width: 3px;
+    }
+
+    .mm-mast .mm-mast-voices__quote {
+        font-size: 1.95rem;
+    }
+
+    .mm-mast .mm-mast-voices__item {
+        padding: var(--space-5) 0;
+    }
+
+    .mm-mast .mm-mast-voices__item blockquote {
+        font-size: 1.5rem;
+    }
+
+    .mm-mast .mm-mast-real__grid {
+        gap: var(--space-4);
+    }
+
+    .mm-mast .mm-mast-form__panel {
+        padding: var(--space-6) var(--space-5);
+    }
+
+    .mm-mast .mm-mast-form__row--two {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .mm-mast .mm-mast-form__header .mm-v2-title {
+        font-size: 2.2rem;
+    }
+
+    .mm-mast .mm-mast-form__lede {
+        font-size: 1.55rem;
+    }
+
+    .mm-mast .mm-mast-field__label {
+        font-size: 1.1rem;
+        letter-spacing: 0.16em;
+    }
+
+    .mm-mast .mm-mast-field__input,
+    .mm-mast .mm-mast-field__textarea {
+        font-size: 1.5rem;
+        padding: 1.15rem 1.5rem;
+        line-height: 1.4;
+    }
+
+    .mm-mast .mm-mast-field__textarea {
+        min-height: 10rem;
+    }
+}
