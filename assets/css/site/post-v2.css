@@ -30,7 +30,7 @@ body.post-template {
 /* --- Header (hero of the post) ------------------------------------- */
 .mm-post-header {
     padding-top: clamp(5.6rem, 9vw, 9rem);
-    padding-bottom: clamp(3.2rem, 5vw, 4.8rem);
+    padding-bottom: 0;
     text-align: center;
 }
 
@@ -112,7 +112,7 @@ body.post-template .single-media {
 
 /* --- Content (gh-content) ----------------------------------------- */
 .mm-post-content {
-    margin-top: clamp(4rem, 6vw, 6.4rem);
+    margin-top: clamp(3.2rem, 4vw, 4.4rem);
     /* Ghost's shared content.css uses `margin-top: 1.6em * multiplier` between
        blocks. Pull it back so paragraphs breathe without feeling stretched. */
     --content-spacing-multiplier: 0.7;
@@ -162,28 +162,86 @@ body.post-template .mm-post-content h6 {
     margin: clamp(3rem, 4vw, 4.4rem) 0 var(--space-4);
 }
 
-.mm-post-content > blockquote {
-    border-left: 2px solid var(--brand);
-    padding: 0 0 0 var(--space-5);
-    margin: clamp(2.4rem, 3vw, 3.2rem) 0;
+/* Blockquote — editorial pull-quote. Strip the legacy gradient/card look:
+   serif italic with a brand-tinted hairline rule, sitting on the page,
+   consistent with quotes used in home, /conversar and /masticadas. */
+body.post-template .mm-post-content blockquote,
+body.post-template .gh-content blockquote,
+body.post-template .mm-post-content > blockquote {
+    position: relative;
+    padding: var(--space-3) 0 var(--space-3) var(--space-6) !important;
+    margin: clamp(3.2rem, 4vw, 4.4rem) 0 !important;
+    background: none !important;
+    border: 0 !important;
+    border-left: 1px solid rgba(82, 113, 255, 0.55) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: var(--ink) !important;
+    font-family: var(--font-post-body);
     font-style: italic;
-    color: var(--ink-2);
+    font-size: clamp(2rem, 2.2vw, 2.4rem);
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+    text-align: left !important;
 }
 
-.mm-post-content > blockquote.kg-blockquote-alt {
-    border-left: 0;
-    text-align: center;
-    font-size: clamp(2.2rem, 2.6vw, 2.8rem);
+body.post-template .mm-post-content blockquote::before,
+body.post-template .gh-content blockquote::before {
+    content: none !important;
+}
+
+body.post-template .mm-post-content blockquote p,
+body.post-template .gh-content blockquote p {
+    margin: 0 0 var(--space-3) !important;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-style: inherit;
+}
+
+body.post-template .mm-post-content blockquote p:last-child,
+body.post-template .gh-content blockquote p:last-child {
+    margin-bottom: 0 !important;
+}
+
+body.post-template .mm-post-content blockquote cite,
+body.post-template .gh-content blockquote cite {
+    display: block;
+    margin-top: var(--space-4) !important;
+    padding: 0 !important;
+    font-family: var(--font-display);
+    font-style: normal !important;
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3) !important;
+    line-height: 1;
+}
+
+body.post-template .mm-post-content blockquote cite::before,
+body.post-template .gh-content blockquote cite::before {
+    content: "— ";
+    margin-right: 0.2rem;
+}
+
+/* Large alt blockquote: centered pull-quote without the rule */
+body.post-template .mm-post-content blockquote.kg-blockquote-alt,
+body.post-template .gh-content blockquote.kg-blockquote-alt {
+    border-left: 0 !important;
+    padding: 0 !important;
+    margin: clamp(4rem, 5vw, 5.6rem) auto !important;
+    max-width: 32ch;
+    text-align: center !important;
+    font-size: clamp(2.4rem, 2.8vw, 3rem);
     line-height: 1.4;
-    color: var(--ink);
-    padding: 0;
-    margin: clamp(3.6rem, 5vw, 5.6rem) 0;
 }
 
 /* Links — editorial: ink text + brand underline. Reads like a printed
-   reference, not like a marketing CTA. Override legacy .gh-content a too. */
-body.post-template .mm-post-content a:not(.kg-btn):not(.kg-bookmark-container),
-body.post-template .gh-content a:not(.kg-btn):not(.kg-bookmark-container) {
+   reference, not like a marketing CTA. Override legacy .gh-content a too.
+   Exclude paywall CTAs (they live inside .gh-content but are buttons). */
+body.post-template .mm-post-content a:not(.kg-btn):not(.kg-bookmark-container):not(.mm-post-paywall__btn):not(.mm-post-paywall__link):not(.single-cta-button):not(.single-cta-footer),
+body.post-template .gh-content a:not(.kg-btn):not(.kg-bookmark-container):not(.mm-post-paywall__btn):not(.mm-post-paywall__link):not(.single-cta-button):not(.single-cta-footer) {
     color: var(--ink) !important;
     text-decoration: underline !important;
     text-decoration-color: rgba(82, 113, 255, 0.55);
@@ -193,8 +251,8 @@ body.post-template .gh-content a:not(.kg-btn):not(.kg-bookmark-container) {
     transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
-body.post-template .mm-post-content a:not(.kg-btn):not(.kg-bookmark-container):hover,
-body.post-template .gh-content a:not(.kg-btn):not(.kg-bookmark-container):hover {
+body.post-template .mm-post-content a:not(.kg-btn):not(.kg-bookmark-container):not(.mm-post-paywall__btn):not(.mm-post-paywall__link):not(.single-cta-button):not(.single-cta-footer):hover,
+body.post-template .gh-content a:not(.kg-btn):not(.kg-bookmark-container):not(.mm-post-paywall__btn):not(.mm-post-paywall__link):not(.single-cta-button):not(.single-cta-footer):hover {
     color: var(--brand) !important;
     text-decoration-color: var(--brand) !important;
     opacity: 1 !important;
@@ -261,6 +319,7 @@ body.post-template .gh-content i {
     color: var(--brand);
     margin: 0 0 var(--space-4) !important;
     line-height: 1;
+    text-align: center !important;
 }
 
 .mm-post .mm-post-paywall__title {
@@ -273,6 +332,7 @@ body.post-template .gh-content i {
     margin: 0 0 var(--space-5) !important;
     text-wrap: balance;
     max-width: 22ch;
+    text-align: center !important;
 }
 
 .mm-post .mm-post-paywall__title .mm-accent {
@@ -285,10 +345,11 @@ body.post-template .gh-content i {
 .mm-post .mm-post-paywall__text {
     font-family: var(--font-post-body);
     font-size: 1.65rem;
-    line-height: 1.55;
+    line-height: 1.6;
     color: var(--ink-2);
     margin: 0 auto var(--space-7) !important;
     max-width: 48ch;
+    text-align: center !important;
     text-wrap: pretty;
 }
 
@@ -737,10 +798,28 @@ body.post-template .mm-post .share-link:hover {
 
     .mm-post-content > p,
     .mm-post-content > ul,
-    .mm-post-content > ol,
-    .mm-post-content > blockquote {
+    .mm-post-content > ol {
         font-size: 1.7rem;
         line-height: 1.65;
+    }
+
+    body.post-template .mm-post-content blockquote,
+    body.post-template .gh-content blockquote {
+        font-size: 1.75rem !important;
+        padding-left: var(--space-5) !important;
+        margin: clamp(2.4rem, 4vw, 3.2rem) 0 !important;
+    }
+
+    body.post-template .mm-post-content blockquote.kg-blockquote-alt,
+    body.post-template .gh-content blockquote.kg-blockquote-alt {
+        font-size: 2rem !important;
+        max-width: none;
+    }
+
+    body.post-template .mm-post-content blockquote cite,
+    body.post-template .gh-content blockquote cite {
+        font-size: 1.1rem !important;
+        letter-spacing: 0.16em;
     }
 
     .mm-post-content > h2 {
