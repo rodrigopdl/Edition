@@ -1,11 +1,19 @@
-{{> "bottom-cta"}}
-
-{{!-- Post Footer: Related Posts, Comments, and CTA --}}
-{{#if @custom.show_related_posts}}
-    {{> "related-posts"}}
-{{/if}}
-
 {{#post}}
+    {{#if access}}
+        {{!-- Open post: related posts first, then the subscribe block. --}}
+        {{#if @custom.show_related_posts}}
+            {{> "related-posts"}}
+        {{/if}}
+        {{> "bottom-cta"}}
+    {{else}}
+        {{!-- Paywalled post: skip bottom-cta (already shown inline),
+             keep related posts visible after the paywall. --}}
+        {{> "bottom-cta" paywalled=true}}
+        {{#if @custom.show_related_posts}}
+            {{> "related-posts"}}
+        {{/if}}
+    {{/if}}
+
     {{> "comments"}}
 {{/post}}
 

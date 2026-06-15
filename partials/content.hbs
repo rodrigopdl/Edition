@@ -1,26 +1,21 @@
-<article class="single {{post_class}}">
+<article class="single mm-v2 mm-post {{post_class}}">
 
     {{#match @page.show_title_and_feature_image}}
-        <header class="single-header gh-canvas">
+        <header class="single-header mm-post-header gh-canvas">
             {{#is "post"}}
-            <div class="single-meta">
-                <span class="single-meta-item single-meta-date">
+            <div class="single-meta mm-post-meta">
+                <span class="single-meta-item single-meta-date mm-post-meta__date">
                     <time datetime="{{date format="YYYY-MM-DD"}}">
-                        {{date published_at format="DD MMM YYYY"}}
+                        {{date published_at format="D MMM YYYY"}}
                     </time>
                 </span>
-                {{!-- {{#primary_tag}}
-                    <span class="single-meta-item single-meta-tag">
-                        <a class="post-tag post-tag-{{slug}}" href="{{url}}">{{name}}</a>
-                    </span>
-                {{/primary_tag}} --}}
             </div>
             {{/is}}
 
-            <h1 class="single-title">{{title}}</h1>
+            <h1 class="single-title mm-post-title">{{title}}</h1>
 
             {{#if custom_excerpt}}
-                <div class="single-excerpt">
+                <div class="single-excerpt mm-post-excerpt">
                     {{custom_excerpt}}
                 </div>
             {{/if}}
@@ -29,7 +24,7 @@
 
             {{#if feature_image}}
             {{#unless no_image}}
-                <figure class="single-media kg-width-{{width}}">
+                <figure class="single-media mm-post-media kg-width-{{width}}">
                     <img srcset="{{> "srcset"}}" sizes="(min-width: 1023px) 920px, calc(90vw)" src="{{img_url feature_image size="l"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" loading="eager" fetchpriority="high">
                     {{#if feature_image_caption}}
                         <figcaption>{{feature_image_caption}}</figcaption>
@@ -40,13 +35,14 @@
         </header>
     {{/match}}
 
-    <div class="single-content gh-content gh-canvas">
+    <div class="single-content mm-post-content gh-content gh-canvas">
         {{content}}
     </div>
 
     {{#is "post"}}
-        <div class="single-footer gh-canvas">
+        <div class="single-footer mm-post-footer gh-canvas">
             {{> "share"}}
         </div>
     {{/is}}
 </article>
+{{#contentFor "body_class"}}page-mm-post{{/contentFor}}

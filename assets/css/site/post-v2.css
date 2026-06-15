@@ -1,0 +1,818 @@
+/* ==========================================================================
+   Posts (single bocado) — editorial redesign
+   Scoped under .mm-post (added to <article>) and reuses .mm-v2 tokens.
+   Legacy .single-* classes still exist on the markup so the editor card
+   styles in post.css keep applying inside .gh-content.
+   ========================================================================== */
+
+/* The body class is set per-post via partials/content.hbs. Smooth scroll
+   inside posts is not needed; we only need the body context for surface. */
+body.page-mm-post {
+    background: var(--surface-1, #222538);
+}
+
+/* --- Article wrapper ----------------------------------------------- */
+.mm-post {
+    /* Local tokens that mirror .mm-v2 — declared on the article in case
+       .mm-v2 ancestor scoping doesn't apply (e.g. legacy page layout). */
+    --surface-0:  #1d2030;
+    --surface-1:  #222538;
+    --surface-2:  #272a3f;
+    --ink:        #f4f1ea;
+    --ink-2:      #d3cdc0;
+    --ink-3:      #9b9588;
+    --ink-4:      #6b6759;
+    --brand:      #5271ff;
+    --brand-2:    #6f88ff;
+    color: var(--ink);
+}
+
+/* --- Header (hero of the post) ------------------------------------- */
+.mm-post-header {
+    padding-top: clamp(5.6rem, 9vw, 9rem);
+    padding-bottom: clamp(3.2rem, 5vw, 4.8rem);
+    text-align: center;
+}
+
+.mm-post .mm-post-meta {
+    margin: 0 auto var(--space-5);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brand);
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.mm-post .mm-post-meta::before,
+.mm-post .mm-post-meta::after {
+    content: "";
+    width: 2.4rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.5;
+}
+
+.mm-post .mm-post-meta__date {
+    font: inherit;
+}
+
+body.page-mm-post .mm-post .mm-post-title,
+body.post-template.page-mm-post .single-title {
+    font-family: var(--font-display);
+    font-size: clamp(3.4rem, 5.2vw, 5.6rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--ink) !important;
+    margin: 0 auto var(--space-6) !important;
+    max-width: 22ch !important;
+    text-wrap: balance;
+    text-align: center;
+}
+
+.mm-post .mm-post-excerpt {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.85rem, 1.7vw, 2.1rem);
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 56ch;
+    margin: 0 auto;
+    text-wrap: pretty;
+    font-style: italic;
+}
+
+/* Feature image — soft frame, no glow. Override legacy blue box-shadow. */
+body.page-mm-post .mm-post .mm-post-media,
+body.post-template.page-mm-post .single-media {
+    margin: clamp(4rem, 5vw, 6rem) auto 0 !important;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+body.page-mm-post .mm-post .mm-post-media img,
+body.post-template.page-mm-post .single-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow:
+        0 24px 50px -32px rgba(0, 0, 0, 0.45),
+        inset 0 0 0 1px rgba(244, 241, 234, 0.06) !important;
+}
+
+.mm-post .mm-post-media figcaption {
+    margin-top: var(--space-3);
+    padding: 0 var(--space-4);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    text-align: center;
+}
+
+/* --- Content (gh-content) ----------------------------------------- */
+.mm-post-content {
+    margin-top: clamp(4rem, 6vw, 6.4rem);
+    /* Ghost's shared content.css uses `margin-top: 1.6em * multiplier` between
+       blocks. Pull it back so paragraphs breathe without feeling stretched. */
+    --content-spacing-multiplier: 0.7;
+}
+
+.mm-post-content > p,
+.mm-post-content > ul,
+.mm-post-content > ol,
+.mm-post-content > blockquote {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.85rem, 1.6vw, 2.05rem);
+    line-height: 1.7;
+    color: var(--ink);
+}
+
+/* Avoid double spacing — shared theme controls the gap via margin-top. */
+.mm-post-content > p {
+    margin-bottom: 0;
+}
+
+.mm-post-content > h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 3.2vw, 3.4rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: clamp(4rem, 5vw, 5.6rem) 0 var(--space-5);
+}
+
+.mm-post-content > h3 {
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 2.4vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: clamp(3rem, 4vw, 4.4rem) 0 var(--space-4);
+}
+
+.mm-post-content > blockquote {
+    border-left: 2px solid var(--brand);
+    padding: 0 0 0 var(--space-5);
+    margin: clamp(2.4rem, 3vw, 3.2rem) 0;
+    font-style: italic;
+    color: var(--ink-2);
+}
+
+.mm-post-content > blockquote.kg-blockquote-alt {
+    border-left: 0;
+    text-align: center;
+    font-size: clamp(2.2rem, 2.6vw, 2.8rem);
+    line-height: 1.4;
+    color: var(--ink);
+    padding: 0;
+    margin: clamp(3.6rem, 5vw, 5.6rem) 0;
+}
+
+.mm-post-content a:not(.kg-btn):not(.kg-bookmark-container) {
+    color: var(--brand);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+}
+
+.mm-post-content a:not(.kg-btn):not(.kg-bookmark-container):hover {
+    color: var(--brand-2);
+}
+
+.mm-post-content strong {
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.mm-post-content em {
+    color: var(--ink);
+    font-style: italic;
+}
+
+/* Image inside content — same calm frame as the feature image */
+.mm-post-content img {
+    border-radius: 6px;
+}
+
+/* --- Paywall (replaces brash single-cta) -------------------------- */
+.mm-post .mm-post-paywall {
+    max-width: 640px;
+    margin: clamp(4rem, 5vw, 5.6rem) auto !important;
+    padding: clamp(3.2rem, 4vw, 4.8rem) clamp(2.8rem, 4vw, 4rem) !important;
+    background: linear-gradient(180deg, rgba(244,241,234,0.06) 0%, rgba(244,241,234,0.025) 100%) !important;
+    border: 1px solid rgba(244, 241, 234, 0.12) !important;
+    border-radius: 4px !important;
+    text-align: center !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.04) inset,
+        0 24px 48px -32px rgba(0, 0, 0, 0.4) !important;
+}
+
+.mm-post .mm-post-paywall::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4.4rem;
+    height: 2px;
+    background: var(--brand);
+    opacity: 0.85;
+}
+
+.mm-post .mm-post-paywall__eyebrow {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin: 0 0 var(--space-4) !important;
+    line-height: 1;
+}
+
+.mm-post .mm-post-paywall__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 2.8vw, 3rem) !important;
+    font-weight: 600;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    color: var(--ink) !important;
+    margin: 0 0 var(--space-5) !important;
+    text-wrap: balance;
+    max-width: 22ch;
+}
+
+.mm-post .mm-post-paywall__title .mm-accent {
+    color: var(--brand) !important;
+    font-family: var(--font-post-body);
+    font-style: italic;
+    font-weight: 600;
+}
+
+.mm-post .mm-post-paywall__text {
+    font-family: var(--font-post-body);
+    font-size: 1.65rem;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0 auto var(--space-7) !important;
+    max-width: 48ch;
+    text-wrap: pretty;
+}
+
+.mm-post .mm-post-paywall__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    height: 5.2rem;
+    padding: 0 2.6rem !important;
+    margin: 0 auto !important;
+    background: var(--brand);
+    color: #ffffff !important;
+    border: 1px solid var(--brand);
+    border-radius: 999px !important;
+    font-family: var(--font-display);
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    line-height: 1;
+    letter-spacing: 0.01em !important;
+    text-transform: none !important;
+    text-decoration: none !important;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.mm-post .mm-post-paywall__btn:hover {
+    background: var(--brand-2);
+    border-color: var(--brand-2);
+    box-shadow: none !important;
+    transform: translateY(-1px);
+}
+
+.mm-post .mm-post-paywall__link {
+    display: block;
+    margin: var(--space-4) auto 0 !important;
+    color: var(--ink-3) !important;
+    font-family: var(--font-post-body);
+    font-size: 1.45rem !important;
+    text-align: center;
+    text-decoration: underline !important;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s ease;
+}
+
+.mm-post .mm-post-paywall__link:hover {
+    color: var(--brand) !important;
+    text-decoration: underline !important;
+}
+
+/* --- Share buttons (sober editorial) ------------------------------ */
+.mm-post-footer {
+    padding-top: clamp(3.2rem, 4vw, 4.4rem);
+    padding-bottom: clamp(2.4rem, 3vw, 3.6rem);
+    border-top: 1px solid rgba(244, 241, 234, 0.08);
+    margin-top: clamp(4rem, 5vw, 5.6rem);
+}
+
+.mm-post-share {
+    text-align: center;
+}
+
+.mm-post-share__label {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 var(--space-5);
+    line-height: 1;
+}
+
+.mm-post-share__buttons {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.mm-post .mm-post-share__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.4rem;
+    background: transparent;
+    color: var(--ink-2);
+    border: 1px solid rgba(244, 241, 234, 0.14);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.mm-post .mm-post-share__link:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+    background: rgba(82, 113, 255, 0.05);
+}
+
+.mm-post .mm-post-share__link svg,
+.mm-post .mm-post-share__link .icon {
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+/* --- Bottom block (replaces old blue "Liderá siendo vos" stripe) -- */
+.mm-post-bottom {
+    padding-block: clamp(5.6rem, 8vw, 8rem);
+    background: var(--surface-0);
+    position: relative;
+}
+
+.mm-post-bottom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1160px, calc(100% - 4rem));
+    height: 1px;
+    background: rgba(244, 241, 234, 0.06);
+}
+
+.mm-post-bottom__panel {
+    max-width: 760px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, rgba(244,241,234,0.06) 0%, rgba(244,241,234,0.025) 100%);
+    border: 1px solid rgba(244, 241, 234, 0.12);
+    border-radius: 4px;
+    padding: clamp(3.2rem, 4.4vw, 4.8rem) clamp(3rem, 5.2vw, 5.6rem);
+    position: relative;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.04) inset,
+        0 30px 60px -32px rgba(0, 0, 0, 0.45);
+}
+
+.mm-post-bottom__panel::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 4.4rem;
+    height: 2px;
+    background: var(--brand);
+    opacity: 0.85;
+}
+
+.mm-post-bottom__header {
+    margin-bottom: var(--space-6);
+}
+
+.mm-post-bottom__header .mm-eyebrow {
+    margin-bottom: var(--space-4);
+}
+
+.mm-post-bottom__title {
+    font-size: clamp(2.6rem, 3.2vw, 3.4rem);
+    margin: 0 0 var(--space-4);
+    text-wrap: balance;
+}
+
+.mm-post-bottom__lede {
+    font-family: var(--font-post-body);
+    font-size: 1.65rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 56ch;
+}
+
+.mm-post-bottom__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.mm-post-bottom__field {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.mm-post-bottom__input {
+    display: block;
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 1.5rem 2rem;
+    background: rgba(244, 241, 234, 0.05);
+    border: 1px solid rgba(244, 241, 234, 0.12);
+    border-radius: 999px;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mm-post-bottom__input::placeholder {
+    color: var(--ink-4);
+}
+
+.mm-post-bottom__input:focus {
+    outline: 0;
+    border-color: var(--brand);
+    background: rgba(244, 241, 234, 0.08);
+    box-shadow: 0 0 0 3px rgba(82, 113, 255, 0.18);
+}
+
+.mm-post-bottom__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 1.5rem 2.4rem;
+    background: var(--brand);
+    color: #ffffff;
+    border: 1px solid var(--brand);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.mm-post-bottom__btn:hover {
+    background: var(--brand-2);
+    border-color: var(--brand-2);
+    transform: translateY(-1px);
+}
+
+.mm-post-bottom__note {
+    margin: var(--space-2) 0 0;
+    font-family: var(--font-post-body);
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--ink-3);
+}
+
+.mm-post-bottom__form .error-message,
+.mm-post-bottom__form .success-message {
+    margin: var(--space-3) 0 0;
+    font-family: var(--font-post-body);
+    font-size: 1.45rem;
+    line-height: 1.5;
+    min-height: 0;
+}
+
+.mm-post-bottom__form .success-message {
+    display: none;
+    color: var(--brand);
+}
+
+.mm-post-bottom__form .error-message {
+    color: #ff8b8b;
+}
+
+.mm-post-bottom__form.success .success-message {
+    display: block;
+}
+
+/* --- Related posts (editorial list, no images) -------------------- */
+.mm-post-related {
+    padding-block: clamp(5.6rem, 8vw, 8rem);
+    background: var(--surface-1);
+    position: relative;
+}
+
+.mm-post-related::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1160px, calc(100% - 4rem));
+    height: 1px;
+    background: rgba(244, 241, 234, 0.06);
+}
+
+.mm-post-related__header {
+    max-width: 680px;
+    margin: 0 auto clamp(2.8rem, 3.6vw, 4rem);
+    text-align: center;
+}
+
+.mm-post-related__header .mm-eyebrow {
+    justify-content: center;
+    margin-bottom: var(--space-4);
+}
+
+.mm-post-related__title {
+    margin: 0;
+    font-size: clamp(2.4rem, 3vw, 3.2rem);
+}
+
+.mm-post-related__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 760px;
+    border-top: 1px solid rgba(244, 241, 234, 0.10);
+}
+
+.mm-post-related__item {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid rgba(244, 241, 234, 0.10);
+}
+
+/* shuffleRelatedPosts() in main.js hides .related-card by default and only
+   shows 3 with .show. Re-honor that with the right display for our list. */
+.mm-post-related__list[data-shuffle="true"] .mm-post-related__item {
+    display: none;
+}
+
+.mm-post-related__list[data-shuffle="true"] .mm-post-related__item.show {
+    display: block;
+}
+
+.mm-post-related__link {
+    display: block;
+    padding: var(--space-5) 0;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mm-post-related__link:hover .mm-post-related__item-title {
+    color: var(--brand);
+}
+
+.mm-post-related__meta {
+    margin: 0 0 var(--space-3);
+}
+
+.mm-post-related__date {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    line-height: 1;
+}
+
+.mm-post-related__item-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.85rem, 1.9vw, 2.2rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    margin: 0 0 var(--space-3);
+    text-wrap: balance;
+    transition: color 0.2s ease;
+}
+
+.mm-post-related__excerpt {
+    font-family: var(--font-post-body);
+    font-size: 1.55rem;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 60ch;
+    text-wrap: pretty;
+}
+
+/* --- Legacy overrides ---------------------------------------------
+   Paywall legacy classes (.single-cta*) coexist with .mm-post-paywall*
+   on the same element — the latter wins because it carries !important
+   plus equal-or-higher specificity. No standalone .single-cta block
+   needed here. Share legacy colors still need to be neutralized below. */
+
+/* Legacy share styles can override ours — neutralize the loud colors. */
+body.page-mm-post .mm-post .share {
+    background: transparent;
+    padding: 0;
+    display: block;
+    margin-top: 0;
+    text-align: center;
+}
+
+body.page-mm-post .mm-post .share-link,
+body.page-mm-post .mm-post .share-link-whatsapp,
+body.page-mm-post .mm-post .share-link-facebook,
+body.page-mm-post .mm-post .share-link-twitter,
+body.page-mm-post .mm-post .share-link-linkedin,
+body.page-mm-post .mm-post .share-link-copy {
+    height: auto;
+    background-color: transparent !important;
+    color: var(--ink-2);
+    border-radius: 999px;
+    text-transform: none;
+    letter-spacing: 0.01em;
+}
+
+body.page-mm-post .mm-post .share-link:hover {
+    opacity: 1;
+    transform: none;
+}
+
+/* --- Responsive --------------------------------------------------- */
+@media (max-width: 640px) {
+    .mm-post-header {
+        padding-top: clamp(4.4rem, 10vw, 6rem);
+        padding-bottom: clamp(2.4rem, 5vw, 3.6rem);
+    }
+
+    .mm-post .mm-post-title {
+        font-size: clamp(2.8rem, 8vw, 3.8rem);
+        line-height: 1.1;
+    }
+
+    .mm-post .mm-post-excerpt {
+        font-size: 1.6rem;
+    }
+
+    .mm-post .mm-post-meta {
+        font-size: 1.05rem;
+        letter-spacing: 0.16em;
+    }
+
+    .mm-post .mm-post-meta::before,
+    .mm-post .mm-post-meta::after {
+        width: 1.6rem;
+    }
+
+    .mm-post-content > p,
+    .mm-post-content > ul,
+    .mm-post-content > ol,
+    .mm-post-content > blockquote {
+        font-size: 1.7rem;
+        line-height: 1.65;
+    }
+
+    .mm-post-content > h2 {
+        font-size: 2.2rem;
+    }
+
+    .mm-post-content > h3 {
+        font-size: 1.85rem;
+    }
+
+    .mm-post .mm-post-paywall {
+        padding: var(--space-6) var(--space-5);
+    }
+
+    .mm-post .mm-post-paywall__title {
+        font-size: 2rem;
+    }
+
+    .mm-post .mm-post-paywall__text {
+        font-size: 1.5rem;
+    }
+
+    .mm-post .mm-post-paywall__btn {
+        height: 4.6rem;
+        padding: 0 2rem;
+        font-size: 1.4rem;
+    }
+
+    .mm-post .mm-post-paywall__link {
+        display: block;
+        margin-left: 0;
+    }
+
+    .mm-post-share__buttons {
+        gap: var(--space-2);
+    }
+
+    .mm-post .mm-post-share__link {
+        padding: 0.7rem 1.2rem;
+        font-size: 1.2rem;
+    }
+
+    .mm-post-bottom__panel {
+        padding: var(--space-6) var(--space-5);
+    }
+
+    .mm-post-bottom__title {
+        font-size: 2.2rem;
+    }
+
+    .mm-post-bottom__lede {
+        font-size: 1.55rem;
+    }
+
+    .mm-post-bottom__field {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .mm-post-bottom__input,
+    .mm-post-bottom__btn {
+        padding: 1.35rem 1.8rem;
+        font-size: 1.4rem;
+    }
+
+    .mm-post-bottom__btn {
+        width: 100%;
+    }
+
+    .mm-post-related__title {
+        font-size: 2.2rem;
+    }
+
+    .mm-post-related__link {
+        padding: var(--space-4) 0;
+    }
+
+    .mm-post-related__item-title {
+        font-size: 1.75rem;
+    }
+
+    .mm-post-related__excerpt {
+        font-size: 1.45rem;
+    }
+
+    .mm-post-related__date {
+        font-size: 1rem;
+        letter-spacing: 0.14em;
+    }
+}

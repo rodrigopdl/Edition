@@ -1,55 +1,36 @@
-<section class="related-wrapper">
-    <div class="container">
-        
-        {{!-- Related Posts (fetch more for randomization) --}}
-        {{#get "posts" limit="15" filter="tags:[{{post.tags}}]+id:-{{post.id}}" as |related|}}
+<section class="related-wrapper mm-post-related mm-v2">
+    <div class="mm-canvas">
+        {{#get "posts" limit="6" filter="tags:[{{post.tags}}]+id:-{{post.id}}" as |related|}}
         {{#if related}}
-        <div class="related-section">
-            <h3 class="related-title">Seguí masticando...</h3>
-            <div class="related-random-button-wrapper">
-                <button class="related-random-button" id="randomPostButton">
-                    <span class="random-button-text">Bocado sorpresa</span>
-                    <svg class="random-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 12 20 22 4 22 4 12"></polyline>
-                        <rect x="2" y="7" width="20" height="5"></rect>
-                        <line x1="12" y1="22" x2="12" y2="7"></line>
-                        <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
-                        <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
-                    </svg>
-                </button>
-            </div>
-            <h4 class="related-subheading">Bocados relacionados</h4>
-            <div class="related-grid" data-shuffle="true">
-                {{#foreach related}}
-                <article class="related-card" data-related-post>
-                    <a href="{{url}}" class="related-card-link">
-                        <div class="related-card-image">
-                            <div class="related-card-image-inner">
-                                {{#if feature_image}}
-                                    <img
-                                        srcset="{{img_url feature_image size="s"}} 400w,
-                                                {{img_url feature_image size="m"}} 750w"
-                                        sizes="(min-width: 992px) 360px, (min-width: 768px) 45vw, 90vw"
-                                        src="{{img_url feature_image size="m"}}"
-                                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                                        loading="lazy"
-                                    >
-                                {{/if}}
-                            </div>
-                        </div>
-                        <div class="related-card-content">
-                            <h4 class="related-card-title">{{title}}</h4>
-                            {{#if excerpt}}
-                                <p class="related-card-excerpt">{{excerpt words="15"}}</p>
-                            {{/if}}
-                        </div>
-                    </a>
-                </article>
-                {{/foreach}}
-            </div>
-        </div>
+        <header class="mm-post-related__header">
+            <p class="mm-eyebrow">Seguí masticando</p>
+            <h2 class="mm-v2-title mm-post-related__title">
+                Otros <span class="mm-accent">bocados.</span>
+            </h2>
+        </header>
+
+        <ul class="related-grid mm-post-related__list" data-shuffle="true">
+            {{#foreach related}}
+            <li class="related-card mm-post-related__item" data-related-post>
+                <a href="{{url}}" class="related-card-link mm-post-related__link">
+                    <div class="mm-post-related__meta">
+                        <time class="mm-post-related__date" datetime="{{date format="YYYY-MM-DD"}}">
+                            {{date format="D MMM YYYY"}}
+                        </time>
+                    </div>
+                    <h3 class="related-card-title mm-post-related__item-title">{{title}}</h3>
+                    {{#if custom_excerpt}}
+                        <p class="mm-post-related__excerpt">{{custom_excerpt}}</p>
+                    {{else}}
+                        {{#if excerpt}}
+                            <p class="mm-post-related__excerpt">{{excerpt words="24"}}</p>
+                        {{/if}}
+                    {{/if}}
+                </a>
+            </li>
+            {{/foreach}}
+        </ul>
         {{/if}}
         {{/get}}
-        
     </div>
 </section>

@@ -1,25 +1,25 @@
-{{!-- Share buttons for social media --}}
-<div class="share">
-    <p class="share-message">Un bocado puede cambiar un día. Y si lo compartís, quizás cambie dos.</p>
-    <a class="share-link share-link-whatsapp" href="https://api.whatsapp.com/send?text={{encode title}}%20{{url absolute="true"}}" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp">
-        {{> "icons/whatsapp"}}
-        <span>Compartir</span>
-    </a>
-    <a class="share-link share-link-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
-        {{> "icons/facebook"}}
-        <span>Compartir</span>
-    </a>  
-    <a class="share-link share-link-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{url absolute="true"}}" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
-        {{> "icons/linkedin"}}
-        <span>Compartir</span>
-    </a>
-    <a class="share-link share-link-twitter" href="https://twitter.com/intent/tweet?text={{encode title}}&url={{url absolute="true"}}" target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter/X">
-        {{> "icons/twitter"}}
-        <span>Compartir</span>
-    </a>
-    <button class="share-link share-link-copy" data-url="{{url absolute="true"}}" aria-label="Copy link">
-        {{> "icons/copy"}}
-        <span class="copy-text">Link</span>
-    </button>
+<div class="share mm-post-share">
+    <p class="mm-post-share__label">Compartir este bocado</p>
+    <div class="mm-post-share__buttons">
+        <a class="share-link mm-post-share__link" href="https://api.whatsapp.com/send?text={{encode title}}%20{{url absolute="true"}}" target="_blank" rel="noopener noreferrer" aria-label="Compartir en WhatsApp">
+            {{> "icons/whatsapp"}}
+            <span>WhatsApp</span>
+        </a>
+        <a class="share-link mm-post-share__link" href="https://www.linkedin.com/sharing/share-offsite/?url={{url absolute="true"}}" target="_blank" rel="noopener noreferrer" aria-label="Compartir en LinkedIn">
+            {{> "icons/linkedin"}}
+            <span>LinkedIn</span>
+        </a>
+        <a class="share-link mm-post-share__link" href="https://twitter.com/intent/tweet?text={{encode title}}&url={{url absolute="true"}}" target="_blank" rel="noopener noreferrer" aria-label="Compartir en X">
+            {{> "icons/twitter"}}
+            <span>X</span>
+        </a>
+        <a class="share-link mm-post-share__link" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" target="_blank" rel="noopener noreferrer" aria-label="Compartir en Facebook">
+            {{> "icons/facebook"}}
+            <span>Facebook</span>
+        </a>
+        <button class="share-link share-link-copy mm-post-share__link mm-post-share__link--copy" data-url="{{url absolute="true"}}" aria-label="Copiar link">
+            {{> "icons/copy"}}
+            <span class="copy-text">Copiar link</span>
+        </button>
+    </div>
 </div>
-

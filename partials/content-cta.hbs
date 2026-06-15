@@ -1,20 +1,20 @@
 {{{html}}}
 
-<section class="single-cta">
-    {{#has visibility="paid"}}
-        <h2 class="single-cta-title">Este bocado no termina acá...</h2>
-    {{/has}}
-    {{#has visibility="members"}}
-        <h2 class="single-cta-title">Este bocado no termina acá...</h2>
-    {{/has}}
+<section class="single-cta mm-post-paywall">
+    <p class="mm-post-paywall__eyebrow">Solo para suscriptores</p>
+
     {{#has visibility="filter"}}
-        <h2 class="single-cta-title">Este bocado es solo para suscriptores de {{tiers}}</h2>
-    {{/has}}
-    {{#if @member}}
-        <a class="single-cta-button" href="#/portal/account/plans" data-portal="account/plans">Actualizar ahora</a>
+        <h2 class="single-cta-title mm-post-paywall__title">Este bocado sigue <span class="mm-accent">para suscriptores.</span></h2>
+        <p class="mm-post-paywall__text">Este texto es solo para suscriptores de {{tiers}}.</p>
     {{else}}
-        <a class="single-cta-button" href="#/portal/signup" data-portal="signup">Suscribirme para seguir leyendo</a>
-        <br>
-        <a class="single-cta-footer" href="#/portal/signin" data-portal="signin">¿Ya sos parte? Iniciá sesión.</a>
+        <h2 class="single-cta-title mm-post-paywall__title">El resto de este bocado es exclusivo <span class="mm-accent">para suscriptores.</span></h2>
+        <p class="mm-post-paywall__text">El primero de cada mes lo envío solo a quienes están suscriptos.</p>
+    {{/has}}
+
+    {{#if @member}}
+        <a class="single-cta-button mm-post-paywall__btn" href="#/portal/account/plans" data-portal="account/plans">Actualizar ahora</a>
+    {{else}}
+        <a class="single-cta-button mm-post-paywall__btn" href="#/portal/signup" data-portal="signup">Suscribirme para seguir leyendo</a>
+        <a class="single-cta-footer mm-post-paywall__link" href="#/portal/signin" data-portal="signin">¿Ya sos parte? Iniciá sesión.</a>
     {{/if}}
 </section>

@@ -1,33 +1,51 @@
-{{!-- Bottom Newsletter CTA --}}
+{{!--
+    Bottom newsletter block — editorial, consistent with /bocados.
+    When invoked from a post context, the caller can pass `post_access`
+    so we can skip the block on paywalled posts (content-cta is already
+    visible inside the article, avoiding two stacked subscribe asks).
+    Pages/other contexts that don't pass it still render the block.
+--}}
 {{#unless @member}}
-<section class="mm-bottom-cta">
-    <div class="gh-canvas">
-        <div class="mm-cta-content">
-            <div class="mm-cta-text">
-                <h2 class="mm-cta-title">Liderá siendo vos.</h2>
-                <p class="mm-cta-description">
-Cada miércoles, un <em>bocado</em> de liderazgo para conocerte un poco mejor.
-El primero de cada mes es <strong>exclusivo para suscriptores</strong>.
+{{#if @site.members_enabled}}
+{{#unless @site.members_invite_only}}
+{{#unless paywalled}}
+<section class="mm-post-bottom mm-v2">
+    <div class="mm-canvas">
+        <div class="mm-post-bottom__panel">
+            <header class="mm-post-bottom__header">
+                <p class="mm-eyebrow">Suscribirse</p>
+                <h2 class="mm-v2-title mm-post-bottom__title">
+                    Recibí bocados <span class="mm-accent">para masticar.</span>
+                </h2>
+                <p class="mm-post-bottom__lede">
+                    Cada miércoles envío un texto breve para frenar y pensar. Sin ruido, sin recetas. Solo algo que valga la pena <em>masticar</em>.
                 </p>
+            </header>
 
-                <form class="mm-bottom-form" data-members-form>
-                    <div class="mm-form-wrapper">
-                        <input class="mm-email-input" type="email" name="email" data-members-email placeholder="Tu email aquí" required="true">
-                        <button class="mm-submit-btn" type="submit" aria-label="Suscribirse">
-                          Suscribirme
-                        </button>
-                    </div>
-                    <p class="mm-privacy-note">Tu información está protegida y nunca envío spam.</p>
-                    <p class="error-message"></p>
-                    <p class="success-message"></p>
-                </form>
-            </div>
-            
-            <div class="mm-cta-image">
-                <img src="{{asset "images/plate-clear.png"}}" alt="Newsletter Preview" class="mm-phone-image">
-            </div>
+            <form class="mm-post-bottom__form" data-members-form>
+                <label for="mm-post-bottom-email" class="mm-visually-hidden">Tu email</label>
+                <div class="mm-post-bottom__field">
+                    <input
+                        id="mm-post-bottom-email"
+                        class="mm-post-bottom__input"
+                        type="email"
+                        name="email"
+                        data-members-email
+                        placeholder="tu@email.com"
+                        required="true"
+                    >
+                    <button class="mm-post-bottom__btn" type="submit" aria-label="Suscribirme a Bocados">
+                        Suscribirme
+                    </button>
+                </div>
+                <p class="mm-post-bottom__note">Sin spam. Cancelás cuando quieras.</p>
+                <p class="error-message"></p>
+                <p class="success-message">Listo. Ya estás adentro. Te voy a mandar el próximo bocado.</p>
+            </form>
         </div>
     </div>
 </section>
 {{/unless}}
-
+{{/unless}}
+{{/if}}
+{{/unless}}
