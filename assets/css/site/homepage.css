@@ -1635,8 +1635,8 @@ main.mm-v2 {
 .mm-v2 .mm-testimonial__quote {
     font-family: var(--font-post-body);
     font-style: italic;
-    font-size: clamp(2.6rem, 3.2vw, 3.8rem);
-    line-height: 1.35;
+    font-size: clamp(2.1rem, 2.4vw, 2.8rem);
+    line-height: 1.4;
     letter-spacing: -0.005em;
     color: var(--ink);
     margin: 0 auto var(--space-8);
@@ -1644,7 +1644,7 @@ main.mm-v2 {
     border: 0;
     position: relative;
     text-wrap: pretty;
-    max-width: 38ch;
+    max-width: 68ch;
 }
 
 .mm-v2 .mm-testimonial__mark {
