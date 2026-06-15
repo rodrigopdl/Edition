@@ -34,22 +34,25 @@ body.post-template {
     text-align: center;
 }
 
-.mm-post .mm-post-meta {
-    margin: 0 auto var(--space-5);
+body.post-template .mm-post .mm-post-meta,
+body.post-template .single-meta {
+    margin: 0 auto var(--space-5) !important;
     font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--brand);
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    color: var(--brand) !important;
     line-height: 1;
     display: inline-flex;
     align-items: center;
     gap: var(--space-3);
 }
 
-.mm-post .mm-post-meta::before,
-.mm-post .mm-post-meta::after {
+body.post-template .mm-post .mm-post-meta::before,
+body.post-template .mm-post .mm-post-meta::after,
+body.post-template .single-meta::before,
+body.post-template .single-meta::after {
     content: "";
     width: 2.4rem;
     height: 1px;
@@ -57,8 +60,11 @@ body.post-template {
     opacity: 0.5;
 }
 
-.mm-post .mm-post-meta__date {
+body.post-template .mm-post .mm-post-meta__date,
+body.post-template .mm-post .single-meta-item,
+body.post-template .single-meta-item {
     font: inherit;
+    color: var(--brand) !important;
 }
 
 body.post-template .mm-post .mm-post-title,
@@ -174,24 +180,39 @@ body.post-template .mm-post-content h6 {
     margin: clamp(3.6rem, 5vw, 5.6rem) 0;
 }
 
-.mm-post-content a:not(.kg-btn):not(.kg-bookmark-container) {
-    color: var(--brand);
-    text-decoration: underline;
+/* Links — editorial: ink text + brand underline. Reads like a printed
+   reference, not like a marketing CTA. Override legacy .gh-content a too. */
+body.post-template .mm-post-content a:not(.kg-btn):not(.kg-bookmark-container),
+body.post-template .gh-content a:not(.kg-btn):not(.kg-bookmark-container) {
+    color: var(--ink) !important;
+    text-decoration: underline !important;
+    text-decoration-color: rgba(82, 113, 255, 0.55);
     text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
-    transition: color 0.2s ease;
+    text-underline-offset: 5px;
+    opacity: 1 !important;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
-.mm-post-content a:not(.kg-btn):not(.kg-bookmark-container):hover {
-    color: var(--brand-2);
+body.post-template .mm-post-content a:not(.kg-btn):not(.kg-bookmark-container):hover,
+body.post-template .gh-content a:not(.kg-btn):not(.kg-bookmark-container):hover {
+    color: var(--brand) !important;
+    text-decoration-color: var(--brand) !important;
+    opacity: 1 !important;
 }
 
-.mm-post-content strong {
-    color: var(--ink);
-    font-weight: 700;
+/* Bold — warm cream highlight, slightly brighter than body text. */
+body.post-template .mm-post-content strong,
+body.post-template .mm-post-content b,
+body.post-template .gh-content strong,
+body.post-template .gh-content b {
+    color: #ffffff;
+    font-weight: 600;
 }
 
-.mm-post-content em {
+body.post-template .mm-post-content em,
+body.post-template .mm-post-content i,
+body.post-template .gh-content em,
+body.post-template .gh-content i {
     color: var(--ink);
     font-style: italic;
 }
