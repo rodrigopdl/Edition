@@ -740,6 +740,42 @@ body.post-template .gh-content a :is(em, i, strong, b) {
     text-wrap: pretty;
 }
 
+/* Archive link under the list — discreet, editorial. */
+.mm-post-related__footer {
+    margin: var(--space-7) auto 0;
+    max-width: 760px;
+    text-align: center;
+}
+
+.mm-post-related__archive {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding-bottom: 4px;
+    color: var(--brand);
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(82, 113, 255, 0.35);
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.mm-post-related__archive:hover {
+    color: var(--brand-2);
+    border-bottom-color: var(--brand-2);
+}
+
+.mm-post-related__archive span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.mm-post-related__archive:hover span {
+    transform: translateX(4px);
+}
+
 /* --- Legacy overrides ---------------------------------------------
    Paywall legacy classes (.single-cta*) coexist with .mm-post-paywall*
    on the same element — the latter wins because it carries !important
@@ -912,5 +948,13 @@ body.post-template .mm-post .share-link:hover {
     .mm-post-related__date {
         font-size: 1rem;
         letter-spacing: 0.14em;
+    }
+
+    .mm-post-related__footer {
+        margin-top: var(--space-6);
+    }
+
+    .mm-post-related__archive {
+        font-size: 1.3rem;
     }
 }
