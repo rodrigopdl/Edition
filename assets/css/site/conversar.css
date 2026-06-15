@@ -89,6 +89,120 @@
     margin: 0;
 }
 
+/* --- Quote (small, sober, less prominent than home's testimonial) -- */
+.mm-conv .mm-conv-quote {
+    padding-block: var(--section-py-tight);
+    background: var(--surface-0);
+    position: relative;
+    text-align: center;
+}
+
+.mm-conv .mm-conv-quote::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1160px, calc(100% - 4rem));
+    height: 1px;
+    background: rgba(244, 241, 234, 0.06);
+}
+
+.mm-conv .mm-conv-quote__figure {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mm-conv .mm-conv-quote__text {
+    font-family: var(--font-post-body);
+    font-style: italic;
+    font-size: clamp(1.9rem, 2.2vw, 2.4rem);
+    line-height: 1.45;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    margin: 0 auto var(--space-6);
+    padding: 0;
+    border: 0;
+    max-width: 44ch;
+    text-wrap: pretty;
+}
+
+.mm-conv .mm-conv-quote__mark {
+    font-family: var(--font-post-body);
+    font-style: normal;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--brand);
+    line-height: 0;
+    vertical-align: -0.18em;
+    margin-right: 0.05em;
+    display: inline-block;
+}
+
+.mm-conv .mm-conv-quote__cite {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-style: normal;
+    text-align: left;
+}
+
+.mm-conv .mm-conv-quote__avatar {
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f1ece2;
+    flex-shrink: 0;
+    box-shadow:
+        0 6px 14px -8px rgba(0, 0, 0, 0.45),
+        inset 0 0 0 1px rgba(29, 32, 48, 0.06);
+    position: relative;
+}
+
+.mm-conv .mm-conv-quote__avatar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+}
+
+.mm-conv .mm-conv-quote__avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.mm-conv .mm-conv-quote__person {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    line-height: 1.2;
+}
+
+.mm-conv .mm-conv-quote__name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+}
+
+.mm-conv .mm-conv-quote__role {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+}
+
 /* --- Form ----------------------------------------------------------- */
 .mm-conv .mm-conv-form-section {
     padding-block: var(--section-py-tight);
@@ -329,6 +443,31 @@
 
     .mm-conv .mm-conv-path__text {
         font-size: 1.5rem;
+    }
+
+    .mm-conv .mm-conv-quote__text {
+        font-size: 1.7rem;
+        line-height: 1.5;
+    }
+
+    .mm-conv .mm-conv-quote__cite {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-2);
+    }
+
+    .mm-conv .mm-conv-quote__avatar {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .mm-conv .mm-conv-quote__name {
+        font-size: 1.4rem;
+    }
+
+    .mm-conv .mm-conv-quote__role {
+        font-size: 1rem;
+        letter-spacing: 0.12em;
     }
 
     .mm-conv .mm-conv-form__panel {
