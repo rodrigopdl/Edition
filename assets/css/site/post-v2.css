@@ -409,6 +409,8 @@ body.post-template .gh-content a :is(em, i, strong, b) {
 .mm-post-footer {
     padding-top: clamp(3.2rem, 4vw, 4.4rem);
     padding-bottom: clamp(2.4rem, 3vw, 3.6rem);
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
     border-top: 1px solid rgba(244, 241, 234, 0.08);
     margin-top: clamp(4rem, 5vw, 5.6rem);
 }
