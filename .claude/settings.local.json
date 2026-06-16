@@ -22,7 +22,22 @@
       "Bash(grep -n \"^.mm-hero \\\\|^.mm-hero{\\\\|^.mm-hero,\" assets/built/screen.css)",
       "Bash(grep -oE \"\\\\.mm-hero[^a-zA-Z0-9_-][^{,]*\\\\{\" assets/built/screen.css)",
       "Bash(grep -boE \"[^,{}]*mm-section-title[^,{}]*\\\\{[^}]*\\\\}\" assets/built/screen.css)",
-      "Bash(file spectral-regular-*-new.woff2 spectral-italic-*-new.woff2 league-spartan-variable.woff2)"
+      "Bash(file spectral-regular-*-new.woff2 spectral-italic-*-new.woff2 league-spartan-variable.woff2)",
+      "Bash(python3)",
+      "Bash(python3 -c \"from fontTools.ttLib import TTFont; f = TTFont\\('assets/fonts/spectral-italic-600.woff2'\\); cmap = f.getBestCmap\\(\\); print\\('Has é \\(0xE9\\):', 0xE9 in cmap\\); print\\('Has í \\(0xED\\):', 0xED in cmap\\); print\\('Total chars:', len\\(cmap\\)\\); print\\('Name records:'\\); [print\\(' ', r.nameID, r.toUnicode\\(\\)\\) for r in f['name'].names[:6]]\")",
+      "Bash(pip3 install *)",
+      "Bash(sips -g pixelHeight -g pixelWidth assets/images/cover-es.webp assets/images/cover-es.jpg)",
+      "Bash(brew --prefix webp)",
+      "Bash(sips -Z 720 cover-es.jpg --out cover-es-720.jpg)",
+      "Bash(sips -Z 1080 cover-es.jpg --out cover-es-1080.jpg)",
+      "Bash(sips -g pixelHeight -g pixelWidth cover-es-720.jpg cover-es-1080.jpg)",
+      "Bash(rm cover-es-720.jpg cover-es-1080.jpg)",
+      "Bash(sips --resampleWidth 720 cover-es.jpg --out cover-es-720.jpg)",
+      "Bash(sips --resampleWidth 1080 cover-es.jpg --out cover-es-1080.jpg)",
+      "Bash(cwebp -q 82 cover-es-720.jpg -o cover-es-720.webp)",
+      "Bash(cwebp -q 82 cover-es-1080.jpg -o cover-es-1080.webp)",
+      "Bash(cwebp -q 75 cover-es-720.jpg -o cover-es-720-q75.webp)",
+      "Bash(cwebp -q 75 cover-es-1080.jpg -o cover-es-1080-q75.webp)"
     ]
   }
 }

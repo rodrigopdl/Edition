@@ -1159,7 +1159,10 @@ main.mm-v2 {
 
 .mm-v2 .mm-accent {
     color: var(--brand);
-    font-family: var(--font-post-body);
+    /* Safari is picky resolving CSS variables on inline elements that also
+       set font-style. Declare the family literally so the italic file is
+       always reached. */
+    font-family: 'Spectral', Georgia, serif;
     font-style: italic;
     font-weight: 600;
     letter-spacing: -0.01em;
@@ -1371,10 +1374,10 @@ main.mm-v2 {
 }
 
 .mm-v2 .mm-hero__title .mm-accent {
-    display: inline-block;
+    /* Keep plain inline. `inline-block` makes the whole span an atomic box
+       that Safari mobile won't break between its own words, causing the
+       awkward orphan lines we saw on small screens. */
     letter-spacing: -0.015em;
-    /* Spectral has a real italic file (spectral-italic-600.woff2) — keep weight
-       at 600 so Safari uses the actual file and never synthesises italic. */
     font-weight: 600;
 }
 

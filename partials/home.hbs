@@ -144,10 +144,14 @@
             <div class="mm-bestia__grid">
                 <div class="mm-bestia__visual">
                     <img
-                        src="{{asset "images/cover-es.webp"}}"
+                        src="{{asset "images/cover-es-720.webp"}}"
+                        srcset="{{asset "images/cover-es-720.webp"}} 720w, {{asset "images/cover-es-1080.webp"}} 1080w"
+                        sizes="240px"
                         alt="La Bestia, libro de Rodri"
                         class="mm-bestia__book"
                         loading="lazy"
+                        width="720"
+                        height="1152"
                     >
                 </div>
                 <div class="mm-bestia__text">

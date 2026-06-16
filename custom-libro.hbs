@@ -30,11 +30,15 @@ Template Name: La Bestia
                 <figure class="mm-lib-hero__visual">
                     <div class="mm-lib-hero__cover">
                         <img
-                            src="{{asset "images/cover-es.webp"}}"
+                            src="{{asset "images/cover-es-720.webp"}}"
+                            srcset="{{asset "images/cover-es-720.webp"}} 720w, {{asset "images/cover-es-1080.webp"}} 1080w"
+                            sizes="(max-width: 768px) 70vw, 360px"
                             alt="La Bestia, libro de Rodrigo Ponce de León"
                             class="mm-lib-hero__cover-img"
                             loading="eager"
                             fetchpriority="high"
+                            width="720"
+                            height="1152"
                         >
                     </div>
                 </figure>
