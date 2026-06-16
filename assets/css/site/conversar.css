@@ -5,7 +5,7 @@
    the .mm-v2 ruleset.
    ========================================================================== */
 
-/* Smooth in-page scroll for the hero "Escribirme" anchor. Apply to both
+/* Smooth in-page scroll for the hero "Escribime" anchor. Apply to both
    <html> (which actually owns the scroll on most browsers) and <body>
    when the conversar page is active. prefers-reduced-motion is honored
    automatically by the browser. */
