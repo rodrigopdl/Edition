@@ -21,7 +21,8 @@
       "Bash(md5 assets/built/screen.css)",
       "Bash(grep -n \"^.mm-hero \\\\|^.mm-hero{\\\\|^.mm-hero,\" assets/built/screen.css)",
       "Bash(grep -oE \"\\\\.mm-hero[^a-zA-Z0-9_-][^{,]*\\\\{\" assets/built/screen.css)",
-      "Bash(grep -boE \"[^,{}]*mm-section-title[^,{}]*\\\\{[^}]*\\\\}\" assets/built/screen.css)"
+      "Bash(grep -boE \"[^,{}]*mm-section-title[^,{}]*\\\\{[^}]*\\\\}\" assets/built/screen.css)",
+      "Bash(file spectral-regular-*-new.woff2 spectral-italic-*-new.woff2 league-spartan-variable.woff2)"
     ]
   }
 }

@@ -1,51 +1,19 @@
-/* League Spartan - Local fonts for headlines */
+/* League Spartan — variable font, single file covers 100–900 */
 @font-face {
     font-family: 'League Spartan';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 100 900;
     font-display: swap;
-    src: local(""), url("../fonts/league-spartan-500.woff2") format("woff2");
+    src: url("../fonts/league-spartan-variable.woff2") format("woff2");
 }
 
-@font-face {
-    font-family: 'League Spartan';
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: local(""), url("../fonts/league-spartan-600.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: 'League Spartan';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: local(""), url("../fonts/league-spartan-700.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: 'League Spartan';
-    font-style: normal;
-    font-weight: 800;
-    font-display: swap;
-    src: local(""), url("../fonts/league-spartan-800.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: 'League Spartan';
-    font-style: normal;
-    font-weight: 900;
-    font-display: swap;
-    src: local(""), url("../fonts/league-spartan-900.woff2") format("woff2");
-}
-
-/* Spectral - Local fonts for post body content */
+/* Spectral — used for editorial italics and post body */
 @font-face {
     font-family: 'Spectral';
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: local(""), url("../fonts/spectral-regular-400.woff2") format("woff2");
+    src: url("../fonts/spectral-regular-400.woff2") format("woff2");
 }
 
 @font-face {
@@ -53,7 +21,7 @@
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: local(""), url("../fonts/spectral-regular-600.woff2") format("woff2");
+    src: url("../fonts/spectral-regular-600.woff2") format("woff2");
 }
 
 @font-face {
@@ -61,7 +29,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: local(""), url("../fonts/spectral-regular-700.woff2") format("woff2");
+    src: url("../fonts/spectral-regular-700.woff2") format("woff2");
 }
 
 @font-face {
@@ -69,7 +37,7 @@
     font-style: italic;
     font-weight: 400;
     font-display: swap;
-    src: local(""), url("../fonts/spectral-italic-400.woff2") format("woff2");
+    src: url("../fonts/spectral-italic-400.woff2") format("woff2");
 }
 
 @font-face {
@@ -77,7 +45,7 @@
     font-style: italic;
     font-weight: 600;
     font-display: swap;
-    src: local(""), url("../fonts/spectral-italic-600.woff2") format("woff2");
+    src: url("../fonts/spectral-italic-600.woff2") format("woff2");
 }
 
 @font-face {
@@ -85,15 +53,16 @@
     font-style: italic;
     font-weight: 700;
     font-display: swap;
-    src: local(""), url("../fonts/spectral-italic-700.woff2") format("woff2");
+    src: url("../fonts/spectral-italic-700.woff2") format("woff2");
 }
 
+/* Mulish — legacy body sans (kept for backward compat) */
 @font-face {
     font-family: Mulish;
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: local(""), url("../fonts/mulish-v10-latin-regular.woff2") format("woff2"), url("../fonts/mulish-v10-latin-regular.woff") format("woff");
+    src: url("../fonts/mulish-v10-latin-regular.woff2") format("woff2"), url("../fonts/mulish-v10-latin-regular.woff") format("woff");
 }
 
 @font-face {
@@ -101,7 +70,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: local(""), url("../fonts/mulish-v10-latin-700.woff2") format("woff2"), url("../fonts/mulish-v10-latin-700.woff") format("woff");
+    src: url("../fonts/mulish-v10-latin-700.woff2") format("woff2"), url("../fonts/mulish-v10-latin-700.woff") format("woff");
 }
 
 @font-face {
@@ -109,7 +78,7 @@
     font-style: normal;
     font-weight: 800;
     font-display: swap;
-    src: local(""), url("../fonts/mulish-v10-latin-800.woff2") format("woff2"), url("../fonts/mulish-v10-latin-800.woff") format("woff");
+    src: url("../fonts/mulish-v10-latin-800.woff2") format("woff2"), url("../fonts/mulish-v10-latin-800.woff") format("woff");
 }
 
 @font-face {
@@ -117,7 +86,7 @@
     font-style: italic;
     font-weight: 400;
     font-display: swap;
-    src: local(""), url("../fonts/mulish-v10-latin-italic.woff2") format("woff2"), url("../fonts/mulish-v10-latin-italic.woff") format("woff");
+    src: url("../fonts/mulish-v10-latin-italic.woff2") format("woff2"), url("../fonts/mulish-v10-latin-italic.woff") format("woff");
 }
 
 @font-face {
@@ -125,15 +94,16 @@
     font-style: italic;
     font-weight: 700;
     font-display: swap;
-    src: local(""), url("../fonts/mulish-v10-latin-700italic.woff2") format("woff2"), url("../fonts/mulish-v10-latin-700italic.woff") format("woff");
+    src: url("../fonts/mulish-v10-latin-700italic.woff2") format("woff2"), url("../fonts/mulish-v10-latin-700italic.woff") format("woff");
 }
 
+/* Lora — legacy serif (kept for backward compat) */
 @font-face {
     font-family: Lora;
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: local(""), url("../fonts/lora-v23-latin-regular.woff2") format("woff2"), url("../fonts/lora-v23-latin-regular.woff") format("woff");
+    src: url("../fonts/lora-v23-latin-regular.woff2") format("woff2"), url("../fonts/lora-v23-latin-regular.woff") format("woff");
 }
 
 @font-face {
@@ -141,7 +111,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: local(""), url("../fonts/lora-v23-latin-700.woff2") format("woff2"), url("../fonts/lora-v23-latin-700.woff") format("woff");
+    src: url("../fonts/lora-v23-latin-700.woff2") format("woff2"), url("../fonts/lora-v23-latin-700.woff") format("woff");
 }
 
 @font-face {
@@ -149,7 +119,7 @@
     font-style: italic;
     font-weight: 400;
     font-display: swap;
-    src: local(""), url("../fonts/lora-v23-latin-italic.woff2") format("woff2"), url("../fonts/lora-v23-latin-italic.woff") format("woff");
+    src: url("../fonts/lora-v23-latin-italic.woff2") format("woff2"), url("../fonts/lora-v23-latin-italic.woff") format("woff");
 }
 
 @font-face {
@@ -157,5 +127,5 @@
     font-style: italic;
     font-weight: 700;
     font-display: swap;
-    src: local(""), url("../fonts/lora-v23-latin-700italic.woff2") format("woff2"), url("../fonts/lora-v23-latin-700italic.woff") format("woff");
+    src: url("../fonts/lora-v23-latin-700italic.woff2") format("woff2"), url("../fonts/lora-v23-latin-700italic.woff") format("woff");
 }

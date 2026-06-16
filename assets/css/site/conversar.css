@@ -98,6 +98,39 @@ body.page-conversar {
     margin: 0;
 }
 
+/* Sutil link debajo del texto (solo en items que lo necesiten). */
+.mm-conv .mm-conv-path__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: var(--space-3);
+    align-self: flex-start;
+    color: var(--brand);
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(82, 113, 255, 0.35);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.mm-conv .mm-conv-path__link:hover {
+    color: var(--brand-2);
+    border-bottom-color: var(--brand-2);
+}
+
+.mm-conv .mm-conv-path__link span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.mm-conv .mm-conv-path__link:hover span {
+    transform: translateX(3px);
+}
+
 /* --- Quote (supporting moment of trust before the form) ----------- */
 .mm-conv .mm-conv-quote {
     padding-block: var(--section-py);
