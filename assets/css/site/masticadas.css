@@ -4,6 +4,17 @@
    Inherits tokens, layout primitives, buttons and typography from .mm-v2.
    ========================================================================== */
 
+/* Smooth in-page scroll for the hero anchor (#mm-mast-form).
+   Apply to <html>, <body> and the page wrapper to cover every browser's
+   scroll container. prefers-reduced-motion is honored automatically. */
+html:has(.mm-mast),
+html:has(body.page-masticadas),
+body.page-masticadas,
+body:has(.mm-mast),
+.mm-mast {
+    scroll-behavior: smooth;
+}
+
 /* --- 1) Hero -------------------------------------------------------- */
 .mm-mast .mm-mast-hero {
     padding-top: clamp(5rem, 7vw, 7rem);
