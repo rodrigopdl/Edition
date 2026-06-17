@@ -37,7 +37,8 @@
       "Bash(cwebp -q 82 cover-es-720.jpg -o cover-es-720.webp)",
       "Bash(cwebp -q 82 cover-es-1080.jpg -o cover-es-1080.webp)",
       "Bash(cwebp -q 75 cover-es-720.jpg -o cover-es-720-q75.webp)",
-      "Bash(cwebp -q 75 cover-es-1080.jpg -o cover-es-1080-q75.webp)"
+      "Bash(cwebp -q 75 cover-es-1080.jpg -o cover-es-1080-q75.webp)",
+      "Bash(awk 'NR>2050 && NR<2160 && /@media/' assets/css/site/homepage.css)"
     ]
   }
 }
