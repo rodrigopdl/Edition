@@ -1362,7 +1362,7 @@ main.mm-v2 {
     color: var(--ink);
     margin: 0 0 var(--space-7);
     text-wrap: balance;
-    max-width: 16ch;
+    max-width: 17ch;
     /* iOS Safari rendering: stop auto text-size-adjust, force antialiased
        smoothing, opt-in to kerning and ligatures explicitly. */
     -webkit-text-size-adjust: 100%;
