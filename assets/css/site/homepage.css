@@ -1811,16 +1811,17 @@ main.mm-v2 {
 
 /* --- 6) Bocados (compact, paneled) ----------------------------------- */
 .mm-v2 .mm-bocados__panel {
-    background:
-        linear-gradient(180deg,
-            rgba(244, 241, 234, 0.05) 0%,
-            rgba(244, 241, 234, 0.02) 100%);
-    border: 1px solid rgba(244, 241, 234, 0.10);
-    border-radius: 4px;
+    background: #f1ece2;
+    color: var(--ink-on-paper);
+    border: 0;
+    border-radius: 2px;
     padding: clamp(3.6rem, 5vw, 5.6rem) clamp(2.8rem, 5vw, 5rem);
     max-width: 1040px;
     margin-inline: auto;
     position: relative;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.55) inset,
+        0 30px 60px -32px rgba(0, 0, 0, 0.45);
 }
 
 .mm-v2 .mm-bocados__panel::before {
@@ -1844,7 +1845,7 @@ main.mm-v2 {
     font-family: var(--font-display);
     font-size: clamp(2.6rem, 3.2vw, 3.4rem);
     font-weight: 600;
-    color: var(--ink);
+    color: var(--ink-on-paper);
     margin: 0 0 var(--space-4);
     letter-spacing: -0.02em;
     line-height: 1.1;
@@ -1854,13 +1855,24 @@ main.mm-v2 {
     font-family: var(--font-post-body);
     font-size: 1.7rem;
     line-height: 1.6;
-    color: var(--ink-2);
+    color: #4a4d5c;
     margin: 0 0 var(--space-6);
     max-width: 44ch;
 }
 
 .mm-v2 .mm-bocados__text .mm-actions {
     margin-top: 0;
+}
+
+/* Ghost button lives inside the cream panel — invert colors so it reads. */
+.mm-v2 .mm-bocados__panel .mm-btn--ghost {
+    color: var(--ink-on-paper);
+    border-color: rgba(29, 32, 48, 0.22);
+}
+
+.mm-v2 .mm-bocados__panel .mm-btn--ghost:hover {
+    border-color: var(--ink-on-paper);
+    background: rgba(29, 32, 48, 0.04);
 }
 
 .mm-v2 .mm-bocados__form {
@@ -1876,7 +1888,7 @@ main.mm-v2 {
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--ink-3);
+    color: #6a6d7c;
     line-height: 1;
 }
 
@@ -1895,10 +1907,10 @@ main.mm-v2 {
     height: auto;
     margin: 0;
     padding: 1.5rem 2rem;
-    background: rgba(244, 241, 234, 0.05);
-    border: 1px solid rgba(244, 241, 234, 0.10);
+    background: #ffffff;
+    border: 1px solid rgba(29, 32, 48, 0.16);
     border-radius: 999px;
-    color: var(--ink);
+    color: var(--ink-on-paper);
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 500;
@@ -1911,13 +1923,13 @@ main.mm-v2 {
 }
 
 .mm-v2 .mm-bocados__input::placeholder {
-    color: var(--ink-4);
+    color: #9a9da8;
 }
 
 .mm-v2 .mm-bocados__input:focus {
     outline: 0;
     border-color: var(--brand);
-    background: rgba(244, 241, 234, 0.08);
+    background: #ffffff;
     box-shadow: 0 0 0 3px rgba(82, 113, 255, 0.18);
 }
 
@@ -1955,11 +1967,11 @@ main.mm-v2 {
     font-family: var(--font-post-body);
     font-size: 1.4rem;
     line-height: 1.5;
-    color: var(--ink-3);
+    color: #6a6d7c;
 }
 
 .mm-v2 .mm-bocados__note a {
-    color: var(--ink-2);
+    color: var(--ink-on-paper);
     text-decoration: underline;
     text-underline-offset: 4px;
     text-decoration-thickness: 1px;

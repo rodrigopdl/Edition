@@ -58,13 +58,14 @@ body.page-bocados {
 .mm-boc .mm-boc-subscribe__panel {
     max-width: 760px;
     margin: 0 auto;
-    background: linear-gradient(180deg, rgba(244,241,234,0.06) 0%, rgba(244,241,234,0.025) 100%);
-    border: 1px solid rgba(244, 241, 234, 0.12);
-    border-radius: 4px;
+    background: #f1ece2;
+    color: var(--ink-on-paper);
+    border: 0;
+    border-radius: 2px;
     padding: clamp(3.2rem, 4.4vw, 4.8rem) clamp(3rem, 5.2vw, 5.6rem);
     position: relative;
     box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.04) inset,
+        0 1px 0 rgba(255, 255, 255, 0.55) inset,
         0 30px 60px -32px rgba(0, 0, 0, 0.45);
 }
 
@@ -84,19 +85,21 @@ body.page-bocados {
 
 .mm-boc .mm-boc-subscribe__header .mm-eyebrow {
     margin-bottom: var(--space-4);
+    color: #6a6d7c;
 }
 
 .mm-boc .mm-boc-subscribe__header .mm-v2-title {
     font-size: clamp(2.6rem, 3.2vw, 3.6rem);
     margin: 0 0 var(--space-4);
     text-wrap: balance;
+    color: var(--ink-on-paper);
 }
 
 .mm-boc .mm-boc-subscribe__lede {
     font-family: var(--font-post-body);
     font-size: 1.65rem;
     line-height: 1.6;
-    color: var(--ink-2);
+    color: #4a4d5c;
     margin: 0 0 var(--space-4);
     max-width: 56ch;
 }
@@ -108,9 +111,9 @@ body.page-bocados {
 /* Second lede paragraph reads as a sober post-script. */
 .mm-boc .mm-boc-subscribe__lede + .mm-boc-subscribe__lede {
     font-size: 1.5rem;
-    color: var(--ink-3);
+    color: #6a6d7c;
     padding-top: var(--space-4);
-    border-top: 1px solid rgba(244, 241, 234, 0.10);
+    border-top: 1px solid rgba(29, 32, 48, 0.10);
 }
 
 .mm-boc .mm-boc-subscribe__form {
@@ -132,10 +135,10 @@ body.page-bocados {
     height: auto;
     margin: 0;
     padding: 1.5rem 2rem;
-    background: rgba(244, 241, 234, 0.05);
-    border: 1px solid rgba(244, 241, 234, 0.12);
+    background: #ffffff;
+    border: 1px solid rgba(29, 32, 48, 0.16);
     border-radius: 999px;
-    color: var(--ink);
+    color: var(--ink-on-paper);
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 500;
@@ -148,13 +151,13 @@ body.page-bocados {
 }
 
 .mm-boc .mm-boc-subscribe__input::placeholder {
-    color: var(--ink-4);
+    color: #9a9da8;
 }
 
 .mm-boc .mm-boc-subscribe__input:focus {
     outline: 0;
     border-color: var(--brand);
-    background: rgba(244, 241, 234, 0.08);
+    background: #ffffff;
     box-shadow: 0 0 0 3px rgba(82, 113, 255, 0.18);
 }
 
@@ -192,7 +195,7 @@ body.page-bocados {
     font-family: var(--font-post-body);
     font-size: 1.4rem;
     line-height: 1.5;
-    color: var(--ink-3);
+    color: #6a6d7c;
 }
 
 /* Ghost members JS toggles these via class — we style them here. */
@@ -229,7 +232,7 @@ body.page-bocados {
 .mm-boc .mm-boc-subscribe__member p {
     font-family: var(--font-post-body);
     font-size: 1.7rem;
-    color: var(--ink-2);
+    color: #4a4d5c;
     margin: 0;
 }
 
