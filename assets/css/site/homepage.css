@@ -2499,8 +2499,21 @@ main.mm-v2 {
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 500;
-    line-height: 1.2;
+    line-height: 1;
     color: var(--ink);
+}
+
+/* The label text sits in a <span> next to the radio circle. League
+   Spartan has an asymmetric ascender/descender — its glyph box is
+   taller above the baseline than below — so flex's mathematical
+   centering puts the optical center of the text *above* the radio.
+   A tiny nudge down on the span brings the x-height in line with the
+   radio's center, which is what the eye reads as "aligned". */
+.mm-v2 .mm-home-contact__choice-option > span {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    transform: translateY(1px);
 }
 
 .mm-v2 .mm-home-contact__choice-option:hover {
