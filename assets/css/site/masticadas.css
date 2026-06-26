@@ -756,3 +756,132 @@ body:has(.mm-mast),
 .mm-mast .mm-mast-cta__fallback a:hover {
     color: var(--brand);
 }
+
+/* --- 7) Featured masticada (cream paper card, post-hero) -----------
+   Single highlighted entry that anchors the page on the current
+   "masticada del día". Uses the same cream paper vocabulary as the
+   service cards on the home so it reads as one of the recognizable
+   "offerings" of the site, not as a UI banner. */
+.mm-mast .mm-mast-feature {
+    padding-block: clamp(2.4rem, 4vw, 3.6rem);
+    background: var(--surface-0);
+}
+
+.mm-mast .mm-mast-feature__card {
+    position: relative;
+    isolation: isolate;
+    background: #f1ece2;
+    color: var(--ink-on-paper);
+    border-radius: 2px;
+    padding: clamp(3rem, 4.4vw, 4.4rem) clamp(2.6rem, 4vw, 4rem);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.55) inset,
+        0 30px 60px -32px rgba(0, 0, 0, 0.45);
+}
+
+.mm-mast .mm-mast-feature__card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4.4rem;
+    height: 2px;
+    background: var(--brand);
+}
+
+.mm-mast .mm-mast-feature .mm-eyebrow {
+    color: var(--brand);
+    margin: 0 0 var(--space-3);
+}
+
+.mm-mast .mm-mast-feature__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 3vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.022em;
+    color: var(--ink-on-paper);
+    margin: 0 0 var(--space-4);
+    text-wrap: balance;
+}
+
+.mm-mast .mm-mast-feature__text {
+    font-family: var(--font-post-body);
+    font-size: 1.7rem;
+    line-height: 1.6;
+    color: rgba(29, 32, 48, 0.78);
+    margin: 0 0 var(--space-5);
+    max-width: 56ch;
+}
+
+.mm-mast .mm-mast-feature__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    position: relative;
+    padding-top: var(--space-3);
+    color: var(--brand);
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mm-mast .mm-mast-feature__link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.4rem;
+    height: 1px;
+    background: var(--brand);
+    transition: width 0.25s ease;
+}
+
+.mm-mast .mm-mast-feature__link:hover::before {
+    width: 4.4rem;
+}
+
+.mm-mast .mm-mast-feature__link span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.mm-mast .mm-mast-feature__link:hover span {
+    transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+    .mm-mast .mm-mast-feature__title {
+        font-size: clamp(2rem, 6vw, 2.6rem);
+    }
+
+    .mm-mast .mm-mast-feature__text {
+        font-size: 1.55rem;
+    }
+}
+
+/* --- 8) /masticadas-ia — "Ideal para" sub-block --------------------
+   Sits at the end of the "problem" section to flag who the masticada
+   is really for. Uses a small accent rule on the left and a sober
+   tone, distinct from the body prose but still in the same column. */
+.mm-mia .mm-mia-ideal {
+    margin-top: clamp(2.4rem, 3.5vw, 3.2rem);
+    padding: var(--space-5) 0 0 var(--space-5);
+    border-left: 2px solid var(--brand);
+    max-width: 60ch;
+}
+
+.mm-mia .mm-mia-ideal .mm-eyebrow {
+    margin: 0 0 var(--space-3);
+}
+
+.mm-mia .mm-mia-ideal__text {
+    font-family: var(--font-post-body);
+    font-size: 1.75rem;
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0;
+}
