@@ -37,7 +37,198 @@ body.page-bocados {
     margin-top: var(--space-6);
 }
 
-/* --- 2) Subscribe panel -------------------------------------------- */
+/* --- 2) Featured bocado (latest post spotlight) --------------------
+   Split editorial layout: large image on the left, weighty text block
+   on the right. The section is intentionally heavier than the archive
+   list below so the reader's eye lands here first — the most recent
+   bocado is the featured piece of the page, not just another row. */
+.mm-boc .mm-boc-featured {
+    padding-block: clamp(4.4rem, 7vw, 7.2rem);
+    background: var(--surface-0);
+    position: relative;
+}
+
+.mm-boc .mm-boc-featured__inner {
+    max-width: 1080px;
+    margin-inline: auto;
+}
+
+.mm-boc .mm-boc-featured__eyebrow {
+    margin: 0 0 clamp(2.4rem, 3.5vw, 3.6rem);
+}
+
+.mm-boc .mm-boc-featured__card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(3.2rem, 5vw, 6rem);
+    align-items: center;
+}
+
+/* Image: large, editorial, no UI-card chrome. A thin cream mat reads
+   as a pinned photograph on a wall, not as a content card. */
+.mm-boc .mm-boc-featured__media {
+    display: block;
+    padding: 0.6rem;
+    background: #f1f1f1;
+    border-radius: 2px;
+    box-shadow: 0 30px 60px -36px rgba(0, 0, 0, 0.55);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.mm-boc .mm-boc-featured__media:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 36px 72px -36px rgba(0, 0, 0, 0.65);
+}
+
+.mm-boc .mm-boc-featured__img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 1px;
+}
+
+/* No-media variant: collapse the column so the text block takes over,
+   no awkward empty space. */
+.mm-boc .mm-boc-featured__card--no-media {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+    margin-inline: auto;
+}
+
+/* Body — strong hierarchy. Date small, title big, excerpt comfortable,
+   CTA visible. */
+.mm-boc .mm-boc-featured__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mm-boc .mm-boc-featured__date {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    line-height: 1;
+    margin-bottom: var(--space-4);
+}
+
+.mm-boc .mm-boc-featured__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 3.6vw, 4rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    margin: 0 0 var(--space-5);
+    text-wrap: balance;
+}
+
+.mm-boc .mm-boc-featured__title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mm-boc .mm-boc-featured__title a:hover {
+    color: var(--brand);
+}
+
+.mm-boc .mm-boc-featured__excerpt {
+    font-family: var(--font-post-body);
+    font-size: 1.7rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0 0 var(--space-6);
+    max-width: 44ch;
+}
+
+/* CTA: editorial link with a brand-colored rule on top that grows on
+   hover (same pattern as .mm-way__link on the home, so it stays in
+   the site's vocabulary). Bigger and more visible than the previous
+   timid version. */
+.mm-boc .mm-boc-featured__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    position: relative;
+    padding-top: var(--space-3);
+    color: var(--brand);
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mm-boc .mm-boc-featured__cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.8rem;
+    height: 1px;
+    background: var(--brand);
+    transition: width 0.25s ease;
+}
+
+.mm-boc .mm-boc-featured__cta:hover::before {
+    width: 5rem;
+}
+
+.mm-boc .mm-boc-featured__cta span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.mm-boc .mm-boc-featured__cta:hover span {
+    transform: translateX(4px);
+}
+
+/* Tablet — keep two columns but bring them closer. */
+@media (max-width: 880px) {
+    .mm-boc .mm-boc-featured__card {
+        gap: clamp(2.4rem, 4vw, 3.6rem);
+    }
+
+    .mm-boc .mm-boc-featured__title {
+        font-size: clamp(2.4rem, 4.2vw, 3.2rem);
+    }
+}
+
+/* Mobile — stack: image on top, text below. */
+@media (max-width: 640px) {
+    .mm-boc .mm-boc-featured {
+        padding-block: clamp(3.6rem, 8vw, 5rem);
+    }
+
+    .mm-boc .mm-boc-featured__card {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .mm-boc .mm-boc-featured__title {
+        font-size: clamp(2.4rem, 7vw, 3rem);
+        margin-bottom: var(--space-4);
+    }
+
+    .mm-boc .mm-boc-featured__excerpt {
+        font-size: 1.6rem;
+        margin-bottom: var(--space-5);
+    }
+}
+
+/* Stronger transition into the archive: a hairline divider + the
+   archive's existing surface-1 background does the rest of the work.
+   This makes "featured / archive" read as two distinct rhythms. */
+.mm-boc .mm-boc-archive {
+    border-top: 1px solid rgba(244, 241, 234, 0.08);
+}
+
+/* --- 3) Subscribe panel -------------------------------------------- */
 .mm-boc .mm-boc-subscribe {
     padding-block: var(--section-py-tight);
     background: var(--surface-0);

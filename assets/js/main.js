@@ -408,11 +408,14 @@ function createArchiveCard(post) {
 
     var excerptText = post.custom_excerpt || post.excerpt || '';
     if (excerptText) {
-        // Trim to ~28 words to match Handlebars excerpt words="28"
+        // Trim to ~28 words to match Handlebars excerpt words="28".
         var words = excerptText.split(/\s+/).filter(Boolean);
         if (words.length > 28) {
-            excerptText = words.slice(0, 28).join(' ') + '…';
+            excerptText = words.slice(0, 28).join(' ');
         }
+        // Always append an ellipsis so the snippet doesn't feel cut off
+        // mid-sentence (matches server-rendered items above).
+        excerptText = excerptText.replace(/[.,;:\s…]+$/, '') + '…';
         var excerpt = document.createElement('p');
         excerpt.className = 'mm-boc-archive__item-excerpt';
         excerpt.textContent = excerptText;

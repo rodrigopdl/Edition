@@ -26,13 +26,63 @@ Template Name: Archive
         </div>
     </section>
 
-    {{!-- 2. Archivo de bocados --------------------------------------------- --}}
+    {{!-- 2. Bocado destacado (último publicado) ---------------------------- --}}
+    {{#get "posts" limit="1" as |latest|}}
+        {{#if latest}}
+            {{#foreach latest}}
+            <section class="mm-boc-featured" aria-labelledby="boc-featured-title">
+                <div class="mm-canvas">
+                    <article class="mm-boc-featured__inner">
+                        <p class="mm-eyebrow mm-boc-featured__eyebrow">Último bocado</p>
+
+                        <div class="mm-boc-featured__card{{#unless feature_image}} mm-boc-featured__card--no-media{{/unless}}">
+                            {{#if feature_image}}
+                                <a href="{{url}}" class="mm-boc-featured__media" aria-hidden="true" tabindex="-1">
+                                    <img
+                                        srcset="{{> "srcset"}}"
+                                        sizes="(min-width: 1080px) 540px, (min-width: 640px) 50vw, 100vw"
+                                        src="{{img_url feature_image size="l"}}"
+                                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                        class="mm-boc-featured__img"
+                                        loading="lazy"
+                                    >
+                                </a>
+                            {{/if}}
+
+                            <div class="mm-boc-featured__body">
+                                <time class="mm-boc-featured__date" datetime="{{date format="YYYY-MM-DD"}}">
+                                    {{date format="D MMM YYYY"}}
+                                </time>
+                                <h2 class="mm-boc-featured__title" id="boc-featured-title">
+                                    <a href="{{url}}">{{title}}</a>
+                                </h2>
+                                {{#if custom_excerpt}}
+                                    <p class="mm-boc-featured__excerpt">{{custom_excerpt}}…</p>
+                                {{else}}
+                                    {{#if excerpt}}
+                                        <p class="mm-boc-featured__excerpt">{{excerpt words="32"}}…</p>
+                                    {{/if}}
+                                {{/if}}
+                                <a href="{{url}}" class="mm-boc-featured__cta">
+                                    Leer el bocado
+                                    <span aria-hidden="true">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            {{/foreach}}
+        {{/if}}
+    {{/get}}
+
+    {{!-- 3. Archivo de bocados (excluye el destacado de arriba) ------------ --}}
     <section class="mm-boc-archive" id="mm-boc-archive" aria-labelledby="boc-archive-title">
         <div class="mm-canvas">
             <header class="mm-boc-archive__header">
                 <p class="mm-eyebrow">Archivo</p>
                 <h2 class="mm-v2-title" id="boc-archive-title">
-                    Últimos <span class="mm-accent">bocados.</span>
+                    Bocados <span class="mm-accent">anteriores.</span>
                 </h2>
                 <p class="mm-boc-archive__search">
                     ¿Buscás algo puntual?
@@ -57,10 +107,10 @@ Template Name: Archive
                                     </div>
                                     <h3 class="archive-card-title mm-boc-archive__item-title">{{title}}</h3>
                                     {{#if custom_excerpt}}
-                                        <p class="mm-boc-archive__item-excerpt">{{custom_excerpt}}</p>
+                                        <p class="mm-boc-archive__item-excerpt">{{custom_excerpt}}…</p>
                                     {{else}}
                                         {{#if excerpt}}
-                                            <p class="mm-boc-archive__item-excerpt">{{excerpt words="28"}}</p>
+                                            <p class="mm-boc-archive__item-excerpt">{{excerpt words="28"}}…</p>
                                         {{/if}}
                                     {{/if}}
                                 </a>
