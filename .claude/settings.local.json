@@ -42,7 +42,8 @@
       "Bash(git rm *)",
       "Bash(grep -oE \"\\\\.mm-home-contact[^{,]*\" assets/built/screen.css)",
       "Bash(grep -oE \"[^}]{0,80}scroll-behavior:smooth[^}]{0,40}\" assets/built/screen.css)",
-      "Bash(grep -oE \"\\\\.mm-home-contact__choice-option[^{,]*\\\\{[^}]*\\\\}\" assets/built/screen.css)"
+      "Bash(grep -oE \"\\\\.mm-home-contact__choice-option[^{,]*\\\\{[^}]*\\\\}\" assets/built/screen.css)",
+      "Bash(git mv *)"
     ]
   }
 }

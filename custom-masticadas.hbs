@@ -1,6 +1,11 @@
 {{!< default}}
 {{!--
 Template Name: Masticadas
+
+Landing dedicada a la masticada "Cuando la IA despierta a La Bestia".
+Es la oferta destacada del momento, por eso /masticadas la prioriza
+en lugar de funcionar como página paraguas. Mantenemos las imágenes
+y voces de masticadas anteriores como prueba del formato.
 --}}
 
 <main class="homepage-main mm-v2 mm-mast">
@@ -9,65 +14,99 @@ Template Name: Masticadas
     <section class="mm-v2-hero mm-mast-hero" aria-labelledby="mast-title">
         <div class="mm-canvas mm-canvas--wide">
             <div class="mm-hero__inner">
-                <p class="mm-eyebrow">Masticadas</p>
+                <p class="mm-eyebrow">Una masticada</p>
 
                 <h1 class="mm-hero__title" id="mast-title">
-                    Una conversación distinta <span class="mm-accent">para tu equipo.</span>
+                    Cuando la IA despierta a <span class="mm-accent">La&nbsp;Bestia.</span>
                 </h1>
 
                 <div class="mm-hero__lede">
-                    <p>Las masticadas son experiencias para equipos que quieren frenar, encontrarse de otra manera y hablar de lo que la urgencia del día a día no deja aparecer.</p>
-                    <p>Hoy, la conversación que más están necesitando los equipos es sobre la IA: lo que despierta en cada uno, más allá de la herramienta.</p>
+                    <p>Una masticada sobre el lado humano de la IA.</p>
+                    <p>Para equipos que quieren hablar de lo que la IA despierta por dentro: entusiasmo y miedo, identidad y futuro.</p>
                 </div>
 
                 <div class="mm-actions mm-actions--center">
-                    <a href="/masticadas-ia" class="mm-btn mm-btn--primary">Conocer la masticada de IA</a>
+                    <a href="#mm-mast-problem" class="mm-btn mm-btn--primary">Conocer la masticada</a>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 1b. Masticada destacada (la de IA) -------------------------------- --}}
-    <section class="mm-mast-feature" aria-labelledby="mast-feature-title">
+    {{!-- 2. El problema ---------------------------------------------------- --}}
+    <section class="mm-mast-what mm-mast-problem" id="mm-mast-problem" aria-labelledby="mast-problem-title">
         <div class="mm-canvas mm-canvas--narrow">
-            <article class="mm-mast-feature__card">
-                <p class="mm-eyebrow">La masticada de hoy</p>
-                <h2 class="mm-mast-feature__title" id="mast-feature-title">
-                    Cuando la IA despierta a <span class="mm-accent">La&nbsp;Bestia.</span>
-                </h2>
-                <p class="mm-mast-feature__text">
-                    Una experiencia de dos horas para que tu equipo pare y hable de lo que la IA despierta por dentro: el entusiasmo, los miedos, las dudas que casi nunca se conversan. Para vivir el cambio con criterio y entusiasmo, no a las apuradas.
+            <div class="mm-mast-what__inner">
+                <header class="mm-mast-what__header">
+                    <p class="mm-eyebrow">El problema</p>
+                    <h2 class="mm-v2-title" id="mast-problem-title">
+                        Lo que la IA despierta por dentro.
+                    </h2>
+                </header>
+
+                <div class="mm-prose mm-mast-what__prose">
+                    <p>La IA se fue infiltrando en nuestra vida y en nuestras organizaciones. Lo que hace algunos años despertaba curiosidad y asombro, de a poco se volvió algo más incómodo: ya no solo nos sorprende por lo que puede hacer, también nos hace dudar de nuestro trabajo, nuestro valor y nuestro futuro.</p>
+                    <p>Mientras las empresas invierten tiempo y dinero en capacitaciones técnicas, líderes y equipos muchas veces procesan en silencio todo lo que esa IA les remueve por dentro.</p>
+                </div>
+
+                <p class="mm-mast-pullquote">
+                    En cada persona conviven tensiones que casi nunca se ponen en palabras.
                 </p>
-                <a href="/masticadas-ia" class="mm-mast-feature__link">
-                    Conocer esta masticada
-                    <span aria-hidden="true">→</span>
-                </a>
-            </article>
+
+                <ul class="mm-mast-tensions">
+                    <li>
+                        <span>Entusiasmo</span> por lo que la IA puede hacer, mezclado con <span>el miedo a volverse prescindible</span>.
+                    </li>
+                    <li>
+                        <span>Ganas de acompañar al equipo</span> a adaptarse, mientras uno mismo <span>siente confusión al hacerlo</span>.
+                    </li>
+                    <li>
+                        <span>Placer de generar cosas al instante</span>, junto con el temor a <span>perder criterio, profundidad o voz propia</span>.
+                    </li>
+                </ul>
+
+                <div class="mm-prose mm-mast-what__prose">
+                    <p>Cuando esto no se conversa, cada uno lo procesa como puede. El entusiasmo de unos despierta en otros el miedo a quedarse atrás. Hay quien se distancia de la herramienta sin animarse a decir por qué. Y el equipo termina viviendo un mismo cambio, pero por separado, cada cual a solas con la <em>Bestia</em> que la IA le despierta.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    {{!-- 2. No es una charla. Es una ronda. -------------------------------- --}}
+    {{!-- 2b. Ideal para — momento de reconocimiento ---------------------- --}}
+    <section class="mm-mast-ideal" aria-labelledby="mast-ideal-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-ideal__card">
+                <p class="mm-eyebrow">Ideal para</p>
+                <h2 class="mm-mast-ideal__title" id="mast-ideal-title">
+                    Líderes que quieren cuidar cómo su equipo <span class="mm-accent">atraviesa&nbsp;el&nbsp;cambio.</span>
+                </h2>
+                <p class="mm-mast-ideal__text">
+                    Líderes que se preocupan por su gente y no quieren que la IA sea solo una herramienta más a implementar. Quieren acompañar lo que el cambio despierta por dentro, cultivar conversaciones más profundas y sostener el pensamiento crítico en sus equipos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 3. La masticada --------------------------------------------------- --}}
     <section class="mm-mast-what" id="mm-mast-what" aria-labelledby="mast-what-title">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-mast-what__inner">
                 <header class="mm-mast-what__header">
-                    <p class="mm-eyebrow">Qué es</p>
+                    <p class="mm-eyebrow">La masticada</p>
                     <h2 class="mm-v2-title" id="mast-what-title">
                         Una ronda alrededor de <span class="mm-accent">La&nbsp;Bestia.</span>
                     </h2>
                 </header>
 
                 <div class="mm-prose mm-mast-what__prose">
-                    <p>Nos sentamos en ronda, con música tenue de fondo. Abro con un relato personal y cuidado de unos 45 minut os: la historia de Para masticar, mi llegada al mundo del liderazgo y cómo descubrí <em>La Bestia</em>.</p>
-                    <p>A partir de ese relato, masticamos juntos las ideas que aparecen: las cosas que nos frenan, las que postergamos, las formas en que intentamos liderar y lo que pasa cuando empezamos a mirarnos con más honestidad.</p>
-                    <p>No es una charla tradicional ni una capacitación. No hay diapositivas, no hay dinámicas forzadas y no hay recetas genéricas. Hay una experiencia guiada, cuidada y suficientemente profunda como para que aparezcan preguntas que no suelen tener lugar en la urgencia del día a día.</p>
-                    <p>Cada participante se lleva una copia de <em>La Bestia</em> para seguir masticando.</p>
+                    <p><em>Cuando la IA despierta a La Bestia</em> es una experiencia de dos horas para equipos que eligen parar y hablar de lo que la IA despierta en cada uno. Nos sentamos en ronda, sin pantallas ni laptops abiertas, con un jazz tenue de fondo. Abro contando mi propia lucha con <em>La Bestia</em> —el miedo, la resistencia, las ganas de que todo siga igual— y las herramientas que me fueron ayudando a domarla.</p>
+                    <p>A partir de ese relato facilito una masticada: una conversación grupal que toma forma y color según las vivencias y contradicciones de cada equipo. No hay diapositivas, ni dinámicas forzadas, ni recetas. Nadie está obligado a hablar: algunos participan más desde la escucha y otros se involucran más, pero todos se enriquecen del intercambio. La idea no es exponer a nadie, sino crear un espacio donde el que quiera, pueda hablar de lo que la urgencia del día a día no deja aparecer.</p>
+                    <p>Lo que pasa en una masticada no termina en esas dos horas. Alguien que casi no habla en las reuniones se anima a poner en palabras algo que venía masticando solo. Dos personas que trabajan hace años descubren que sentían lo mismo y nunca se lo habían dicho. De a poco, el equipo encuentra un lenguaje común para hablar de la IA con más naturalidad, y empieza a verla con otros ojos: ya no solo como una amenaza, sino también como una invitación a recuperar el control y vivir el cambio con criterio y entusiasmo.</p>
                 </div>
 
                 <dl class="mm-mast-what__meta">
                     <div class="mm-mast-what__meta-item">
                         <dt>Duración</dt>
-                        <dd>90 a 120 minutos</dd>
+                        <dd>2 horas</dd>
                     </div>
                     <div class="mm-mast-what__meta-item">
                         <dt>Formato</dt>
@@ -79,25 +118,80 @@ Template Name: Masticadas
                     </div>
                     <div class="mm-mast-what__meta-item">
                         <dt>Foco</dt>
-                        <dd>Liderazgo, autoconocimiento y <em>La Bestia</em></dd>
+                        <dd>El lado humano de la IA</dd>
+                    </div>
+                    <div class="mm-mast-what__meta-item mm-mast-what__meta-item--full">
+                        <dt>Incluye</dt>
+                        <dd>Un ejemplar de <a href="/bestia"><em>La&nbsp;Bestia</em></a> para cada participante</dd>
                     </div>
                 </dl>
-                <br>
-                <div class="mm-prose mm-mast-what__prose">
-                    <em>*Además de la masticada sobre IA, diseño masticadas a medida sobre los temas que cada equipo necesite. Si tenés algo puntual en mente, escribime y lo pensamos juntos.</em>
-                </div>
             </div>
         </div>
     </section>
 
-    {{!-- 3. Masticadas que ya pasaron -------------------------------------- --}}
+    {{!-- 3b. Testimonio — puente humano antes de los resultados ----------
+         Mismo patrón que .mm-testimonial de la home para coherencia visual.
+         La imagen de Joaquín todavía no existe; usamos Jose.webp como
+         placeholder hasta que el archivo definitivo esté subido. --}}
+    <section class="mm-testimonial" aria-labelledby="mast-testimonial-title">
+        <div class="mm-canvas">
+            <p class="mm-eyebrow mm-eyebrow--muted">Testimonio</p>
+            <figure class="mm-testimonial__figure">
+                <blockquote class="mm-testimonial__quote" id="mast-testimonial-title">
+                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>Muy buena participación, en un ambiente de respeto, compañerismo y crecimiento.
+                </blockquote>
+                <figcaption class="mm-testimonial__cite">
+                    <div class="mm-testimonial__avatar">
+                        <img
+                            src="{{asset "images/joaco.jpeg"}}"
+                            alt="Joaquín Fernández, Socio en Fernández Secco &amp; Asociados"
+                            class="mm-testimonial__avatar-img"
+                            width="120"
+                            height="120"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="mm-testimonial__person">
+                        <span class="mm-testimonial__name">Joaquín Fernández</span>
+                        <span class="mm-testimonial__role">Socio en Fernández Secco &amp; Asociados</span>
+                    </div>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    {{!-- 4. Qué deja ------------------------------------------------------- --}}
+    <section class="mm-mast-outcomes" aria-labelledby="mast-outcomes-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-outcomes__panel">
+                <header class="mm-mast-what__header">
+                    <p class="mm-eyebrow">Qué deja</p>
+                    <h2 class="mm-v2-title" id="mast-outcomes-title">
+                        Lo que un equipo se lleva.
+                    </h2>
+                </header>
+
+                <ul class="mm-mast-outcomes__list">
+                    <li>Más agencia frente a la IA: pasar de sentir el cambio como amenaza a vivirlo como decisión.</li>
+                    <li>Menos silencio: lo que estaba enterrado bajo la urgencia encuentra lugar para conversarse.</li>
+                    <li>Más criterio para decidir cómo, dónde y por qué incorporar la herramienta.</li>
+                    <li>Más empatía entre personas con distintos niveles de entusiasmo o resistencia.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 5. Así se vive una masticada (prueba del formato, no de IA) ------ --}}
     <section class="mm-mast-real" aria-labelledby="mast-real-title">
         <div class="mm-canvas">
             <header class="mm-mast-real__header">
                 <p class="mm-eyebrow">Experiencias</p>
                 <h2 class="mm-v2-title" id="mast-real-title">
-                    Masticadas que ya <span class="mm-accent">pasaron.</span>
+                    Así se vive una masticada.
                 </h2>
+                <p class="mm-mast-real__intro">
+                    Estas imágenes y voces vienen de distintas masticadas facilitadas en equipos y organizaciones. Los temas pueden cambiar, pero el espíritu es el mismo: crear un espacio cuidado para frenar, conversar y mirar con más honestidad lo que normalmente queda debajo de la urgencia.
+                </p>
             </header>
 
             <div class="mm-mast-real__grid">
@@ -140,11 +234,19 @@ Template Name: Masticadas
         </div>
     </section>
 
-    {{!-- 4. Voces ----------------------------------------------------------- --}}
+    {{!-- 6. Voces (testimonios del formato, no de IA) ---------------------- --}}
     <section class="mm-mast-voices" aria-labelledby="mast-voices-title">
         <div class="mm-canvas">
-            <p class="mm-eyebrow mm-eyebrow--muted" id="mast-voices-title">Sensaciones</p>
+            <header class="mm-mast-voices__header">
+                <p class="mm-eyebrow mm-eyebrow--muted">Sensaciones</p>
+                <h2 class="mm-mast-voices__heading" id="mast-voices-title">
+                    Lo que queda <span class="mm-accent">después.</span>
+                </h2>
+            </header>
 
+            {{!-- Featured quote: the most personal, longest reflection.
+                 Anchors the section with weight before the two supporting
+                 voices below. --}}
             <figure class="mm-mast-voices__feature">
                 <blockquote class="mm-mast-voices__quote">
                     <span class="mm-mast-voices__mark" aria-hidden="true">“</span>Me iba imaginando situaciones personales y profesionales, replanteándome un montón de cosas, o planteándomelas desde un punto que no sabía que existía. Abriste varios frentes en los que quiero trabajar para conseguir una mejor versión de mí.
@@ -154,7 +256,8 @@ Template Name: Masticadas
                 </figcaption>
             </figure>
 
-            <div class="mm-mast-voices__grid">
+            {{!-- Supporting quotes: two columns, shorter, calmer. --}}
+            <div class="mm-mast-voices__grid mm-mast-voices__grid--two">
                 <figure class="mm-mast-voices__item">
                     <blockquote>Queda esa sensación de que hay mucho más para hablar, como que queda corto el espacio, pero en el buen sentido. Ganas de seguir compartiendo sobre estos temas.</blockquote>
                     <figcaption>Federico</figcaption>
@@ -164,17 +267,44 @@ Template Name: Masticadas
                     <blockquote>Se generó un ambiente muy lindo, y la música fue clave en eso. Comencé a leer el libro y me suscribí al blog. Siento que tu trabajo puede ser un gran aporte.</blockquote>
                     <figcaption>Carolina</figcaption>
                 </figure>
-
-                <figure class="mm-mast-voices__item">
-                    <blockquote>Muy buena participación, en un ambiente de respeto, compañerismo y crecimiento.</blockquote>
-                    <figcaption>Joaquín</figcaption>
-                </figure>
             </div>
         </div>
     </section>
 
-    {{!-- 5. CTA final — link al formulario de contacto de la home -------- --}}
-    <section class="mm-mast-cta" aria-labelledby="mast-cta-title">
+    {{!-- 7. Quién soy ------------------------------------------------------ --}}
+    <section class="mm-intro" aria-labelledby="mast-intro-title">
+        <div class="mm-canvas">
+            <div class="mm-intro__grid">
+                <figure class="mm-intro__figure">
+                    <div class="mm-intro__frame">
+                        <img
+                            src="{{asset "images/rodri3.jpg"}}"
+                            alt="Rodri"
+                            class="mm-intro__img"
+                            width="900"
+                            height="1100"
+                            loading="lazy"
+                        >
+                    </div>
+                </figure>
+
+                <div class="mm-intro__text">
+                    <p class="mm-eyebrow">Quién soy</p>
+                    <h2 class="mm-v2-title" id="mast-intro-title">
+                        Hola, <span class="mm-accent">soy Rodri.</span>
+                    </h2>
+                    <div class="mm-prose mm-prose--intro">
+                        <p>Durante más de una década trabajé en WyeWorks, una consultora de software uruguaya. Empecé como desarrollador, pero con los años mi rol fue mutando: terminé siendo acompañante estratégico del CEO.</p>
+                        <p>En el camino descubrí que los problemas más difíciles casi nunca eran técnicos, sino humanos. Y que empezaban por mí. Para liderar a otros, primero tenía que aprender a liderarme a mí mismo. A reconocer esa fuerza interior que nos frena y nos hace dudar —la que llamo <em>La Bestia</em>— y a domarla.</p>
+                        <p>No llego a esto desde el lugar del experto que enseña, sino desde el de alguien que comparte su propia búsqueda. <em>Para masticar</em> nació para eso, y con el tiempo me llevó a publicar un libro, dar charlas y crear formas distintas de seguir masticando, en voz alta y acompañado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 8. CTA final ------------------------------------------------------ --}}
+    <section class="mm-mast-cta" id="mm-mast-cta" aria-labelledby="mast-cta-title">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-mast-cta__inner">
                 <p class="mm-eyebrow">Hablemos</p>
@@ -182,13 +312,17 @@ Template Name: Masticadas
                     ¿Querés llevar esta masticada <span class="mm-accent">a tu equipo?</span>
                 </h2>
                 <p class="mm-mast-cta__lede">
-                    Si te gustaría, escribime y contame en pocas líneas quiénes son y por qué te interesa. No hace falta tener nada cerrado.
+                    Escribime y contame en pocas líneas quiénes son y por qué te interesa. No hace falta tener nada cerrado.
                 </p>
                 <div class="mm-actions mm-actions--center">
                     <a href="/?tipo=masticada#mm-home-contact" class="mm-btn mm-btn--primary mm-btn--lg">
-                        Solicitar una masticada
+                        Contame de tu equipo
                     </a>
                 </div>
+                <p class="mm-mast-cta__fallback">
+                    También podés escribirme a
+                    <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.
+                </p>
             </div>
         </div>
     </section>
