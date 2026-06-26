@@ -38,7 +38,10 @@
       "Bash(cwebp -q 82 cover-es-1080.jpg -o cover-es-1080.webp)",
       "Bash(cwebp -q 75 cover-es-720.jpg -o cover-es-720-q75.webp)",
       "Bash(cwebp -q 75 cover-es-1080.jpg -o cover-es-1080-q75.webp)",
-      "Bash(awk 'NR>2050 && NR<2160 && /@media/' assets/css/site/homepage.css)"
+      "Bash(awk 'NR>2050 && NR<2160 && /@media/' assets/css/site/homepage.css)",
+      "Bash(git rm *)",
+      "Bash(grep -oE \"\\\\.mm-home-contact[^{,]*\" assets/built/screen.css)",
+      "Bash(grep -oE \"[^}]{0,80}scroll-behavior:smooth[^}]{0,40}\" assets/built/screen.css)"
     ]
   }
 }

@@ -11,13 +11,13 @@
                 </h1>
 
                 <div class="mm-hero__lede">
-                    <p>Trabajo con líderes, founders y equipos que quieren pensar con más profundidad lo que están viviendo: las decisiones que tienen entre manos, los cambios que enfrentan, las ideas que quieren llevar adelante.</p>
-                    <p>No traigo respuestas hechas, sino preguntas, ideas y una forma de mirar que ayuda a ver con más claridad.</p>
+                    <p>Trabajo con líderes, founders y equipos que quieren pensar a fondo lo que están viviendo: una decisión difícil, un cambio que los desafía, un proyecto que quieren llevar adelante.</p>
+                    <p>No traigo respuestas hechas, sino preguntas, ideas y una forma de mirar que ayuda a ver con claridad.</p>
                 </div>
 
                 <div class="mm-actions mm-actions--center">
-                    <a href="/conversar" class="mm-btn mm-btn--primary mm-btn--lg">
-                        Solicitar una conversación
+                    <a href="#mm-home-ways" class="mm-btn mm-btn--primary mm-btn--lg">
+                        Cómo puedo ayudarte
                     </a>
                 </div>
             </div>
@@ -48,8 +48,8 @@
                     </h2>
                     <div class="mm-prose mm-prose--intro">
                         <p>Durante más de una década trabajé en WyeWorks, una consultora de software uruguaya. Empecé como desarrollador, pero con los años mi rol fue mutando: terminé siendo acompañante estratégico del CEO.</p>
-                        <p>En el camino descubrí que los problemas más difíciles casi nunca eran técnicos, sino humanos. Y que empezaban por mí. Para liderar a otros, primero tenía que aprender a liderarme a mí mismo. A reconocer esa fuerza interior que nos frena y nos hace dudar —la que llamo La Bestia— y a aprender a domarla.</p>
-                        <p>No llego a esto desde el lugar del experto que enseña, sino desde el de alguien que comparte su propia búsqueda. <em>Para masticar</em> nació para eso, y con el tiempo me llevó a escribir un libro, dar charlas y crear formas distintas de seguir masticando, en voz alta y acompañado.</p>
+                        <p>En el camino descubrí que los problemas más difíciles casi nunca eran técnicos, sino humanos. Y que empezaban por mí. Para liderar a otros, primero tenía que aprender a liderarme a mí mismo. A reconocer esa fuerza interior que nos frena y nos hace dudar —la que llamo <span class="mm-accent">La&nbsp;Bestia</span>— y a domarla.</p>
+                        <p>No llego a esto desde el lugar del experto que enseña, sino desde el de alguien que comparte su propia búsqueda. <em>Para masticar</em> nació para eso, y con el tiempo me llevó a publicar un libro, dar charlas y crear formas distintas de seguir masticando, en voz alta y acompañado.</p>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
     </section>
 
     {{!-- 4. Formas de trabajar juntos --------------------------------------- --}}
-    <section class="mm-ways" aria-labelledby="ways-title">
+    <section class="mm-ways" id="mm-home-ways" aria-labelledby="ways-title">
         <div class="mm-canvas">
             <header class="mm-section-header">
                 <p class="mm-eyebrow">Servicios</p>
@@ -100,14 +100,14 @@
                 </h2>
             </header>
 
-            <div class="mm-ways__grid">
+            <div class="mm-ways__grid mm-ways__grid--two">
                 <article class="mm-way">
                     <h3 class="mm-way__title">Sesión de claridad</h3>
                     <p class="mm-way__text">
                         Un espacio individual para líderes y founders que quieren pensar mejor algo que tienen entre manos: una decisión, un proyecto, algo que cuesta ver con claridad. Una hora para frenar y pensarlo juntos, desde otro ángulo.
                     </p>
-                    <a href="/conversar" class="mm-way__link">
-                        Solicitar una conversación
+                    <a href="#mm-home-contact" class="mm-way__link">
+                        Escribime
                         <span aria-hidden="true">→</span>
                     </a>
                 </article>
@@ -118,18 +118,7 @@
                         Experiencias de conversación para equipos. No son charlas tradicionales ni capacitaciones. Son espacios diseñados para frenar, mirarse y hablar de lo que normalmente no se habla.
                     </p>
                     <a href="/masticadas" class="mm-way__link">
-                        Ver masticadas
-                        <span aria-hidden="true">→</span>
-                    </a>
-                </article>
-
-                <article class="mm-way mm-way--feature">
-                    <h3 class="mm-way__title">Acompañamiento</h3>
-                    <p class="mm-way__text">
-                        Un acompañamiento sostenido para líderes que no quieren pensar solos sus desafíos más importantes. Una relación de confianza para masticar, a lo largo del tiempo, lo que cada momento traiga: decisiones, ideas, tensiones, oportunidades.
-                    </p>
-                    <a href="/conversar" class="mm-way__link">
-                        Solicitar una conversación
+                        Conocer más
                         <span aria-hidden="true">→</span>
                     </a>
                 </article>
@@ -227,19 +216,105 @@
         </div>
     </section>
 
-    {{!-- 7. Cierre ---------------------------------------------------------- --}}
-    <section class="mm-closing" aria-labelledby="closing-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <h2 class="mm-closing__title" id="closing-title">
-                Hay cosas que conviene <span class="mm-accent">no pensar solo.</span>
-            </h2>
-            <p class="mm-closing__text">
-                Escribime, contame brevemente qué estás masticando, y vemos cómo seguir.
-            </p>
-            <div class="mm-actions mm-actions--center">
-                <a href="/conversar" class="mm-btn mm-btn--primary mm-btn--lg">
-                    Solicitar una conversación
-                </a>
+    {{!-- 7. Contacto -------------------------------------------------------- --}}
+    <section class="mm-home-contact" id="mm-home-contact" aria-labelledby="home-contact-title">
+        <div class="mm-canvas">
+            <div class="mm-home-contact__panel">
+                <header class="mm-home-contact__header">
+                    <p class="mm-eyebrow">Escribime</p>
+                    <h2 class="mm-v2-title mm-home-contact__title" id="home-contact-title">
+                        Hay cosas que conviene <span class="mm-accent">no pensar solo.</span>
+                    </h2>
+                    <p class="mm-home-contact__lede">
+                        Contame en pocas líneas qué tenés en mente y te respondo a la brevedad.
+                    </p>
+                </header>
+
+                <form
+                    id="mm-home-formspree"
+                    class="mm-home-contact__form"
+                    action="https://formspree.io/f/maqpeljq"
+                    method="POST"
+                >
+                    <input type="hidden" name="_subject" value="Contacto — desde la home">
+                    <input type="hidden" name="origen" value="home">
+
+                    <fieldset class="mm-home-contact__choice">
+                        <legend class="mm-home-contact__choice-legend">¿Sobre qué querés hablar?</legend>
+                        <div class="mm-home-contact__choice-options">
+                            <label class="mm-home-contact__choice-option">
+                                <input type="radio" name="tipo_consulta" value="Una sesión individual" required>
+                                <span>Una sesión de claridad</span>
+                            </label>
+                            <label class="mm-home-contact__choice-option">
+                                <input type="radio" name="tipo_consulta" value="Una masticada para mi equipo">
+                                <span>Una masticada para mi equipo</span>
+                            </label>
+                            <label class="mm-home-contact__choice-option">
+                                <input type="radio" name="tipo_consulta" value="Otro">
+                                <span>Otro</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div class="mm-home-contact__row mm-home-contact__row--two">
+                        <div class="mm-home-contact__field">
+                            <label class="mm-home-contact__label" for="mm-home-name">Nombre</label>
+                            <input
+                                id="mm-home-name"
+                                name="nombre"
+                                type="text"
+                                autocomplete="name"
+                                required
+                                class="mm-home-contact__input"
+                            >
+                        </div>
+
+                        <div class="mm-home-contact__field">
+                            <label class="mm-home-contact__label" for="mm-home-email">Email</label>
+                            <input
+                                id="mm-home-email"
+                                name="email"
+                                type="email"
+                                autocomplete="email"
+                                required
+                                class="mm-home-contact__input"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="mm-home-contact__row">
+                        <div class="mm-home-contact__field">
+                            <label class="mm-home-contact__label" for="mm-home-message">¿Qué estás masticando?</label>
+                            <textarea
+                                id="mm-home-message"
+                                name="mensaje"
+                                rows="6"
+                                required
+                                class="mm-home-contact__textarea"
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    {{!-- Honeypot --}}
+                    <div class="mm-home-contact__honeypot" aria-hidden="true">
+                        <label for="mm-home-website">No completar este campo</label>
+                        <input id="mm-home-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <div class="mm-actions">
+                        <button type="submit" class="mm-btn mm-btn--primary mm-btn--lg">
+                            Enviar mensaje
+                        </button>
+                    </div>
+
+                    <p id="mm-home-form-status" class="mm-home-contact__status" role="status" aria-live="polite"></p>
+
+                    <p class="mm-home-contact__fallback">
+                        También podés escribirme a
+                        <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.
+                    </p>
+                </form>
             </div>
         </div>
     </section>
@@ -247,3 +322,85 @@
 </main>
 
 {{#contentFor "body_class"}}homepage-mm-v2{{/contentFor}}
+
+{{!-- AJAX submit for home contact form. Same pattern as /masticadas. --}}
+<script>
+(function () {
+    var form = document.getElementById('mm-home-formspree');
+    if (!form) return;
+    var status = document.getElementById('mm-home-form-status');
+    var submitBtn = form.querySelector('button[type="submit"]');
+
+    function setStatus(msg, state) {
+        if (!status) return;
+        status.textContent = msg;
+        status.dataset.state = state || '';
+    }
+
+    {{!-- Allow other pages to deep-link with /?tipo=masticada#mm-home-contact
+         The querystring goes BEFORE the fragment so the browser still scrolls
+         to the form (the # value must be a real element id). We read tipo
+         from location.search, not from the hash. --}}
+    function preselectFromUrl() {
+        try {
+            var search = window.location.search || '';
+            var match = search.match(/[?&]tipo=([^&]+)/);
+            if (!match) return;
+            var requested = decodeURIComponent(match[1]).toLowerCase();
+            var map = {
+                'sesion': 'Una sesión individual',
+                'sesión': 'Una sesión individual',
+                'masticada': 'Una masticada para mi equipo',
+                'otro': 'Otro'
+            };
+            var target = map[requested];
+            if (!target) return;
+            var radios = form.querySelectorAll('input[name="tipo_consulta"]');
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].value === target) {
+                    radios[i].checked = true;
+                    break;
+                }
+            }
+        } catch (e) { /* noop */ }
+    }
+    preselectFromUrl();
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.dataset.label = submitBtn.textContent;
+            submitBtn.textContent = 'Enviando…';
+        }
+        setStatus('', 'loading');
+
+        var data = new FormData(form);
+        fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(function (res) {
+            if (res.ok) {
+                form.reset();
+                setStatus('Gracias. Ya recibí tu mensaje. Te voy a leer con atención y te respondo pronto.', 'success');
+            } else {
+                return res.json().then(function (body) {
+                    var msg = (body && body.errors && body.errors[0] && body.errors[0].message)
+                        || 'Algo no funcionó. Probá de nuevo en un momento.';
+                    setStatus(msg, 'error');
+                }).catch(function () {
+                    setStatus('Algo no funcionó. Probá de nuevo en un momento.', 'error');
+                });
+            }
+        }).catch(function () {
+            setStatus('No pudimos enviar el mensaje. Revisá tu conexión y probá de nuevo.', 'error');
+        }).finally(function () {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = submitBtn.dataset.label || 'Enviar mensaje';
+            }
+        });
+    });
+})();
+</script>

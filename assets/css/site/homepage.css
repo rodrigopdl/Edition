@@ -1,3 +1,18 @@
+/* Smooth in-page scroll for the home's hero CTA (#mm-home-ways) and
+   "Escribime" link (#mm-home-contact).
+
+   Ghost's shared reset only enables smooth scroll via `html:focus-within`,
+   which doesn't fire when the user clicks an anchor without first focusing
+   somewhere in the document. We force it on html/body directly.
+
+   We use Ghost's native `home-template` body class (added automatically on
+   the home route) — more reliable than custom `contentFor` block classes,
+   which can fail to propagate from partials in some Handlebars setups. */
+html:has(body.home-template),
+body.home-template {
+    scroll-behavior: smooth;
+}
+
 .homepage-main {
     background: #262632;
     font-size: 2.2rem;
@@ -2361,6 +2376,308 @@ main.mm-v2 {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
     }
+}
+
+/* --- Ways grid two-column variant ----------------------------------- */
+/* Used when there are only two service cards. Centers a max-width pair so
+   the cards keep a comfortable reading width and don't stretch wide. */
+.mm-v2 .mm-ways__grid--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 880px;
+    margin-inline: auto;
+    gap: var(--space-5);
+}
+
+@media (max-width: 640px) {
+    .mm-v2 .mm-ways__grid--two {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 100%;
+    }
+}
+
+/* --- Home contact form (consolidated entry point) ------------------ */
+.mm-v2 .mm-home-contact {
+    padding-block: clamp(5.6rem, 8vw, 8rem);
+    background: var(--surface-0);
+    position: relative;
+}
+
+.mm-v2 .mm-home-contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1160px, calc(100% - 4rem));
+    height: 1px;
+    background: rgba(244, 241, 234, 0.06);
+}
+
+/* Dark editorial panel — matches the original /conversar form look. */
+.mm-v2 .mm-home-contact__panel {
+    max-width: 840px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, rgba(244, 241, 234, 0.06) 0%, rgba(244, 241, 234, 0.025) 100%);
+    border: 1px solid rgba(244, 241, 234, 0.12);
+    border-radius: 4px;
+    padding: clamp(3.2rem, 4.4vw, 4.8rem) clamp(3rem, 5.2vw, 5.6rem);
+    position: relative;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.04) inset,
+        0 30px 60px -32px rgba(0, 0, 0, 0.45);
+}
+
+.mm-v2 .mm-home-contact__panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4.4rem;
+    height: 2px;
+    background: var(--brand);
+    opacity: 0.85;
+}
+
+.mm-v2 .mm-home-contact__header {
+    margin-bottom: var(--space-6);
+}
+
+.mm-v2 .mm-home-contact__header .mm-eyebrow {
+    margin-bottom: var(--space-4);
+}
+
+.mm-v2 .mm-home-contact__title {
+    font-size: clamp(2.6rem, 3.2vw, 3.6rem);
+    margin: 0 0 var(--space-4);
+    text-wrap: balance;
+}
+
+.mm-v2 .mm-home-contact__lede {
+    font-family: var(--font-post-body);
+    font-size: 1.65rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 56ch;
+}
+
+/* Choice (radio group) */
+.mm-v2 .mm-home-contact__choice {
+    border: 0;
+    padding: 0;
+    margin: 0 0 var(--space-6);
+}
+
+.mm-v2 .mm-home-contact__choice-legend {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 var(--space-3);
+    padding: 0;
+    line-height: 1;
+}
+
+.mm-v2 .mm-home-contact__choice-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.mm-v2 .mm-home-contact__choice-option {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 1.1rem 1.6rem;
+    border: 1px solid rgba(244, 241, 234, 0.12);
+    border-radius: 999px;
+    background: rgba(244, 241, 234, 0.05);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--ink);
+}
+
+.mm-v2 .mm-home-contact__choice-option:hover {
+    border-color: rgba(244, 241, 234, 0.22);
+    background: rgba(244, 241, 234, 0.08);
+}
+
+/* Radio dot. flex-shrink + min-width/min-height pinning prevents the
+   input from being squished into an oval by the flex container when
+   the label text wraps on narrow viewports. */
+.mm-v2 .mm-home-contact__choice-option input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 1.8rem;
+    height: 1.8rem;
+    min-width: 1.8rem;
+    min-height: 1.8rem;
+    max-width: 1.8rem;
+    max-height: 1.8rem;
+    flex: 0 0 1.8rem;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1.5px solid rgba(244, 241, 234, 0.30);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.2s ease;
+}
+
+.mm-v2 .mm-home-contact__choice-option input[type="radio"]::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background: var(--brand);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.15s ease;
+}
+
+.mm-v2 .mm-home-contact__choice-option input[type="radio"]:checked {
+    border-color: var(--brand);
+}
+
+.mm-v2 .mm-home-contact__choice-option input[type="radio"]:checked::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.mm-v2 .mm-home-contact__choice-option:has(input:checked) {
+    border-color: var(--brand);
+    background: rgba(82, 113, 255, 0.08);
+}
+
+.mm-v2 .mm-home-contact__choice-option input[type="radio"]:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+}
+
+/* Rows */
+.mm-v2 .mm-home-contact__row {
+    margin-bottom: var(--space-4);
+}
+
+.mm-v2 .mm-home-contact__row--two {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-4);
+}
+
+@media (max-width: 640px) {
+    .mm-v2 .mm-home-contact__row--two {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.mm-v2 .mm-home-contact__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.mm-v2 .mm-home-contact__label {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    line-height: 1;
+}
+
+.mm-v2 .mm-home-contact__input,
+.mm-v2 .mm-home-contact__textarea {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 1.4rem 1.8rem;
+    background: rgba(244, 241, 234, 0.05);
+    border: 1px solid rgba(244, 241, 234, 0.12);
+    border-radius: 6px;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 500;
+    line-height: 1.45;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mm-v2 .mm-home-contact__textarea {
+    resize: vertical;
+    min-height: 12rem;
+}
+
+.mm-v2 .mm-home-contact__input::placeholder,
+.mm-v2 .mm-home-contact__textarea::placeholder {
+    color: var(--ink-4);
+}
+
+.mm-v2 .mm-home-contact__input:focus,
+.mm-v2 .mm-home-contact__textarea:focus {
+    outline: 0;
+    border-color: var(--brand);
+    background: rgba(244, 241, 234, 0.08);
+    box-shadow: 0 0 0 3px rgba(82, 113, 255, 0.18);
+}
+
+/* Honeypot — visually hidden but still accessible to bots scanning the DOM. */
+.mm-v2 .mm-home-contact__honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.mm-v2 .mm-home-contact__status {
+    margin: var(--space-4) 0 0;
+    font-family: var(--font-post-body);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: var(--ink-2);
+    min-height: 0;
+}
+
+.mm-v2 .mm-home-contact__status[data-state="success"] {
+    color: var(--brand);
+}
+
+.mm-v2 .mm-home-contact__status[data-state="error"] {
+    color: #ff8b8b;
+}
+
+.mm-v2 .mm-home-contact__fallback {
+    margin: var(--space-3) 0 0;
+    font-family: var(--font-post-body);
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--ink-3);
+}
+
+.mm-v2 .mm-home-contact__fallback a {
+    color: var(--ink-2);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+}
+
+.mm-v2 .mm-home-contact__fallback a:hover {
+    color: var(--brand);
 }
 
 /* Print */
