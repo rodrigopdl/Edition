@@ -49,7 +49,8 @@
       "Bash(awk 'NR<=2058 && /@media/ {last=$0; ln=NR} END {print ln\": \"last}' assets/css/site/homepage.css)",
       "Bash(awk 'NR<=2219 && /@media/ {last=$0; ln=NR} END {print ln\": \"last}' assets/css/site/homepage.css)",
       "Bash(file luc*.jpeg)",
-      "Bash(sips -g pixelWidth -g pixelHeight luc*.jpeg)"
+      "Bash(sips -g pixelWidth -g pixelHeight luc*.jpeg)",
+      "Bash(grep -oE \"@media[^{]{0,50}\\\\{[^}]*mm-ways__grid[^}]*\\\\}|mm-ways__grid[^{,}]{0,20}\\\\{[^}]*\\\\}\" assets/built/screen.css)"
     ]
   }
 }

@@ -2379,32 +2379,40 @@ main.mm-v2 {
 }
 
 /* --- Ways grid two-column variant ----------------------------------- */
-/* Used when there are only two service cards. Centers a max-width pair so
-   the cards keep a comfortable reading width and don't stretch wide. */
-.mm-v2 .mm-ways__grid--two {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 880px;
-    margin-inline: auto;
-    gap: var(--space-5);
-}
+/* Used when there are only two service cards. Centers a max-width pair
+   above 640px; falls through to the generic 1-column mobile stack below.
 
-@media (max-width: 640px) {
+   Both the 2-column layout AND the max-width cap are gated behind
+   min-width: 641px so on mobile the cards use the full canvas width
+   (same fallback as --three). */
+@media (min-width: 641px) {
     .mm-v2 .mm-ways__grid--two {
-        grid-template-columns: minmax(0, 1fr);
-        max-width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 880px;
+        margin-inline: auto;
+        gap: var(--space-5);
     }
 }
 
-/* Explicit three-card variant. The base .mm-ways__grid already uses
-   3 columns on desktop; we keep the modifier for readability and to
-   introduce a mid-viewport breakpoint (below).
+/* Explicit three-card variant.
 
-   Between 641px and 960px the cards collapse to a single centered
-   column instead of stretching full-width, so tablet portrait /
-   landscape and mid-size laptops don't get three squished columns
-   or three unnecessarily-wide stacked cards. */
-.mm-v2 .mm-ways__grid--three {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+   Only enforce 3 columns above 960px. Below that, we defer to the
+   generic .mm-ways__grid rule (which collapses to 1 column at
+   ≤960px), plus a tablet override in the 641-960px range that
+   centers the stacked cards inside a 620px column so they don't
+   look stretched.
+
+   Bug this fixes: the previous base rule
+       .mm-v2 .mm-ways__grid--three { grid-template-columns: repeat(3, ...) }
+   lived outside any media query, so it beat the mobile fallback
+   at .mm-v2 .mm-ways__grid { 1fr } by cascade order — the 3-card
+   grid stayed as 3 tiny cramped columns on phones. Gating the
+   3-column layout behind (min-width: 961px) makes the fallback
+   win on small screens. */
+@media (min-width: 961px) {
+    .mm-v2 .mm-ways__grid--three {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 960px) and (min-width: 641px) {
