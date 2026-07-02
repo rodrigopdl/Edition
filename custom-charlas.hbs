@@ -1,0 +1,274 @@
+{{!< default}}
+{{!--
+Template Name: Charlas
+
+Landing dedicada a las charlas de Para masticar (formato conferencia
+para eventos y públicos grandes). Reusa el namespace .mm-mast para
+heredar toda la maquinaria visual de /masticadas (hero, "what",
+"ideal", "outcomes", "real", testimonial, intro y cta). El namespace
+propio .mm-ch queda disponible por si aparecen refinamientos
+específicos.
+--}}
+
+<main class="homepage-main mm-v2 mm-mast mm-ch">
+
+    {{!-- 1. Hero ----------------------------------------------------------- --}}
+    <section class="mm-v2-hero mm-mast-hero" aria-labelledby="ch-title">
+        <div class="mm-canvas mm-canvas--wide">
+            <div class="mm-hero__inner">
+                <p class="mm-eyebrow">Charlas</p>
+
+                <h1 class="mm-hero__title" id="ch-title">
+                    Charlas que sacuden <span class="mm-accent">por&nbsp;dentro.</span>
+                </h1>
+
+                <div class="mm-hero__lede">
+                    <p>Para empresas y eventos que quieren llevarle a su gente algo distinto.</p>
+                </div>
+
+                <div class="mm-actions mm-actions--center">
+                    <a href="#mm-ch-what" class="mm-btn mm-btn--primary">Conocer más</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 2. La charla — qué es y qué la diferencia --------------------- --}}
+    <section class="mm-mast-what" id="mm-ch-what" aria-labelledby="ch-what-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-what__inner">
+                <header class="mm-mast-what__header">
+                    <p class="mm-eyebrow">La charla</p>
+                    <h2 class="mm-v2-title" id="ch-what-title">
+                        Sacudir desde <span class="mm-accent">la calma.</span>
+                    </h2>
+                </header>
+
+                <div class="mm-prose mm-mast-what__prose">
+                    <p>En la charla cuento mi historia con <em>La Bestia</em>: esa fuerza interior que nos frena y nos hace dudar. La enfrento en voz alta, delante de todos, y comparto las herramientas que fui encontrando en el camino.</p>
+                    <p>No lo hago desde el pedestal del experto, sino como alguien que todavía está pulseando con ella. Y algo pasa cuando uno se muestra así: los demás empiezan a mirar su propia <em>Bestia</em>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 2a. Imagen panorámica — separador visual antes de "Ideal para".
+         Vive fuera de "Experiencias" para funcionar como un momento
+         propio: una imagen de una charla real que carga peso emocional
+         antes del bloque de reconocimiento. --}}
+    <section class="mm-ch-panorama" aria-hidden="true">
+        <div class="mm-canvas">
+            <figure class="mm-ch-panorama__figure">
+                <div class="mm-mast-real__frame mm-ch-panorama__frame">
+                    <img
+                        src="{{asset "images/talks-lameetup-wide.jpeg"}}"
+                        alt=""
+                        class="mm-ch-panorama__img"
+                        loading="lazy"
+                    >
+                </div>
+            </figure>
+        </div>
+    </section>
+
+    {{!-- 2b. Ideal para ---------------------------------------------------- --}}
+    <section class="mm-mast-ideal" aria-labelledby="ch-ideal-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-ideal__card">
+                <p class="mm-eyebrow">Ideal para</p>
+                <h2 class="mm-mast-ideal__title" id="ch-ideal-title">
+                    Eventos que buscan un momento que deje huella.
+                </h2>
+                <p class="mm-mast-ideal__text">
+                    Empresas y organizaciones que quieren algo distinto para una convención, un kick-off, una jornada o un congreso. Un momento para que su gente pare, piense y se mire, en medio de la agenda cargada del día.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 3. Temas + ficha --------------------------------------------------- --}}
+    <section class="mm-mast-what" aria-labelledby="ch-topics-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-what__inner">
+                <header class="mm-mast-what__header">
+                    <p class="mm-eyebrow">De qué hablo</p>
+                    <h2 class="mm-v2-title" id="ch-topics-title">
+                        Mi mundo, cruzado con <span class="mm-accent">el tuyo.</span>
+                    </h2>
+                </header>
+
+                <div class="mm-prose mm-mast-what__prose">
+                    <p>Llevo a cada charla los conceptos que fui desarrollando en Para masticar: <em>La Bestia</em>, esa fuerza que nos frena —y que le da nombre a mi libro—, y <em>La Llama</em>, eso que nos enciende y da sentido. Los trabajé durante años y los vi ayudar a personas y equipos a mirar su trabajo con otros ojos.</p>
+                    <p>Ese corazón no cambia. Lo que cambia es cómo lo cruzo con cada evento: en un congreso de tecnología, con lo que la IA nos despierta; en un congreso de liderazgo, con lo que significa liderarse a uno mismo antes que a otros. La columna es siempre la misma. La conversación, siempre distinta.</p>
+                </div>
+
+                <dl class="mm-mast-what__meta">
+                    <div class="mm-mast-what__meta-item">
+                        <dt>Duración</dt>
+                        <dd>40 a 60 minutos (adaptable)</dd>
+                    </div>
+                    <div class="mm-mast-what__meta-item">
+                        <dt>Formato</dt>
+                        <dd>Historias cotidianas y laborales, introspección en voz alta</dd>
+                    </div>
+                    <div class="mm-mast-what__meta-item">
+                        <dt>Público</dt>
+                        <dd>Desde grupos medianos hasta auditorios grandes</dd>
+                    </div>
+                    <div class="mm-mast-what__meta-item">
+                        <dt>Modalidad</dt>
+                        <dd>Presencial u online</dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 4. Qué deja ------------------------------------------------------- --}}
+    <section class="mm-mast-outcomes" aria-labelledby="ch-outcomes-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-outcomes__panel">
+                <header class="mm-mast-what__header">
+                    <p class="mm-eyebrow">Qué deja</p>
+                    <h2 class="mm-v2-title" id="ch-outcomes-title">
+                        Lo que queda después.
+                    </h2>
+                </header>
+
+                <ul class="mm-mast-outcomes__list">
+                    <li>Una conversación que sigue viva cuando la charla termina.</li>
+                    <li>Un lenguaje común para hablar de lo que antes no se hablaba.</li>
+                    <li>Algo que cada uno se lleva para su vida, no solo para el trabajo.</li>
+                    <li>La sensación de haber parado, aunque sea un rato, en medio de la corrida.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 5. Experiencias (fotos) ------------------------------------------- --}}
+    <section class="mm-mast-real" aria-labelledby="ch-real-title">
+        <div class="mm-canvas">
+            <header class="mm-mast-real__header">
+                <p class="mm-eyebrow">Experiencias</p>
+                <h2 class="mm-v2-title" id="ch-real-title">
+                    Sobre el escenario.
+                </h2>
+                <p class="mm-mast-real__intro">
+                    Estas imágenes vienen de charlas que di en distintas empresas y eventos.
+                </p>
+            </header>
+
+            {{!-- Two photos side by side, no captions. --}}
+            <div class="mm-mast-real__grid mm-mast-real__grid--two">
+                <figure class="mm-mast-real__item">
+                    <div class="mm-mast-real__frame">
+                        <img
+                            src="{{asset "images/talks-lameetup-2.jpg"}}"
+                            alt="Charla en La Meetup"
+                            class="mm-mast-real__img"
+                            loading="lazy"
+                        >
+                    </div>
+                </figure>
+
+                <figure class="mm-mast-real__item">
+                    <div class="mm-mast-real__frame">
+                        <img
+                            src="{{asset "images/talks-wyeworks.webp"}}"
+                            alt="Charla en WyeWorks"
+                            class="mm-mast-real__img"
+                            loading="lazy"
+                        >
+                    </div>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 6. Testimonio — patrón .mm-testimonial (avatar + nombre + rol) -- --}}
+    <section class="mm-testimonial" aria-labelledby="ch-testimonial-title">
+        <div class="mm-canvas">
+            <p class="mm-eyebrow mm-eyebrow--muted">Sensaciones</p>
+            <figure class="mm-testimonial__figure">
+                <blockquote class="mm-testimonial__quote" id="ch-testimonial-title">
+                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>Tu presentación me inspiró muchísimo. Quiero destacar la tranquilidad que transmitiste, y el sentimiento de “es re por acá” que me dejaste.
+                </blockquote>
+                <figcaption class="mm-testimonial__cite">
+                    <div class="mm-testimonial__avatar">
+                        <img
+                            src="{{asset "images/lucía.jpeg"}}"
+                            alt="Lucía Del Arco, Delivery Manager"
+                            class="mm-testimonial__avatar-img"
+                            width="120"
+                            height="120"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="mm-testimonial__person">
+                        <span class="mm-testimonial__name">Lucía Del Arco</span>
+                        <span class="mm-testimonial__role">Delivery Manager</span>
+                    </div>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    {{!-- 7. Quién soy ------------------------------------------------------ --}}
+    <section class="mm-intro" aria-labelledby="ch-intro-title">
+        <div class="mm-canvas">
+            <div class="mm-intro__grid">
+                <figure class="mm-intro__figure">
+                    <div class="mm-intro__frame">
+                        <img
+                            src="{{asset "images/rodri3.jpg"}}"
+                            alt="Rodri"
+                            class="mm-intro__img"
+                            width="900"
+                            height="1100"
+                            loading="lazy"
+                        >
+                    </div>
+                </figure>
+
+                <div class="mm-intro__text">
+                    <p class="mm-eyebrow">Quién soy</p>
+                    <h2 class="mm-v2-title" id="ch-intro-title">
+                        Hola, <span class="mm-accent">soy Rodri.</span>
+                    </h2>
+                    <div class="mm-prose mm-prose--intro">
+                        <p>Durante más de una década trabajé en WyeWorks, una consultora de software uruguaya. Empecé como desarrollador, pero con los años mi rol fue mutando: terminé siendo acompañante estratégico del CEO.</p>
+                        <p>En el camino descubrí que los problemas más difíciles casi nunca eran técnicos, sino humanos. Y que empezaban por mí. Para liderar a otros, primero tenía que aprender a liderarme a mí mismo. A reconocer esa fuerza interior que nos frena y nos hace dudar —la que llamo <span class="mm-accent">La&nbsp;Bestia</span>— y a domarla.</p>
+                        <p>Para masticar nació de esa búsqueda, y con el tiempo me llevó a publicar un libro, dar charlas y crear formas distintas de seguir masticando, en voz alta y acompañado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 8. CTA final ------------------------------------------------------ --}}
+    <section class="mm-mast-cta" aria-labelledby="ch-cta-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-cta__inner">
+                <p class="mm-eyebrow">Hablemos</p>
+                <h2 class="mm-v2-title" id="ch-cta-title">
+                    ¿Querés que tu evento <span class="mm-accent">deje huella?</span>
+                </h2>
+                <p class="mm-mast-cta__lede">
+                    Escribime y contame de qué se trata y qué te gustaría que tu gente se lleve. Lo pensamos juntos.
+                </p>
+                <div class="mm-actions mm-actions--center">
+                    <a href="/?tipo=charla#mm-home-contact" class="mm-btn mm-btn--primary mm-btn--lg">
+                        Contame de tu evento
+                    </a>
+                </div>
+                <p class="mm-mast-cta__fallback">
+                    También podés escribirme a
+                    <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+{{#contentFor "body_class"}}homepage-mm-v2 page-masticadas page-charlas{{/contentFor}}

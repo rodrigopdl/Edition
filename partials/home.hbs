@@ -100,14 +100,14 @@
                 </h2>
             </header>
 
-            <div class="mm-ways__grid mm-ways__grid--two">
+            <div class="mm-ways__grid mm-ways__grid--three">
                 <article class="mm-way">
-                    <h3 class="mm-way__title">Sesión de claridad</h3>
+                    <h3 class="mm-way__title">Charlas</h3>
                     <p class="mm-way__text">
-                        Un espacio individual para líderes y founders que quieren pensar mejor algo que tienen entre manos: una decisión, un proyecto, algo que cuesta ver con claridad. Una hora para frenar y pensarlo juntos, desde otro ángulo.
+                        Charlas para eventos, empresas o instituciones que quieren llevar algo distinto a su gente. Sobre La Bestia, el autoconocimiento y el lado humano de lo que hacemos. Para hacer parar y mirar hacia adentro, desde una historia real.
                     </p>
-                    <a href="#mm-home-contact" class="mm-way__link">
-                        Escribime
+                    <a href="/charlas" class="mm-way__link">
+                        Conocer más
                         <span aria-hidden="true">→</span>
                     </a>
                 </article>
@@ -119,6 +119,17 @@
                     </p>
                     <a href="/masticadas" class="mm-way__link">
                         Conocer más
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </article>
+
+                <article class="mm-way">
+                    <h3 class="mm-way__title">Sesión de claridad</h3>
+                    <p class="mm-way__text">
+                        Un espacio individual para líderes y founders que quieren pensar mejor algo que tienen entre manos: una decisión, un proyecto, algo que cuesta ver con claridad. Una hora para frenar y pensarlo juntos, desde otro ángulo.
+                    </p>
+                    <a href="#mm-home-contact" class="mm-way__link">
+                        Escribime
                         <span aria-hidden="true">→</span>
                     </a>
                 </article>
@@ -243,12 +254,16 @@
                         <legend class="mm-home-contact__choice-legend">¿Sobre qué querés hablar?</legend>
                         <div class="mm-home-contact__choice-options">
                             <label class="mm-home-contact__choice-option">
-                                <input type="radio" name="tipo_consulta" value="Una sesión individual" required>
-                                <span>Una sesión de claridad</span>
+                                <input type="radio" name="tipo_consulta" value="Una charla para mi evento" required>
+                                <span>Una charla para mi evento</span>
                             </label>
                             <label class="mm-home-contact__choice-option">
                                 <input type="radio" name="tipo_consulta" value="Una masticada para mi equipo">
                                 <span>Una masticada para mi equipo</span>
+                            </label>
+                            <label class="mm-home-contact__choice-option">
+                                <input type="radio" name="tipo_consulta" value="Una sesión individual">
+                                <span>Una sesión de claridad</span>
                             </label>
                             <label class="mm-home-contact__choice-option">
                                 <input type="radio" name="tipo_consulta" value="Otro">
@@ -351,6 +366,7 @@
                 'sesion': 'Una sesión individual',
                 'sesión': 'Una sesión individual',
                 'masticada': 'Una masticada para mi equipo',
+                'charla': 'Una charla para mi evento',
                 'otro': 'Otro'
             };
             var target = map[requested];

@@ -2395,6 +2395,26 @@ main.mm-v2 {
     }
 }
 
+/* Explicit three-card variant. The base .mm-ways__grid already uses
+   3 columns on desktop; we keep the modifier for readability and to
+   introduce a mid-viewport breakpoint (below).
+
+   Between 641px and 960px the cards collapse to a single centered
+   column instead of stretching full-width, so tablet portrait /
+   landscape and mid-size laptops don't get three squished columns
+   or three unnecessarily-wide stacked cards. */
+.mm-v2 .mm-ways__grid--three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 960px) and (min-width: 641px) {
+    .mm-v2 .mm-ways__grid--three {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 620px;
+        margin-inline: auto;
+    }
+}
+
 /* --- Home contact form (consolidated entry point) ------------------ */
 .mm-v2 .mm-home-contact {
     padding-block: clamp(5.6rem, 8vw, 8rem);

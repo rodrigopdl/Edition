@@ -397,6 +397,21 @@ body:has(.mm-mast),
     border-right: 1px solid rgba(244, 241, 234, 0.10);
 }
 
+/* Three-column supporting quotes: dividers between all three items. */
+.mm-mast .mm-mast-voices__grid--three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 1100px;
+    margin-inline: auto;
+}
+
+.mm-mast .mm-mast-voices__grid--three .mm-mast-voices__item {
+    border-right: 1px solid rgba(244, 241, 234, 0.10);
+}
+
+.mm-mast .mm-mast-voices__grid--three .mm-mast-voices__item:last-child {
+    border-right: 0;
+}
+
 .mm-mast .mm-mast-voices__item::before {
     content: "“";
     font-family: var(--font-post-body);
@@ -654,6 +669,19 @@ body:has(.mm-mast),
     .mm-mast .mm-mast-voices__grid--two .mm-mast-voices__item:first-child {
         border-right: 0;
         border-bottom: 1px solid rgba(244, 241, 234, 0.10);
+    }
+
+    .mm-mast .mm-mast-voices__grid--three {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .mm-mast .mm-mast-voices__grid--three .mm-mast-voices__item {
+        border-right: 0;
+        border-bottom: 1px solid rgba(244, 241, 234, 0.10);
+    }
+
+    .mm-mast .mm-mast-voices__grid--three .mm-mast-voices__item:last-child {
+        border-bottom: 0;
     }
 }
 
@@ -1119,5 +1147,49 @@ body:has(.mm-mast),
     background: var(--brand);
     opacity: 0.6;
     flex: 0 0 auto;
+}
+
+/* --- /charlas: panoramic separator before "Ideal para" ------------
+   Full-width editorial image between "La charla" and "Ideal para".
+   Wrapped in the same cream .mm-mast-real__frame the section
+   "Experiencias" uses, so it reads as part of the same visual
+   family. Aspect ratio matches the source (2048×996 ≈ 2:1) with
+   object-fit: cover so the frame stays clean. */
+.mm-ch .mm-ch-panorama {
+    padding-block: clamp(2rem, 3vw, 3.2rem);
+    background: var(--surface-0);
+}
+
+.mm-ch .mm-ch-panorama__figure {
+    margin: 0;
+}
+
+.mm-ch .mm-ch-panorama__frame {
+    aspect-ratio: 2 / 1;
+}
+
+.mm-ch .mm-ch-panorama__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+@media (max-width: 640px) {
+    .mm-ch .mm-ch-panorama__frame {
+        aspect-ratio: 16 / 10;
+    }
+}
+
+/* --- /charlas: "Experiencias" two-column grid --------------------- */
+.mm-ch .mm-mast-real__grid--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 640px) {
+    .mm-ch .mm-mast-real__grid--two {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 

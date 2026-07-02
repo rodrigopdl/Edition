@@ -43,7 +43,11 @@
       "Bash(grep -oE \"\\\\.mm-home-contact[^{,]*\" assets/built/screen.css)",
       "Bash(grep -oE \"[^}]{0,80}scroll-behavior:smooth[^}]{0,40}\" assets/built/screen.css)",
       "Bash(grep -oE \"\\\\.mm-home-contact__choice-option[^{,]*\\\\{[^}]*\\\\}\" assets/built/screen.css)",
-      "Bash(git mv *)"
+      "Bash(git mv *)",
+      "Bash(sips -g pixelWidth -g pixelHeight assets/images/talks-lameetup.webp assets/images/talks-lameetup-2.jpg assets/images/talks-wyeworks.webp)",
+      "Bash(sips -g pixelWidth -g pixelHeight assets/images/talks-lameetup-wide.jpeg)",
+      "Bash(awk 'NR<=2058 && /@media/ {last=$0; ln=NR} END {print ln\": \"last}' assets/css/site/homepage.css)",
+      "Bash(awk 'NR<=2219 && /@media/ {last=$0; ln=NR} END {print ln\": \"last}' assets/css/site/homepage.css)"
     ]
   }
 }
