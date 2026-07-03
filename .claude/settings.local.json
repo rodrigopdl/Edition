@@ -50,7 +50,14 @@
       "Bash(awk 'NR<=2219 && /@media/ {last=$0; ln=NR} END {print ln\": \"last}' assets/css/site/homepage.css)",
       "Bash(file luc*.jpeg)",
       "Bash(sips -g pixelWidth -g pixelHeight luc*.jpeg)",
-      "Bash(grep -oE \"@media[^{]{0,50}\\\\{[^}]*mm-ways__grid[^}]*\\\\}|mm-ways__grid[^{,}]{0,20}\\\\{[^}]*\\\\}\" assets/built/screen.css)"
+      "Bash(grep -oE \"@media[^{]{0,50}\\\\{[^}]*mm-ways__grid[^}]*\\\\}|mm-ways__grid[^{,}]{0,20}\\\\{[^}]*\\\\}\" assets/built/screen.css)",
+      "Bash(sips --resampleWidth 1200 talks-lameetup-2.jpg --out /tmp/tl2-1200.jpg)",
+      "Bash(sips --resampleWidth 720 talks-lameetup-2.jpg --out /tmp/tl2-720.jpg)",
+      "Bash(cwebp -q 78 /tmp/tl2-1200.jpg -o talks-lameetup-2-1200.webp)",
+      "Bash(cwebp -q 78 /tmp/tl2-720.jpg -o talks-lameetup-2-720.webp)",
+      "Bash(cwebp -q 80 -resize 1200 0 talks-wyeworks.webp -o talks-wyeworks-1200.webp)",
+      "Bash(rm -f talks-lameetup.webp talks-lameetup-2.jpg talks-wyeworks.webp talks-lameetup-wide.jpeg)",
+      "Bash(ls -la talks-*)"
     ]
   }
 }

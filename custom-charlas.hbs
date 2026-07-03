@@ -61,10 +61,15 @@ específicos.
             <figure class="mm-ch-panorama__figure">
                 <div class="mm-mast-real__frame mm-ch-panorama__frame">
                     <img
-                        src="{{asset "images/talks-lameetup-wide.jpeg"}}"
+                        src="{{asset "images/talks-lameetup-wide-1200.webp"}}"
+                        srcset="{{asset "images/talks-lameetup-wide-1200.webp"}} 1200w,
+                                {{asset "images/talks-lameetup-wide-2000.webp"}} 2000w"
+                        sizes="(min-width: 1200px) 1160px, 100vw"
                         alt=""
                         class="mm-ch-panorama__img"
                         loading="lazy"
+                        width="2000"
+                        height="972"
                     >
                 </div>
             </figure>
@@ -158,15 +163,22 @@ específicos.
                 </p>
             </header>
 
-            {{!-- Two photos side by side, no captions. --}}
+            {{!-- Two photos side by side, no captions.
+                 Each photo takes ~50% of the canvas on desktop/tablet
+                 (~570px) and 100% on mobile (single-column stack). --}}
             <div class="mm-mast-real__grid mm-mast-real__grid--two">
                 <figure class="mm-mast-real__item">
                     <div class="mm-mast-real__frame">
                         <img
-                            src="{{asset "images/talks-lameetup-2.jpg"}}"
+                            src="{{asset "images/talks-lameetup-2-1200.webp"}}"
+                            srcset="{{asset "images/talks-lameetup-2-720.webp"}} 720w,
+                                    {{asset "images/talks-lameetup-2-1200.webp"}} 1200w"
+                            sizes="(min-width: 641px) 570px, 100vw"
                             alt="Charla en La Meetup"
                             class="mm-mast-real__img"
                             loading="lazy"
+                            width="1200"
+                            height="800"
                         >
                     </div>
                 </figure>
@@ -174,10 +186,15 @@ específicos.
                 <figure class="mm-mast-real__item">
                     <div class="mm-mast-real__frame">
                         <img
-                            src="{{asset "images/talks-wyeworks.webp"}}"
+                            src="{{asset "images/talks-wyeworks-1200.webp"}}"
+                            srcset="{{asset "images/talks-wyeworks-720.webp"}} 720w,
+                                    {{asset "images/talks-wyeworks-1200.webp"}} 1200w"
+                            sizes="(min-width: 641px) 570px, 100vw"
                             alt="Charla en WyeWorks"
                             class="mm-mast-real__img"
                             loading="lazy"
+                            width="1200"
+                            height="1600"
                         >
                     </div>
                 </figure>
