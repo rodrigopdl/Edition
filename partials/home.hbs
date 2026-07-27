@@ -177,10 +177,9 @@
                 <div class="mm-bocados__row">
                     <div class="mm-bocados__text">
                         <p class="mm-eyebrow">Newsletter</p>
-                        <h2 class="mm-bocados__title" id="bocados-title">Bocados.</h2>
+                        <h2 class="mm-bocados__title" id="bocados-title">Bocados para masticar.</h2>
                         <p class="mm-bocados__lede">
-                            Cada miércoles comparto algo para pensar. Textos cortos que se leen rápido pero que se quedan dando vueltas. 
-                            Es la puerta de entrada al universo <em>Para masticar</em>, y la mejor forma de conocer cómo pienso.
+                            Textos cortos sobre la voz que nos frena y el fuego que, cada tanto, se enciende. Cada miércoles, por mail.
                         </p>
                         <div class="mm-actions">
                             {{#get "posts" limit="1" as |latest|}}
@@ -198,7 +197,7 @@
                             {{#unless @member}}
                                 <form class="mm-bocados__form" data-members-form>
                                     <label for="mm-bocados-email" class="mm-visually-hidden">Tu email</label>
-                                    <p class="mm-bocados__form-label">Recibir por email</p>
+                                    <p class="mm-bocados__form-label">Recibilos antes que nadie</p>
                                     <div class="mm-bocados__field">
                                         <input
                                             id="mm-bocados-email"
@@ -210,7 +209,7 @@
                                             required="true"
                                         >
                                         <button class="mm-bocados__btn" type="submit" aria-label="Suscribirse a Bocados">
-                                            Recibir bocados
+                                            Recibirlos
                                         </button>
                                     </div>
                                     <p class="mm-bocados__note">

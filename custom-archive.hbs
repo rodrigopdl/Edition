@@ -12,16 +12,53 @@ Template Name: Archive
                 <p class="mm-eyebrow">Bocados</p>
 
                 <h1 class="mm-hero__title" id="boc-title">
-                    Bocados para <span class="mm-accent">pensar mejor.</span>
+                    Bocados <span class="mm-accent">para masticar.</span>
                 </h1>
 
                 <div class="mm-hero__lede">
-                    <p>Textos cortos que se leen rápido pero se quedan dando vueltas.</p>
+                    <p>Textos cortos sobre la voz que nos frena y el fuego que, cada tanto, se enciende. Cada miércoles, por mail.</p>
                 </div>
 
-                <div class="mm-actions mm-actions--center">
-                    <a href="#mm-boc-subscribe" class="mm-btn mm-btn--primary mm-btn--lg">Recibirlos por correo</a>
-                </div>
+                {{!-- Inline subscription form inside the hero.
+                     Same Ghost Members submit contract as the panel at
+                     the bottom of the page (data-members-form + data-members-email).
+                     Duplicated intentionally: Ghost's members portal binds on
+                     page load, so both forms need to exist in the DOM.
+                     IDs are namespaced with `--hero` to avoid collisions with
+                     the bottom form (id="mm-boc-email"). --}}
+                {{#if @site.members_enabled}}
+                    {{#unless @site.members_invite_only}}
+                        {{#unless @member}}
+                            <form class="mm-boc-hero-subscribe" data-members-form>
+                                <label for="mm-boc-hero-email" class="mm-visually-hidden">Tu email</label>
+                                <div class="mm-boc-hero-subscribe__field">
+                                    <input
+                                        id="mm-boc-hero-email"
+                                        class="mm-boc-hero-subscribe__input"
+                                        type="email"
+                                        name="email"
+                                        data-members-email
+                                        placeholder="tu@email.com"
+                                        autocomplete="email"
+                                        required="true"
+                                    >
+                                    <button class="mm-boc-hero-subscribe__btn" type="submit" aria-label="Suscribirme a Bocados">
+                                        Recibirlos
+                                    </button>
+                                </div>
+                                <p class="mm-boc-hero-subscribe__note">Sin spam. Cancelás cuando quieras.</p>
+                                <p class="error-message"></p>
+                                <p class="success-message">Listo. Ya estás adentro. Te voy a mandar el próximo bocado.</p>
+                            </form>
+                        {{else}}
+                            <div class="mm-actions mm-actions--center">
+                                <a href="#/portal/account" data-portal="account" class="mm-btn mm-btn--ghost mm-btn--lg">
+                                    Ya recibís bocados
+                                </a>
+                            </div>
+                        {{/unless}}
+                    {{/unless}}
+                {{/if}}
             </div>
         </div>
     </section>
@@ -142,13 +179,10 @@ Template Name: Archive
                 <header class="mm-boc-subscribe__header">
                     <p class="mm-eyebrow">Suscribirse</p>
                     <h2 class="mm-v2-title" id="boc-subscribe-title">
-                        Recibí bocados <span class="mm-accent">para masticar.</span>
+                        Recibí el próximo <span class="mm-accent">antes que nadie.</span>
                     </h2>
                     <p class="mm-boc-subscribe__lede">
-                        Cada miércoles envío un texto breve para frenar y pensar. Sin ruido, sin recetas. Solo algo que valga la pena <em>masticar</em>. 
-                    </p>
-                    <p class="mm-boc-subscribe__lede">
-                        El primero de cada mes es exclusivo para suscriptores.
+                        Cada miércoles mando un bocado nuevo, directo a tu correo. El primero de cada mes es exclusivo para suscriptores. 
                     </p>
                 </header>
 

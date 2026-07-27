@@ -1,20 +1,20 @@
 {{{html}}}
 
 <section class="single-cta mm-post-paywall">
-    <p class="mm-post-paywall__eyebrow">Solo para suscriptores</p>
+    <p class="mm-post-paywall__eyebrow">Bocado exclusivo</p>
 
     {{#has visibility="filter"}}
         <h2 class="single-cta-title mm-post-paywall__title">Este bocado sigue <span class="mm-accent">para suscriptores.</span></h2>
         <p class="mm-post-paywall__text">Este texto es solo para suscriptores de {{tiers}}.</p>
     {{else}}
         <h2 class="single-cta-title mm-post-paywall__title">Para seguir leyendo, sumate a <span class="mm-accent">Para masticar.</span></h2>
-        <p class="mm-post-paywall__text">Es gratis. Cada semana te llega un bocado —un texto breve para pensar mejor— directo a tu correo. Algunos, como este, son solo para quienes están suscriptos.</p>
+        <p class="mm-post-paywall__text">Cada miércoles envío un texto corto, sobre la voz que nos frena y el fuego que, cada tanto, se enciende.</p>
     {{/has}}
 
     {{#if @member}}
         <a class="single-cta-button mm-post-paywall__btn" href="#/portal/account/plans" data-portal="account/plans">Actualizar ahora</a>
     {{else}}
-        <a class="single-cta-button mm-post-paywall__btn" href="#/portal/signup" data-portal="signup">Suscribirme para seguir leyendo</a>
+        <a class="single-cta-button mm-post-paywall__btn" href="#/portal/signup" data-portal="signup">Suscribirme</a>
         <a class="single-cta-footer mm-post-paywall__link" href="#/portal/signin" data-portal="signin">¿Ya sos parte? Iniciá sesión.</a>
     {{/if}}
 </section>

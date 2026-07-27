@@ -37,6 +37,138 @@ body.page-bocados {
     margin-top: var(--space-6);
 }
 
+/* --- 1b) Hero-inline subscription form -----------------------------
+   Same Ghost Members submit contract as .mm-boc-subscribe__form at
+   the bottom of the page. The visual treatment is different because
+   this form sits directly on the dark hero surface (no cream panel):
+   translucent light input on dark, matching the pattern used by other
+   forms on dark surfaces across the site. */
+.mm-boc .mm-boc-hero-subscribe {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    max-width: 560px;
+    margin: var(--space-6) auto 0;
+    width: 100%;
+}
+
+.mm-boc .mm-boc-hero-subscribe__field {
+    display: flex;
+    gap: var(--space-3);
+    align-items: stretch;
+}
+
+/* Input: dark-surface treatment, mirrors the size/type/radius of
+   the bottom form so the two feel like the same element in
+   different contexts. */
+/* Input and button share the exact same padding + line-height so they
+   render the same intrinsic height at every viewport — same pattern
+   as .mm-boc-subscribe__input / __btn at the bottom of the page.
+   We deliberately do NOT set an explicit height; padding + line-height
+   is enough and behaves correctly under iOS text-field rendering. */
+.mm-boc .mm-boc-hero-subscribe__input {
+    display: block;
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 1.5rem 2rem;
+    background: rgba(244, 241, 234, 0.05);
+    border: 1px solid rgba(244, 241, 234, 0.14);
+    border-radius: 999px;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mm-boc .mm-boc-hero-subscribe__input::placeholder {
+    color: var(--ink-4);
+}
+
+.mm-boc .mm-boc-hero-subscribe__input:focus {
+    outline: 0;
+    border-color: var(--brand);
+    background: rgba(244, 241, 234, 0.08);
+    box-shadow: 0 0 0 3px rgba(82, 113, 255, 0.18);
+}
+
+.mm-boc .mm-boc-hero-subscribe__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 1.5rem 2.4rem;
+    background: var(--brand);
+    color: #ffffff;
+    border: 1px solid var(--brand);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.mm-boc .mm-boc-hero-subscribe__btn:hover {
+    background: var(--brand-2);
+    border-color: var(--brand-2);
+    transform: translateY(-1px);
+}
+
+.mm-boc .mm-boc-hero-subscribe__btn:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+}
+
+.mm-boc .mm-boc-hero-subscribe__note {
+    margin: var(--space-2) 0 0;
+    font-family: var(--font-post-body);
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--ink-3);
+    text-align: center;
+}
+
+/* Ghost members JS toggles these via class on the form. Same treatment
+   as the bottom form — reuse the exact color values so both flows
+   look identical to a returning member. */
+.mm-boc .mm-boc-hero-subscribe .error-message,
+.mm-boc .mm-boc-hero-subscribe .success-message {
+    margin: var(--space-3) 0 0;
+    font-family: var(--font-post-body);
+    font-size: 1.45rem;
+    line-height: 1.5;
+    text-align: center;
+    min-height: 0;
+}
+
+.mm-boc .mm-boc-hero-subscribe .success-message {
+    display: none;
+    color: var(--brand);
+}
+
+.mm-boc .mm-boc-hero-subscribe .error-message {
+    color: #ff8b8b;
+}
+
+.mm-boc .mm-boc-hero-subscribe.success .success-message {
+    display: block;
+}
+
 /* --- 2) Featured bocado (latest post spotlight) --------------------
    Split editorial layout: large image on the left, weighty text block
    on the right. The section is intentionally heavier than the archive
@@ -662,6 +794,23 @@ body.page-bocados {
     }
 
     .mm-boc .mm-boc-subscribe__btn {
+        width: 100%;
+    }
+
+    /* Hero-inline form stacks the same way on mobile — mirrors
+       .mm-boc-subscribe__field / __input / __btn above. */
+    .mm-boc .mm-boc-hero-subscribe__field {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .mm-boc .mm-boc-hero-subscribe__input,
+    .mm-boc .mm-boc-hero-subscribe__btn {
+        padding: 1.35rem 1.8rem;
+        font-size: 1.4rem;
+    }
+
+    .mm-boc .mm-boc-hero-subscribe__btn {
         width: 100%;
     }
 
