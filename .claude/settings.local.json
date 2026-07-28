@@ -59,7 +59,12 @@
       "Bash(rm -f talks-lameetup.webp talks-lameetup-2.jpg talks-wyeworks.webp talks-lameetup-wide.jpeg)",
       "Bash(ls -la talks-*)",
       "Bash(wait)",
-      "Bash(grep -B 1 -A 6 \"mm-boc-subscribe__input,\\\\|mm-boc-subscribe__btn {\" assets/css/site/bocados.css)"
+      "Bash(grep -B 1 -A 6 \"mm-boc-subscribe__input,\\\\|mm-boc-subscribe__btn {\" assets/css/site/bocados.css)",
+      "Bash(sed -i '' 's|/?tipo=masticada#mm-home-contact|/?tipo=capacitacion#mm-home-contact|g' custom-masticadas.hbs)",
+      "Bash(sed -i '' 's|/?tipo=charla#mm-home-contact|/?tipo=capacitacion#mm-home-contact|g' custom-charlas.hbs)",
+      "Bash(sed -i '' 's|/?tipo=capacitacion#mm-home-contact|/?tipo=masticada#mm-home-contact|g' custom-masticadas.hbs)",
+      "Bash(sed -i '' 's|/?tipo=capacitacion#mm-home-contact|/?tipo=charla#mm-home-contact|g' custom-charlas.hbs)",
+      "Bash(./node_modules/.bin/gscan .)"
     ]
   }
 }

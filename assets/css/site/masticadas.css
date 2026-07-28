@@ -1193,3 +1193,182 @@ body:has(.mm-mast),
     }
 }
 
+/* --- /capacitaciones ------------------------------------------------
+   Bloques específicos: dos formatos (charla/masticada como cards
+   editoriales dark), lista de habilidades (kicker chips) y grilla
+   ampliada de experiencias (5 fotos mezclando ronda + escenario). */
+
+/* Dos formatos: dos cards side-by-side, mismo lenguaje visual que
+   .mm-mast-ideal__card (dark editorial, hairline brand top). */
+.mm-cap .mm-cap-formats {
+    padding-block: clamp(3.6rem, 5vw, 5rem);
+    background: var(--surface-0);
+}
+
+.mm-cap .mm-cap-formats > .mm-canvas > .mm-mast-what__header {
+    max-width: 60ch;
+    margin: 0 auto clamp(2.4rem, 3.5vw, 3.2rem);
+    text-align: center;
+}
+
+.mm-cap .mm-cap-formats > .mm-canvas > .mm-mast-what__header .mm-eyebrow {
+    justify-content: center;
+}
+
+.mm-cap .mm-cap-formats__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 3vw, 2.8rem);
+    max-width: 880px;
+    margin: 0 auto clamp(3.2rem, 4.5vw, 4rem);
+}
+
+.mm-cap .mm-cap-format {
+    position: relative;
+    isolation: isolate;
+    padding: clamp(2.8rem, 3.5vw, 3.6rem) clamp(2.4rem, 3vw, 3rem);
+    background: rgba(244, 241, 234, 0.045);
+    border: 1px solid rgba(244, 241, 234, 0.10);
+    border-radius: 2px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.mm-cap .mm-cap-format::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4.4rem;
+    height: 2px;
+    background: var(--brand);
+}
+
+.mm-cap .mm-cap-format__title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 2.4vw, 2.4rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    margin: 0;
+}
+
+.mm-cap .mm-cap-format__text {
+    font-family: var(--font-post-body);
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0;
+}
+
+/* Specs bajo las dos cards. Reusa .mm-mast-what__meta pero necesitamos
+   restaurar el margen que heredó (era margin-top: var(--space-7) en
+   contextos donde el meta viene después de la prosa; acá viene
+   después de las cards y no requiere ese respiro extra). */
+.mm-cap .mm-cap-formats__meta {
+    margin-top: 0;
+}
+
+.mm-cap .mm-cap-formats__meta a {
+    color: var(--brand);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+}
+
+/* --- Piezas (variant of .mm-cap-formats with 5 pieces at 3 cols) --- */
+.mm-cap .mm-cap-pieces__intro {
+    max-width: 60ch;
+    margin: var(--space-4) auto 0;
+    font-family: var(--font-post-body);
+    font-size: 1.6rem;
+    line-height: 1.55;
+    color: var(--ink-2);
+    text-align: center;
+}
+
+.mm-cap .mm-cap-pieces__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 1100px;
+    margin-bottom: 0;
+}
+
+.mm-cap .mm-cap-pieces__grid .mm-cap-format__text a {
+    color: var(--brand);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+}
+
+/* Habilidades: chips editoriales sobrios (no gritan, no son botones). */
+.mm-cap .mm-cap-skills {
+    padding-block: clamp(3.6rem, 5vw, 5rem);
+    background: var(--surface-0);
+}
+
+.mm-cap .mm-cap-skills > .mm-canvas > .mm-mast-what__header {
+    max-width: 60ch;
+    margin: 0 auto clamp(2.4rem, 3.5vw, 3.2rem);
+    text-align: center;
+}
+
+.mm-cap .mm-cap-skills > .mm-canvas > .mm-mast-what__header .mm-eyebrow {
+    justify-content: center;
+}
+
+.mm-cap .mm-cap-skills__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 780px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+}
+
+.mm-cap .mm-cap-skills__list li {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    padding: 0.9rem 1.6rem;
+    background: rgba(244, 241, 234, 0.05);
+    border: 1px solid rgba(244, 241, 234, 0.12);
+    border-radius: 999px;
+    line-height: 1.2;
+}
+
+/* Grilla de 5 fotos en /capacitaciones: 3 col en desktop, se acomoda
+   con auto-fill; en mobile colapsa a 1 col. */
+.mm-cap .mm-cap-real__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Tablet: pieces grid drops to 2 columns so 5 cards breathe. */
+@media (max-width: 960px) and (min-width: 641px) {
+    .mm-cap .mm-cap-pieces__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 880px;
+    }
+}
+
+@media (max-width: 640px) {
+    .mm-cap .mm-cap-formats__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mm-cap .mm-cap-skills__list {
+        gap: var(--space-2);
+    }
+
+    .mm-cap .mm-cap-skills__list li {
+        font-size: 1.3rem;
+        padding: 0.7rem 1.2rem;
+    }
+}
+
