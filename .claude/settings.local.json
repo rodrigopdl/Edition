@@ -64,7 +64,9 @@
       "Bash(sed -i '' 's|/?tipo=charla#mm-home-contact|/?tipo=capacitacion#mm-home-contact|g' custom-charlas.hbs)",
       "Bash(sed -i '' 's|/?tipo=capacitacion#mm-home-contact|/?tipo=masticada#mm-home-contact|g' custom-masticadas.hbs)",
       "Bash(sed -i '' 's|/?tipo=capacitacion#mm-home-contact|/?tipo=charla#mm-home-contact|g' custom-charlas.hbs)",
-      "Bash(./node_modules/.bin/gscan .)"
+      "Bash(./node_modules/.bin/gscan .)",
+      "Bash(grep -B 1 -A 12 \"mm-home-contact__choice-option {$\" assets/css/site/homepage.css)",
+      "Bash(grep -rB 0 -A 3 \"class=\\\\\"mm-btn\" --include=\"*.hbs\")"
     ]
   }
 }

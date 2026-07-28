@@ -393,11 +393,8 @@ namespace propio .mm-cap queda disponible para refinamientos específicos.
                 <p class="mm-mast-cta__lede">
                     Cada equipo necesita algo distinto. Contame del tuyo —qué están atravesando, qué te gustaría que les pase— y armo una propuesta a medida. La conversación no cuesta nada y no compromete a nada.
                 </p>
-                <div class="mm-actions mm-actions--center">
-                    <a href="/?tipo=equipo#mm-home-contact" class="mm-btn mm-btn--primary mm-btn--lg">
-                        Contame de tu equipo
-                    </a>
-                </div>
+                {{> "contact-form" show_selector=false tipo_predefinido="equipo" origen="equipos" subject="Contacto — desde /equipos/"}}
+
                 <p class="mm-mast-cta__fallback">
                     También podés escribirme a
                     <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.

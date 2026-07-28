@@ -1235,6 +1235,7 @@ main.mm-v2 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5em;
     height: 5.2rem;
     padding: 0 2.6rem;
     border-radius: 999px;
@@ -1998,6 +1999,18 @@ main.mm-v2 {
     color: var(--brand);
 }
 
+/* Secondary CTA inside the newsletter panel: "Leer el último bocado".
+   Lives after the subscribe form to give the visitor a lightweight way
+   to sample content without committing to the email. Separated with a
+   hairline so it reads as an alternative action, not a duplicate. */
+.mm-v2 .mm-bocados__cta-secondary {
+    margin-top: var(--space-5);
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(29, 32, 48, 0.10);
+    display: flex;
+    justify-content: flex-start;
+}
+
 .mm-v2 .mm-bocados__member {
     display: flex;
     justify-content: flex-start;
@@ -2508,27 +2521,43 @@ main.mm-v2 {
     line-height: 1;
 }
 
+/* Radios laid out as compact chips: fit-content per option, wrapping
+   into rows. Reads as a tight cluster instead of full-width pills
+   with dead space between them. */
 .mm-v2 .mm-home-contact__choice-options {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8rem;
 }
 
+/* Fixed pill height (via padding-derived box-sizing + explicit height)
+   so all three chips render at pixel-identical heights, regardless of
+   which one contains the `required` attribute or sub-pixel radio
+   rendering differences between browsers.
+
+   The `margin-top: 0` override is needed because assets/css/general/form.css
+   has a legacy `label + label { margin-top: 2rem }` rule that pushes every
+   sibling label 2rem down. That's meant for stacked block labels, but our
+   chips live in a flex row and must sit flush. */
 .mm-v2 .mm-home-contact__choice-option {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: var(--space-3);
-    padding: 1.1rem 1.6rem;
+    gap: 0.9rem;
+    height: 3.8rem;
+    padding: 0 1.4rem;
+    margin: 0;
     border: 1px solid rgba(244, 241, 234, 0.12);
     border-radius: 999px;
     background: rgba(244, 241, 234, 0.05);
     cursor: pointer;
     transition: border-color 0.2s ease, background 0.2s ease;
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.45rem;
     font-weight: 500;
     line-height: 1;
     color: var(--ink);
+    box-sizing: border-box;
 }
 
 /* The label text sits in a <span> next to the radio circle. League

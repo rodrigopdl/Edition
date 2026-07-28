@@ -1372,3 +1372,23 @@ body:has(.mm-mast),
     }
 }
 
+/* --- Contact form embedded inside .mm-mast-cta ---------------------
+   The service pages (/equipos/, /lideres/) now embed the shared
+   contact-form partial inside their CTA. The partial's markup uses
+   .mm-home-contact__* classes (originally styled to live inside the
+   home's .mm-home-contact__panel). Since the CTA inner block has
+   text-align: center and a narrower max-width, we override the two
+   things that would otherwise look off: bring the form back to
+   left alignment and give it a comfortable reading width.
+   The submit button is centered so it aligns with the mailto fallback
+   text below it (which is centered by .mm-mast-cta__inner). */
+.mm-mast .mm-mast-cta .mm-home-contact__form {
+    max-width: 620px;
+    margin: var(--space-6) auto 0;
+    text-align: left;
+}
+
+.mm-mast .mm-mast-cta .mm-home-contact__form .mm-actions {
+    justify-content: center;
+}
+

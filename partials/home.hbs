@@ -11,17 +11,17 @@
                 </h1>
 
                 <div class="mm-hero__lede">
-                    <p>Con historias que hacen que cada uno se encuentre con lo suyo, y un lenguaje propio que se queda: el mundo de <em>La Bestia</em>.</p>
+                    <p>Con historias del trabajo y de la vida cotidiana, preguntas que dejan masticando, y un lenguaje propio que se queda: el de <em>La Bestia</em>.</p>
                 </div>
 
                 <div class="mm-actions mm-actions--center">
                     <a href="/equipos/" class="mm-btn mm-btn--primary mm-btn--lg">
                         Para mi equipo
-                        <span aria-hidden="true"> →</span>
+                        <span aria-hidden="true">→</span>
                     </a>
                     <a href="/lideres/" class="mm-btn mm-btn--primary mm-btn--lg">
                         Para mí
-                        <span aria-hidden="true"> →</span>
+                        <span aria-hidden="true">→</span>
                     </a>
                 </div>
             </div>
@@ -64,7 +64,64 @@
         </div>
     </section>
 
-    {{!-- 3. Quién soy — Hola, soy Rodri ------------------------------------- --}}
+    {{!-- 3. Bocados (newsletter) — antes de Quién soy ---------------------- --}}
+    <section class="mm-bocados" aria-labelledby="bocados-title">
+        <div class="mm-canvas">
+            <div class="mm-bocados__panel">
+                <div class="mm-bocados__row">
+                    <div class="mm-bocados__text">
+                        <p class="mm-eyebrow">Para masticar</p>
+                        <h2 class="mm-bocados__title" id="bocados-title">Y para todos, <span class="mm-accent">los bocados.</span></h2>
+                        <p class="mm-bocados__lede">
+                            Podés entrar a mi mundo por donde entró todo el mundo: los bocados. Textos cortos que te dejan pensando. Cada miércoles, por mail, gratis.
+                        </p>
+                    </div>
+
+                    {{#if @site.members_enabled}}
+                        {{#unless @site.members_invite_only}}
+                            {{#unless @member}}
+                                <form class="mm-bocados__form" data-members-form>
+                                    <label for="mm-bocados-email" class="mm-visually-hidden">Tu email</label>
+                                    <p class="mm-bocados__form-label">Recibilos antes que nadie</p>
+                                    <div class="mm-bocados__field">
+                                        <input
+                                            id="mm-bocados-email"
+                                            class="mm-bocados__input"
+                                            type="email"
+                                            name="email"
+                                            data-members-email
+                                            placeholder="tu@email.com"
+                                            required="true"
+                                        >
+                                        <button class="mm-bocados__btn" type="submit" aria-label="Suscribirse a Bocados">
+                                            Recibirlos
+                                        </button>
+                                    </div>
+                                    <p class="mm-bocados__note">
+                                        Sin spam. El primero de cada mes es exclusivo para suscriptores.
+                                    </p>
+                                    <p class="error-message"></p>
+                                    <p class="success-message"></p>
+
+                                    <div class="mm-bocados__cta-secondary">
+                                        {{#get "posts" limit="1" as |latest|}}
+                                            {{#foreach latest}}
+                                                <a href="{{url}}" class="mm-btn mm-btn--ghost">Leer el último</a>
+                                            {{/foreach}}
+                                        {{else}}
+                                            <a href="/" class="mm-btn mm-btn--ghost">Leer bocados</a>
+                                        {{/get}}
+                                    </div>
+                                </form>
+                            {{/unless}}
+                        {{/unless}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 4. Quién soy — Hola, soy Rodri ------------------------------------- --}}
     <section class="mm-intro" aria-labelledby="intro-title">
         <div class="mm-canvas">
             <div class="mm-intro__grid">
@@ -96,7 +153,7 @@
         </div>
     </section>
 
-    {{!-- 4. La Bestia ------------------------------------------------------- --}}
+    {{!-- 5. La Bestia ------------------------------------------------------- --}}
     <section class="mm-bestia" aria-labelledby="bestia-title">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-bestia__grid">
@@ -119,17 +176,17 @@
                     </h2>
                     <div class="mm-prose">
                         <p>Gran parte de mi trabajo nace de una idea: todos tenemos una Bestia. Esa fuerza interior que nos frena, nos hace dudar, y nos aleja de la persona que queremos ser.</p>
-                        <p>Aprender a reconocerla y a domarla es el primer paso para liderarnos a nosotros mismos. De eso trata mi primer libro.</p>
+                        <p>Aprender a reconocerla y a domarla es el camino para liderarnos a nosotros mismos. De eso trata mi libro.</p>
                     </div>
                     <div class="mm-actions">
-                        <a href="/bestia/" class="mm-btn mm-btn--ghost">Conocé La Bestia</a>
+                        <a href="/bestia/" class="mm-btn mm-btn--ghost">Conocé el libro</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 5. Testimonio ------------------------------------------------------
+    {{!-- 6. Testimonio ------------------------------------------------------
          Un testimonio único, full-width, patrón .mm-testimonial existente.
          Para sumar un 2do testimonio al lado en el futuro haría falta CSS
          nuevo (grid de 2 col + ajustes tipográficos + responsive) — no está
@@ -161,63 +218,9 @@
         </div>
     </section>
 
-    {{!-- 6. Bocados (compacto) --------------------------------------------- --}}
-    <section class="mm-bocados" aria-labelledby="bocados-title">
-        <div class="mm-canvas">
-            <div class="mm-bocados__panel">
-                <div class="mm-bocados__row">
-                    <div class="mm-bocados__text">
-                        <p class="mm-eyebrow">Newsletter</p>
-                        <h2 class="mm-bocados__title" id="bocados-title">Bocados para masticar.</h2>
-                        <p class="mm-bocados__lede">
-                            Textos cortos sobre la voz que nos frena y el fuego que, cada tanto, se enciende. Cada miércoles, por mail.
-                        </p>
-                        <div class="mm-actions">
-                            {{#get "posts" limit="1" as |latest|}}
-                                {{#foreach latest}}
-                                    <a href="{{url}}" class="mm-btn mm-btn--ghost">Leer el último bocado</a>
-                                {{/foreach}}
-                            {{else}}
-                                <a href="/" class="mm-btn mm-btn--ghost">Leer bocados</a>
-                            {{/get}}
-                        </div>
-                    </div>
-
-                    {{#if @site.members_enabled}}
-                        {{#unless @site.members_invite_only}}
-                            {{#unless @member}}
-                                <form class="mm-bocados__form" data-members-form>
-                                    <label for="mm-bocados-email" class="mm-visually-hidden">Tu email</label>
-                                    <p class="mm-bocados__form-label">Recibilos antes que nadie</p>
-                                    <div class="mm-bocados__field">
-                                        <input
-                                            id="mm-bocados-email"
-                                            class="mm-bocados__input"
-                                            type="email"
-                                            name="email"
-                                            data-members-email
-                                            placeholder="tu@email.com"
-                                            required="true"
-                                        >
-                                        <button class="mm-bocados__btn" type="submit" aria-label="Suscribirse a Bocados">
-                                            Recibirlos
-                                        </button>
-                                    </div>
-                                    <p class="mm-bocados__note">
-                                        Sin spam. El primero de cada mes es exclusivo para suscriptores.
-                                    </p>
-                                    <p class="error-message"></p>
-                                    <p class="success-message"></p>
-                                </form>
-                            {{/unless}}
-                        {{/unless}}
-                    {{/if}}
-                </div>
-            </div>
-        </div>
-    </section>
 
     {{!-- 7. Contacto -------------------------------------------------------- --}}
+
     <section class="mm-home-contact" id="mm-home-contact" aria-labelledby="home-contact-title">
         <div class="mm-canvas">
             <div class="mm-home-contact__panel">
@@ -228,96 +231,12 @@
                     </h2>
                 </header>
 
-                <form
-                    id="mm-home-formspree"
-                    class="mm-home-contact__form"
-                    action="https://formspree.io/f/maqpeljq"
-                    method="POST"
-                >
-                    <input type="hidden" name="_subject" value="Contacto — desde la home">
-                    <input type="hidden" name="origen" value="home">
+                {{> "contact-form" show_selector=true origen="home" subject="Contacto — desde la home"}}
 
-                    <fieldset class="mm-home-contact__choice">
-                        <legend class="mm-home-contact__choice-legend">¿Sobre qué querés hablar?</legend>
-                        <div class="mm-home-contact__choice-options">
-                            <label class="mm-home-contact__choice-option">
-                                <input type="radio" name="tipo_consulta" value="Algo para mi equipo" required>
-                                <span>Algo para mi equipo</span>
-                            </label>
-                            <label class="mm-home-contact__choice-option">
-                                <input type="radio" name="tipo_consulta" value="Algo para mí como líder">
-                                <span>Algo para mí como líder</span>
-                            </label>
-                            <label class="mm-home-contact__choice-option">
-                                <input type="radio" name="tipo_consulta" value="Una charla para mi evento">
-                                <span>Una charla para mi evento</span>
-                            </label>
-                            <label class="mm-home-contact__choice-option">
-                                <input type="radio" name="tipo_consulta" value="Otro">
-                                <span>Otro</span>
-                            </label>
-                        </div>
-                    </fieldset>
-
-                    <div class="mm-home-contact__row mm-home-contact__row--two">
-                        <div class="mm-home-contact__field">
-                            <label class="mm-home-contact__label" for="mm-home-name">Nombre</label>
-                            <input
-                                id="mm-home-name"
-                                name="nombre"
-                                type="text"
-                                autocomplete="name"
-                                required
-                                class="mm-home-contact__input"
-                            >
-                        </div>
-
-                        <div class="mm-home-contact__field">
-                            <label class="mm-home-contact__label" for="mm-home-email">Email</label>
-                            <input
-                                id="mm-home-email"
-                                name="email"
-                                type="email"
-                                autocomplete="email"
-                                required
-                                class="mm-home-contact__input"
-                            >
-                        </div>
-                    </div>
-
-                    <div class="mm-home-contact__row">
-                        <div class="mm-home-contact__field">
-                            <label class="mm-home-contact__label" for="mm-home-message">Contame de tu situación</label>
-                            <textarea
-                                id="mm-home-message"
-                                name="mensaje"
-                                rows="6"
-                                required
-                                placeholder="¿Qué estás masticando?"
-                                class="mm-home-contact__textarea"
-                            ></textarea>
-                        </div>
-                    </div>
-
-                    {{!-- Honeypot --}}
-                    <div class="mm-home-contact__honeypot" aria-hidden="true">
-                        <label for="mm-home-website">No completar este campo</label>
-                        <input id="mm-home-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
-                    </div>
-
-                    <div class="mm-actions">
-                        <button type="submit" class="mm-btn mm-btn--primary mm-btn--lg">
-                            Enviar mensaje
-                        </button>
-                    </div>
-
-                    <p id="mm-home-form-status" class="mm-home-contact__status" role="status" aria-live="polite"></p>
-
-                    <p class="mm-home-contact__fallback">
-                        También podés escribirme a
-                        <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.
-                    </p>
-                </form>
+                <p class="mm-home-contact__fallback">
+                    También podés escribirme a
+                    <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.
+                </p>
             </div>
         </div>
     </section>
@@ -325,91 +244,3 @@
 </main>
 
 {{#contentFor "body_class"}}homepage-mm-v2{{/contentFor}}
-
-{{!-- AJAX submit for home contact form. Same pattern as /masticadas. --}}
-<script>
-(function () {
-    var form = document.getElementById('mm-home-formspree');
-    if (!form) return;
-    var status = document.getElementById('mm-home-form-status');
-    var submitBtn = form.querySelector('button[type="submit"]');
-
-    function setStatus(msg, state) {
-        if (!status) return;
-        status.textContent = msg;
-        status.dataset.state = state || '';
-    }
-
-    {{!-- Allow other pages to deep-link with /?tipo=masticada#mm-home-contact
-         The querystring goes BEFORE the fragment so the browser still scrolls
-         to the form (the # value must be a real element id). We read tipo
-         from location.search, not from the hash. --}}
-    function preselectFromUrl() {
-        try {
-            var search = window.location.search || '';
-            var match = search.match(/[?&]tipo=([^&]+)/);
-            if (!match) return;
-            var requested = decodeURIComponent(match[1]).toLowerCase();
-            var map = {
-                'equipo':       'Algo para mi equipo',
-                'capacitacion': 'Algo para mi equipo',
-                'capacitación': 'Algo para mi equipo',
-                'masticada':    'Algo para mi equipo',
-                'lider':        'Algo para mí como líder',
-                'líder':        'Algo para mí como líder',
-                'sesion':       'Algo para mí como líder',
-                'sesión':       'Algo para mí como líder',
-                'charla':       'Una charla para mi evento',
-                'otro':         'Otro'
-            };
-            var target = map[requested];
-            if (!target) return;
-            var radios = form.querySelectorAll('input[name="tipo_consulta"]');
-            for (var i = 0; i < radios.length; i++) {
-                if (radios[i].value === target) {
-                    radios[i].checked = true;
-                    break;
-                }
-            }
-        } catch (e) { /* noop */ }
-    }
-    preselectFromUrl();
-
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.dataset.label = submitBtn.textContent;
-            submitBtn.textContent = 'Enviando…';
-        }
-        setStatus('', 'loading');
-
-        var data = new FormData(form);
-        fetch(form.action, {
-            method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
-        }).then(function (res) {
-            if (res.ok) {
-                form.reset();
-                setStatus('Gracias. Ya recibí tu mensaje. Te voy a leer con atención y te respondo pronto.', 'success');
-            } else {
-                return res.json().then(function (body) {
-                    var msg = (body && body.errors && body.errors[0] && body.errors[0].message)
-                        || 'Algo no funcionó. Probá de nuevo en un momento.';
-                    setStatus(msg, 'error');
-                }).catch(function () {
-                    setStatus('Algo no funcionó. Probá de nuevo en un momento.', 'error');
-                });
-            }
-        }).catch(function () {
-            setStatus('No pudimos enviar el mensaje. Revisá tu conexión y probá de nuevo.', 'error');
-        }).finally(function () {
-            if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.textContent = submitBtn.dataset.label || 'Enviar mensaje';
-            }
-        });
-    });
-})();
-</script>
