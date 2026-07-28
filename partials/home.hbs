@@ -64,6 +64,23 @@
         </div>
     </section>
 
+    {{!-- 2b. Panorama — separador visual full-bleed entre Servicios y Bocados.
+         Full-bleed real: la sección rompe el max-width del contenedor y llega
+         de borde a borde de la ventana (patrón .mm-home-panorama--bleed).
+         Imagen decorativa, sin texto ni link. --}}
+    <section class="mm-home-panorama mm-home-panorama--bleed" aria-hidden="true">
+        <figure class="mm-home-panorama__figure">
+            <div class="mm-home-panorama__frame">
+                <img
+                    src="{{asset "images/rodri-mar.webp"}}"
+                    alt="Rodri de espaldas frente al mar, con su libro La Bestia en las manos."
+                    class="mm-home-panorama__img"
+                    loading="lazy"
+                >
+            </div>
+        </figure>
+    </section>
+
     {{!-- 3. Bocados (newsletter) — antes de Quién soy ---------------------- --}}
     <section class="mm-bocados" aria-labelledby="bocados-title">
         <div class="mm-canvas">

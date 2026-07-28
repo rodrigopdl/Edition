@@ -18,6 +18,12 @@ body.home-template {
     font-size: 2.2rem;
     min-height: 100vh; /* Prevent layout shift by reserving minimum space */
     contain: layout; /* Improve rendering performance */
+    overflow-x: clip; /* Contain full-bleed children (100vw + negative
+                         margins) so they don't cause horizontal scroll
+                         on viewports that show a scrollbar. `clip` is
+                         preferred over `hidden`: it doesn't create a
+                         scroll container and doesn't break sticky/fixed
+                         positioning inside descendants. */
 }
 
 /* Hero Section */
@@ -2748,6 +2754,132 @@ main.mm-v2 {
 
 .mm-v2 .mm-home-contact__fallback a:hover {
     color: var(--brand);
+}
+
+/* --- Home panorama — decorative image between sections.
+   Two flavours:
+     - default (contained): image lives inside .mm-canvas, rounded, framed.
+     - .mm-home-panorama--bleed: edge-to-edge of the viewport, breaking
+       any parent max-width via the classic full-bleed trick
+       (width: 100vw + negative side margins).
+   Aspect ratio matches a cinematic band (2:1 desktop, 16:10 tablet,
+   4:3 mobile) so the crop stays readable on any viewport. */
+.mm-v2 .mm-home-panorama {
+    padding-block: clamp(2rem, 3vw, 3.2rem);
+    background: var(--surface-0);
+}
+
+.mm-v2 .mm-home-panorama__figure {
+    margin: 0;
+}
+
+.mm-v2 .mm-home-panorama__frame {
+    aspect-ratio: 2 / 1;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.mm-v2 .mm-home-panorama__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+}
+
+/* Full-bleed modifier — edge to edge of viewport regardless of any
+   ancestor max-width. `100vw` covers the viewport width; the negative
+   left margin (calc(50% - 50vw)) pulls the section back to the left
+   edge from wherever its normal-flow position started. Overflow is
+   hidden on the parent so no horizontal scrollbar leaks. */
+.mm-v2 .mm-home-panorama--bleed {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-block: 0;
+    position: relative;
+    isolation: isolate;
+}
+
+.mm-v2 .mm-home-panorama--bleed .mm-home-panorama__figure {
+    position: relative;
+}
+
+.mm-v2 .mm-home-panorama--bleed .mm-home-panorama__frame {
+    border-radius: 0;
+    aspect-ratio: 16 / 9;
+}
+
+/* Subject-aware crop: the source is portrait and the important detail
+   (Rodri holding "La Bestia") sits in the lower-middle of the frame.
+   `object-position: center 65%` pulls the crop down so we always show
+   the figure + the book + a strip of horizon, rather than a top-heavy
+   sky-only crop. */
+.mm-v2 .mm-home-panorama--bleed .mm-home-panorama__img {
+    border-radius: 0;
+    object-position: center 65%;
+}
+
+/* Top + bottom gradient overlays that fade the image into the page's
+   dark surface (var(--surface-0)). Editorial technique used by print-
+   inspired sites: the image "emerges" from the background rather than
+   sitting as a pasted rectangle. Height and intensity kept subtle so
+   the photograph still reads clearly. */
+.mm-v2 .mm-home-panorama--bleed .mm-home-panorama__figure::before,
+.mm-v2 .mm-home-panorama--bleed .mm-home-panorama__figure::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 22%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.mm-v2 .mm-home-panorama--bleed .mm-home-panorama__figure::before {
+    top: 0;
+    background: linear-gradient(
+        to bottom,
+        var(--surface-0) 0%,
+        rgba(29, 32, 48, 0.65) 40%,
+        rgba(29, 32, 48, 0) 100%
+    );
+}
+
+.mm-v2 .mm-home-panorama--bleed .mm-home-panorama__figure::after {
+    bottom: 0;
+    background: linear-gradient(
+        to top,
+        var(--surface-0) 0%,
+        rgba(29, 32, 48, 0.65) 40%,
+        rgba(29, 32, 48, 0) 100%
+    );
+}
+
+@media (max-width: 900px) {
+    .mm-v2 .mm-home-panorama--bleed .mm-home-panorama__frame {
+        aspect-ratio: 3 / 2;
+    }
+}
+
+@media (max-width: 640px) {
+    .mm-v2 .mm-home-panorama__frame {
+        aspect-ratio: 16 / 10;
+    }
+
+    .mm-v2 .mm-home-panorama--bleed .mm-home-panorama__frame {
+        /* Mobile: 4:5 (soft portrait) shows more of the figure vertically,
+           which is where the book sits. Gradients shrink to 15% so they
+           don't eat up too much of the smaller frame. */
+        aspect-ratio: 4 / 5;
+    }
+
+    .mm-v2 .mm-home-panorama--bleed .mm-home-panorama__figure::before,
+    .mm-v2 .mm-home-panorama--bleed .mm-home-panorama__figure::after {
+        height: 15%;
+    }
 }
 
 /* Print */

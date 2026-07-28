@@ -66,7 +66,30 @@
       "Bash(sed -i '' 's|/?tipo=capacitacion#mm-home-contact|/?tipo=charla#mm-home-contact|g' custom-charlas.hbs)",
       "Bash(./node_modules/.bin/gscan .)",
       "Bash(grep -B 1 -A 12 \"mm-home-contact__choice-option {$\" assets/css/site/homepage.css)",
-      "Bash(grep -rB 0 -A 3 \"class=\\\\\"mm-btn\" --include=\"*.hbs\")"
+      "Bash(grep -rB 0 -A 3 \"class=\\\\\"mm-btn\" --include=\"*.hbs\")",
+      "Bash(sips -g pixelWidth -g pixelHeight assets/images/rodri-mar.webp)",
+      "Bash(grep -n \"@media print\\\\|Print$\" assets/css/site/homepage.css)",
+      "Bash(sips -g pixelWidth -g pixelHeight rodri-mar.webp)",
+      "Bash(magick --version)",
+      "Bash(mkdir -p /tmp/rodri-mar-versions)",
+      "Bash(cp \"/Users/rodrigopdl/Documents/rpdl/Para masticar/Custom ghost theme/Edition/assets/images/rodri-mar.webp\" source.webp)",
+      "Bash(magick source.webp '\\(' +clone -colorspace Gray -negate -level 0%,60% -blur 0x8 '\\)' '\\(' -clone 0 -gamma 1.4 '\\)' -compose over -composite -delete -1 '\\(' +clone -colorspace Gray -negate -level 0%,60% -blur 0x8 '\\)' -compose CopyOpacity -composite '\\(' source.webp '\\)' +swap -compose over -composite -unsharp 0x25+0.4+0.02 -modulate 100,103,100 v1-sutil.webp)",
+      "Bash(magick source.webp -sigmoidal-contrast 2x60% -unsharp 0x20+0.3+0.02 -modulate 100,103,100 v1-sutil.webp)",
+      "Bash(magick source.webp -clahe 25x25%+128+2 -modulate 100,103,100 v1-sutil.webp)",
+      "Bash(magick source.webp -clahe 25x25%+128+3 -modulate 100,105,100 v2-moderada.webp)",
+      "Bash(magick source.webp -clahe 25x25%+128+5 -modulate 100,107,100 v3-fuerte.webp)",
+      "Bash(magick source.webp -clahe 25x25%+128+8 -modulate 100,110,100 v4-muy-fuerte.webp)",
+      "Bash(rm -f v1-sutil.webp v2-moderada.webp v3-fuerte.webp v4-muy-fuerte.webp)",
+      "Bash(magick source.webp +sigmoidal-contrast 3,50% -unsharp 0x25+0.35+0.02 -modulate 100,103,100 v1-sutil.webp)",
+      "Bash(magick source.webp +sigmoidal-contrast 6,50% -unsharp 0x25+0.4+0.02 -modulate 100,105,100 v2-moderada.webp)",
+      "Bash(magick source.webp +sigmoidal-contrast 9,50% -unsharp 0x30+0.5+0.02 -modulate 100,107,100 v3-fuerte.webp)",
+      "Bash(magick source.webp +sigmoidal-contrast 12,50% -unsharp 0x30+0.6+0.02 -modulate 100,110,100 v4-muy-fuerte.webp)",
+      "Bash(cp rodri-mar.webp rodri-mar-full.webp)",
+      "Bash(magick rodri-mar-v2.webp -resize 1600x -quality 80 rodri-mar.webp)",
+      "Bash(rm -f rodri-mar-v1.webp rodri-mar-v2.webp rodri-mar-v3.webp rodri-mar-v4.webp)",
+      "Bash(sips -g pixelWidth -g pixelHeight rodri-mar.webp rodri-mar-full.webp)",
+      "Bash(cp test-w1600-q75.webp rodri-mar.webp)",
+      "Bash(rm -f rodri-mar.jpg test-*.webp test-*.avif)"
     ]
   }
 }
