@@ -1198,6 +1198,224 @@ body:has(.mm-mast),
    editoriales dark), lista de habilidades (kicker chips) y grilla
    ampliada de experiencias (5 fotos mezclando ronda + escenario). */
 
+/* --- /equipos: densidad general ---------------------------------------
+   La página /equipos apila muchas secciones editoriales (efecto, viaje,
+   piezas, habilidades, testimonios, fotos, quién soy, CTA). Con el
+   --section-py global (8–14rem) queda muy larga para el uso al que está
+   pensada: convencer a RRHH en pocos scrolls. Apretamos --section-py
+   solo dentro de .mm-cap, y ajustamos el hero para que sea más compacto. */
+.mm-cap {
+    --section-py: clamp(4rem, 6vw, 7rem);
+}
+
+.mm-mast.mm-cap .mm-mast-hero {
+    padding-top: clamp(4rem, 6vw, 6rem);
+    padding-bottom: clamp(3rem, 4.5vw, 4.5rem);
+}
+
+.mm-mast.mm-cap .mm-mast-hero .mm-hero__title {
+    max-width: 18ch;
+    margin-bottom: var(--space-5);
+}
+
+.mm-mast.mm-cap .mm-mast-hero .mm-hero__lede {
+    font-size: clamp(1.9rem, 1.6vw, 2.2rem);
+    max-width: 44ch;
+    margin-inline: auto;
+}
+
+.mm-mast.mm-cap .mm-mast-hero .mm-hero__lede p {
+    margin: 0;
+}
+
+.mm-mast.mm-cap .mm-mast-hero .mm-actions {
+    margin-top: var(--space-6);
+}
+
+/* Las secciones editoriales seguidas (Efecto → Viaje) leen como un solo
+   pasaje, así que sacamos la línea superior de la segunda para que no
+   se sienta corte. */
+.mm-mast.mm-cap .mm-mast-what + .mm-mast-what::before {
+    display: none;
+}
+
+/* --- /equipos: Piezas (grilla compacta) --------------------------------
+   Reemplaza 5 secciones editoriales apiladas (una por pieza) por un
+   único bloque con 5 items en una columna densa. Numeración visual
+   grande a la izquierda, título inline, texto en tipografía normal.
+   En mobile los items van uno debajo del otro con el número arriba. */
+.mm-cap .mm-cap-pieces-v2 {
+    padding-block: var(--section-py);
+    background: var(--surface-0);
+    position: relative;
+}
+
+.mm-cap .mm-cap-pieces-v2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1160px, calc(100% - 4rem));
+    height: 1px;
+    background: rgba(244, 241, 234, 0.06);
+}
+
+.mm-cap .mm-cap-pieces-v2__header {
+    max-width: 680px;
+    margin: 0 auto var(--space-7);
+}
+
+.mm-cap .mm-cap-pieces-v2__header .mm-eyebrow {
+    margin-bottom: var(--space-4);
+}
+
+.mm-cap .mm-cap-pieces-v2__header .mm-v2-title {
+    margin: 0;
+}
+
+.mm-cap .mm-cap-pieces-v2__list {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 3vw, 2.6rem);
+}
+
+.mm-cap .mm-cap-piece {
+    display: grid;
+    grid-template-columns: minmax(6rem, 7rem) 1fr;
+    gap: clamp(1.6rem, 2.4vw, 2.4rem);
+    align-items: baseline;
+    padding-top: clamp(1.6rem, 2.4vw, 2.2rem);
+    border-top: 1px solid rgba(244, 241, 234, 0.08);
+}
+
+.mm-cap .mm-cap-piece:first-child {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.mm-cap .mm-cap-piece__head {
+    display: contents;
+}
+
+.mm-cap .mm-cap-piece__num {
+    font-family: var(--font-display);
+    font-size: clamp(3.6rem, 5vw, 5.2rem);
+    font-weight: 600;
+    line-height: 0.95;
+    color: var(--brand);
+    letter-spacing: -0.02em;
+    grid-row: 1 / span 2;
+    align-self: start;
+}
+
+.mm-cap .mm-cap-piece__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 2.4vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 var(--space-3);
+}
+
+.mm-cap .mm-cap-piece__text {
+    grid-column: 2;
+    font-family: var(--font-post-body);
+    font-size: 1.7rem;
+    line-height: 1.65;
+    color: var(--ink-2);
+    margin: 0;
+    text-wrap: pretty;
+}
+
+.mm-cap .mm-cap-piece__text a {
+    color: var(--brand);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(82, 113, 255, 0.4);
+    transition: border-color 0.2s ease;
+}
+
+.mm-cap .mm-cap-piece__text a:hover {
+    border-bottom-color: var(--brand);
+}
+
+@media (max-width: 640px) {
+    .mm-cap .mm-cap-piece {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+
+    .mm-cap .mm-cap-piece__num {
+        grid-row: auto;
+        font-size: 3rem;
+        line-height: 1;
+    }
+
+    .mm-cap .mm-cap-piece__text {
+        grid-column: 1;
+    }
+}
+
+/* Journey (¿En qué consiste?): figura con imagen del proceso.
+   Comparte el mismo frame visual que .mm-mast-real__frame (borde cream,
+   shadow, radius 8px) para que el ejemplo del proceso se lea como parte
+   de la misma familia visual que las fotos de más abajo.
+
+   En pantallas grandes, la figura rompe el ancho de .mm-canvas--narrow
+   con un margen inline negativo, para ganar prominencia sin llegar a
+   full-bleed. En mobile/tablet queda al ancho del texto. */
+.mm-cap .mm-cap-journey__figure {
+    margin: clamp(1.8rem, 3vw, 2.6rem) 0 0;
+    padding: 0;
+}
+
+.mm-cap .mm-cap-journey__frame {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--surface-2);
+    box-shadow:
+        0 20px 40px -28px rgba(0, 0, 0, 0.5),
+        0 2px 10px rgba(82, 113, 255, 0.05);
+}
+
+.mm-cap .mm-cap-journey__frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px solid #f1f1f1;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.mm-cap .mm-cap-journey__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* En pantallas grandes, la imagen se desborda del canvas narrow para
+   ganar presencia. Se expande simétricamente a izquierda y derecha,
+   creciendo con el viewport pero con un tope para que no se pase. */
+@media (min-width: 900px) {
+    .mm-cap .mm-cap-journey__figure {
+        margin-inline: -3rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .mm-cap .mm-cap-journey__figure {
+        margin-inline: -6rem;
+    }
+}
+
 /* Dos formatos: dos cards side-by-side, mismo lenguaje visual que
    .mm-mast-ideal__card (dark editorial, hairline brand top). */
 .mm-cap .mm-cap-formats {
