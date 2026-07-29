@@ -16,15 +16,16 @@ namespace propio .mm-cap queda disponible para refinamientos específicos.
     <section class="mm-v2-hero mm-mast-hero" aria-labelledby="cap-title">
         <div class="mm-canvas mm-canvas--wide">
             <div class="mm-hero__inner">
-                <h1 class="mm-hero__title" id="cap-title">
+                <h1 class="mm-hero__title mm-cap-hero__title" id="cap-title">
                     Un viaje <span class="mm-accent">para masticar.</span>
                 </h1>
                 <div class="mm-hero__lede">
-                    <p>Una experiencia que se impregna en tu equipo. Y en vos también.</p>
+                    <p>Una experiencia de liderazgo personal que se impregna en tu equipo. Y en vos también.</p>
                 </div>
 
                 <div class="mm-actions mm-actions--center">
-                    <a href="#mm-cap-effect" class="mm-btn mm-btn--primary">Conocer más</a>
+                    <a href="#mm-cap-effect" class="mm-btn mm-btn--primary mm-btn--lg">Conocer más <span aria-hidden="true">→</span></a>
+                    <a href="#cap-cta-title" class="mm-btn mm-btn--ghost mm-btn--lg">Hablemos <span aria-hidden="true">→</span></a>
                 </div>
             </div>
         </div>
@@ -65,14 +66,23 @@ namespace propio .mm-cap queda disponible para refinamientos específicos.
                 </div>
 
                 <figure class="mm-cap-journey__figure">
-                    <div class="mm-cap-journey__frame">
-                        <img
-                            src="{{asset "images/proceso.jpg"}}"
-                            alt="Ejemplo de un Viaje Para masticar, con sus etapas"
-                            class="mm-cap-journey__img"
-                            loading="lazy"
-                        >
-                    </div>
+                    <a
+                        href="{{asset "images/proceso.jpg"}}"
+                        target="_blank"
+                        rel="noopener"
+                        class="mm-cap-journey__link"
+                        aria-label="Abrir el mapa del viaje en tamaño completo"
+                    >
+                        <div class="mm-cap-journey__frame">
+                            <img
+                                src="{{asset "images/proceso.jpg"}}"
+                                alt="Ejemplo de un Viaje Para masticar, con sus etapas"
+                                class="mm-cap-journey__img"
+                                loading="lazy"
+                            >
+                        </div>
+                    </a>
+                    <figcaption class="mm-cap-journey__caption">Tocá la imagen para ampliarla.</figcaption>
                 </figure>
             </div>
         </div>
@@ -94,7 +104,10 @@ namespace propio .mm-cap queda disponible para refinamientos específicos.
                         <span class="mm-cap-piece__num" aria-hidden="true">1</span>
                         <h3 class="mm-cap-piece__title">Charlas que sacuden por dentro</h3>
                     </div>
-                    <p class="mm-cap-piece__text">Nos vamos a sentar en ronda. Sin diapositivas ni tecnología. Para cortar el silencio, voy a poner un jazz tenue de fondo, y contar historias. Algunas laborales, otras cotidianas, pero todas relacionadas al mundo del liderazgo, el manejo de emociones, la actitud frente al cambio y el propósito. Cuento mi propia lucha interna con esos desafíos, y cómo los fui y sigo enfrentando. De a poco, le transmito al equipo un lenguaje propio, que nació de las ideas que desarrollé en ya casi cuatro años de Para masticar y que se convirtieron en <a href="/bestia/">un libro</a>.</p>
+                    <div class="mm-cap-piece__text">
+                        <p>Nos vamos a sentar en ronda. Sin diapositivas ni tecnología. Para cortar el silencio, voy a poner un jazz tenue de fondo, y contar historias. Algunas laborales, otras cotidianas, pero todas relacionadas al mundo del liderazgo, el manejo de emociones, la actitud frente al cambio y el propósito.</p>
+                        <p>Cuento mi propia lucha interna con esos desafíos, y cómo los fui y sigo enfrentando. De a poco, le transmito al equipo un lenguaje propio, que nació de las ideas que desarrollé en ya casi cuatro años de Para masticar y que se convirtieron en <a href="/bestia/">un libro</a>.</p>
+                    </div>
                 </li>
 
                 <li class="mm-cap-piece">
@@ -102,7 +115,11 @@ namespace propio .mm-cap queda disponible para refinamientos específicos.
                         <span class="mm-cap-piece__num" aria-hidden="true">2</span>
                         <h3 class="mm-cap-piece__title">Masticadas</h3>
                     </div>
-                    <p class="mm-cap-piece__text">Nos volvemos a sentar en ronda. Pero esta vez, a explorar y aprender juntos. Con un nuevo relato, esta vez más breve, planto las bases para el intercambio. Yo nunca me presento como el gurú, el que la tiene clara. Me muestro vulnerable frente al equipo, y es esa postura la que logra un efecto contagioso en la ronda. Las personas empiezan a verse reflejadas en los relatos. El lenguaje que les fui aportando los ayuda a pensar mejor sus vivencias, como si ahora tuvieran a su alcance pequeñas herramientas de distanciamiento que les permitieran ver las cosas con una perspectiva renovada. De a poco se abren. Alguien comparte algo de su vida que le entusiasma: su pasión por algún hobby, o un aspecto que le apasiona de su trabajo. El resto ve cómo se le ilumina la cara mientras lo relata. Otro habla de los correos frustrantes con un cliente. Y alguien se mantiene callado, pero por dentro está empezando a tomar conciencia del efecto que está teniendo en su equipo, sus amigos o su familia.</p>
+                    <div class="mm-cap-piece__text">
+                        <p>Nos volvemos a sentar en ronda. Pero esta vez, a explorar y aprender juntos. Con un nuevo relato, esta vez más breve, planto las bases para el intercambio. Yo nunca me presento como el gurú, el que la tiene clara. Me muestro vulnerable frente al equipo, y es esa postura la que logra un efecto contagioso en la ronda.</p>
+                        <p>Las personas empiezan a verse reflejadas en los relatos. El lenguaje que les fui aportando los ayuda a pensar mejor sus vivencias, como si ahora tuvieran a su alcance pequeñas herramientas de distanciamiento que les permitieran ver las cosas con una perspectiva renovada.</p>
+                        <p>De a poco se abren. Alguien comparte algo de su vida que le entusiasma: su pasión por algún hobby, o un aspecto que le apasiona de su trabajo. El resto ve cómo se le ilumina la cara mientras lo relata. Otro habla de los correos frustrantes con un cliente. Y alguien se mantiene callado, pero por dentro está empezando a tomar conciencia del efecto que está teniendo en su equipo, sus amigos o su familia.</p>
+                    </div>
                 </li>
 
                 <li class="mm-cap-piece">
@@ -110,7 +127,10 @@ namespace propio .mm-cap queda disponible para refinamientos específicos.
                         <span class="mm-cap-piece__num" aria-hidden="true">3</span>
                         <h3 class="mm-cap-piece__title">Sesiones 1 a 1 para masticar</h3>
                     </div>
-                    <p class="mm-cap-piece__text">A esta altura del viaje despiertan deseos de cambio, que a veces ameritan una conversación más íntima. En las sesiones 1 a 1 me reúno con quienes quieran trabajar más a fondo alguno de los desafíos que se hayan despertado durante el proceso. Puede ser con el líder o con miembros del equipo que sientan ese deseo genuino de cambiar algo. Voy a la oficina, o los recibo en el estudio Para masticar, donde les preparo un café de especialidad y nos sentamos a charlar. Suena el mismo jazz de fondo y mi estilo se mantiene intacto: ayudo a la persona a conectar con su deseo intrínseco de mejora, y a descubrir su camino. Si la situación lo pide, le acerco herramientas que aprendí en mi camino como acompañante estratégico del CEO de WyeWorks, una consultora de software pionera en cultura de trabajo.</p>
+                    <div class="mm-cap-piece__text">
+                        <p>A esta altura del viaje despiertan deseos de cambio, que a veces ameritan una conversación más íntima. En las sesiones 1 a 1 me reúno con quienes quieran trabajar más a fondo alguno de los desafíos que se hayan despertado durante el proceso. Puede ser con el líder o con miembros del equipo que sientan ese deseo genuino de cambiar algo.</p>
+                        <p>Voy a la oficina, o los recibo en el estudio Para masticar, donde les preparo un café de especialidad y nos sentamos a charlar. Suena el mismo jazz de fondo y mi estilo se mantiene intacto: ayudo a la persona a conectar con su deseo intrínseco de mejora, y a descubrir su camino. Si la situación lo pide, le acerco herramientas que aprendí en mi camino como acompañante estratégico del CEO de WyeWorks, una consultora de software pionera en cultura de trabajo.</p>
+                    </div>
                 </li>
 
                 <li class="mm-cap-piece">
@@ -118,7 +138,10 @@ namespace propio .mm-cap queda disponible para refinamientos específicos.
                         <span class="mm-cap-piece__num" aria-hidden="true">4</span>
                         <h3 class="mm-cap-piece__title">Bocados</h3>
                     </div>
-                    <p class="mm-cap-piece__text">Hace casi cuatro años que cada semana publico un bocado: un texto corto que deja pensando a la audiencia de Para masticar. Durante el viaje, el equipo recibe bocados elegidos —y a veces escritos— especialmente para ellos, que refuerzan las ideas y conceptos que venimos masticando juntos. Por ahí traen una referencia a algún autor, o una historia nueva que da profundidad a algo que se compartió en una masticada. Cada bocado deja algo para pensar, y abre una vía asíncrona de intercambio que retroalimenta el resto del viaje. Llegan cada dos o tres días, directo al correo del equipo (o por el canal que les resulte más práctico).</p>
+                    <div class="mm-cap-piece__text">
+                        <p>Hace casi cuatro años que cada semana publico un bocado: un texto corto que deja pensando a la audiencia de Para masticar. Durante el viaje, el equipo recibe bocados elegidos —y a veces escritos— especialmente para ellos, que refuerzan las ideas y conceptos que venimos masticando juntos.</p>
+                        <p>Por ahí traen una referencia a algún autor, o una historia nueva que da profundidad a algo que se compartió en una masticada. Cada bocado deja algo para pensar, y abre una vía asíncrona de intercambio que retroalimenta el resto del viaje. Llegan cada dos o tres días, directo al correo del equipo (o por el canal que les resulte más práctico).</p>
+                    </div>
                 </li>
 
                 <li class="mm-cap-piece">
@@ -126,9 +149,26 @@ namespace propio .mm-cap queda disponible para refinamientos específicos.
                         <span class="mm-cap-piece__num" aria-hidden="true">5</span>
                         <h3 class="mm-cap-piece__title">Rituales</h3>
                     </div>
-                    <p class="mm-cap-piece__text">Momentos pensados para conectar a las personas con una intención de cambio hacia el futuro, y marcar la experiencia del equipo. Son momentos que van a recordar y que los une aún más, por la sensación de haberlos compartido juntos. En particular, el ritual El Papelito —basado en el bocado del mismo nombre— busca dar un cierre memorable al viaje. Yo llevo un pergamino y, luego de una masticada sobre el efecto que tienen en nosotros las personas que nos inspiran, cada uno escribe para sí mismo el efecto y el legado que quiere dejar en otros. Lo escriben para ellos, y no tienen que compartirlo. Se llevan el papelito como recuerdo del viaje, y como recordatorio del tipo de persona que quieren ser.</p>
+                    <div class="mm-cap-piece__text">
+                        <p>Momentos pensados para conectar a las personas con una intención de cambio hacia el futuro, y marcar la experiencia del equipo. Son momentos que van a recordar y que los une aún más, por la sensación de haberlos compartido juntos.</p>
+                        <p>En particular, el ritual El Papelito —basado en el bocado del mismo nombre— busca dar un cierre memorable al viaje. Yo llevo un pergamino y, luego de una masticada sobre el efecto que tienen en nosotros las personas que nos inspiran, cada uno escribe para sí mismo el efecto y el legado que quiere dejar en otros. Lo escriben para ellos, y no tienen que compartirlo. Se llevan el papelito como recuerdo del viaje, y como recordatorio del tipo de persona que quieren ser.</p>
+                    </div>
                 </li>
             </ol>
+        </div>
+    </section>
+
+    {{!-- 8b. CTA intermedio — puente al form del final ---------------------- --}}
+    <section class="mm-cap-midcta" aria-labelledby="cap-midcta-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-cap-midcta__panel">
+                <h3 class="mm-cap-midcta__title" id="cap-midcta-title">
+                    ¿Querés imaginar el viaje <span class="mm-accent">de tu equipo?</span>
+                </h3>
+                <div class="mm-actions">
+                    <a href="#cap-cta-title" class="mm-btn mm-btn--primary">Hablemos <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -144,22 +184,31 @@ namespace propio .mm-cap queda disponible para refinamientos específicos.
 
             <ul class="mm-cap-skills__list">
                 <li>Adaptabilidad</li>
+                <li>Liderazgo</li>
                 <li>Inteligencia emocional</li>
-                <li>Liderazgo</li>            
-                <li>Comunicación y escucha activa</li>
+                <li>Comunicación efectiva</li>
                 <li>Pensamiento crítico y estratégico</li>
                 <li>Trabajo en equipo</li>
                 <li>Motivación de equipos</li>
+                <li>Escucha activa</li>
+                <li>Creatividad e innovación</li>
             </ul>
         </div>
     </section>
 
-    {{!-- 10a. Testimonio Joaquín (voz del líder que contrató) --------------- --}}
-    <section class="mm-testimonial" aria-labelledby="cap-testimonial-title">
+    {{!-- 10. Testimonios (unificados: Joaquín destacado + 3 voces cortas) ---- --}}
+    <section class="mm-mast-voices mm-cap-testimonials" aria-labelledby="cap-voices-title">
         <div class="mm-canvas">
-            <p class="mm-eyebrow mm-eyebrow--muted">Testimonio</p>
-            <figure class="mm-testimonial__figure">
-                <blockquote class="mm-testimonial__quote" id="cap-testimonial-title">
+            <header class="mm-mast-voices__header">
+                <p class="mm-eyebrow mm-eyebrow--muted">Testimonios</p>
+                <h2 class="mm-mast-voices__heading" id="cap-voices-title">
+                    Lo que queda <span class="mm-accent">después.</span>
+                </h2>
+            </header>
+
+            {{!-- Testimonio destacado: Joaquín (líder que contrató, con foto). --}}
+            <figure class="mm-testimonial__figure mm-cap-testimonials__lead">
+                <blockquote class="mm-testimonial__quote">
                     <span class="mm-testimonial__mark" aria-hidden="true">“</span>La masticada con Rodrigo fue una experiencia transformadora para nuestro equipo. Se generó un espacio para compartir experiencias muy enriquecedoras sobre La Bestia que permitieron potenciar la forma en la que nos complementamos y establecer un marco de referencia común para el futuro. A través de las reflexiones de Rodrigo, cada uno del equipo pudo verse reflejado en distintas situaciones personales y compartir sus perspectivas. El equipo salió súper motivado y más conectado de la masticada.
                 </blockquote>
                 <figcaption class="mm-testimonial__cite">
@@ -179,20 +228,8 @@ namespace propio .mm-cap queda disponible para refinamientos específicos.
                     </div>
                 </figcaption>
             </figure>
-        </div>
-    </section>
 
-    {{!-- 10b. Sensaciones (voces del equipo: Diego + Federico + Carolina) ---- --}}
-    <section class="mm-mast-voices" aria-labelledby="cap-voices-title">
-        <div class="mm-canvas">
-            <header class="mm-mast-voices__header">
-                <p class="mm-eyebrow mm-eyebrow--muted">Sensaciones</p>
-                <h2 class="mm-mast-voices__heading" id="cap-voices-title">
-                    Lo que queda <span class="mm-accent">después.</span>
-                </h2>
-            </header>
-
-            {{!-- Featured quote: Diego (larger, most personal reflection). --}}
+            {{!-- Voces del equipo: Diego featured + Federico + Carolina. --}}
             <figure class="mm-mast-voices__feature">
                 <blockquote class="mm-mast-voices__quote">
                     <span class="mm-mast-voices__mark" aria-hidden="true">“</span>Me iba imaginando situaciones personales y profesionales, replanteándome un montón de cosas, o planteándomelas desde un punto que no sabía que existía. Abriste varios frentes en los que quiero trabajar para conseguir una mejor versión de mí.
@@ -202,7 +239,6 @@ namespace propio .mm-cap queda disponible para refinamientos específicos.
                 </figcaption>
             </figure>
 
-            {{!-- Two supporting quotes (Federico + Carolina). --}}
             <div class="mm-mast-voices__grid mm-mast-voices__grid--two">
                 <figure class="mm-mast-voices__item">
                     <blockquote>Queda esa sensación de que hay mucho más para hablar, como que queda corto el espacio, pero en el buen sentido. Ganas de seguir compartiendo sobre estos temas.</blockquote>

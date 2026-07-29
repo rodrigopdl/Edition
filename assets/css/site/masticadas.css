@@ -1213,9 +1213,12 @@ body:has(.mm-mast),
     padding-bottom: clamp(3rem, 4.5vw, 4.5rem);
 }
 
-.mm-mast.mm-cap .mm-mast-hero .mm-hero__title {
-    max-width: 18ch;
+.mm-mast.mm-cap .mm-mast-hero .mm-hero__title,
+.mm-mast.mm-cap .mm-cap-hero__title {
+    font-size: clamp(4.6rem, 9.5vw, 11rem);
+    max-width: 16ch;
     margin-bottom: var(--space-5);
+    line-height: 0.95;
 }
 
 .mm-mast.mm-cap .mm-mast-hero .mm-hero__lede {
@@ -1326,11 +1329,19 @@ body:has(.mm-mast),
 .mm-cap .mm-cap-piece__text {
     grid-column: 2;
     font-family: var(--font-post-body);
-    font-size: 1.7rem;
-    line-height: 1.65;
+    font-size: 1.75rem;
+    line-height: 1.7;
     color: var(--ink-2);
     margin: 0;
     text-wrap: pretty;
+}
+
+.mm-cap .mm-cap-piece__text p {
+    margin: 0 0 var(--space-4);
+}
+
+.mm-cap .mm-cap-piece__text p:last-child {
+    margin-bottom: 0;
 }
 
 .mm-cap .mm-cap-piece__text a {
@@ -1342,6 +1353,96 @@ body:has(.mm-mast),
 
 .mm-cap .mm-cap-piece__text a:hover {
     border-bottom-color: var(--brand);
+}
+
+/* Interlineado y tamaño de cuerpo un paso arriba en el resto de la
+   página (secciones editoriales que no son .mm-cap-piece): el objetivo
+   de la página es lectura larga sobre fondo oscuro. */
+.mm-cap .mm-prose {
+    font-size: 1.75rem;
+    line-height: 1.7;
+}
+
+/* --- /equipos: CTA intermedio (puente al form final) --------------------
+   Bloque compacto entre Rituales y Habilidades. Pisa levemente el
+   surface para que se lea como un descanso, con foco en el botón. */
+.mm-cap .mm-cap-midcta {
+    padding-block: clamp(2.4rem, 4vw, 3.4rem);
+    background: var(--surface-0);
+}
+
+.mm-cap .mm-cap-midcta__panel {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: clamp(2.4rem, 3.6vw, 3.2rem) clamp(2rem, 3vw, 3rem);
+    text-align: center;
+    background: rgba(82, 113, 255, 0.06);
+    border: 1px solid rgba(82, 113, 255, 0.18);
+    border-radius: 12px;
+}
+
+.mm-cap .mm-cap-midcta__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 2.6vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 var(--space-5);
+    text-wrap: balance;
+}
+
+.mm-cap .mm-cap-midcta__panel .mm-actions {
+    justify-content: center;
+    margin: 0;
+}
+
+/* --- /equipos: Testimonios unificados -----------------------------------
+   El testimonio destacado de Joaquín queda dentro del contenedor
+   .mm-mast-voices (mismo eyebrow/heading), pero conserva el layout
+   completo con foto (heredado de .mm-testimonial__figure). */
+.mm-cap .mm-cap-testimonials__lead {
+    margin: 0 auto var(--space-8);
+    max-width: 900px;
+}
+
+.mm-cap .mm-cap-testimonials__lead + .mm-mast-voices__feature {
+    margin-top: var(--space-7);
+    padding-top: var(--space-7);
+    border-top: 1px solid rgba(244, 241, 234, 0.08);
+}
+
+/* Wrapper anchor around the process image: no visual chrome, just makes
+   the whole frame tappable. Focus ring for keyboard users. */
+.mm-cap .mm-cap-journey__link {
+    display: block;
+    text-decoration: none;
+    border-radius: 8px;
+    outline: none;
+}
+
+.mm-cap .mm-cap-journey__link:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 4px;
+}
+
+.mm-cap .mm-cap-journey__caption {
+    margin: var(--space-3) 0 0;
+    font-family: var(--font-post-body);
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--ink-2);
+    opacity: 0.75;
+    text-align: center;
+}
+
+/* En pantallas ≥900px la caption va oculta (la imagen se puede leer
+   directamente); solo aparece en mobile donde importa saber que se
+   puede ampliar. */
+@media (min-width: 900px) {
+    .mm-cap .mm-cap-journey__caption {
+        display: none;
+    }
 }
 
 @media (max-width: 640px) {
@@ -1413,6 +1514,22 @@ body:has(.mm-mast),
 @media (min-width: 1200px) {
     .mm-cap .mm-cap-journey__figure {
         margin-inline: -6rem;
+    }
+}
+
+/* En mobile, la figura rompe el max-width del .mm-mast-what__inner
+   (680px) para usar todo el ancho del canvas. La imagen del proceso
+   es densa y se lee mejor con el máximo espacio disponible. */
+@media (max-width: 899px) {
+    .mm-cap .mm-cap-journey .mm-mast-what__inner {
+        max-width: none;
+    }
+
+    .mm-cap .mm-cap-journey__header,
+    .mm-cap .mm-cap-journey .mm-mast-what__header,
+    .mm-cap .mm-cap-journey .mm-mast-what__prose {
+        max-width: 680px;
+        margin-inline: auto;
     }
 }
 
@@ -1565,6 +1682,15 @@ body:has(.mm-mast),
    con auto-fill; en mobile colapsa a 1 col. */
 .mm-cap .mm-cap-real__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* En mobile las fotos van una debajo de la otra. La especificidad de
+   .mm-cap .mm-cap-real__grid gana sobre la regla mobile genérica de
+   .mm-mast-real__grid, así que hay que declararlo explícito acá. */
+@media (max-width: 880px) {
+    .mm-cap .mm-cap-real__grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
 /* Tablet: pieces grid drops to 2 columns so 5 cards breathe. */
