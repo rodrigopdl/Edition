@@ -1215,20 +1215,35 @@ body:has(.mm-mast),
 
 .mm-mast.mm-cap .mm-mast-hero .mm-hero__title,
 .mm-mast.mm-cap .mm-cap-hero__title {
-    font-size: clamp(4.6rem, 9.5vw, 11rem);
-    max-width: 16ch;
-    margin-bottom: var(--space-5);
-    line-height: 0.95;
+    font-size: clamp(3.4rem, 5.6vw, 6.4rem);
+    max-width: 21ch;
+    margin-bottom: var(--space-4);
+    line-height: 1.02;
 }
 
-.mm-mast.mm-cap .mm-mast-hero .mm-hero__lede {
-    font-size: clamp(1.9rem, 1.6vw, 2.2rem);
-    max-width: 44ch;
+.mm-mast.mm-cap .mm-mast-hero .mm-hero__lede,
+.mm-mast.mm-cap .mm-cap-hero__lede {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.8rem, 1.8vw, 2.1rem);
+    line-height: 1.5;
+    color: var(--ink);
+    opacity: 0.85;
+    font-weight: 400;
+    letter-spacing: 0;
+    max-width: 60ch;
     margin-inline: auto;
+    text-wrap: balance;
+    font-style: italic;
 }
 
 .mm-mast.mm-cap .mm-mast-hero .mm-hero__lede p {
     margin: 0;
+}
+
+.mm-mast.mm-cap .mm-cap-hero__lede em {
+    font-style: italic;
+    color: var(--brand);
+    font-weight: 500;
 }
 
 .mm-mast.mm-cap .mm-mast-hero .mm-actions {
@@ -1275,6 +1290,48 @@ body:has(.mm-mast),
 
 .mm-cap .mm-cap-pieces-v2__header .mm-v2-title {
     margin: 0;
+}
+
+/* Prose intro dentro del header de la sección unificada (El viaje). */
+.mm-cap .mm-cap-pieces-v2__intro {
+    margin-top: var(--space-5);
+    max-width: 60ch;
+}
+
+.mm-cap .mm-cap-pieces-v2__intro p {
+    margin: 0 0 var(--space-4);
+}
+
+.mm-cap .mm-cap-pieces-v2__intro p:last-child {
+    margin-bottom: 0;
+}
+
+/* En la sección unificada, la figura del proceso queda centrada entre
+   el intro (header) y el listado, con el mismo max-width que el header. */
+.mm-cap .mm-cap-pieces-v2 .mm-cap-journey__figure {
+    max-width: 780px;
+    margin-inline: auto;
+    margin-top: var(--space-7);
+    margin-bottom: var(--space-7);
+}
+
+@media (min-width: 900px) {
+    .mm-cap .mm-cap-pieces-v2 .mm-cap-journey__figure {
+        max-width: none;
+        margin-inline: -3rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .mm-cap .mm-cap-pieces-v2 .mm-cap-journey__figure {
+        margin-inline: -6rem;
+    }
+}
+
+/* El listado que va después de la figura no necesita el margen top del
+   header — lo controla la figura de arriba. */
+.mm-cap .mm-cap-pieces-v2__list--after-figure {
+    margin-top: 0;
 }
 
 .mm-cap .mm-cap-pieces-v2__list {
@@ -1459,6 +1516,71 @@ body:has(.mm-mast),
 
     .mm-cap .mm-cap-piece__text {
         grid-column: 1;
+    }
+}
+
+/* --- /equipos: bullets de "El efecto Para masticar" ---------------------
+   Lista destacada al pie del "Efecto" — es donde la persona de RRHH ve
+   qué se lleva su equipo. Necesita jerarquía propia (mayor que un párrafo
+   común), pero coherente con el sistema editorial dark. Cada item tiene
+   un marcador en brand a la izquierda (bulletpoint editorial) y un texto
+   con <strong> resaltando el fragmento clave. */
+.mm-cap .mm-cap-effect__list {
+    list-style: none;
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.2rem, 1.6vw, 1.6rem);
+    max-width: 66ch;
+}
+
+.mm-cap .mm-cap-effect__list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(1.4rem, 2vw, 2rem);
+    align-items: start;
+    padding: clamp(1.4rem, 1.8vw, 1.8rem) clamp(1.6rem, 2vw, 2rem);
+    background: rgba(244, 241, 234, 0.035);
+    border: 1px solid rgba(244, 241, 234, 0.08);
+    border-left: 3px solid var(--brand);
+    border-radius: 4px;
+    font-family: var(--font-post-body);
+    font-size: 1.75rem;
+    line-height: 1.55;
+    color: var(--ink-2);
+    text-wrap: pretty;
+}
+
+.mm-cap .mm-cap-effect__bullet {
+    width: 0.7rem;
+    height: 0.7rem;
+    margin-top: 0.85rem;
+    background: var(--brand);
+    border-radius: 999px;
+    flex-shrink: 0;
+    display: block;
+}
+
+.mm-cap .mm-cap-effect__list strong {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.mm-cap .mm-cap-effect__list em {
+    font-style: italic;
+    color: var(--ink);
+    opacity: 0.85;
+}
+
+@media (max-width: 640px) {
+    .mm-cap .mm-cap-effect__list li {
+        padding: 1.4rem 1.4rem 1.4rem 1.6rem;
+        font-size: 1.6rem;
+    }
+
+    .mm-cap .mm-cap-effect__bullet {
+        margin-top: 0.75rem;
     }
 }
 
