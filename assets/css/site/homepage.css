@@ -1621,6 +1621,122 @@ main.mm-v2 {
     background: var(--brand);
 }
 
+/* --- Home hero: escala coherente con /equipos/ -----------------------
+   El título por defecto (.mm-v2 .mm-hero__title, clamp 5–10rem) fue
+   pensado para copies cortos ("Ayudo a líderes y equipos a pensar mejor").
+   El nuevo copy ("Despierto autoliderazgo. En las personas, y en los
+   equipos.") es más largo y con la escala grande queda desproporcionado
+   respecto al hero de /equipos/. Scopeamos al body.homepage-mm-v2 para
+   no tocar otras páginas que usen .mm-v2 .mm-hero__title. */
+/* El H1 se compone de dos líneas de jerarquía distinta:
+   .mm-hero__title-main (grande, mismo tratamiento que el título original)
+   .mm-hero__title-sub  (mitad de tamaño, sans blanca, línea propia)
+   Convertimos el <h1> en un flex column para controlar el espacio entre
+   ambas líneas independientemente del espacio entre título y subtítulo. */
+body.homepage-mm-v2 .mm-v2 .mm-hero__title {
+    font-size: clamp(2.8rem, 4.4vw, 5rem);
+    max-width: none;
+    line-height: 1.05;
+    margin-bottom: var(--space-7);
+    letter-spacing: -0.02em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.4rem, 0.6vw, 0.8rem);
+}
+
+body.homepage-mm-v2 .mm-v2 .mm-hero__title-main {
+    display: inline-block;
+    max-width: 22ch;
+    text-wrap: balance;
+}
+
+/* La frase secundaria: ~50% del tamaño principal, en la misma sans,
+   color blanco (--ink) sin cursiva ni azul. En desktop entra en una
+   sola línea (nowrap); en mobile se permite el quiebre. */
+body.homepage-mm-v2 .mm-v2 .mm-hero__title-sub {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.5em;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    white-space: nowrap;
+    max-width: none;
+}
+
+body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
+    font-size: clamp(1.8rem, 1.8vw, 2.1rem);
+    line-height: 1.5;
+    max-width: 60ch;
+}
+
+/* Mobile: título más chico y la frase secundaria puede quebrar en
+   dos líneas si no entra —usamos text-wrap: balance para que quede
+   proporcional en lugar de dejar una palabra huérfana. */
+@media (max-width: 767px) {
+    body.homepage-mm-v2 .mm-v2 .mm-hero__title {
+        font-size: clamp(2.8rem, 8vw, 4rem);
+        margin-bottom: var(--space-6);
+    }
+
+    body.homepage-mm-v2 .mm-v2 .mm-hero__title-sub {
+        white-space: normal;
+        text-wrap: balance;
+        max-width: 24ch;
+    }
+
+    body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
+        font-size: 1.65rem;
+        line-height: 1.6;
+        max-width: 42ch;
+    }
+}
+
+/* --- Servicio único (home) ------------------------------------------
+   Reemplaza el layout de dos cards (.mm-ways__grid + .mm-way) por un
+   teaser central del Viaje Para masticar. Sin card, texto grande,
+   con el mismo eyebrow/título y un CTA primario centrado. Convive con
+   .mm-ways (background y hairline hereda de ahí). */
+.mm-v2 .mm-home-service__header {
+    text-align: center;
+    margin-bottom: clamp(2.4rem, 3.5vw, 3.2rem);
+}
+
+.mm-v2 .mm-home-service__header .mm-eyebrow {
+    justify-content: center;
+}
+
+.mm-v2 .mm-home-service__title {
+    max-width: 22ch;
+    margin-inline: auto;
+}
+
+.mm-v2 .mm-home-service__body {
+    max-width: 60ch;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(2rem, 3vw, 2.8rem);
+}
+
+.mm-v2 .mm-home-service__text {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.9rem, 2vw, 2.2rem);
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0;
+    text-wrap: pretty;
+}
+
+.mm-v2 .mm-home-service__body .mm-actions {
+    margin: 0;
+    justify-content: center;
+}
+
 /* --- 4) Testimonial --------------------------------------------------- */
 .mm-v2 .mm-testimonial {
     text-align: center;

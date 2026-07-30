@@ -7,7 +7,8 @@
         <div class="mm-canvas mm-canvas--wide">
             <div class="mm-hero__inner">
                 <h1 class="mm-hero__title" id="hero-title">
-                    Ayudo a líderes y equipos a <span class="mm-accent">pensar mejor.</span>
+                    <span class="mm-hero__title-main">Despierto <span class="mm-accent">autoliderazgo.</span></span>
+                    <span class="mm-hero__title-sub">En las personas, y en los equipos.</span>
                 </h1>
 
                 <div class="mm-hero__lede">
@@ -16,50 +17,41 @@
 
                 <div class="mm-actions mm-actions--center">
                     <a href="/equipos/" class="mm-btn mm-btn--primary mm-btn--lg">
-                        Para mi equipo
+                        Un viaje para tu equipo
                         <span aria-hidden="true">→</span>
                     </a>
-                    <a href="/lideres/" class="mm-btn mm-btn--primary mm-btn--lg">
-                        Para mí
-                        <span aria-hidden="true">→</span>
+                    <a href="/bocados/" class="mm-btn mm-btn--ghost mm-btn--lg">
+                        Leer los bocados
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 2. Servicios (Para equipos / Para líderes) ------------------------- --}}
-    <section class="mm-ways" id="mm-home-ways" aria-labelledby="ways-title">
-        <div class="mm-canvas">
-            <header class="mm-section-header">
-                <p class="mm-eyebrow">Servicios</p>
-                <h2 class="mm-v2-title" id="ways-title">
-                    Dos formas de <span class="mm-accent">trabajar juntos.</span>
+    {{!-- 2. Servicio destacado — teaser del Viaje Para masticar -------------
+         Antes había dos cards (equipos + líderes). El servicio individual
+         para líderes está oculto por ahora; solo se muestra el Viaje. La
+         página /lideres/ y su template siguen existiendo intactos para
+         reactivar más adelante. --}}
+    <section class="mm-ways mm-home-service" id="mm-home-ways" aria-labelledby="ways-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <header class="mm-section-header mm-home-service__header">
+                <p class="mm-eyebrow">El Viaje Para masticar</p>
+                <h2 class="mm-v2-title mm-home-service__title" id="ways-title">
+                    Cinco piezas. <span class="mm-accent">Un recorrido a medida.</span>
                 </h2>
             </header>
 
-            <div class="mm-ways__grid mm-ways__grid--two">
-                <article class="mm-way">
-                    <h3 class="mm-way__title">Para equipos</h3>
-                    <p class="mm-way__text">
-                        Desarrollo de habilidades blandas para equipos, a través de historias y un lenguaje propio que se impregna. Cada propuesta se arma a medida.
-                    </p>
-                    <a href="/equipos/" class="mm-way__link">
-                        Conocer más
+            <div class="mm-home-service__body">
+                <p class="mm-home-service__text">
+                    Charlas que despiertan algo adentro, masticadas en ronda, bocados, sesiones 1 a 1 y rituales, combinados según el momento de tu equipo. Todo con un mismo hilo: el aprendizaje que perdura nace de uno.
+                </p>
+                <div class="mm-actions">
+                    <a href="/equipos/" class="mm-btn mm-btn--primary mm-btn--lg">
+                        Conocer el Viaje
                         <span aria-hidden="true">→</span>
                     </a>
-                </article>
-
-                <article class="mm-way">
-                    <h3 class="mm-way__title">Para líderes</h3>
-                    <p class="mm-way__text">
-                        Un espacio individual para pensar decisiones, encontrar claridad y desarrollar tu forma de liderar. Desde una sesión puntual hasta un acompañamiento sostenido.
-                    </p>
-                    <a href="/lideres/" class="mm-way__link">
-                        Conocer más
-                        <span aria-hidden="true">→</span>
-                    </a>
-                </article>
+                </div>
             </div>
         </div>
     </section>
@@ -82,13 +74,13 @@
     </section>
 
     {{!-- 3. Bocados (newsletter) — antes de Quién soy ---------------------- --}}
-    <section class="mm-bocados" aria-labelledby="bocados-title">
+    <section class="mm-bocados" id="mm-home-bocados" aria-labelledby="bocados-title">
         <div class="mm-canvas">
             <div class="mm-bocados__panel">
                 <div class="mm-bocados__row">
                     <div class="mm-bocados__text">
                         <p class="mm-eyebrow">Para masticar</p>
-                        <h2 class="mm-bocados__title" id="bocados-title">Y para todos, <span class="mm-accent">los bocados.</span></h2>
+                        <h2 class="mm-bocados__title" id="bocados-title">Los <span class="mm-accent">bocados.</span></h2>
                         <p class="mm-bocados__lede">
                             Podés entrar a mi mundo por donde entró todo el mundo: los bocados. Textos cortos que te dejan pensando. Cada miércoles, por mail, gratis.
                         </p>
@@ -161,9 +153,9 @@
                         Hola, <span class="mm-accent">soy Rodri.</span>
                     </h2>
                     <div class="mm-prose mm-prose--intro">
-                        <p>Durante más de una década trabajé en WyeWorks, una consultora de software uruguaya. Empecé como desarrollador, pero con los años mi rol fue mutando: terminé siendo acompañante estratégico del CEO.</p>
-                        <p>En el camino descubrí que los problemas más difíciles casi nunca eran técnicos, sino humanos. Y que empezaban por mí. Para liderar a otros, primero tenía que aprender a liderarme a mí mismo. A reconocer esa fuerza interior que nos frena y nos hace dudar —la que llamo <em>La Bestia</em>— y a domarla.</p>
-                        <p>No llego a esto desde el lugar del experto que enseña, sino desde el de alguien que comparte su propia búsqueda. <em>Para masticar</em> nació para eso, y con el tiempo me llevó a publicar un libro, dar charlas y crear formas distintas de seguir masticando, en voz alta y acompañado.</p>
+                        <p>Vengo del mundo del software: soy licenciado en sistemas y durante más de una década trabajé en WyeWorks, una consultora uruguaya pionera en cultura de trabajo. Empecé como programador y, con los años, me convertí en acompañante estratégico del CEO.</p>
+                        <p>En el camino descubrí que los problemas más difíciles casi nunca eran técnicos, sino humanos. Y que empezaban por mí: por esa fuerza interior que me frenaba y me hacía dudar. Le puse un nombre —<em>La Bestia</em>— y aprendí a trabajar con ella.</p>
+                        <p>Comparto lo que encuentro en mi propia búsqueda, no una fórmula de experto. <em>Para masticar</em> nació para eso, y con el tiempo me llevó a publicar un libro, dar charlas y crear formas de seguir masticando en voz alta y acompañado.</p>
                     </div>
                 </div>
             </div>
