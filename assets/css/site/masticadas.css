@@ -1348,7 +1348,7 @@ body:has(.mm-mast),
     display: grid;
     grid-template-columns: minmax(6rem, 7rem) 1fr;
     gap: clamp(1.6rem, 2.4vw, 2.4rem);
-    align-items: baseline;
+    align-items: start;
     padding-top: clamp(1.6rem, 2.4vw, 2.2rem);
     border-top: 1px solid rgba(244, 241, 234, 0.08);
 }
@@ -1362,25 +1362,31 @@ body:has(.mm-mast),
     display: contents;
 }
 
+/* Número grande a la izquierda. Con line-height: 1 en ambos y align-self:
+   start, y usando text-box-trim para eliminar el espacio interno del font
+   (leading), la cap-height del número queda pareja con la del título. */
 .mm-cap .mm-cap-piece__num {
     font-family: var(--font-display);
     font-size: clamp(3.6rem, 5vw, 5.2rem);
     font-weight: 600;
-    line-height: 0.95;
+    line-height: 1;
     color: var(--brand);
     letter-spacing: -0.02em;
     grid-row: 1 / span 2;
     align-self: start;
+    display: block;
 }
 
 .mm-cap .mm-cap-piece__title {
     font-family: var(--font-display);
     font-size: clamp(2.2rem, 2.4vw, 2.8rem);
     font-weight: 600;
-    line-height: 1.15;
+    line-height: 1;
     letter-spacing: -0.01em;
     color: var(--ink);
     margin: 0 0 var(--space-3);
+    align-self: start;
+    padding-top: 0.15em;
 }
 
 .mm-cap .mm-cap-piece__text {
