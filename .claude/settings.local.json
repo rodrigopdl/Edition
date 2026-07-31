@@ -89,7 +89,9 @@
       "Bash(rm -f rodri-mar-v1.webp rodri-mar-v2.webp rodri-mar-v3.webp rodri-mar-v4.webp)",
       "Bash(sips -g pixelWidth -g pixelHeight rodri-mar.webp rodri-mar-full.webp)",
       "Bash(cp test-w1600-q75.webp rodri-mar.webp)",
-      "Bash(rm -f rodri-mar.jpg test-*.webp test-*.avif)"
+      "Bash(rm -f rodri-mar.jpg test-*.webp test-*.avif)",
+      "Bash(grep -rn \"/equipos\" --include='*.hbs' .)",
+      "Bash(grep -rn \"/viaje\" --include='*.hbs' .)"
     ]
   }
 }

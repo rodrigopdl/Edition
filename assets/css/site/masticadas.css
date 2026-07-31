@@ -1552,17 +1552,26 @@ body:has(.mm-mast),
     }
 }
 
-/* --- /equipos: lista editorial de "El efecto Para masticar" -------------
-   Sin cajas, sin bordes, sin marcadores: cada ítem es una línea de
-   prosa que comienza con un verbo destacado (.mm-accent = Spectral
-   italic azul, mismo tratamiento que "autoliderazgo" en el hero) y
-   continúa en el cuerpo normal de la landing. Ancho alineado con el
-   prose de arriba. */
+/* --- /equipos: lista de "El efecto Para masticar" -----------------------
+   Cada ítem es una frase corrida en la misma tipografía, tamaño y
+   color del cuerpo de la prosa de arriba —el bloque se lee como una
+   continuación natural del párrafo, no como un componente aparte. La
+   guía vertical brand a la izquierda, con fade suave en top y bottom,
+   contiene la lista como bloque coherente. Sin negritas, sin números,
+   sin cajas por ítem, sin destacados de color. */
 .mm-cap .mm-cap-effect__list {
     list-style: none;
-    margin: var(--space-6) 0 0;
-    padding: 0;
+    margin: clamp(3.6rem, 5vw, 5rem) 0 clamp(2.4rem, 3.5vw, 3rem);
+    padding: clamp(0.4rem, 0.8vw, 0.8rem) 0 clamp(0.4rem, 0.8vw, 0.8rem) clamp(2rem, 2.6vw, 2.8rem);
     max-width: none;
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 0,
+            var(--brand) 8%,
+            var(--brand) 92%,
+            transparent 100%
+        ) left / 1px 100% no-repeat;
 }
 
 .mm-cap .mm-cap-effect__list li {
@@ -1571,12 +1580,18 @@ body:has(.mm-mast),
     line-height: 1.7;
     color: var(--ink-2);
     text-wrap: pretty;
-    margin: 0 0 clamp(1.5em, 2vw, 1.8em);
+    margin: 0 0 clamp(1rem, 1.4vw, 1.4rem);
     padding: 0;
 }
 
 .mm-cap .mm-cap-effect__list li:last-child {
     margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+    .mm-cap .mm-cap-effect__list {
+        padding-left: clamp(1.6rem, 4vw, 2rem);
+    }
 }
 
 /* Journey (¿En qué consiste?): figura con imagen del proceso.

@@ -19,7 +19,7 @@ Parameters (Handlebars hash args):
                           "otro"   → "Otro"
 
     origen              String. Value for the hidden `origen` field. Defaults
-                        to "home". Pass "equipos", "lideres", etc. so leads
+                        to "home". Pass "viaje", "lideres", etc. so leads
                         can be attributed by source.
 
     subject             String. Value for `_subject`. Defaults to
@@ -128,7 +128,7 @@ selectors). Two instances on the same page would collide.
 
 {{!-- AJAX submit + optional URL-driven radio preselection.
      preselectFromUrl is a no-op on pages without radios (querySelectorAll
-     returns 0 items). Same JS works for home, /equipos/, /lideres/. --}}
+     returns 0 items). Same JS works for home, /viaje/, /lideres/. --}}
 <script>
 (function () {
     var form = document.getElementById('mm-home-formspree');
