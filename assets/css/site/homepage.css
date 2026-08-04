@@ -3048,6 +3048,27 @@ body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
     object-position: center center;
 }
 
+/* Pantallas grandes: cambiamos el aspect-ratio a uno más landscape
+   (4/3, 16/10, 16/9 progresivamente) para que la altura no se dispare
+   con vw grandes. La imagen se recorta con object-fit: cover
+   (heredado); object-position: center 60% baja el crop para que
+   Rodri quede visible en el tercio inferior. */
+@media (min-width: 1024px) {
+    .mm-v2 .mm-home-panorama--cover .mm-home-panorama__frame {
+        aspect-ratio: 4 / 3;
+    }
+
+    .mm-v2 .mm-home-panorama--cover .mm-home-panorama__img {
+        object-position: center 88%;
+    }
+}
+
+@media (min-width: 1440px) {
+    .mm-v2 .mm-home-panorama--cover .mm-home-panorama__frame {
+        aspect-ratio: 16 / 9;
+    }
+}
+
 /* Fade del hero (--surface-1) hacia la imagen del panorama.
    Primer 3% surface-1 sólido (empalme con el hero de arriba, sin línea
    de corte), luego fade largo hasta 12% con curva ease-out para que
