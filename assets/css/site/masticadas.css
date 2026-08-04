@@ -1460,15 +1460,27 @@ body:has(.mm-mast),
     margin-bottom: 0;
 }
 
-.mm-cap .mm-cap-piece__text a {
-    color: var(--brand);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(82, 113, 255, 0.4);
-    transition: border-color 0.2s ease;
+/* Links inline en /viaje/: mismo tratamiento editorial que los posts.
+   Texto cream, underline brand sutil como affordance. Hover: texto
+   pasa a brand, underline se satura. text-decoration-skip-ink evita
+   que el trazo atraviese descenders y em-dashes. */
+.mm-cap .mm-cap-piece__text a,
+.mm-cap .mm-prose a,
+.mm-cap .mm-cap-effect__list a {
+    color: var(--ink);
+    text-decoration-color: rgba(82, 113, 255, 0.55);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+    text-decoration-skip-ink: auto;
+    -webkit-text-decoration-skip: ink;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
-.mm-cap .mm-cap-piece__text a:hover {
-    border-bottom-color: var(--brand);
+.mm-cap .mm-cap-piece__text a:hover,
+.mm-cap .mm-prose a:hover,
+.mm-cap .mm-cap-effect__list a:hover {
+    color: var(--brand);
+    text-decoration-color: var(--brand);
 }
 
 /* Interlineado y tamaño de cuerpo un paso arriba en el resto de la

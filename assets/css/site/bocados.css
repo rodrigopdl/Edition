@@ -11,29 +11,47 @@ body.page-bocados {
 }
 
 /* --- 1) Hero -------------------------------------------------------- */
-.mm-boc .mm-boc-hero {
-    padding-top: clamp(4.4rem, 6vw, 6rem);
-    padding-bottom: clamp(3.8rem, 5vw, 5rem);
+/* Hero del archivo de bocados: escalado y tratamiento tipográfico
+   coherente con el hero de /viaje/ (title tamaño y line-height iguales,
+   lede en Spectral italic). Se usa .mm-v2 en la especificidad para
+   ganarle a las reglas base y a la media query mobile de
+   .mm-v2 .mm-hero__title en homepage.css. */
+.mm-v2.mm-boc .mm-boc-hero {
+    padding-top: clamp(4rem, 6vw, 6rem);
+    padding-bottom: clamp(3rem, 4.5vw, 4.5rem);
 }
 
-.mm-boc .mm-boc-hero .mm-hero__title {
-    font-size: clamp(3.6rem, 5.6vw, 6.4rem);
-    max-width: 18ch;
-    margin-bottom: var(--space-6);
+.mm-v2.mm-boc .mm-boc-hero .mm-hero__title {
+    font-size: clamp(3.4rem, 5.6vw, 6.4rem);
+    max-width: 21ch;
+    margin-bottom: var(--space-4);
+    line-height: 1.02;
 }
 
-.mm-boc .mm-boc-hero .mm-hero__inner > .mm-eyebrow {
+.mm-v2.mm-boc .mm-boc-hero .mm-hero__inner > .mm-eyebrow {
     margin-bottom: var(--space-5);
     align-self: center;
 }
 
-.mm-boc .mm-boc-hero .mm-hero__lede {
-    font-size: clamp(1.8rem, 1.5vw, 2rem);
-    line-height: 1.65;
+.mm-v2.mm-boc .mm-boc-hero .mm-hero__lede {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.8rem, 1.8vw, 2.1rem);
+    line-height: 1.5;
+    color: var(--ink);
+    opacity: 0.85;
+    font-weight: 400;
+    letter-spacing: 0;
     max-width: 60ch;
+    margin-inline: auto;
+    text-wrap: balance;
+    font-style: italic;
 }
 
-.mm-boc .mm-boc-hero .mm-actions {
+.mm-v2.mm-boc .mm-boc-hero .mm-hero__lede p {
+    margin: 0;
+}
+
+.mm-v2.mm-boc .mm-boc-hero .mm-actions {
     margin-top: var(--space-6);
 }
 
@@ -754,20 +772,9 @@ body.page-bocados {
 
 /* --- Responsive ----------------------------------------------------- */
 @media (max-width: 640px) {
-    .mm-boc .mm-boc-hero {
+    .mm-v2.mm-boc .mm-boc-hero {
         padding-top: clamp(4.4rem, 10vw, 5.6rem);
         padding-bottom: clamp(3.6rem, 8vw, 4.8rem);
-    }
-
-    .mm-boc .mm-boc-hero .mm-hero__title {
-        font-size: clamp(2.8rem, 8vw, 3.8rem);
-        line-height: 1.06;
-        letter-spacing: -0.02em;
-    }
-
-    .mm-boc .mm-boc-hero .mm-hero__lede {
-        font-size: 1.55rem;
-        line-height: 1.6;
     }
 
     .mm-boc .mm-boc-subscribe__panel {
