@@ -355,6 +355,31 @@ específicos.
         </div>
     </section>
 
+    {{!-- 12a. Video — Rodri en cámara, complemento opcional a la bio.
+         youtube-nocookie: no trackea hasta que el usuario aprieta play.
+         iframe embebido: el video se reproduce inline, sin redirigir. --}}
+    <section class="mm-cap-video" aria-labelledby="cap-video-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-what__inner">
+                <p class="mm-cap-video__intro" id="cap-video-title">
+                    Si querés hacerte una idea de cómo pienso, mirá esto. Hablo de algo que está en el corazón del viaje: cómo escuchar la historia de otro —aunque en la superficie no tenga nada que ver con vos— puede terminar mostrándote algo tuyo. Es, en el fondo, lo que pasa en cada ronda.
+                </p>
+
+                <div class="mm-cap-video__frame">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/9_lgcdUHx2k?rel=0"
+                        title="Rodri hablando sobre el poder de una buena conversación"
+                        loading="lazy"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{!-- 12b. Testimonio José Costa — aval de la bio.
          Mismo componente/estilo que en /lideres/ y la home. Va después de
          "Quién soy" para reforzar la bio, no adyacente al bloque de
