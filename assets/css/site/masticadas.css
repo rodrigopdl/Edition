@@ -1399,6 +1399,17 @@ body:has(.mm-mast),
     display: contents;
 }
 
+/* En mobile (<900px), el header de cada pieza pasa a flex row para que
+   el número (mm-cap-piece__num) quede a la izquierda del título en la
+   misma línea, no arriba en línea aparte. */
+@media (max-width: 899px) {
+    .mm-cap .mm-cap-piece__head {
+        display: flex;
+        align-items: baseline;
+        gap: clamp(1rem, 2.5vw, 1.4rem);
+    }
+}
+
 /* Número grande. En desktop se posiciona absoluto a la izquierda del
    bloque, fuera de la caja de texto del contenido (que se alinea al
    ancho editorial). En mobile queda por encima del título como parte
@@ -1582,7 +1593,8 @@ body:has(.mm-mast),
     .mm-cap .mm-cap-piece__num {
         font-size: 2.8rem;
         line-height: 1;
-        margin-bottom: 0.4rem;
+        margin-bottom: 0;
+        flex-shrink: 0;
     }
 }
 
