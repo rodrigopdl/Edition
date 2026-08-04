@@ -91,7 +91,16 @@
       "Bash(cp test-w1600-q75.webp rodri-mar.webp)",
       "Bash(rm -f rodri-mar.jpg test-*.webp test-*.avif)",
       "Bash(grep -rn \"/equipos\" --include='*.hbs' .)",
-      "Bash(grep -rn \"/viaje\" --include='*.hbs' .)"
+      "Bash(grep -rn \"/viaje\" --include='*.hbs' .)",
+      "Bash(magick identify *)",
+      "Bash(magick rodri-mar.webp -format \"mean: %[fx:mean*100]%%\\\\nstd: %[fx:standard_deviation*100]%%\\\\n\" info:)",
+      "Bash(magick rodri-mar.webp -colorspace HSL -channel G -separate -format \"sat_mean: %[fx:mean*100]%%\\\\nsat_std: %[fx:standard_deviation*100]%%\\\\n\" info:)",
+      "Bash(magick rodri-mar-full.webp -format \"mean: %[fx:mean*100]%%\\\\nstd: %[fx:standard_deviation*100]%%\\\\n\" info:)",
+      "Bash(magick rodri-mar-full.webp -colorspace HSL -channel G -separate -format \"sat_mean: %[fx:mean*100]%%\\\\nsat_std: %[fx:standard_deviation*100]%%\\\\n\" info:)",
+      "Bash(magick rodri-mar-full.original.webp -modulate 110,69,100 +sigmoidal-contrast 2.5,50% -define webp:lossless=false -quality 85 rodri-mar-full.webp)",
+      "Bash(magick rodri-mar-full.original.webp -modulate 110,82,100 -channel-fx \"blue=>blue\" -modulate 100,115,100 +sigmoidal-contrast 2,50% -define webp:lossless=false -quality 85 rodri-mar-full.webp)",
+      "Bash(magick rodri-mar-full.original.webp -modulate 108,75,100 +sigmoidal-contrast 2,50% \\\\\\( +clone -colorspace HSL -channel R -level 45%,75% +channel -separate \\\\\\) -compose Copy_Opacity -composite -background none -flatten /tmp/blue-mask.png)",
+      "Bash(magick rodri-mar-full.original.webp -modulate 108,78,100 +sigmoidal-contrast 2,50% -define webp:lossless=false -quality 85 rodri-mar-full.webp)"
     ]
   }
 }
