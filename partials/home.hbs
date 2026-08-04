@@ -27,48 +27,46 @@
         </div>
     </section>
 
-    {{!-- 2. Servicio destacado — teaser del Viaje Para masticar -------------
-         Antes había dos cards (viaje + líderes). El servicio individual
-         para líderes está oculto por ahora; solo se muestra el Viaje. La
-         página /lideres/ y su template siguen existiendo intactos para
-         reactivar más adelante. --}}
-    <section class="mm-ways mm-home-service" id="mm-home-ways" aria-labelledby="ways-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <header class="mm-section-header mm-home-service__header">
-                <h2 class="mm-v2-title mm-home-service__title" id="ways-title">
-                    El viaje <span class="mm-accent">Para masticar.</span>
-                </h2>
-            </header>
+    {{!-- 2. Cover: Panorama + Servicio superpuestos ------------------------
+         El panorama de Rodri frente al mar arranca justo después del hero.
+         La sección del Viaje se renderiza encima del panorama con
+         posicionamiento absoluto y fondo transparente, dejando ver la
+         imagen detrás. --}}
+    <div class="mm-home-cover">
+        <section class="mm-home-panorama mm-home-panorama--bleed mm-home-panorama--cover" aria-hidden="true">
+            <figure class="mm-home-panorama__figure">
+                <div class="mm-home-panorama__frame">
+                    <img
+                        src="{{asset "images/rodri-mar-full-3.webp"}}"
+                        alt="Rodri de espaldas frente al mar, con su libro La Bestia en las manos."
+                        class="mm-home-panorama__img"
+                        loading="lazy"
+                    >
+                </div>
+            </figure>
+        </section>
 
-            <div class="mm-home-service__body">
-                <p class="mm-home-service__text">
-                    Un programa de varias semanas para despertar el autoliderazgo de tu equipo.
-                </p>
-                <div class="mm-actions">
-                    <a href="/viaje/" class="mm-btn mm-btn--primary mm-btn--lg">
-                        Ver las cinco piezas
-                    </a>
+        <section class="mm-ways mm-home-service mm-home-service--over-cover" id="mm-home-ways" aria-labelledby="ways-title">
+            <div class="mm-canvas mm-canvas--narrow">
+                <header class="mm-section-header mm-home-service__header">
+                    <h2 class="mm-v2-title mm-home-service__title" id="ways-title">
+                        El viaje Para masticar.
+                    </h2>
+                </header>
+
+                <div class="mm-home-service__body">
+                    <p class="mm-home-service__text">
+                        Un programa de varias semanas para despertar el autoliderazgo de tu equipo.
+                    </p>
+                    <div class="mm-actions">
+                        <a href="/viaje/" class="mm-btn mm-btn--primary mm-btn--lg">
+                            Ver las cinco piezas
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    {{!-- 2b. Panorama — separador visual full-bleed entre Servicios y Bocados.
-         Full-bleed real: la sección rompe el max-width del contenedor y llega
-         de borde a borde de la ventana (patrón .mm-home-panorama--bleed).
-         Imagen decorativa, sin texto ni link. --}}
-    <section class="mm-home-panorama mm-home-panorama--bleed" aria-hidden="true">
-        <figure class="mm-home-panorama__figure">
-            <div class="mm-home-panorama__frame">
-                <img
-                    src="{{asset "images/rodri-mar.webp"}}"
-                    alt="Rodri de espaldas frente al mar, con su libro La Bestia en las manos."
-                    class="mm-home-panorama__img"
-                    loading="lazy"
-                >
-            </div>
-        </figure>
-    </section>
+        </section>
+    </div>
 
     {{!-- 3. Bocados (newsletter) — antes de Quién soy ---------------------- --}}
     <section class="mm-bocados" id="mm-home-bocados" aria-labelledby="bocados-title">
