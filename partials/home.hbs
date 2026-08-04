@@ -21,6 +21,7 @@
                     </a>
                     <a href="/bocados/" class="mm-btn mm-btn--ghost mm-btn--lg">
                         Leer los bocados
+                        <span aria-hidden="true">→</span>
                     </a>
                 </div>
             </div>
@@ -61,6 +62,7 @@
                     <div class="mm-actions">
                         <a href="/viaje/" class="mm-btn mm-btn--primary mm-btn--lg">
                             Ver las cinco piezas
+                            <span aria-hidden="true">→</span>
                         </a>
                     </div>
                 </div>
@@ -225,10 +227,12 @@
         <div class="mm-canvas">
             <div class="mm-home-contact__panel">
                 <header class="mm-home-contact__header">
-                    <p class="mm-eyebrow">Escribime</p>
                     <h2 class="mm-v2-title mm-home-contact__title" id="home-contact-title">
-                        Contame qué necesitás, y lo <span class="mm-accent">pensamos juntos.</span>
+                        <span class="mm-accent">Hablemos.</span>
                     </h2>
+                    <p class="mm-home-contact__subhead">
+                        Contame qué necesitás, y lo pensamos juntos.
+                    </p>
                 </header>
 
                 {{> "contact-form" show_selector=true origen="home" subject="Contacto — desde la home"}}

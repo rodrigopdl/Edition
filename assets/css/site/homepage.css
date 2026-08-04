@@ -1425,7 +1425,15 @@ main.mm-v2 {
 
 .mm-v2 .mm-v2-hero .mm-actions {
     justify-content: center;
-    margin-top: var(--space-7);
+    margin-top: var(--space-6);
+}
+
+/* En la home, apretar el padding vertical del hero para que el ritmo
+   del H1 → lede → CTAs se lea como un bloque coherente, no como
+   elementos flotando en un canvas ancho. */
+body.homepage-mm-v2 .mm-v2 .mm-v2-hero {
+    padding-top: clamp(5.5rem, 8vw, 8.5rem);
+    padding-bottom: clamp(4.5rem, 6.5vw, 7rem);
 }
 
 /* --- 2) Intro --------------------------------------------------------- */
@@ -1478,7 +1486,7 @@ main.mm-v2 {
 
 .mm-v2 .mm-intro__text {
     min-width: 0;
-    max-width: 56ch;
+    max-width: 60ch;
 }
 
 .mm-v2 .mm-intro__text .mm-v2-title {
@@ -1634,11 +1642,11 @@ main.mm-v2 {
    Convertimos el <h1> en un flex column para controlar el espacio entre
    ambas líneas independientemente del espacio entre título y subtítulo. */
 body.homepage-mm-v2 .mm-v2 .mm-hero__title {
-    font-size: clamp(2.8rem, 4.4vw, 5rem);
+    font-size: clamp(3rem, 5.2vw, 6rem);
     max-width: none;
-    line-height: 1.05;
-    margin-bottom: var(--space-7);
-    letter-spacing: -0.02em;
+    line-height: 1.02;
+    margin-bottom: var(--space-5);
+    letter-spacing: -0.025em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1667,9 +1675,10 @@ body.homepage-mm-v2 .mm-v2 .mm-hero__title-sub {
 }
 
 body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
-    font-size: clamp(1.8rem, 1.8vw, 2.1rem);
+    font-size: clamp(2rem, 2.1vw, 2.4rem);
     line-height: 1.5;
-    max-width: 60ch;
+    max-width: 52ch;
+    margin-inline: auto;
 }
 
 /* Mobile: título más chico y la frase secundaria puede quebrar en
@@ -2624,6 +2633,18 @@ body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
     max-width: 56ch;
 }
 
+/* Subhead debajo del H2 corto ("Hablemos.") en la sección de contacto.
+   Complementa el título con la descripción de acción, en peso menor. */
+.mm-v2 .mm-home-contact__subhead {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.7rem, 1.6vw, 1.9rem);
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: var(--space-3) auto 0;
+    max-width: 46ch;
+    text-wrap: balance;
+}
+
 /* Choice (radio group) */
 .mm-v2 .mm-home-contact__choice {
     border: 0;
@@ -3015,11 +3036,11 @@ body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
     position: relative;
 }
 
-/* Aspect ratio vertical para respetar la composición de rodri-mar-full.webp
-   (portrait: cielo arriba, figura + mar abajo). En desktop 3:4, en
-   mobile heredamos 4:5 del breakpoint base. */
+/* Aspect ratio 4:5 en desktop (menos vertical que 3:4): Rodri gana
+   presencia como figura y el cielo sigue teniendo altura para que el
+   título del Viaje quede sobre él sin superponerse a la persona. */
 .mm-v2 .mm-home-panorama--cover .mm-home-panorama__frame {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 5;
     position: relative;
 }
 
@@ -3027,22 +3048,25 @@ body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
     object-position: center center;
 }
 
-/* Fade suave del hero (--surface-1) hacia la imagen del panorama.
-   El gradient arranca sólido en surface-1 en el top y se disuelve
-   rápido a transparente en ~8% de la altura del frame —así el título
-   de El viaje queda sobre celeste pleno, sin tintes oscuros del
-   fade. */
+/* Fade del hero (--surface-1) hacia la imagen del panorama.
+   Primer 3% surface-1 sólido (empalme con el hero de arriba, sin línea
+   de corte), luego fade largo hasta 12% con curva ease-out para que
+   se disuelva sin bordes duros. El título del Viaje queda sobre cielo
+   pleno (padding-top del servicio empieza en ~15%). */
 .mm-v2 .mm-home-panorama--cover .mm-home-panorama__figure::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 8%;
+    height: 12%;
     background: linear-gradient(
         to bottom,
         #222538 0%,
-        rgba(34, 37, 56, 0.7) 30%,
+        #222538 3%,
+        rgba(34, 37, 56, 0.75) 25%,
+        rgba(34, 37, 56, 0.35) 55%,
+        rgba(34, 37, 56, 0.1) 80%,
         rgba(34, 37, 56, 0) 100%
     );
     display: block;
@@ -3097,29 +3121,28 @@ body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
 }
 
 .mm-v2 .mm-home-service--over-cover .mm-home-service__title {
-    color: #ffffff;
+    color: var(--ink);
     text-shadow:
-        0 2px 12px rgba(0, 0, 0, 0.55),
-        0 1px 3px rgba(0, 0, 0, 0.4);
+        0 1px 2px rgba(0, 0, 0, 0.35),
+        0 4px 20px rgba(0, 0, 0, 0.5);
     font-weight: 600;
     letter-spacing: -0.02em;
 }
 
-/* El .mm-accent del sistema es azul brand + Spectral italic. Sobre
-   cielo celeste, el azul brand se disuelve en el fondo. Unificamos al
-   mismo blanco del título, conservando la itálica del serif para
-   mantener el matiz tipográfico. */
+/* .mm-accent: mismo cream que el resto del título, con italic Spectral
+   heredada del sistema. Sobre cielo, el azul brand se disuelve; el
+   cream cálido pertenece a la paleta del sitio. */
 .mm-v2 .mm-home-service--over-cover .mm-home-service__title .mm-accent {
-    color: #ffffff;
+    color: var(--ink);
 }
 
 .mm-v2 .mm-home-service--over-cover .mm-home-service__text {
-    color: #f4f1ea;
+    color: var(--ink);
     text-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.5),
-        0 1px 2px rgba(0, 0, 0, 0.35);
+        0 1px 2px rgba(0, 0, 0, 0.35),
+        0 3px 14px rgba(0, 0, 0, 0.45);
     font-weight: 400;
-    max-width: 52ch;
+    max-width: 60ch;
     margin-inline: auto;
 }
 
