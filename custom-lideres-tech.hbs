@@ -1,0 +1,321 @@
+{{!< default}}
+{{!--
+Template Name: Líderes tech
+
+Landing dedicada al programa de formación de liderazgo para líderes
+técnicos. Clon estructural de custom-viaje.hbs: mismos namespaces
+(.mm-mast + .mm-cap), mismas clases, mismos componentes. Solo cambia
+el contenido y el orden/cantidad de secciones.
+--}}
+
+<main class="homepage-main mm-v2 mm-mast mm-cap"
+      data-meta-description="Un programa de diez encuentros para formar líderes técnicos: liderarse a uno mismo primero, liderar a otros después, y encontrar el propio estilo.">
+
+    {{!-- 1. Hero ----------------------------------------------------------- --}}
+    <section class="mm-v2-hero mm-mast-hero" aria-labelledby="cap-title">
+        <div class="mm-canvas mm-canvas--wide">
+            <div class="mm-hero__inner">
+                <h1 class="mm-hero__title mm-cap-hero__title" id="cap-title">
+                    Formá a tus líderes <span class="mm-accent">como te hubiera gustado que te formaran a vos.</span>
+                </h1>
+                <div class="mm-hero__lede mm-cap-hero__lede">
+                    <p>Empezaste programando y terminaste liderando, aprendiendo sobre la marcha. Hoy acompañás a tus tech leads en ese mismo camino —y sabés lo que cuesta hacerlo bien, y solo.</p>
+                </div>
+
+                <div class="mm-actions mm-actions--center">
+                    <a href="#cap-how" class="mm-btn mm-btn--primary mm-btn--lg">Cómo funciona <span aria-hidden="true">→</span></a>
+                    <a href="#cap-cta-title" class="mm-btn mm-btn--ghost mm-btn--lg">Hablemos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 2. El problema — mismo layout que "El efecto Para masticar" -------- --}}
+    <section class="mm-mast-what" id="cap-problem" aria-labelledby="cap-problem-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-what__inner">
+                <header class="mm-mast-what__header">
+                    <h2 class="mm-v2-title" id="cap-problem-title">
+                        Un camino que hiciste <span class="mm-accent">solo.</span>
+                    </h2>
+                </header>
+
+                <div class="mm-prose mm-mast-what__prose">
+                    <p>Vos ya te ocupás de tus líderes. Te reunís con ellos, los escuchás, los ayudás a crecer. Pero también sabés lo que eso te demanda: el tiempo que le dedicás, las frustraciones que canalizás, el hecho de que buena parte de su desarrollo pasa por vos.</p>
+                    <p>Y el liderazgo no se transmite en un uno-a-uno apurado entre dos entregas. Es un camino largo —el mismo que vos hiciste, leyendo, equivocándote, descubriendo.</p>
+                    <p>Este programa toma esa parte y la profundiza. Les da a tus líderes un lenguaje y unas herramientas propias para liderarse y liderar, de forma que ganen autonomía —y vos recuperes tiempo y cabeza para lo que solo vos podés hacer.</p>
+                    <p>Vengo del mismo lugar que ellos, y que vos. Fui developer en WyeWorks, me hicieron referente sin cambiarme el título, y aprendí a liderar sobre la marcha. Hablo su idioma, porque es el mío.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 3. Qué es — mismo layout editorial ---------------------------------- --}}
+    <section class="mm-mast-what" aria-labelledby="cap-what-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-what__inner">
+                <header class="mm-mast-what__header">
+                    <h2 class="mm-v2-title" id="cap-what-title">
+                        Qué <span class="mm-accent">es.</span>
+                    </h2>
+                </header>
+
+                <div class="mm-prose mm-mast-what__prose">
+                    <p>Una formación de liderazgo de <em>diez encuentros</em> más tres meses de acompañamiento, pensada para líderes técnicos.</p>
+                    <p>No es una capacitación con diapositivas ni un coaching donde el otro trae los temas. Son diez conversaciones —guiadas por historias, con una pizarra a mano— donde vamos descifrando juntos cómo se lidera. Empezando por lo más incómodo y lo más importante: liderarse a uno mismo.</p>
+                    <p>Entre encuentro y encuentro, llegan bocados: textos cortos, diarios, que refuerzan lo trabajado y dejan pensando. Para que las ideas no se queden en la sala, sino que sigan durante toda la semana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 4. El recorrido — mismo componente de piezas numeradas del Viaje --- --}}
+    <section class="mm-cap-pieces-v2 mm-cap-journey" aria-labelledby="cap-path-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <header class="mm-cap-pieces-v2__header">
+                <h2 class="mm-v2-title" id="cap-path-title">
+                    El <span class="mm-accent">recorrido.</span>
+                </h2>
+                <div class="mm-prose mm-cap-pieces-v2__intro">
+                    <p>Tres momentos, en este orden. Cada uno se apoya en el anterior.</p>
+                </div>
+            </header>
+
+            <ol class="mm-cap-pieces-v2__list">
+                <li class="mm-cap-piece">
+                    <div class="mm-cap-piece__head">
+                        <span class="mm-cap-piece__num" aria-hidden="true">1</span>
+                        <h3 class="mm-cap-piece__title">Primero, liderarse a uno mismo.</h3>
+                    </div>
+                    <div class="mm-cap-piece__text">
+                        <p>Antes de liderar a alguien, hay que entender qué lo frena a uno. Cada líder le va a poner nombre a esa fuerza interior —<em>La Bestia</em>— y va a aprender a trabajar con ella: a avistarla, a calibrar su entorno, a darle vuelta a las situaciones que hoy lo traban.</p>
+                    </div>
+                </li>
+
+                <li class="mm-cap-piece">
+                    <div class="mm-cap-piece__head">
+                        <span class="mm-cap-piece__num" aria-hidden="true">2</span>
+                        <h3 class="mm-cap-piece__title">Después, liderar a otros.</h3>
+                    </div>
+                    <div class="mm-cap-piece__text">
+                        <p>Acá viene el giro: todo lo que aprendió para liderarse a sí mismo es exactamente lo mismo para liderar a su equipo. Avistar las bestias de los demás, descubrir qué los enciende, construir confianza, dar feedback difícil sin romper nada.</p>
+                    </div>
+                </li>
+
+                <li class="mm-cap-piece">
+                    <div class="mm-cap-piece__head">
+                        <span class="mm-cap-piece__num" aria-hidden="true">3</span>
+                        <h3 class="mm-cap-piece__title">Al final, su propio estilo.</h3>
+                    </div>
+                    <div class="mm-cap-piece__text">
+                        <p>No sale imitando a ningún líder. Sale con una visión de qué tipo de líder quiere ser —uno que <em>nadie más podría ser.</em></p>
+                    </div>
+                </li>
+            </ol>
+
+            <p class="mm-cap-pieces-v2__outro">Así podría <span class="mm-accent">verse</span> el recorrido:</p>
+
+            <figure class="mm-cap-journey__figure">
+                <a
+                    href="{{asset "images/ruta-lideres.webp"}}"
+                    target="_blank"
+                    rel="noopener"
+                    class="mm-cap-journey__link"
+                    aria-label="Abrir el mapa del recorrido en tamaño completo"
+                >
+                    <div class="mm-cap-journey__frame">
+                        <img
+                            src="{{asset "images/ruta-lideres.webp"}}"
+                            alt="Ejemplo del recorrido del programa, con sus etapas"
+                            class="mm-cap-journey__img"
+                            loading="lazy"
+                        >
+                    </div>
+                </a>
+                <figcaption class="mm-cap-journey__caption">Tocá la imagen para ampliarla.</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    {{!-- 5a. Continuidad post-programa — acompañamiento 3 meses ------------- --}}
+    <section class="mm-mast-what" aria-labelledby="cap-continuity-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-what__inner">
+                <header class="mm-mast-what__header">
+                    <h2 class="mm-v2-title" id="cap-continuity-title">
+                        Y después, <span class="mm-accent">que no se apague.</span>
+                    </h2>
+                </header>
+
+                <div class="mm-prose mm-mast-what__prose">
+                    <p>El programa no termina en el último encuentro. Durante los tres meses siguientes nos seguimos viendo, una vez por mes, para que lo aprendido se asiente en la práctica real —en las reuniones difíciles, en los proyectos, en el día a día donde el liderazgo se pone a prueba.</p>
+                    <p>Lo que se trabaja una vez y no se vuelve a tocar, se evapora. El acompañamiento es lo que convierte las herramientas en hábitos, y los hábitos en una forma de liderar que queda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 5b. Un líder formado forma a otros — efecto propagación ------------ --}}
+    <section class="mm-mast-what" aria-labelledby="cap-ripple-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-what__inner">
+                <header class="mm-mast-what__header">
+                    <h2 class="mm-v2-title" id="cap-ripple-title">
+                        Un líder formado <span class="mm-accent">forma a otros.</span>
+                    </h2>
+                </header>
+
+                <div class="mm-prose mm-mast-what__prose">
+                    <p>Esto no termina en la persona que hace el programa.</p>
+                    <p>Un líder que aprende a liderarse no se guarda las herramientas: las transmite. Empieza a formar, a su manera, a los que vienen detrás. Y esa forma de liderar se propaga —del team lead a su equipo, y de ahí a los próximos líderes que ese equipo genere.</p>
+                    <p>Para vos, que estás construyendo una cultura y no solo administrando una empresa, eso es lo más valioso: no estás desarrollando a una persona, estás sembrando una forma de liderar en el ADN de tu compañía.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 5c. CTA intermedio — corta la cadena editorial y da salida ------- --}}
+    <section class="mm-cap-midcta" aria-labelledby="cap-midcta-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-cap-midcta__panel">
+                <h3 class="mm-cap-midcta__title" id="cap-midcta-title">
+                    ¿Querés formar así <span class="mm-accent">a tus líderes?</span>
+                </h3>
+                <div class="mm-actions">
+                    <a href="#cap-cta-title" class="mm-btn mm-btn--primary">Hablemos <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 6. Cómo es — mismo bloque de datos prácticos del Viaje ------------- --}}
+    <section class="mm-mast-what" id="cap-how" aria-labelledby="cap-how-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-what__inner">
+                <header class="mm-mast-what__header">
+                    <h2 class="mm-v2-title" id="cap-how-title">
+                        Cómo <span class="mm-accent">es.</span>
+                    </h2>
+                </header>
+
+                <ul class="mm-cap-effect__list">
+                    <li><strong>Individual o grupal.</strong> Individual, todo el proceso se enfoca en un líder. Grupal, se suma la conexión de equipo y los aprendizajes cruzados entre ellos.</li>
+                    <li><strong><em>Diez encuentros</em> semanales</strong>, con bocados entre medio que refuerzan cada tema.</li>
+                    <li><strong>Tres meses de acompañamiento</strong> después de la formación, con un encuentro mensual para que lo aprendido se grabe.</li>
+                    <li><strong>Presencial</strong>, con una pizarra a mano —ahí es donde pensamos juntos.</li>
+                    <li><strong>Arranca con una charla entre vos y yo</strong>, para entender el momento de tu equipo y armar la propuesta.</li>
+                </ul>
+
+                {{!-- PLACEHOLDER: precio / inversión.
+                     Agregar acá cuando esté definido: podría ir como una línea
+                     más en la lista, o como un bloque separado con eyebrow
+                     "Inversión". --}}
+            </div>
+        </div>
+    </section>
+
+    {{!-- 7. Qué se llevan — editorial ---------------------------------------- --}}
+    <section class="mm-mast-what" aria-labelledby="cap-takeaway-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-what__inner">
+                <header class="mm-mast-what__header">
+                    <h2 class="mm-v2-title" id="cap-takeaway-title">
+                        Qué se <span class="mm-accent">llevan.</span>
+                    </h2>
+                </header>
+
+                <div class="mm-prose mm-mast-what__prose">
+                    <p>Un lenguaje propio para entenderse como líderes. Herramientas para las conversaciones que hoy les cuestan —el feedback difícil, la confianza que hay que construir, las frustraciones que hay que canalizar. Y una forma de seguir creciendo solos, mucho después del último encuentro.</p>
+                    <p>Cada participante se lleva también <em>La Bestia</em>, mi libro —para que las ideas los sigan acompañando cuando el programa termina.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- PLACEHOLDER: Testimonios ------------------------------------------
+         Cuando haya testimonios de este programa, agregar acá el mismo
+         componente de testimonios que usa /viaje/ (.mm-mast-voices +
+         .mm-cap-testimonials). Estructura de referencia en custom-viaje.hbs
+         sección "10. Testimonios (unificados)".
+    --}}
+
+    {{!-- 8. Sobre mí — mismo componente de bio que /viaje/ ------------------ --}}
+    <section class="mm-intro" aria-labelledby="cap-intro-title">
+        <div class="mm-canvas">
+            <div class="mm-intro__grid">
+                <figure class="mm-intro__figure">
+                    <div class="mm-intro__frame">
+                        <img
+                            src="{{asset "images/rodri3.jpg"}}"
+                            alt="Rodri"
+                            class="mm-intro__img"
+                            width="900"
+                            height="1100"
+                            loading="lazy"
+                        >
+                    </div>
+                </figure>
+
+                <div class="mm-intro__text">
+                    <h2 class="mm-v2-title" id="cap-intro-title">
+                        Hola, <span class="mm-accent">soy Rodri.</span>
+                    </h2>
+                    <div class="mm-prose mm-prose--intro">
+                        <p>Vengo del mundo de la programación: soy licenciado en sistemas y durante más de una década trabajé en WyeWorks, una consultora de software uruguaya con una cultura de trabajo fuera de serie. Empecé como programador y, con los años, me convertí en acompañante estratégico del CEO.</p>
+                        <p>En el camino descubrí que los problemas más difíciles casi nunca eran técnicos, sino humanos. Y que empezaban por mí: por esa fuerza interior que me frenaba y me hacía ver problemas donde no los había. Le puse un nombre —<em>La Bestia</em>— y, de a poco, aprendí a domarla.</p>
+                        <p>Comparto lo que encuentro en mi propia búsqueda, no una fórmula de experto. Así nació Para masticar, y con el tiempo se volvió un libro, charlas y este programa —una forma de acercarles a otros lo que a mí me hubiera servido tener cuando empecé a liderar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 8a. Video — Rodri en la pizarra, complemento opcional a la bio.
+         Mismo componente que /viaje/. youtube-nocookie: no trackea hasta
+         que el usuario aprieta play. iframe embebido: reproduce inline. --}}
+    <section class="mm-cap-video" aria-labelledby="cap-video-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-what__inner">
+                <p class="mm-cap-video__intro" id="cap-video-title">
+                    Si querés ver cómo pienso y cómo trabajo en la pizarra —que es donde pasa gran parte de esto—, acá te dejo un ejemplo.
+                </p>
+
+                <div class="mm-cap-video__frame">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/8zg22ZYBXGw?rel=0"
+                        title="Rodri trabajando en la pizarra"
+                        loading="lazy"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 9. CTA final — mismo componente y formulario que /viaje/ ----------- --}}
+    <section class="mm-mast-cta" aria-labelledby="cap-cta-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-mast-cta__inner">
+                <p class="mm-eyebrow">Hablemos</p>
+                <h2 class="mm-v2-title" id="cap-cta-title">
+                    Hablemos.
+                </h2>
+                <p class="mm-mast-cta__lede">
+                    Contame cómo está tu equipo —cuántos líderes tenés, en qué momento están, qué te gustaría que les pase—. Con eso armamos una propuesta a la medida de tu empresa. Empezamos por una charla.
+                </p>
+                {{> "contact-form" show_selector=false tipo_predefinido="equipo" origen="lideres-tech" subject="Contacto — desde /lideres-tech/"}}
+
+                <p class="mm-mast-cta__fallback">
+                    También podés escribirme a
+                    <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+{{#contentFor "body_class"}}homepage-mm-v2 page-masticadas page-capacitaciones{{/contentFor}}

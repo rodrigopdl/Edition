@@ -1456,8 +1456,8 @@ body:has(.mm-mast),
 
 .mm-cap .mm-cap-piece__text {
     font-family: var(--font-post-body);
-    font-size: 1.75rem;
-    line-height: 1.7;
+    font-size: 1.85rem;
+    line-height: 1.65;
     color: var(--ink-2);
     margin: 0;
     text-wrap: pretty;
@@ -1498,8 +1498,8 @@ body:has(.mm-mast),
    página (secciones editoriales que no son .mm-cap-piece): el objetivo
    de la página es lectura larga sobre fondo oscuro. */
 .mm-cap .mm-prose {
-    font-size: 1.75rem;
-    line-height: 1.7;
+    font-size: 1.85rem;
+    line-height: 1.65;
 }
 
 /* --- /equipos: CTA intermedio (puente al form final) --------------------
@@ -1661,6 +1661,14 @@ body:has(.mm-mast),
     margin: clamp(3.6rem, 5vw, 5rem) 0 clamp(2.4rem, 3.5vw, 3rem);
     padding: clamp(0.4rem, 0.8vw, 0.8rem) 0 clamp(0.4rem, 0.8vw, 0.8rem) clamp(2rem, 2.6vw, 2.8rem);
     max-width: none;
+}
+
+/* Cuando la lista viene inmediatamente después del header de la sección
+   (sin prosa introductoria en el medio), reducimos el margin-top para
+   que la lista quede pegada al título, no flotando sola. Aplica al
+   patrón "Cómo es" en /lideres-tech/. */
+.mm-cap .mm-mast-what__header + .mm-cap-effect__list {
+    margin-top: var(--space-4);
     background:
         linear-gradient(
             to bottom,
@@ -1683,8 +1691,8 @@ body:has(.mm-mast),
 
 .mm-cap .mm-cap-effect__list li {
     font-family: var(--font-post-body);
-    font-size: 1.75rem;
-    line-height: 1.7;
+    font-size: 1.85rem;
+    line-height: 1.65;
     color: var(--ink-2);
     text-wrap: pretty;
     margin: 0 0 clamp(1rem, 1.4vw, 1.4rem);
