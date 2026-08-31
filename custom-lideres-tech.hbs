@@ -294,6 +294,37 @@ el contenido y el orden/cantidad de secciones.
             </div>
         </div>
     </section>
+    
+    {{!-- 12b. Testimonio José Costa — aval de la bio.
+         Mismo componente/estilo que en /lideres/ y la home. Va después de
+         "Quién soy" para reforzar la bio, no adyacente al bloque de
+         testimonios del equipo (Joaquín + Diego/Federico/Carolina). --}}
+    <section class="mm-testimonial" aria-labelledby="cap-jose-title">
+        <div class="mm-canvas">
+            <p class="mm-eyebrow mm-eyebrow--muted">Testimonio</p>
+            <figure class="mm-testimonial__figure">
+                <blockquote class="mm-testimonial__quote" id="cap-jose-title">
+                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>Rodri fue una de las voces que más nos ayudó a pensar sobre quiénes somos como organización y qué tipo de empresa queríamos construir. Su capacidad para articular ideas sobre liderazgo, autonomía, cultura y desarrollo humano generó conversaciones valiosas que dejaron huella en muchas personas dentro de WyeWorks.
+                </blockquote>
+                <figcaption class="mm-testimonial__cite">
+                    <div class="mm-testimonial__avatar">
+                        <img
+                            src="{{asset "images/Jose.webp"}}"
+                            alt="José, Founder &amp; CEO de WyeWorks"
+                            class="mm-testimonial__avatar-img"
+                            width="120"
+                            height="120"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="mm-testimonial__person">
+                        <span class="mm-testimonial__name">José Costa</span>
+                        <span class="mm-testimonial__role">Co-founder &amp; CEO, WyeWorks</span>
+                    </div>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
 
     {{!-- 9. CTA final — mismo componente y formulario que /viaje/ ----------- --}}
     <section class="mm-mast-cta" aria-labelledby="cap-cta-title">
