@@ -2,132 +2,29 @@
 
 <main class="homepage-main mm-v2">
 
-    {{!-- 1. Hero ------------------------------------------------------------ --}}
+    {{!-- 1. Hero --}}
     <section class="mm-v2-hero" aria-labelledby="hero-title">
         <div class="mm-canvas mm-canvas--wide">
             <div class="mm-hero__inner">
                 <h1 class="mm-hero__title" id="hero-title">
-                    <span class="mm-hero__title-main">Despierto <span class="mm-accent">autoliderazgo.</span></span>
+                    Ayudo a líderes<br>a <span class="mm-accent">pensar mejor.</span>
                 </h1>
 
                 <div class="mm-hero__lede">
-                    <p>Historias, preguntas que dejan masticando y un lenguaje que se queda.</p>
+                    <p>Trabajo con founders, líderes y equipos para ordenar lo que tienen en la cabeza, ver lo que quizás no están viendo y tomar mejores decisiones sobre lo que tienen por delante.</p>
                 </div>
 
                 <div class="mm-actions mm-actions--center">
-                    <a href="/viaje/" class="mm-btn mm-btn--primary mm-btn--lg">
-                        Un viaje para tu equipo
-                        <span aria-hidden="true">→</span>
-                    </a>
-                    <a href="/bocados/" class="mm-btn mm-btn--ghost mm-btn--lg">
-                        Leer los bocados
-                        <span aria-hidden="true">→</span>
+                    <a href="#mm-home-ways" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">
+                        Cómo podemos trabajar juntos
+                        <span aria-hidden="true">↓</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 2. Cover: Panorama + Servicio superpuestos ------------------------
-         El panorama de Rodri frente al mar arranca justo después del hero.
-         La sección del Viaje se renderiza encima del panorama con
-         posicionamiento absoluto y fondo transparente, dejando ver la
-         imagen detrás. --}}
-    <div class="mm-home-cover">
-        <section class="mm-home-panorama mm-home-panorama--bleed mm-home-panorama--cover" aria-hidden="true">
-            <figure class="mm-home-panorama__figure">
-                <div class="mm-home-panorama__frame">
-                    <img
-                        src="{{asset "images/rodri-mar-full-3.webp"}}"
-                        alt="Rodri de espaldas frente al mar, con su libro La Bestia en las manos."
-                        class="mm-home-panorama__img"
-                        loading="lazy"
-                    >
-                </div>
-            </figure>
-        </section>
-
-        <section class="mm-ways mm-home-service mm-home-service--over-cover" id="mm-home-ways" aria-labelledby="ways-title">
-            <div class="mm-canvas mm-canvas--narrow">
-                <header class="mm-section-header mm-home-service__header">
-                    <h2 class="mm-v2-title mm-home-service__title" id="ways-title">
-                        El viaje Para masticar.
-                    </h2>
-                </header>
-
-                <div class="mm-home-service__body">
-                    <p class="mm-home-service__text">
-                        Un programa de varias semanas para despertar el autoliderazgo de tu equipo.
-                    </p>
-                    <div class="mm-actions">
-                        <a href="/viaje/" class="mm-btn mm-btn--primary mm-btn--lg">
-                            Ver las cinco piezas
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    {{!-- 3. Bocados (newsletter) — antes de Quién soy ---------------------- --}}
-    <section class="mm-bocados" id="mm-home-bocados" aria-labelledby="bocados-title">
-        <div class="mm-canvas">
-            <div class="mm-bocados__panel">
-                <div class="mm-bocados__row">
-                    <div class="mm-bocados__text">
-                        <p class="mm-eyebrow">Para masticar</p>
-                        <h2 class="mm-bocados__title" id="bocados-title">Los <span class="mm-accent">bocados.</span></h2>
-                        <p class="mm-bocados__lede">
-                            Podés entrar a mi mundo por donde entró todo el mundo: los bocados. Textos cortos que te dejan pensando. Cada miércoles, por mail, gratis.
-                        </p>
-                    </div>
-
-                    {{#if @site.members_enabled}}
-                        {{#unless @site.members_invite_only}}
-                            {{#unless @member}}
-                                <form class="mm-bocados__form" data-members-form>
-                                    <label for="mm-bocados-email" class="mm-visually-hidden">Tu email</label>
-                                    <p class="mm-bocados__form-label">Recibilos antes que nadie</p>
-                                    <div class="mm-bocados__field">
-                                        <input
-                                            id="mm-bocados-email"
-                                            class="mm-bocados__input"
-                                            type="email"
-                                            name="email"
-                                            data-members-email
-                                            placeholder="tu@email.com"
-                                            required="true"
-                                        >
-                                        <button class="mm-bocados__btn" type="submit" aria-label="Suscribirse a Bocados">
-                                            Recibirlos
-                                        </button>
-                                    </div>
-                                    <p class="mm-bocados__note">
-                                        Sin spam. El primero de cada mes es exclusivo para suscriptores.
-                                    </p>
-                                    <p class="error-message"></p>
-                                    <p class="success-message"></p>
-
-                                    <div class="mm-bocados__cta-secondary">
-                                        {{#get "posts" limit="1" as |latest|}}
-                                            {{#foreach latest}}
-                                                <a href="{{url}}" class="mm-btn mm-btn--ghost">Leer el último</a>
-                                            {{/foreach}}
-                                        {{else}}
-                                            <a href="/" class="mm-btn mm-btn--ghost">Leer bocados</a>
-                                        {{/get}}
-                                    </div>
-                                </form>
-                            {{/unless}}
-                        {{/unless}}
-                    {{/if}}
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{!-- 4. Quién soy — Hola, soy Rodri ------------------------------------- --}}
+    {{!-- 2. Bio --}}
     <section class="mm-intro" aria-labelledby="intro-title">
         <div class="mm-canvas">
             <div class="mm-intro__grid">
@@ -135,7 +32,7 @@
                     <div class="mm-intro__frame">
                         <img
                             src="{{asset "images/rodri3.jpg"}}"
-                            alt="Rodri"
+                            alt="Rodri Ponce de León"
                             class="mm-intro__img"
                             width="900"
                             height="1100"
@@ -149,29 +46,70 @@
                         Hola, <span class="mm-accent">soy Rodri.</span>
                     </h2>
                     <div class="mm-prose mm-prose--intro">
-                        <p>Vengo del mundo de la programación: soy licenciado en sistemas y durante más de una década trabajé en WyeWorks, una consultora de software uruguaya con una cultura de trabajo fuera de serie. Empecé como desarrollador y, con los años, me convertí en acompañante estratégico del CEO.</p>
-                        <p>En el camino descubrí que los problemas más difíciles casi nunca eran técnicos, sino humanos. Y que empezaban por mí: por esa fuerza interior que me frenaba y me hacía ver problemas donde no los había. Le puse un nombre —<em>La Bestia</em>— y, de a poco, aprendí a domarla.</p>
-                        <p>Comparto lo que encuentro en mi propia búsqueda, no una fórmula de experto. Así nació Para masticar, y con el tiempo se volvió un libro, charlas y el Viaje. Hoy lo que más me entusiasma es despertar ese mismo autoliderazgo en un equipo entero.</p>
+                        <p>Durante más de una década trabajé en WyeWorks, una empresa de tecnología uruguaya. Empecé como desarrollador y terminé acompañando al CEO y a otros líderes a pensar decisiones y problemas difíciles.</p>
+                        <p>Con los años entendí que los más difíciles rara vez eran técnicos. Eran humanos. Y muchas veces empezaban por uno mismo.</p>
+                        <p>Ahí empezó mi obsesión por entender mejor cómo pensamos, qué nos frena y por qué a veces complicamos cosas que podrían ser más simples. Fui armando mi propia forma de mirar esos problemas, mezclando lo que aprendí en tecnología y liderazgo con años de escritura y autoconocimiento.</p>
+                        <p><em>Para masticar</em> nació de ahí: primero como un lugar para compartir ideas y, con el tiempo, como una forma de trabajar con otros.</p>
+                        <p>Hoy escribo, doy charlas y acompaño a líderes y equipos a mirar con más claridad lo que están viviendo, tomar mejores decisiones y encontrar su propia forma de avanzar.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 4b. Testimonio José Costa — aval de la bio.
-         Mismo componente/estilo que en /lideres/. --}}
+    {{!-- 3. Formas de trabajar juntos --}}
+    <section class="mm-ways" id="mm-home-ways" aria-labelledby="ways-title">
+        <div class="mm-canvas">
+            <header class="mm-section-header">
+                <h2 class="mm-v2-title" id="ways-title">Formas de trabajar juntos.</h2>
+            </header>
+
+            <div class="mm-ways__grid">
+                <article class="mm-way">
+                    <h3 class="mm-way__title">Charlas para equipos</h3>
+                    <p class="mm-way__tagline">Una buena forma de conocernos.</p>
+                    <p class="mm-way__text">Historias e ideas sobre liderazgo para ponerle nombre a cosas que ya pasan en el equipo y abrir conversaciones que vale la pena tener.</p>
+                    <p class="mm-way__text mm-way__text--secondary">Podemos quedarnos ahí o sumar una masticada: un espacio para conversar juntos sobre lo que despertó la charla y llevarlo a situaciones reales del equipo.</p>
+                    <button type="button" class="mm-way__link js-way-cta" data-tipo="charla">
+                        Me interesa
+                    </button>
+                </article>
+
+                <article class="mm-way mm-way--feature">
+                    <h3 class="mm-way__title">Acompañamiento</h3>
+                    <p class="mm-way__tagline">Un espacio para pensar acompañado.</p>
+                    <p class="mm-way__text">Un espacio sostenido para frenar y pensar en profundidad sobre lo que tengas entre manos: una decisión difícil, una conversación pendiente, una duda o algo que no terminás de ordenar.</p>
+                    <p class="mm-way__text mm-way__text--secondary">Preguntas, conversación y una mirada externa para ayudarte a ver nuevos ángulos y encontrar tu propia forma de avanzar. Solemos empezar con un ciclo de tres meses y ver desde ahí.</p>
+                    <button type="button" class="mm-way__link js-way-cta" data-tipo="acompanamiento">
+                        Me interesa
+                    </button>
+                </article>
+
+                <article class="mm-way">
+                    <h3 class="mm-way__title">El Viaje</h3>
+                    <p class="mm-way__tagline">Un espacio para mirarse como equipo.</p>
+                    <p class="mm-way__text mm-way__text--secondary">Un recorrido de varias semanas para frenar y conversar sobre cosas que en el día a día no siempre encuentran lugar: qué los frena, qué los mueve y cómo quieren liderarse y trabajar juntos.</p>
+                    <a href="/viaje/" class="mm-way__link">
+                        Conocer El Viaje <span aria-hidden="true">→</span>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 4. Testimonio --}}
     <section class="mm-testimonial" aria-labelledby="testimonial-title">
         <div class="mm-canvas">
-            <p class="mm-eyebrow mm-eyebrow--muted">Testimonio</p>
             <figure class="mm-testimonial__figure">
                 <blockquote class="mm-testimonial__quote" id="testimonial-title">
-                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>Rodri fue una de las voces que más nos ayudó a pensar sobre quiénes somos como organización y qué tipo de empresa queríamos construir. Su capacidad para articular ideas sobre liderazgo, autonomía, cultura y desarrollo humano generó conversaciones valiosas que dejaron huella en muchas personas dentro de WyeWorks.
+                    <span class="mm-testimonial__mark" aria-hidden="true">"</span>Salir de una conversación con Rodri es salir con las ideas más ordenadas y con más energía para actuar, aunque él no te haya dicho qué hacer.
                 </blockquote>
+
                 <figcaption class="mm-testimonial__cite">
                     <div class="mm-testimonial__avatar">
                         <img
                             src="{{asset "images/Jose.webp"}}"
-                            alt="José, Founder &amp; CEO de WyeWorks"
+                            alt="José Costa, Co-founder y CEO de WyeWorks"
                             class="mm-testimonial__avatar-img"
                             width="120"
                             height="120"
@@ -183,11 +121,30 @@
                         <span class="mm-testimonial__role">Co-founder &amp; CEO, WyeWorks</span>
                     </div>
                 </figcaption>
+
+                <button
+                    type="button"
+                    class="mm-testimonial__toggle"
+                    aria-expanded="false"
+                    aria-controls="mm-testimonial-expanded"
+                >
+                    <span class="mm-testimonial__toggle-label">Leer el testimonio completo</span>
+                </button>
+
+                {{!-- Testimonio expandible — va después del toggle para no quedar bajo él --}}
+                <div class="mm-testimonial__expanded" id="mm-testimonial-expanded" aria-hidden="true">
+                    <div class="mm-testimonial__expanded-body">
+                        <p>Tener a Rodri como acompañante es tener acceso a una persona profundamente curiosa, con una mente pensativa, sin apuro y sin agenda personal. Está entregado a la relación, y eso genera un espacio raro de encontrar: podés pensar tranquilo, ver los ángulos que no venías viendo, y sentirte acompañado sin sentir que te están tratando de vender algo.</p>
+                        <p>Puede traerte frameworks o herramientas cuando corresponde, pero no es eso lo que hace la diferencia. Es el espacio que genera y sostiene en el tiempo. Cualquiera puede conocer las herramientas, pero sin ese vínculo de fondo, no rinden.</p>
+                        <p>Yo recurría a él en decisiones difíciles, momentos de duda, planificación estratégica, y sobre todo cuando necesitaba pensar en voz alta para encontrar claridad —sobre lo que queríamos como empresa, sobre cómo comunicar valores, sobre qué era realmente lo que queríamos decir.</p>
+                        <p>Rodri es un tipo calmo, pero sus ideas y la forma en que encuadra las cosas te movilizan. Es difícil describirlo mejor: te transmite alivio y te energiza al mismo tiempo, desde un lugar que sigue siendo calmo. Tener a alguien así disponible para pilotear ideas, pensar procesos y sostener claridad en el tiempo es un lujo raro.</p>
+                    </div>
+                </div>
             </figure>
         </div>
     </section>
 
-    {{!-- 5. La Bestia ------------------------------------------------------- --}}
+    {{!-- 5. La Bestia --}}
     <section class="mm-bestia" aria-labelledby="bestia-title">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-bestia__grid">
@@ -196,7 +153,7 @@
                         src="{{asset "images/cover-es-720.webp"}}"
                         srcset="{{asset "images/cover-es-720.webp"}} 720w, {{asset "images/cover-es-1080.webp"}} 1080w"
                         sizes="240px"
-                        alt="La Bestia, libro de Rodri"
+                        alt="La Bestia, libro de Rodri Ponce de León"
                         class="mm-bestia__book"
                         loading="lazy"
                         width="720"
@@ -204,24 +161,77 @@
                     >
                 </div>
                 <div class="mm-bestia__text">
-                    <p class="mm-eyebrow">El libro</p>
                     <h2 class="mm-v2-title" id="bestia-title">
-                        <span class="mm-accent">La Bestia.</span>
+                        Conocé <span class="mm-accent">La Bestia.</span>
                     </h2>
                     <div class="mm-prose">
-                        <p>Gran parte de mi trabajo nace de una idea: todos tenemos una Bestia. Esa fuerza interior que nos frena, nos hace dudar, y nos aleja de la persona que queremos ser.</p>
-                        <p>Aprender a reconocerla y a domarla es el camino para liderarnos a nosotros mismos. De eso trata mi libro.</p>
+                        <p>Todos tenemos una Bestia.</p>
+                        <p>Esa parte de nosotros que aparece cuando algo se pone difícil y trata de convencernos de reaccionar, evitar, postergar o elegir el camino fácil.</p>
+                        <p>No podemos hacerla desaparecer. Pero podemos aprender a reconocerla antes de que decida por nosotros.</p>
+                        <p>De eso trata La Bestia, mi primer libro.</p>
                     </div>
                     <div class="mm-actions">
-                        <a href="/bestia/" class="mm-btn mm-btn--ghost">Conocé el libro</a>
+                        <a href="/bestia/" class="mm-btn mm-btn--ghost">Conocer el libro</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 7. Contacto -------------------------------------------------------- --}}
+    {{!-- 6. Bocados --}}
+    <section class="mm-bocados" id="mm-home-bocados" aria-labelledby="bocados-title">
+        <div class="mm-canvas">
+            <div class="mm-bocados__panel">
+                <div class="mm-bocados__row">
+                    <div class="mm-bocados__text">
+                        <h2 class="mm-bocados__title" id="bocados-title">Bocados.</h2>
+                        <p class="mm-bocados__lede">
+                            Cada miércoles comparto una historia, una idea, algo que me dejó pensando.<br><br>Textos cortos para leer en unos minutos y seguir masticando durante la semana.
+                        </p>
+                        <div class="mm-actions">
+                            {{#get "posts" limit="1" as |latest|}}
+                                {{#foreach latest}}
+                                    <a href="{{url}}" class="mm-btn mm-btn--ghost">Leer el último bocado</a>
+                                {{/foreach}}
+                            {{else}}
+                                <a href="/bocados/" class="mm-btn mm-btn--ghost">Leer bocados</a>
+                            {{/get}}
+                        </div>
+                    </div>
 
+                    {{#if @site.members_enabled}}
+                        {{#unless @site.members_invite_only}}
+                            {{#unless @member}}
+                                <form class="mm-bocados__form" data-members-form>
+                                    <label for="mm-bocados-email" class="mm-visually-hidden">Tu email</label>
+                                    <p class="mm-bocados__form-label">Recibí un bocado cada miércoles</p>
+                                    <div class="mm-bocados__field">
+                                        <input
+                                            id="mm-bocados-email"
+                                            class="mm-bocados__input"
+                                            type="email"
+                                            name="email"
+                                            data-members-email
+                                            placeholder="tu@email.com"
+                                            required="true"
+                                        >
+                                        <button class="mm-bocados__btn" type="submit" aria-label="Suscribirse a Bocados">
+                                            Suscribirme
+                                        </button>
+                                    </div>
+                                    <p class="mm-bocados__note">Sin spam. Te das de baja cuando quieras.</p>
+                                    <p class="error-message"></p>
+                                    <p class="success-message"></p>
+                                </form>
+                            {{/unless}}
+                        {{/unless}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 7. Hablemos --}}
     <section class="mm-home-contact" id="mm-home-contact" aria-labelledby="home-contact-title">
         <div class="mm-canvas">
             <div class="mm-home-contact__panel">
@@ -230,7 +240,7 @@
                         <span class="mm-accent">Hablemos.</span>
                     </h2>
                     <p class="mm-home-contact__subhead">
-                        Contame qué necesitás, y lo pensamos juntos.
+                      Contame brevemente qué te trae por acá.
                     </p>
                 </header>
 
@@ -245,5 +255,57 @@
     </section>
 
 </main>
+
+{{!-- Homepage interactions: testimonio expandible + cards → formulario --}}
+<script>
+(function () {
+    'use strict';
+
+    /* ── Testimonio expandible ─────────────────────────────────────── */
+    var toggle   = document.querySelector('.mm-testimonial__toggle');
+    var expanded = document.getElementById('mm-testimonial-expanded');
+    var label    = toggle && toggle.querySelector('.mm-testimonial__toggle-label');
+
+    if (toggle && expanded) {
+        toggle.addEventListener('click', function () {
+            var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+            expanded.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+            expanded.classList.toggle('is-open', !isOpen);
+            if (label) label.textContent = isOpen ? 'Leer el testimonio completo' : 'Cerrar testimonio';
+        });
+    }
+
+    /* ── Cards → formulario ────────────────────────────────────────── */
+    var tipoMap = {
+        'charla':         'Una charla para mi evento',
+        'acompanamiento': 'Algo para mí como líder'
+    };
+
+    document.querySelectorAll('.js-way-cta').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var tipo    = btn.dataset.tipo;
+            var target  = tipoMap[tipo];
+            var contact = document.getElementById('mm-home-contact');
+            var form    = document.getElementById('mm-home-formspree');
+
+            if (target && form) {
+                var radios = form.querySelectorAll('input[name="tipo_consulta"]');
+                for (var i = 0; i < radios.length; i++) {
+                    radios[i].checked = radios[i].value === target;
+                }
+            }
+
+            if (contact) {
+                contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setTimeout(function () {
+                    var textarea = form && form.querySelector('#mm-home-message');
+                    if (textarea) textarea.focus({ preventScroll: true });
+                }, 500);
+            }
+        });
+    });
+})();
+</script>
 
 {{#contentFor "body_class"}}homepage-mm-v2{{/contentFor}}

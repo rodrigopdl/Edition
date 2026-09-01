@@ -42,19 +42,23 @@ selectors). Two instances on the same page would collide.
 
     {{#if show_selector}}
         <fieldset class="mm-home-contact__choice">
-            <legend class="mm-home-contact__choice-legend">¿Sobre qué querés hablar?</legend>
+            <legend class="mm-home-contact__choice-legend">¿Cómo te gustaría que trabajemos juntos?</legend>
             <div class="mm-home-contact__choice-options">
                 <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Algo para mi equipo" required>
-                    <span>Algo para mi equipo</span>
+                    <input type="radio" name="tipo_consulta" value="Una charla para mi evento" required>
+                    <span>Quiero una charla para mi equipo</span>
                 </label>
                 <label class="mm-home-contact__choice-option">
                     <input type="radio" name="tipo_consulta" value="Algo para mí como líder">
-                    <span>Algo para mí como líder</span>
+                    <span>Me interesa el acompañamiento</span>
                 </label>
                 <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Una charla para mi evento">
-                    <span>Una charla para mi evento</span>
+                    <input type="radio" name="tipo_consulta" value="Algo para mi equipo">
+                    <span>Quiero conocer El Viaje</span>
+                </label>
+                <label class="mm-home-contact__choice-option">
+                    <input type="radio" name="tipo_consulta" value="Todavia no se">
+                    <span>Todavía no sé</span>
                 </label>
             </div>
         </fieldset>
@@ -99,13 +103,13 @@ selectors). Two instances on the same page would collide.
 
     <div class="mm-home-contact__row">
         <div class="mm-home-contact__field">
-            <label class="mm-home-contact__label" for="mm-home-message">Contame de tu situación</label>
+            <label class="mm-home-contact__label" for="mm-home-message">Contame un poco más</label>
             <textarea
                 id="mm-home-message"
                 name="mensaje"
                 rows="6"
                 required
-                placeholder="¿Qué estás masticando?"
+                placeholder="¿Qué estás viviendo o qué te gustaría trabajar?"
                 class="mm-home-contact__textarea"
             ></textarea>
         </div>
@@ -151,15 +155,18 @@ selectors). Two instances on the same page would collide.
             if (!match) return;
             var requested = decodeURIComponent(match[1]).toLowerCase();
             var map = {
-                'equipo':       'Algo para mi equipo',
-                'capacitacion': 'Algo para mi equipo',
-                'capacitación': 'Algo para mi equipo',
-                'masticada':    'Algo para mi equipo',
+                'charla':       'Una charla para mi evento',
+                'capacitacion': 'Una charla para mi evento',
+                'capacitación': 'Una charla para mi evento',
                 'lider':        'Algo para mí como líder',
                 'líder':        'Algo para mí como líder',
                 'sesion':       'Algo para mí como líder',
                 'sesión':       'Algo para mí como líder',
-                'charla':       'Una charla para mi evento'
+                'acompanamiento': 'Algo para mí como líder',
+                'acompañamiento': 'Algo para mí como líder',
+                'equipo':       'Algo para mi equipo',
+                'viaje':        'Algo para mi equipo',
+                'masticada':    'Algo para mi equipo'
             };
             var target = map[requested];
             if (!target) return;

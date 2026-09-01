@@ -37,6 +37,19 @@
     opacity: 0.8;
 }
 
+/* "Hablemos" — link hardcodeado, mismo estilo que los ítems de nav Ghost */
+.gh-nav-hablemos {
+    color: #f1f1f1;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.gh-nav-hablemos:hover {
+    opacity: 0.8;
+}
+
 .gh-head-btn {
     color: #f1f1f1 !important;
 }
@@ -197,5 +210,12 @@
     .is-head-open #gh-head .gh-head-link,
     .is-head-open #gh-head .gh-head-btn {
         color: #f1f1f1 !important;
+    }
+
+    /* "Hablemos" en mobile: mismo tamaño/peso que los ítems del menú abierto */
+    #gh-head .gh-nav-hablemos {
+        font-size: 2.4rem;
+        font-weight: 600;
+        text-transform: none;
     }
 }
