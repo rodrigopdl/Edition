@@ -50,6 +50,12 @@
     opacity: 0.8;
 }
 
+@media (max-width: 991px) {
+    .gh-nav-hablemos {
+        display: none;
+    }
+}
+
 .gh-head-btn {
     color: #f1f1f1 !important;
 }
