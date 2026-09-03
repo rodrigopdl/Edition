@@ -1983,3 +1983,304 @@ body:has(.mm-mast),
     justify-content: center;
 }
 
+
+/* ==========================================================================
+   Charlas v2 — /charlas (custom-charlas.hbs)
+   Namespace: .mm-ch-v2
+   Reuses: .mm-v2-title, .mm-prose, .mm-btn, .mm-accent, .mm-canvas, .mm-actions
+   ========================================================================== */
+
+/* --- Shared section layout -------------------------------------------------- */
+
+/* The base .mm-v2 .mm-prose has max-width: 60ch which is too narrow for the
+   canvas--narrow (880px) and leaves text squashed. Override to fill the canvas,
+   matching the pattern used by .mm-mast-what__prose in /viaje. */
+.mm-ch-v2 .mm-prose {
+    max-width: none;
+}
+
+/* CTA is centered — its lede has its own max-width override inline */
+.mm-ch-v2-cta .mm-prose {
+    max-width: none;
+}
+
+/* --- 1. Hero ---------------------------------------------------------------- */
+
+.mm-ch-v2-hero .mm-hero__title {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mm-ch-v2-hero .mm-hero__lede {
+    max-width: 640px;
+    margin: var(--space-5) auto 0;
+    text-align: center;
+    font-size: clamp(1.7rem, 1.55vw, 2rem);
+    line-height: 1.7;
+    color: var(--ink-2);
+}
+
+.mm-ch-v2-hero .mm-actions {
+    margin-top: var(--space-7);
+    justify-content: center;
+}
+
+/* --- 2. Qué pasa en una charla --------------------------------------------- */
+
+.mm-ch-v2-what {
+    padding-top: var(--space-10);
+    padding-bottom: 0;
+}
+
+.mm-ch-v2-what .mm-v2-title {
+    margin-bottom: var(--space-6);
+}
+
+.mm-ch-v2-what__photo {
+    margin-top: var(--space-9);
+    max-width: 1200px;
+    width: 100%;
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
+    box-sizing: border-box;
+    align-self: center;
+}
+
+.mm-ch-v2-what__figure {
+    margin: 0;
+}
+
+/* White-border frame — same treatment as .mm-mast-real__frame in /viaje */
+.mm-ch-v2-what__frame,
+.mm-ch-v2-real__frame {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--surface-2);
+    line-height: 0;
+    box-shadow:
+        0 20px 40px -28px rgba(0, 0, 0, 0.5),
+        0 2px 10px rgba(82, 113, 255, 0.05);
+}
+
+.mm-ch-v2-what__frame::after,
+.mm-ch-v2-real__frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px solid #f1f1f1;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.mm-ch-v2-what__img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- 3. Charla + Masticada -------------------------------------------------- */
+
+.mm-ch-v2-plus {
+    padding-top: var(--space-11);
+    padding-bottom: var(--space-2);
+}
+
+.mm-ch-v2-plus .mm-v2-title {
+    margin-bottom: var(--space-6);
+}
+
+.mm-ch-v2-plus__durations {
+    margin-top: var(--space-7);
+    font-size: clamp(1.3rem, 1.15vw, 1.5rem);
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+}
+
+/* --- 4. Experiencias ------------------------------------------------------- */
+
+.mm-ch-v2-real {
+    padding-top: var(--space-11);
+    padding-bottom: var(--space-10);
+}
+
+/* Photo grid */
+.mm-ch-v2-real__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+    margin-bottom: var(--space-10);
+    width: 100%;
+}
+
+.mm-ch-v2-real__item {
+    margin: 0;
+}
+
+.mm-ch-v2-real__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 3/2;
+}
+
+/* Testimonios */
+.mm-ch-v2-testimonial {
+    margin: 0 auto var(--space-9);
+    max-width: 760px;
+    padding: 0;
+}
+
+.mm-ch-v2-testimonial:last-of-type {
+    margin-bottom: 0;
+}
+
+.mm-ch-v2-testimonial__context {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 1vw, 1.3rem);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 var(--space-4);
+}
+
+.mm-ch-v2-testimonial__quote {
+    font-family: var(--font-post-body);
+    font-style: italic;
+    font-size: clamp(1.8rem, 1.7vw, 2.1rem);
+    line-height: 1.7;
+    color: var(--ink);
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.mm-ch-v2-testimonial__author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-style: normal;
+}
+
+.mm-ch-v2-testimonial__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: none;
+    margin: 0;
+}
+
+.mm-ch-v2-testimonial__name,
+.mm-ch-v2-testimonial__role {
+    display: block;
+}
+
+.mm-ch-v2-testimonial__name {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 1.05vw, 1.4rem);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+}
+
+.mm-ch-v2-testimonial__role {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 0.95vw, 1.25rem);
+    color: var(--ink-3);
+    margin-top: 0.2rem;
+}
+
+/* Separator between testimonials */
+.mm-ch-v2-testimonial + .mm-ch-v2-testimonial {
+    padding-top: var(--space-9);
+    border-top: 1px solid rgba(244, 241, 234, 0.10);
+}
+
+/* --- 5. CTA final ---------------------------------------------------------- */
+
+.mm-ch-v2-cta {
+    padding-top: var(--space-11);
+    padding-bottom: var(--space-12);
+}
+
+.mm-ch-v2-cta__inner {
+    text-align: center;
+}
+
+.mm-ch-v2-cta .mm-v2-title {
+    margin-bottom: var(--space-5);
+}
+
+.mm-ch-v2-cta__lede {
+    font-size: clamp(1.7rem, 1.55vw, 2rem);
+    line-height: 1.7;
+    color: var(--ink-2);
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.mm-ch-v2-cta .mm-actions {
+    margin-top: var(--space-7);
+    justify-content: center;
+}
+
+.mm-ch-v2-cta__fallback {
+    margin-top: var(--space-5);
+    font-size: clamp(1.3rem, 1.15vw, 1.5rem);
+    color: var(--ink-3);
+}
+
+.mm-ch-v2-cta__fallback a {
+    color: var(--ink-3);
+    text-decoration: underline;
+    text-decoration-color: rgba(244, 241, 234, 0.3);
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+}
+
+.mm-ch-v2-cta__fallback a:hover {
+    color: var(--ink-2);
+}
+
+/* --- Responsive ------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .mm-ch-v2-real__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mm-ch-v2-real__img {
+        aspect-ratio: 4/3;
+    }
+
+    .mm-ch-v2-what__photo {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .mm-ch-v2-what__frame {
+        border-radius: 0;
+    }
+
+    .mm-ch-v2-what__frame::after {
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .mm-ch-v2-testimonial__author {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+}
+
