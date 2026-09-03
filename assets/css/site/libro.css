@@ -203,10 +203,50 @@ body:has(.mm-lib),
     margin: 0;
 }
 
+.mm-lib .mm-lib-reviews__featured {
+    max-width: 800px;
+    margin: 0 auto var(--space-6);
+    padding: 0 0 var(--space-6);
+    border-bottom: 1px solid rgba(244, 241, 234, 0.10);
+    text-align: center;
+    font-family: var(--font-post-body);
+    font-style: italic;
+    font-size: clamp(2rem, 1.9vw, 2.3rem);
+    line-height: 1.65;
+    color: var(--ink);
+    background: none;
+    box-shadow: none;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+}
+
+.mm-lib .mm-lib-reviews__featured p {
+    margin: 0 0 var(--space-4);
+}
+
+.mm-lib .mm-lib-reviews__featured cite,
+.mm-lib .mm-lib-reviews__item blockquote cite {
+    display: block;
+    font-style: normal;
+    font-size: clamp(1.2rem, 1.05vw, 1.4rem);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-family: var(--font-display);
+}
+
+.mm-lib .mm-lib-reviews__item blockquote cite {
+    margin-top: var(--space-4);
+    text-align: left;
+}
+
 .mm-lib .mm-lib-reviews__list {
     list-style: none;
     padding: 0;
-    margin: 0 auto var(--space-8);
+    margin: var(--space-6) auto var(--space-7);
     max-width: 1080px;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -217,7 +257,7 @@ body:has(.mm-lib),
 
 .mm-lib .mm-lib-reviews__item {
     margin: 0;
-    padding: var(--space-8) var(--space-7);
+    padding: var(--space-7) var(--space-6);
     border-right: 1px solid rgba(244, 241, 234, 0.10);
     display: flex;
 }
@@ -234,22 +274,12 @@ body:has(.mm-lib),
     box-shadow: none;
     font-family: var(--font-post-body);
     font-style: italic;
-    font-size: clamp(1.75rem, 1.55vw, 1.95rem);
-    line-height: 1.65;
+    font-size: clamp(1.65rem, 1.45vw, 1.85rem);
+    line-height: 1.7;
     color: var(--ink-2);
     text-wrap: pretty;
-}
-
-.mm-lib .mm-lib-reviews__mark {
-    font-family: var(--font-post-body);
-    font-style: normal;
-    font-size: 1.5em;
-    font-weight: 700;
-    color: var(--brand);
-    line-height: 0;
-    vertical-align: -0.18em;
-    margin-right: 0.05em;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
 }
 
 /* --- 5) Autor ------------------------------------------------------- */
@@ -435,11 +465,17 @@ body:has(.mm-lib),
     .mm-lib .mm-lib-reviews__item {
         border-right: 0;
         border-bottom: 1px solid rgba(244, 241, 234, 0.10);
-        padding: var(--space-7) var(--space-6);
+        padding: var(--space-6) var(--space-5);
     }
 
     .mm-lib .mm-lib-reviews__item:last-child {
         border-bottom: 0;
+    }
+
+    .mm-lib .mm-lib-reviews__featured {
+        font-size: 1.95rem;
+        margin-bottom: var(--space-5);
+        padding-bottom: var(--space-5);
     }
 }
 
@@ -470,12 +506,18 @@ body:has(.mm-lib),
         font-size: 1.6rem;
     }
 
+    .mm-lib .mm-lib-reviews__featured {
+        font-size: 1.75rem;
+        margin-bottom: var(--space-4);
+        padding-bottom: var(--space-4);
+    }
+
     .mm-lib .mm-lib-reviews__item {
-        padding: var(--space-6) var(--space-4);
+        padding: var(--space-5) var(--space-4);
     }
 
     .mm-lib .mm-lib-reviews__item blockquote {
-        font-size: 1.65rem;
+        font-size: 1.6rem;
     }
 
     .mm-lib .mm-lib-buy__channel-formats {
