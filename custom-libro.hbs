@@ -147,16 +147,19 @@ Template Name: La Bestia
 
             <div class="mm-lib-buy__options">
 
-                {{!-- Uruguay: estructura preparada para compra local --}}
-                {{!-- Descomentá y completá cuando exista un canal de venta local --}}
-                {{!--
+                {{!-- Uruguay: compra local --}}
                 <div class="mm-lib-buy__channel">
                     <p class="mm-lib-buy__channel-label">Uruguay</p>
-                    <p class="mm-lib-buy__channel-desc">Libro impreso — compra local</p>
-                    <a href="#" class="mm-btn mm-btn--ghost">Comprar en Uruguay</a>
+                    <p class="mm-lib-buy__channel-format">Libro impreso</p>
+                    <p class="mm-lib-buy__channel-price">$590</p>
+                    <a href="mailto:rodri@paramasticar.com?subject=La%20Bestia"
+                       class="mm-btn mm-btn--primary mm-lib-buy__cta">
+                        Escribime para conseguirlo
+                    </a>
+                    <a href="mailto:rodri@paramasticar.com" class="mm-lib-buy__email">rodri@paramasticar.com</a>
                 </div>
-                --}}
 
+                {{!-- Amazon --}}
                 <div class="mm-lib-buy__channel">
                     <p class="mm-lib-buy__channel-label">Amazon</p>
                     <p class="mm-lib-buy__channel-formats">
@@ -165,32 +168,35 @@ Template Name: La Bestia
                         <span>Papel <span class="mm-lib-buy__price-value">USD 9.99</span></span>
                     </p>
                     <a href="https://a.co/d/07Idzscm"
-                       class="mm-btn mm-btn--primary mm-btn--lg mm-lib-buy__cta"
+                       class="mm-btn mm-btn--primary mm-lib-buy__cta"
                        target="_blank"
                        rel="noopener noreferrer">
                         Comprar en Amazon
                     </a>
-                    <div class="mm-lib-buy__intl-wrap">
-                        <p class="mm-lib-buy__intl-label">También disponible en</p>
-                        <ul class="mm-lib-buy__intl">
-                            <li>
-                                <a href="https://amzn.eu/d/0j6X0j8I" target="_blank" rel="noopener noreferrer">
-                                    Amazon España <span aria-hidden="true">→</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://amzn.eu/d/02L1Epna" target="_blank" rel="noopener noreferrer">
-                                    Amazon UK <span aria-hidden="true">→</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://a.co/d/0dzwvAtm" target="_blank" rel="noopener noreferrer">
-                                    Amazon México <span aria-hidden="true">→</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
+
+            </div>
+
+            {{!-- Internacional: va debajo de ambas opciones --}}
+            <div class="mm-lib-buy__intl-wrap">
+                <p class="mm-lib-buy__intl-label">Otras tiendas de Amazon</p>
+                <ul class="mm-lib-buy__intl">
+                    <li>
+                        <a href="https://amzn.eu/d/0j6X0j8I" target="_blank" rel="noopener noreferrer">
+                            Amazon España <span aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://amzn.eu/d/02L1Epna" target="_blank" rel="noopener noreferrer">
+                            Amazon UK <span aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://a.co/d/0dzwvAtm" target="_blank" rel="noopener noreferrer">
+                            Amazon México <span aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                </ul>
 
             </div>
         </div>
