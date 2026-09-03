@@ -1992,6 +1992,13 @@ body:has(.mm-mast),
 
 /* --- Shared ----------------------------------------------------------------- */
 
+/* Smooth scroll for the hero's "Conocé la charla" anchor jump. Scoped to the
+   charlas page (the .mm-mast rule above doesn't cover .mm-ch-v2). */
+body.page-charlas,
+html:has(body.page-charlas) {
+    scroll-behavior: smooth;
+}
+
 /* ROOT FIX: the base rule `.mm-v2 > section { padding-block: var(--section-py) }`
    applies to every direct-child section here. The global --section-py is huge
    (up to 14rem). /viaje tames it by redefining --section-py inside .mm-cap; we
@@ -2001,12 +2008,15 @@ body:has(.mm-mast),
     --section-py: clamp(4rem, 6vw, 7rem);
 }
 
-/* Surface backgrounds mirror /viaje: lighter hero, darker sections after. */
+/* Surface backgrounds. The central body — "what" → "plus" → "real" — shares
+   one continuous surface-0 so the two experiences read as direct evidence of
+   the modalities just explained, not as a separate section. The tone shift
+   happens only at the final CTA. */
 .mm-ch-v2-hero  { background: var(--surface-1); }
 .mm-ch-v2-what  { background: var(--surface-0); }
 .mm-ch-v2-plus  { background: var(--surface-0); }
-.mm-ch-v2-real  { background: var(--surface-1); }
-.mm-ch-v2-cta   { background: var(--surface-0); }
+.mm-ch-v2-real  { background: var(--surface-0); }
+.mm-ch-v2-cta   { background: var(--surface-1); }
 
 /* base .mm-v2 .mm-prose has max-width:60ch — too narrow for canvas--narrow */
 .mm-ch-v2 .mm-prose {
@@ -2119,12 +2129,23 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     margin-bottom: var(--space-6);
 }
 
-/* Duration line: body text weight, mixed styles, more visible than before */
+/* Durations: two items side by side, a touch more presence than a footnote
+   but still quiet. Wraps to stacked rows on mobile via flex-wrap + gaps. */
 .mm-ch-v2-plus__durations {
-    margin-top: var(--space-6);
+    margin-top: var(--space-7);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) clamp(2rem, 4vw, 4rem);
+}
+
+.mm-ch-v2-plus__dur-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6em;
+    margin: 0;
     font-family: var(--font-post-body);
-    font-size: clamp(1.5rem, 1.4vw, 1.75rem);
-    line-height: 1.5;
+    font-size: clamp(1.5rem, 1.4vw, 1.7rem);
+    line-height: 1.4;
     color: var(--ink-2);
 }
 
@@ -2139,12 +2160,20 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
 
 .mm-ch-v2-plus__dur-sep {
     color: var(--ink-3);
-    padding: 0 0.15em;
+}
+
+.mm-ch-v2-plus__dur-value {
+    color: var(--ink);
 }
 
 /* --- 4. Experiencias (foto + testimonio por columna) ----------------------- */
 
-/* No padding override — inherits the tamed `.mm-v2 > section` padding-block. */
+/* Shares surface-0 with "plus" above and continues its narrative (the photos
+   are evidence of the two modalities). A tighter top padding keeps the flow
+   duración → fotos continuous instead of reading as a new section. */
+.mm-ch-v2-real {
+    padding-top: clamp(3rem, 4.5vw, 4.5rem);
+}
 
 /* Two-column grid: each column = one complete experience */
 .mm-ch-v2-exp-grid {
@@ -2193,13 +2222,22 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
 .mm-ch-v2-testimonial__quote {
     font-family: var(--font-post-body);
     font-style: italic;
-    font-size: clamp(1.65rem, 1.5vw, 1.9rem);
-    line-height: 1.7;
+    font-size: clamp(1.8rem, 1.65vw, 2.1rem);
+    line-height: 1.65;
     color: var(--ink);
     margin: 0 0 var(--space-5);
     padding: 0;
     border: none;
     background: none;
+    text-wrap: pretty;
+}
+
+/* Lucía's column is naturally shorter. Give her quote a touch more air so the
+   left column doesn't read as weaker than Joaquín's — without forcing equal
+   heights (each experience keeps its natural length). */
+.mm-ch-v2-exp:first-child .mm-ch-v2-testimonial__quote {
+    line-height: 1.75;
+    margin-bottom: var(--space-6);
 }
 
 .mm-ch-v2-testimonial__author {
