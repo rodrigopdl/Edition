@@ -1,12 +1,9 @@
 /* ==========================================================================
    /libro — La Bestia landing
-   Scoped under .mm-lib (added to <main>) so styles don't leak elsewhere.
+   Scoped under .mm-lib so styles don't leak elsewhere.
    Inherits tokens, layout primitives, buttons and typography from .mm-v2.
    ========================================================================== */
 
-/* Smooth in-page scroll for the hero anchors (#mm-lib-buy, #mm-lib-sample).
-   Apply to <html>, <body> and the page wrapper to cover every browser's
-   scroll container. prefers-reduced-motion is honored automatically. */
 html:has(.mm-lib),
 html:has(body.page-libro),
 body.page-libro,
@@ -30,10 +27,6 @@ body:has(.mm-lib),
 
 .mm-lib .mm-lib-hero__text {
     text-align: left;
-}
-
-.mm-lib .mm-lib-hero__text > .mm-eyebrow {
-    margin-bottom: var(--space-5);
 }
 
 .mm-lib .mm-lib-hero__title {
@@ -104,7 +97,7 @@ body:has(.mm-lib),
     border-radius: 2px;
 }
 
-/* --- 2) Recognize --------------------------------------------------- */
+/* --- 2) La sentiste mil veces --------------------------------------- */
 .mm-lib .mm-lib-recognize {
     padding-block: var(--section-py);
     background: var(--surface-0);
@@ -123,11 +116,6 @@ body:has(.mm-lib),
     background: rgba(244, 241, 234, 0.06);
 }
 
-.mm-lib .mm-lib-recognize .mm-eyebrow {
-    justify-content: center;
-    margin-bottom: var(--space-4);
-}
-
 .mm-lib .mm-lib-recognize .mm-v2-title {
     margin: 0 auto var(--space-6);
     max-width: 22ch;
@@ -138,15 +126,26 @@ body:has(.mm-lib),
     text-align: left;
 }
 
-/* --- 3) Promise (no se trata de eliminarla) ------------------------- */
-.mm-lib .mm-lib-promise {
+.mm-lib .mm-lib-recognize__remate {
+    font-family: var(--font-post-body);
+    font-style: italic;
+    font-size: clamp(1.9rem, 1.8vw, 2.15rem);
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 560px;
+    margin: var(--space-7) auto 0;
+    text-align: center;
+    opacity: 0.85;
+}
+
+/* --- 3) Leer un capítulo -------------------------------------------- */
+.mm-lib .mm-lib-sample {
     padding-block: var(--section-py-tight);
     background: var(--surface-1);
     position: relative;
-    text-align: center;
 }
 
-.mm-lib .mm-lib-promise::before {
+.mm-lib .mm-lib-sample::before {
     content: "";
     position: absolute;
     top: 0;
@@ -157,61 +156,33 @@ body:has(.mm-lib),
     background: rgba(244, 241, 234, 0.06);
 }
 
-.mm-lib .mm-lib-promise .mm-eyebrow {
-    justify-content: center;
-    margin-bottom: var(--space-4);
-}
-
-.mm-lib .mm-lib-promise .mm-v2-title {
-    margin: 0 auto var(--space-6);
-    max-width: 22ch;
-}
-
-.mm-lib .mm-lib-promise .mm-prose {
-    margin: 0 auto var(--space-8);
-    text-align: left;
-}
-
-.mm-lib .mm-lib-promise__list {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
+.mm-lib .mm-lib-sample__inner {
     max-width: 560px;
-    border-top: 1px solid rgba(244, 241, 234, 0.10);
-    text-align: left;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.mm-lib .mm-lib-promise__list li {
-    padding: var(--space-4) 0 var(--space-4) var(--space-5);
-    border-bottom: 1px solid rgba(244, 241, 234, 0.10);
+.mm-lib .mm-lib-sample__inner .mm-v2-title {
+    margin: 0 0 var(--space-5);
+    font-size: clamp(2.4rem, 3vw, 3.2rem);
+}
+
+.mm-lib .mm-lib-sample__text {
     font-family: var(--font-post-body);
     font-size: clamp(1.75rem, 1.6vw, 1.95rem);
-    line-height: 1.5;
-    color: var(--ink);
-    position: relative;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0 0 var(--space-6);
 }
 
-.mm-lib .mm-lib-promise__list li::before {
-    content: "";
-    position: absolute;
-    top: 1.4em;
-    left: 0;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--brand);
-    box-shadow: 0 0 0 4px rgba(82, 113, 255, 0.12);
-}
-
-/* --- 4) Kind (qué tipo de libro) ------------------------------------ */
-.mm-lib .mm-lib-kind {
+/* --- 4) Reviews ----------------------------------------------------- */
+.mm-lib .mm-lib-reviews {
     padding-block: var(--section-py);
     background: var(--surface-0);
     position: relative;
-    text-align: center;
 }
 
-.mm-lib .mm-lib-kind::before {
+.mm-lib .mm-lib-reviews::before {
     content: "";
     position: absolute;
     top: 0;
@@ -222,30 +193,74 @@ body:has(.mm-lib),
     background: rgba(244, 241, 234, 0.06);
 }
 
-.mm-lib .mm-lib-kind .mm-eyebrow {
-    justify-content: center;
-    margin-bottom: var(--space-4);
+.mm-lib .mm-lib-reviews__header {
+    max-width: 680px;
+    margin: 0 auto var(--space-8);
+    text-align: center;
 }
 
-.mm-lib .mm-lib-kind .mm-v2-title {
-    margin: 0 auto var(--space-6);
-    max-width: 22ch;
+.mm-lib .mm-lib-reviews__header .mm-v2-title {
+    margin: 0;
 }
 
-.mm-lib .mm-lib-kind .mm-prose {
-    margin: 0 auto;
-    text-align: left;
+.mm-lib .mm-lib-reviews__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto var(--space-8);
+    max-width: 1080px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid rgba(244, 241, 234, 0.10);
+    border-bottom: 1px solid rgba(244, 241, 234, 0.10);
 }
 
-/* --- 5) For (para quién) -------------------------------------------- */
-.mm-lib .mm-lib-for {
+.mm-lib .mm-lib-reviews__item {
+    margin: 0;
+    padding: var(--space-8) var(--space-7);
+    border-right: 1px solid rgba(244, 241, 234, 0.10);
+    display: flex;
+}
+
+.mm-lib .mm-lib-reviews__item:last-child {
+    border-right: 0;
+}
+
+.mm-lib .mm-lib-reviews__item blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    font-family: var(--font-post-body);
+    font-style: italic;
+    font-size: clamp(1.75rem, 1.55vw, 1.95rem);
+    line-height: 1.65;
+    color: var(--ink-2);
+    text-wrap: pretty;
+}
+
+.mm-lib .mm-lib-reviews__mark {
+    font-family: var(--font-post-body);
+    font-style: normal;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--brand);
+    line-height: 0;
+    vertical-align: -0.18em;
+    margin-right: 0.05em;
+    display: inline-block;
+}
+
+/* --- 5) Autor ------------------------------------------------------- */
+.mm-lib .mm-lib-author {
     padding-block: var(--section-py-tight);
     background: var(--surface-1);
     position: relative;
     text-align: center;
 }
 
-.mm-lib .mm-lib-for::before {
+.mm-lib .mm-lib-author::before {
     content: "";
     position: absolute;
     top: 0;
@@ -256,27 +271,17 @@ body:has(.mm-lib),
     background: rgba(244, 241, 234, 0.06);
 }
 
-.mm-lib .mm-lib-for .mm-eyebrow {
-    justify-content: center;
-    margin-bottom: var(--space-4);
+.mm-lib .mm-lib-author .mm-v2-title {
+    margin: 0 auto var(--space-6);
+    max-width: 22ch;
 }
 
-.mm-lib .mm-lib-for__title {
-    margin: 0 auto var(--space-5);
-    max-width: 26ch;
-}
-
-.mm-lib .mm-lib-for__text {
-    font-family: var(--font-post-body);
-    font-size: clamp(1.85rem, 1.6vw, 2.1rem);
-    line-height: 1.55;
-    color: var(--ink-2);
+.mm-lib .mm-lib-author .mm-prose {
     margin: 0 auto;
-    max-width: 52ch;
-    text-wrap: pretty;
+    text-align: left;
 }
 
-/* --- 6) Buy --------------------------------------------------------- */
+/* --- 6) Conseguí La Bestia ------------------------------------------ */
 .mm-lib .mm-lib-buy {
     padding-block: var(--section-py);
     background: var(--surface-0);
@@ -294,122 +299,64 @@ body:has(.mm-lib),
     background: rgba(244, 241, 234, 0.06);
 }
 
-/* Single editorial card, centered. Brand-toned background, rule top,
-   clear hierarchy: label → name → prices → CTA → international links. */
-.mm-lib .mm-lib-buy__card {
-    max-width: 560px;
+.mm-lib .mm-lib-buy .mm-section-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+.mm-lib .mm-lib-buy__options {
+    max-width: 520px;
     margin: 0 auto;
-    background: linear-gradient(180deg, rgba(82, 113, 255, 0.10) 0%, rgba(82, 113, 255, 0.02) 100%);
-    border: 1px solid rgba(82, 113, 255, 0.28);
-    border-radius: 4px;
-    padding: clamp(3.6rem, 5vw, 5.6rem) clamp(3rem, 4.5vw, 4.8rem);
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-7);
+}
+
+.mm-lib .mm-lib-buy__channel {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.04) inset,
-        0 30px 60px -32px rgba(0, 0, 0, 0.45);
+    gap: var(--space-4);
 }
 
-/* The card uses flex-column, so all direct children center automatically.
-   Block-level text children need full width to keep their text-align: center;
-   the CTA stays at its natural inline-flex width and is centered by the
-   parent's align-items: center. */
-.mm-lib .mm-lib-buy__card > p,
-.mm-lib .mm-lib-buy__card > h3,
-.mm-lib .mm-lib-buy__card > div {
-    width: 100%;
-}
-
-.mm-lib .mm-lib-buy__card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4.4rem;
-    height: 2px;
-    background: var(--brand);
-    opacity: 0.85;
-}
-
-.mm-lib .mm-lib-buy__label {
+.mm-lib .mm-lib-buy__channel-label {
     font-family: var(--font-display);
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--brand);
-    margin: 0 0 var(--space-4);
+    margin: 0;
     line-height: 1;
 }
 
-.mm-lib .mm-lib-buy__name {
+.mm-lib .mm-lib-buy__channel-formats {
     font-family: var(--font-display);
-    font-size: clamp(2.2rem, 2.4vw, 2.6rem);
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin: 0 0 var(--space-6);
-    text-wrap: balance;
-}
-
-/* Price row: Kindle | Papel with a delicate divider between them. */
-.mm-lib .mm-lib-buy__price {
-    display: inline-flex;
+    font-size: clamp(1.55rem, 1.4vw, 1.75rem);
+    color: var(--ink-2);
+    margin: 0;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    gap: var(--space-5);
-    margin: 0 auto var(--space-6);
-    padding: 0;
-    font-family: var(--font-display);
-    color: var(--ink);
-}
-
-.mm-lib .mm-lib-buy__price-item {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
+    gap: var(--space-3);
     line-height: 1;
-}
-
-.mm-lib .mm-lib-buy__price-format {
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ink-3);
 }
 
 .mm-lib .mm-lib-buy__price-value {
-    font-family: var(--font-post-body);
-    font-size: clamp(1.85rem, 1.9vw, 2.1rem);
-    font-weight: 600;
-    letter-spacing: -0.005em;
     color: var(--ink);
-}
-
-.mm-lib .mm-lib-buy__price-sep {
-    display: inline-block;
-    width: 1px;
-    height: 3.2rem;
-    background: rgba(244, 241, 234, 0.18);
-    align-self: center;
+    font-weight: 600;
 }
 
 .mm-lib .mm-lib-buy__cta {
-    margin: 0;
+    margin: var(--space-2) 0 0;
 }
 
-/* International links: divided from the main offer with a hairline. */
 .mm-lib .mm-lib-buy__intl-wrap {
-    margin-top: var(--space-7);
-    padding-top: var(--space-6);
+    margin-top: var(--space-6);
+    padding-top: var(--space-5);
     border-top: 1px solid rgba(244, 241, 234, 0.10);
+    width: 100%;
+    text-align: center;
 }
 
 .mm-lib .mm-lib-buy__intl-label {
@@ -466,205 +413,6 @@ body:has(.mm-lib),
     transform: translateX(3px);
 }
 
-/* --- 7) Sample ------------------------------------------------------ */
-.mm-lib .mm-lib-sample {
-    padding-block: var(--section-py-tight);
-    background: var(--surface-1);
-    position: relative;
-}
-
-.mm-lib .mm-lib-sample::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(1160px, calc(100% - 4rem));
-    height: 1px;
-    background: rgba(244, 241, 234, 0.06);
-}
-
-.mm-lib .mm-lib-sample__inner {
-    max-width: 560px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.mm-lib .mm-lib-sample__inner .mm-eyebrow {
-    justify-content: center;
-    margin-bottom: var(--space-4);
-}
-
-.mm-lib .mm-lib-sample__inner .mm-v2-title {
-    margin: 0 0 var(--space-5);
-    font-size: clamp(2.4rem, 3vw, 3.2rem);
-}
-
-.mm-lib .mm-lib-sample__text {
-    font-family: var(--font-post-body);
-    font-size: 1.7rem;
-    line-height: 1.55;
-    color: var(--ink-2);
-    margin: 0 0 var(--space-6);
-}
-
-/* --- 8) Reviews ----------------------------------------------------- */
-.mm-lib .mm-lib-reviews {
-    padding-block: var(--section-py);
-    background: var(--surface-0);
-    position: relative;
-}
-
-.mm-lib .mm-lib-reviews::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(1160px, calc(100% - 4rem));
-    height: 1px;
-    background: rgba(244, 241, 234, 0.06);
-}
-
-.mm-lib .mm-lib-reviews__header {
-    max-width: 680px;
-    margin: 0 auto var(--space-8);
-    text-align: center;
-}
-
-.mm-lib .mm-lib-reviews__header .mm-eyebrow {
-    justify-content: center;
-    margin-bottom: var(--space-4);
-}
-
-.mm-lib .mm-lib-reviews__header .mm-v2-title {
-    margin: 0;
-}
-
-.mm-lib .mm-lib-reviews__list {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto var(--space-8);
-    max-width: 1080px;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0;
-    border-top: 1px solid rgba(244, 241, 234, 0.10);
-    border-bottom: 1px solid rgba(244, 241, 234, 0.10);
-}
-
-.mm-lib .mm-lib-reviews__item {
-    margin: 0;
-    padding: var(--space-7) var(--space-6);
-    border-right: 1px solid rgba(244, 241, 234, 0.10);
-    display: flex;
-}
-
-.mm-lib .mm-lib-reviews__item:last-child {
-    border-right: 0;
-}
-
-.mm-lib .mm-lib-reviews__item blockquote {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: none;
-    box-shadow: none;
-    font-family: var(--font-post-body);
-    font-style: italic;
-    font-size: 1.65rem;
-    line-height: 1.55;
-    color: var(--ink-2);
-    text-wrap: pretty;
-}
-
-.mm-lib .mm-lib-reviews__mark {
-    font-family: var(--font-post-body);
-    font-style: normal;
-    font-size: 1.5em;
-    font-weight: 700;
-    color: var(--brand);
-    line-height: 0;
-    vertical-align: -0.18em;
-    margin-right: 0.05em;
-    display: inline-block;
-}
-
-/* --- 9) Author ------------------------------------------------------ */
-.mm-lib .mm-lib-author {
-    padding-block: var(--section-py-tight);
-    background: var(--surface-1);
-    position: relative;
-    text-align: center;
-}
-
-.mm-lib .mm-lib-author::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(1160px, calc(100% - 4rem));
-    height: 1px;
-    background: rgba(244, 241, 234, 0.06);
-}
-
-.mm-lib .mm-lib-author .mm-eyebrow {
-    justify-content: center;
-    margin-bottom: var(--space-4);
-}
-
-.mm-lib .mm-lib-author .mm-v2-title {
-    margin: 0 auto var(--space-6);
-    max-width: 22ch;
-}
-
-.mm-lib .mm-lib-author .mm-prose {
-    margin: 0 auto;
-    text-align: left;
-}
-
-/* --- 10) Closing ---------------------------------------------------- */
-.mm-lib .mm-lib-closing {
-    padding-block: var(--section-py);
-    background: var(--surface-0);
-    position: relative;
-    text-align: center;
-}
-
-.mm-lib .mm-lib-closing::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(1160px, calc(100% - 4rem));
-    height: 1px;
-    background: rgba(244, 241, 234, 0.06);
-}
-
-.mm-lib .mm-lib-closing__title {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 4.6vw, 4.8rem);
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.025em;
-    color: var(--ink);
-    margin: 0 auto var(--space-5);
-    max-width: 22ch;
-    text-wrap: balance;
-}
-
-.mm-lib .mm-lib-closing__text {
-    font-family: var(--font-post-body);
-    font-size: clamp(1.8rem, 1.6vw, 2.05rem);
-    line-height: 1.55;
-    color: var(--ink-2);
-    margin: 0 auto var(--space-7);
-    max-width: 32ch;
-    text-wrap: pretty;
-}
-
 /* --- Responsive ----------------------------------------------------- */
 @media (max-width: 880px) {
     .mm-lib .mm-lib-hero__grid {
@@ -687,6 +435,7 @@ body:has(.mm-lib),
     .mm-lib .mm-lib-reviews__item {
         border-right: 0;
         border-bottom: 1px solid rgba(244, 241, 234, 0.10);
+        padding: var(--space-7) var(--space-6);
     }
 
     .mm-lib .mm-lib-reviews__item:last-child {
@@ -713,59 +462,30 @@ body:has(.mm-lib),
         max-width: 200px;
     }
 
-    .mm-lib .mm-lib-promise__list li {
-        font-size: 1.65rem;
-        padding: var(--space-3) 0 var(--space-3) var(--space-5);
+    .mm-lib .mm-lib-recognize__remate {
+        font-size: 1.75rem;
     }
 
-    .mm-lib .mm-lib-for__text,
     .mm-lib .mm-lib-sample__text {
         font-size: 1.6rem;
     }
 
-    .mm-lib .mm-lib-buy__card {
-        padding: var(--space-7) var(--space-5);
+    .mm-lib .mm-lib-reviews__item {
+        padding: var(--space-6) var(--space-4);
     }
 
-    .mm-lib .mm-lib-buy__name {
-        font-size: 1.95rem;
+    .mm-lib .mm-lib-reviews__item blockquote {
+        font-size: 1.65rem;
     }
 
-    .mm-lib .mm-lib-buy__price {
-        gap: var(--space-4);
-    }
-
-    .mm-lib .mm-lib-buy__price-format {
-        font-size: 1rem;
-        letter-spacing: 0.16em;
-    }
-
-    .mm-lib .mm-lib-buy__price-value {
-        font-size: 1.7rem;
-    }
-
-    .mm-lib .mm-lib-buy__price-sep {
-        height: 2.8rem;
+    .mm-lib .mm-lib-buy__channel-formats {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: var(--space-2);
     }
 
     .mm-lib .mm-lib-buy__intl {
         flex-direction: column;
         gap: var(--space-3);
-    }
-
-    .mm-lib .mm-lib-buy__intl-label {
-        font-size: 1.05rem;
-    }
-
-    .mm-lib .mm-lib-reviews__item {
-        padding: var(--space-6) var(--space-5);
-    }
-
-    .mm-lib .mm-lib-reviews__item blockquote {
-        font-size: 1.55rem;
-    }
-
-    .mm-lib .mm-lib-closing__title {
-        font-size: clamp(2.4rem, 8vw, 3.2rem);
     }
 }
