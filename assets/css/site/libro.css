@@ -206,8 +206,8 @@ body:has(.mm-lib),
 .mm-lib .mm-lib-reviews__featured {
     max-width: 800px;
     margin: 0 auto var(--space-6);
-    padding: 0 0 var(--space-6);
-    border-bottom: 1px solid rgba(244, 241, 234, 0.10);
+    padding: 0;
+    border-bottom: 0;
     text-align: center;
     font-family: var(--font-post-body);
     font-style: italic;
@@ -239,7 +239,8 @@ body:has(.mm-lib),
 }
 
 .mm-lib .mm-lib-reviews__item blockquote cite {
-    margin-top: var(--space-4);
+    margin-top: auto;
+    padding-top: var(--space-4);
     text-align: left;
 }
 
@@ -475,7 +476,6 @@ body:has(.mm-lib),
     .mm-lib .mm-lib-reviews__featured {
         font-size: 1.95rem;
         margin-bottom: var(--space-5);
-        padding-bottom: var(--space-5);
     }
 }
 
@@ -509,7 +509,6 @@ body:has(.mm-lib),
     .mm-lib .mm-lib-reviews__featured {
         font-size: 1.75rem;
         margin-bottom: var(--space-4);
-        padding-bottom: var(--space-4);
     }
 
     .mm-lib .mm-lib-reviews__item {
