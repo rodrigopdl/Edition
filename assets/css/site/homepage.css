@@ -2063,7 +2063,10 @@ body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: clamp(3.2rem, 6vw, 5.6rem);
-    align-items: start;
+    /* Center the shorter form column against the taller text column so the
+       empty space below the form is distributed as balance, not dead air.
+       On mobile the columns stack, so this has no effect there. */
+    align-items: center;
 }
 
 .mm-v2 .mm-bocados__title {
