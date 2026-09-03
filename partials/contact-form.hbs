@@ -40,41 +40,22 @@ selectors). Two instances on the same page would collide.
     <input type="hidden" name="_subject" value="{{#if subject}}{{subject}}{{else}}Contacto — desde la home{{/if}}">
     <input type="hidden" name="origen" value="{{#if origen}}{{origen}}{{else}}home{{/if}}">
 
-    {{#if show_selector}}
-        <fieldset class="mm-home-contact__choice">
-            <legend class="mm-home-contact__choice-legend">¿Cómo te gustaría que trabajemos juntos?</legend>
-            <div class="mm-home-contact__choice-options">
-                <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Una charla para mi evento" required>
-                    <span>Quiero una charla para mi equipo</span>
-                </label>
-                <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Algo para mí como líder">
-                    <span>Me interesa el acompañamiento</span>
-                </label>
-                <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Algo para mi equipo">
-                    <span>Quiero conocer El Viaje</span>
-                </label>
-                <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Todavia no se">
-                    <span>Todavía no sé</span>
-                </label>
-            </div>
-        </fieldset>
-    {{else}}
+    {{#unless show_selector}}
         {{!-- Hidden tipo_consulta for pages without selector.
              Same field name as the radio group, so Formspree sees a single
              consistent `tipo_consulta` regardless of which form submitted. --}}
         {{#match tipo_predefinido "equipo"}}
-            <input type="hidden" name="tipo_consulta" value="Algo para mi equipo">
+            <input type="hidden" name="tipo_consulta" value="El Viaje">
         {{else match tipo_predefinido "lider"}}
-            <input type="hidden" name="tipo_consulta" value="Algo para mí como líder">
+            <input type="hidden" name="tipo_consulta" value="Acompañamiento">
         {{else match tipo_predefinido "charla"}}
-            <input type="hidden" name="tipo_consulta" value="Una charla para mi evento">
+            <input type="hidden" name="tipo_consulta" value="Una charla para mi equipo">
         {{/match}}
-    {{/if}}
+    {{/unless}}
 
+    {{!-- Field order is intentionally lead-first: name + email, then what the
+         person is bringing, and only then (optionally) what they want to
+         explore. The service selector comes last and is not required. --}}
     <div class="mm-home-contact__row mm-home-contact__row--two">
         <div class="mm-home-contact__field">
             <label class="mm-home-contact__label" for="mm-home-name">Nombre</label>
@@ -114,6 +95,30 @@ selectors). Two instances on the same page would collide.
             ></textarea>
         </div>
     </div>
+
+    {{#if show_selector}}
+        <fieldset class="mm-home-contact__choice">
+            <legend class="mm-home-contact__choice-legend">¿Qué te interesa explorar?</legend>
+            <div class="mm-home-contact__choice-options">
+                <label class="mm-home-contact__choice-option">
+                    <input type="radio" name="tipo_consulta" value="Una charla para mi equipo">
+                    <span>Una charla para mi equipo</span>
+                </label>
+                <label class="mm-home-contact__choice-option">
+                    <input type="radio" name="tipo_consulta" value="Acompañamiento">
+                    <span>Acompañamiento</span>
+                </label>
+                <label class="mm-home-contact__choice-option">
+                    <input type="radio" name="tipo_consulta" value="El Viaje">
+                    <span>El Viaje</span>
+                </label>
+                <label class="mm-home-contact__choice-option">
+                    <input type="radio" name="tipo_consulta" value="Todavía no sé">
+                    <span>Todavía no sé</span>
+                </label>
+            </div>
+        </fieldset>
+    {{/if}}
 
     {{!-- Honeypot --}}
     <div class="mm-home-contact__honeypot" aria-hidden="true">
@@ -155,18 +160,18 @@ selectors). Two instances on the same page would collide.
             if (!match) return;
             var requested = decodeURIComponent(match[1]).toLowerCase();
             var map = {
-                'charla':       'Una charla para mi evento',
-                'capacitacion': 'Una charla para mi evento',
-                'capacitación': 'Una charla para mi evento',
-                'lider':        'Algo para mí como líder',
-                'líder':        'Algo para mí como líder',
-                'sesion':       'Algo para mí como líder',
-                'sesión':       'Algo para mí como líder',
-                'acompanamiento': 'Algo para mí como líder',
-                'acompañamiento': 'Algo para mí como líder',
-                'equipo':       'Algo para mi equipo',
-                'viaje':        'Algo para mi equipo',
-                'masticada':    'Algo para mi equipo'
+                'charla':         'Una charla para mi equipo',
+                'capacitacion':   'Una charla para mi equipo',
+                'capacitación':   'Una charla para mi equipo',
+                'equipo':         'Una charla para mi equipo',
+                'lider':          'Acompañamiento',
+                'líder':          'Acompañamiento',
+                'sesion':         'Acompañamiento',
+                'sesión':         'Acompañamiento',
+                'acompanamiento': 'Acompañamiento',
+                'acompañamiento': 'Acompañamiento',
+                'viaje':          'El Viaje',
+                'masticada':      'El Viaje'
             };
             var target = map[requested];
             if (!target) return;
