@@ -74,7 +74,7 @@ body.post-template .single-title {
     font-weight: 600;
     line-height: 1.08;
     letter-spacing: -0.025em;
-    color: var(--ink) !important;
+    color: var(--brand) !important;
     margin: 0 auto var(--space-6) !important;
     max-width: 22ch !important;
     text-wrap: balance;
@@ -138,9 +138,14 @@ body.post-template .single-media {
 body.post-template .mm-post-content h1,
 body.post-template .mm-post-content h2,
 body.post-template .mm-post-content h3,
-body.post-template .mm-post-content h4,
 body.post-template .mm-post-content h5,
 body.post-template .mm-post-content h6 {
+    color: var(--brand) !important;
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+
+body.post-template .mm-post-content h4 {
     color: var(--ink) !important;
     font-family: var(--font-display);
     font-weight: 600;
