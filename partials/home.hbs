@@ -184,7 +184,7 @@
                     <div class="mm-bocados__text">
                         <h2 class="mm-bocados__title" id="bocados-title">Bocados.</h2>
                         <p class="mm-bocados__lede">
-                            Cada miércoles comparto una historia, una idea, algo que me dejó pensando.<br><br>Textos cortos para leer en unos minutos y seguir masticando durante la semana.
+                            Cada miércoles comparto un texto corto para mirar un poco más de cerca lo que nos pasa.<br><br>Podés empezar por el último y seguir desde ahí.
                         </p>
                         <div class="mm-actions">
                             {{#get "posts" limit="1" as |latest|}}
@@ -202,7 +202,7 @@
                             {{#unless @member}}
                                 <form class="mm-bocados__form" data-members-form>
                                     <label for="mm-bocados-email" class="mm-visually-hidden">Tu email</label>
-                                    <p class="mm-bocados__form-label">Recibí un bocado cada miércoles</p>
+                                    <p class="mm-bocados__form-label">El próximo llega el miércoles</p>
                                     <div class="mm-bocados__field">
                                         <input
                                             id="mm-bocados-email"
@@ -214,7 +214,7 @@
                                             required="true"
                                         >
                                         <button class="mm-bocados__btn" type="submit" aria-label="Suscribirse a Bocados">
-                                            Suscribirme
+                                            Recibir los bocados
                                         </button>
                                     </div>
                                     <p class="mm-bocados__note">Sin spam. Te das de baja cuando quieras.</p>
