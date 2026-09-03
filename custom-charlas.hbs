@@ -64,92 +64,97 @@ Template Name: Charlas
             <div class="mm-prose">
                 <p>A veces la charla alcanza. Otras veces sirve como punto de partida.</p>
                 <p>En la versión charla + masticada, después de escucharme el equipo se sienta a conversar sobre lo que apareció: qué les resonó, dónde se vieron reflejados y cómo esas ideas se cruzan con lo que están viviendo.</p>
-                <p>Yo acompaño esa conversación con preguntas y algunas provocaciones, pero no hay una respuesta a la que tengamos que llegar. La idea es hacer espacio para que aparezcan conversaciones que muchas veces la rutina no deja tener.</p>
+                <p>Yo acompaño esa conversación con preguntas y algunas ideas para seguir tirando del hilo, pero no hay una respuesta a la que tengamos que llegar. La idea es hacer espacio para que aparezcan conversaciones que muchas veces la rutina no deja tener.</p>
             </div>
-            <p class="mm-ch-v2-plus__durations">Charla: 45–60 minutos · Charla + masticada: 1:30–2 horas</p>
+            <p class="mm-ch-v2-plus__durations">
+                <span class="mm-ch-v2-plus__dur-label">Charla:</span> 45–60 minutos
+                <span class="mm-ch-v2-plus__dur-sep" aria-hidden="true"> · </span>
+                <span class="mm-ch-v2-plus__dur-label">Charla + masticada:</span> 1:30–2 horas
+            </p>
         </div>
     </section>
 
-    {{!-- 4. Experiencias --}}
+    {{!-- 4. Experiencias: dos columnas foto + testimonio --}}
     <section class="mm-ch-v2-real" aria-labelledby="ch-real-title">
         <div class="mm-canvas">
+            <div class="mm-ch-v2-exp-grid">
 
-            {{!-- Fotos --}}
-            <div class="mm-ch-v2-real__grid">
-                <figure class="mm-ch-v2-real__item">
-                    <div class="mm-ch-v2-real__frame">
-                        <img
-                            src="{{asset "images/talks-lameetup-2-1200.webp"}}"
-                            srcset="{{asset "images/talks-lameetup-2-720.webp"}} 720w,
-                                    {{asset "images/talks-lameetup-2-1200.webp"}} 1200w"
-                            sizes="(min-width: 641px) 570px, 100vw"
-                            alt="Charla en La Meetup"
-                            class="mm-ch-v2-real__img"
-                            loading="lazy"
-                            width="1200"
-                            height="800"
-                        >
-                    </div>
-                </figure>
+                {{!-- Experiencia 1: charla --}}
+                <div class="mm-ch-v2-exp">
+                    <figure class="mm-ch-v2-exp__photo">
+                        <div class="mm-ch-v2-real__frame">
+                            <img
+                                src="{{asset "images/talks-lameetup-2-1200.webp"}}"
+                                srcset="{{asset "images/talks-lameetup-2-720.webp"}} 720w,
+                                        {{asset "images/talks-lameetup-2-1200.webp"}} 1200w"
+                                sizes="(min-width: 900px) 50vw, 100vw"
+                                alt="Charla en La Meetup"
+                                class="mm-ch-v2-real__img"
+                                loading="lazy"
+                                width="1200"
+                                height="800"
+                            >
+                        </div>
+                    </figure>
+                    <figure class="mm-ch-v2-testimonial">
+                        <p class="mm-ch-v2-testimonial__context">Después de una charla</p>
+                        <blockquote class="mm-ch-v2-testimonial__quote">
+                            Tu presentación me inspiró muchísimo. Quiero destacar la tranquilidad que transmitiste, y el sentimiento de "es re por acá" que me dejaste.
+                        </blockquote>
+                        <figcaption class="mm-ch-v2-testimonial__author">
+                            <img
+                                src="{{asset "images/lucia.jpeg"}}"
+                                alt="Lucía Del Arco"
+                                class="mm-ch-v2-testimonial__avatar"
+                                width="48"
+                                height="48"
+                                loading="lazy"
+                            >
+                            <div>
+                                <span class="mm-ch-v2-testimonial__name">Lucía Del Arco</span>
+                                <span class="mm-ch-v2-testimonial__role">Delivery Manager</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
 
-                <figure class="mm-ch-v2-real__item">
-                    <div class="mm-ch-v2-real__frame">
-                        <img
-                            src="{{asset "images/masticada-fernandez.jpg"}}"
-                            alt="Masticada en Fernández Secco"
-                            class="mm-ch-v2-real__img"
-                            loading="lazy"
-                            width="1200"
-                            height="800"
-                        >
-                    </div>
-                </figure>
+                {{!-- Experiencia 2: charla + masticada --}}
+                <div class="mm-ch-v2-exp">
+                    <figure class="mm-ch-v2-exp__photo">
+                        <div class="mm-ch-v2-real__frame">
+                            <img
+                                src="{{asset "images/masticada-fernandez.jpg"}}"
+                                alt="Masticada en Fernández Secco"
+                                class="mm-ch-v2-real__img"
+                                loading="lazy"
+                                width="1200"
+                                height="800"
+                            >
+                        </div>
+                    </figure>
+                    <figure class="mm-ch-v2-testimonial">
+                        <p class="mm-ch-v2-testimonial__context">Después de una charla + masticada</p>
+                        <blockquote class="mm-ch-v2-testimonial__quote">
+                            La masticada con Rodrigo fue una experiencia transformadora para nuestro equipo. Se generó un espacio para compartir experiencias muy enriquecedoras sobre La Bestia que permitieron potenciar la forma en la que nos complementamos y establecer un marco de referencia común para el futuro. A través de las reflexiones de Rodrigo, cada uno del equipo pudo verse reflejado en distintas situaciones personales y compartir sus perspectivas. El equipo salió súper motivado y más conectado de la masticada.
+                        </blockquote>
+                        <figcaption class="mm-ch-v2-testimonial__author">
+                            <img
+                                src="{{asset "images/joaco.jpeg"}}"
+                                alt="Joaquín Fernández"
+                                class="mm-ch-v2-testimonial__avatar"
+                                width="48"
+                                height="48"
+                                loading="lazy"
+                            >
+                            <div>
+                                <span class="mm-ch-v2-testimonial__name">Joaquín Fernández</span>
+                                <span class="mm-ch-v2-testimonial__role">Socio, Fernández Secco &amp; Asociados</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+
             </div>
-
-            {{!-- Testimonio Lucía — charla --}}
-            <figure class="mm-ch-v2-testimonial">
-                <p class="mm-ch-v2-testimonial__context">Después de una charla</p>
-                <blockquote class="mm-ch-v2-testimonial__quote">
-                    Tu presentación me inspiró muchísimo. Quiero destacar la tranquilidad que transmitiste, y el sentimiento de "es re por acá" que me dejaste.
-                </blockquote>
-                <figcaption class="mm-ch-v2-testimonial__author">
-                    <img
-                        src="{{asset "images/lucia.jpeg"}}"
-                        alt="Lucía Del Arco"
-                        class="mm-ch-v2-testimonial__avatar"
-                        width="56"
-                        height="56"
-                        loading="lazy"
-                    >
-                    <div>
-                        <span class="mm-ch-v2-testimonial__name">Lucía Del Arco</span>
-                        <span class="mm-ch-v2-testimonial__role">Delivery Manager</span>
-                    </div>
-                </figcaption>
-            </figure>
-
-            {{!-- Testimonio Joaquín — charla + masticada --}}
-            <figure class="mm-ch-v2-testimonial">
-                <p class="mm-ch-v2-testimonial__context">Después de una charla + masticada</p>
-                <blockquote class="mm-ch-v2-testimonial__quote">
-                    La masticada con Rodrigo fue una experiencia transformadora para nuestro equipo. Se generó un espacio para compartir experiencias muy enriquecedoras sobre La Bestia que permitieron potenciar la forma en la que nos complementamos y establecer un marco de referencia común para el futuro. A través de las reflexiones de Rodrigo, cada uno del equipo pudo verse reflejado en distintas situaciones personales y compartir sus perspectivas. El equipo salió súper motivado y más conectado de la masticada.
-                </blockquote>
-                <figcaption class="mm-ch-v2-testimonial__author">
-                    <img
-                        src="{{asset "images/joaco.jpeg"}}"
-                        alt="Joaquín Fernández"
-                        class="mm-ch-v2-testimonial__avatar"
-                        width="56"
-                        height="56"
-                        loading="lazy"
-                    >
-                    <div>
-                        <span class="mm-ch-v2-testimonial__name">Joaquín Fernández</span>
-                        <span class="mm-ch-v2-testimonial__role">Socio, Fernández Secco &amp; Asociados</span>
-                    </div>
-                </figcaption>
-            </figure>
-
         </div>
     </section>
 

@@ -1990,46 +1990,73 @@ body:has(.mm-mast),
    Reuses: .mm-v2-title, .mm-prose, .mm-btn, .mm-accent, .mm-canvas, .mm-actions
    ========================================================================== */
 
-/* --- Shared section layout -------------------------------------------------- */
+/* --- Shared ----------------------------------------------------------------- */
 
-/* The base .mm-v2 .mm-prose has max-width: 60ch which is too narrow for the
-   canvas--narrow (880px) and leaves text squashed. Override to fill the canvas,
-   matching the pattern used by .mm-mast-what__prose in /viaje. */
-.mm-ch-v2 .mm-prose {
-    max-width: none;
+/* ROOT FIX: the base rule `.mm-v2 > section { padding-block: var(--section-py) }`
+   applies to every direct-child section here. The global --section-py is huge
+   (up to 14rem). /viaje tames it by redefining --section-py inside .mm-cap; we
+   do the same inside .mm-ch-v2 so that base rule resolves to a subtle value on
+   its own — no per-section padding overrides needed. */
+.mm-ch-v2 {
+    --section-py: clamp(4rem, 6vw, 7rem);
 }
 
-/* CTA is centered — its lede has its own max-width override inline */
-.mm-ch-v2-cta .mm-prose {
+/* Surface backgrounds mirror /viaje: lighter hero, darker sections after. */
+.mm-ch-v2-hero  { background: var(--surface-1); }
+.mm-ch-v2-what  { background: var(--surface-0); }
+.mm-ch-v2-plus  { background: var(--surface-0); }
+.mm-ch-v2-real  { background: var(--surface-1); }
+.mm-ch-v2-cta   { background: var(--surface-0); }
+
+/* base .mm-v2 .mm-prose has max-width:60ch — too narrow for canvas--narrow */
+.mm-ch-v2 .mm-prose {
     max-width: none;
 }
 
 /* --- 1. Hero ---------------------------------------------------------------- */
 
+/* Match the compact hero from /viaje (.mm-mast.mm-cap .mm-mast-hero).
+   Must beat the base rule `body.homepage-mm-v2 .mm-v2 .mm-v2-hero`
+   (specificity 0-2-1 + body), so we scope through body.page-charlas too. */
+body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
+    padding-top: clamp(4rem, 6vw, 6rem);
+    padding-bottom: clamp(3rem, 4.5vw, 4.5rem);
+}
+
+/* Title: replicate .mm-mast.mm-cap hero title exactly. Without this it
+   inherits the huge base `.mm-v2 .mm-hero__title` (up to 10rem) and its
+   space-7 bottom margin — the "bigger font + too much air" you saw. */
 .mm-ch-v2-hero .mm-hero__title {
-    max-width: 820px;
-    margin: 0 auto;
+    font-size: clamp(3.4rem, 5.6vw, 6.4rem);
+    line-height: 1.02;
+    max-width: 21ch;
+    margin: 0 auto var(--space-4);
     text-align: center;
 }
 
+/* Lede: replicate .mm-mast.mm-cap hero lede. No extra top margin — the
+   title's own margin-bottom sets the gap. */
 .mm-ch-v2-hero .mm-hero__lede {
-    max-width: 640px;
-    margin: var(--space-5) auto 0;
+    font-size: clamp(1.8rem, 1.8vw, 2.1rem);
+    line-height: 1.5;
+    max-width: 60ch;
+    margin: 0 auto;
     text-align: center;
-    font-size: clamp(1.7rem, 1.55vw, 2rem);
-    line-height: 1.7;
     color: var(--ink-2);
 }
 
 .mm-ch-v2-hero .mm-actions {
-    margin-top: var(--space-7);
+    margin-top: var(--space-6);
     justify-content: center;
 }
 
 /* --- 2. Qué pasa en una charla --------------------------------------------- */
 
+/* Section 2 (what) and section 3 (plus) share the same surface-0 background
+   and read as one continuous passage: text → photo → text. Drop the bottom
+   padding of "what" and the top padding of "plus" so the photo bridges them
+   instead of sitting inside two stacked full-padding sections. */
 .mm-ch-v2-what {
-    padding-top: var(--space-10);
     padding-bottom: 0;
 }
 
@@ -2038,7 +2065,7 @@ body:has(.mm-mast),
 }
 
 .mm-ch-v2-what__photo {
-    margin-top: var(--space-9);
+    margin-top: var(--space-6);
     max-width: 1200px;
     width: 100%;
     padding-left: var(--space-5);
@@ -2082,41 +2109,60 @@ body:has(.mm-mast),
 
 /* --- 3. Charla + Masticada -------------------------------------------------- */
 
+/* Continues from the photo above on the same surface-0. A tighter top padding
+   than the full --section-py keeps photo → title reading as one flow. */
 .mm-ch-v2-plus {
-    padding-top: var(--space-11);
-    padding-bottom: var(--space-2);
+    padding-top: clamp(3rem, 4.5vw, 4.5rem);
 }
 
 .mm-ch-v2-plus .mm-v2-title {
     margin-bottom: var(--space-6);
 }
 
+/* Duration line: body text weight, mixed styles, more visible than before */
 .mm-ch-v2-plus__durations {
-    margin-top: var(--space-7);
-    font-size: clamp(1.3rem, 1.15vw, 1.5rem);
-    color: var(--ink-3);
-    letter-spacing: 0.04em;
+    margin-top: var(--space-6);
+    font-family: var(--font-post-body);
+    font-size: clamp(1.5rem, 1.4vw, 1.75rem);
+    line-height: 1.5;
+    color: var(--ink-2);
+}
+
+.mm-ch-v2-plus__dur-label {
     font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.85em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
+    color: var(--ink-3);
 }
 
-/* --- 4. Experiencias ------------------------------------------------------- */
-
-.mm-ch-v2-real {
-    padding-top: var(--space-11);
-    padding-bottom: var(--space-10);
+.mm-ch-v2-plus__dur-sep {
+    color: var(--ink-3);
+    padding: 0 0.15em;
 }
 
-/* Photo grid */
-.mm-ch-v2-real__grid {
+/* --- 4. Experiencias (foto + testimonio por columna) ----------------------- */
+
+/* No padding override — inherits the tamed `.mm-v2 > section` padding-block. */
+
+/* Two-column grid: each column = one complete experience */
+.mm-ch-v2-exp-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-4);
-    margin-bottom: var(--space-10);
+    gap: clamp(3rem, 5vw, 5rem);
+    align-items: start;
     width: 100%;
 }
 
-.mm-ch-v2-real__item {
+/* Each experience column: photo on top, testimonial below */
+.mm-ch-v2-exp {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.mm-ch-v2-exp__photo {
     margin: 0;
 }
 
@@ -2128,31 +2174,26 @@ body:has(.mm-mast),
     aspect-ratio: 3/2;
 }
 
-/* Testimonios */
+/* Testimonios — live inside each experience column, no max-width cap needed */
 .mm-ch-v2-testimonial {
-    margin: 0 auto var(--space-9);
-    max-width: 760px;
+    margin: 0;
     padding: 0;
-}
-
-.mm-ch-v2-testimonial:last-of-type {
-    margin-bottom: 0;
 }
 
 .mm-ch-v2-testimonial__context {
     font-family: var(--font-display);
-    font-size: clamp(1.15rem, 1vw, 1.3rem);
+    font-size: clamp(1.1rem, 0.95vw, 1.25rem);
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--ink-3);
-    margin: 0 0 var(--space-4);
+    margin: 0 0 var(--space-3);
 }
 
 .mm-ch-v2-testimonial__quote {
     font-family: var(--font-post-body);
     font-style: italic;
-    font-size: clamp(1.8rem, 1.7vw, 2.1rem);
+    font-size: clamp(1.65rem, 1.5vw, 1.9rem);
     line-height: 1.7;
     color: var(--ink);
     margin: 0 0 var(--space-5);
@@ -2169,8 +2210,8 @@ body:has(.mm-mast),
 }
 
 .mm-ch-v2-testimonial__avatar {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
@@ -2185,7 +2226,7 @@ body:has(.mm-mast),
 
 .mm-ch-v2-testimonial__name {
     font-family: var(--font-display);
-    font-size: clamp(1.2rem, 1.05vw, 1.4rem);
+    font-size: clamp(1.15rem, 1vw, 1.3rem);
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -2194,23 +2235,14 @@ body:has(.mm-mast),
 
 .mm-ch-v2-testimonial__role {
     font-family: var(--font-display);
-    font-size: clamp(1.1rem, 0.95vw, 1.25rem);
+    font-size: clamp(1.05rem, 0.9vw, 1.2rem);
     color: var(--ink-3);
     margin-top: 0.2rem;
 }
 
-/* Separator between testimonials */
-.mm-ch-v2-testimonial + .mm-ch-v2-testimonial {
-    padding-top: var(--space-9);
-    border-top: 1px solid rgba(244, 241, 234, 0.10);
-}
-
 /* --- 5. CTA final ---------------------------------------------------------- */
 
-.mm-ch-v2-cta {
-    padding-top: var(--space-11);
-    padding-bottom: var(--space-12);
-}
+/* No padding override — inherits the tamed `.mm-v2 > section` padding-block. */
 
 .mm-ch-v2-cta__inner {
     text-align: center;
@@ -2253,15 +2285,20 @@ body:has(.mm-mast),
 
 /* --- Responsive ------------------------------------------------------------- */
 
-@media (max-width: 768px) {
-    .mm-ch-v2-real__grid {
+@media (max-width: 800px) {
+    /* Stack experiences vertically on tablet/mobile */
+    .mm-ch-v2-exp-grid {
         grid-template-columns: 1fr;
+        gap: clamp(4rem, 8vw, 6rem);
     }
 
-    .mm-ch-v2-real__img {
-        aspect-ratio: 4/3;
+    /* Tighten photo–testimonial gap slightly in stacked layout */
+    .mm-ch-v2-exp {
+        gap: var(--space-5);
     }
+}
 
+@media (max-width: 768px) {
     .mm-ch-v2-what__photo {
         padding-left: 0;
         padding-right: 0;
@@ -2273,6 +2310,10 @@ body:has(.mm-mast),
 
     .mm-ch-v2-what__frame::after {
         border-radius: 0;
+    }
+
+    .mm-ch-v2-real__img {
+        aspect-ratio: 4/3;
     }
 }
 
