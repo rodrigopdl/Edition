@@ -3,42 +3,38 @@
 Template Name: Sesiones
 
 Landing del servicio de sesiones uno a uno ("Sesiones para masticar").
-Reusa el sistema visual de las páginas de servicio: namespace .mm-mast.mm-cap
-para heredar el ritmo editorial (hero compacto, --section-py sutil, superficies
-surface-0/surface-1), .mm-intro para la bio, .mm-testimonial para José y
-.mm-mast-cta + contact-form para el cierre. El namespace propio .mm-ses queda
-para refinamientos específicos.
+Sigue el sistema visual de /charlas (.mm-v2 .mm-ch-v2) para el hero, los bloques
+de texto y el CTA; suma un bloque crema (.mm-ses-offer) como ruptura visual que
+presenta el producto concreto. .mm-intro para la bio, .mm-testimonial para José.
+El namespace propio .mm-ses lleva solo lo específico de esta página.
 --}}
 
-<main class="homepage-main mm-v2 mm-mast mm-cap mm-ses"
-      data-meta-description="Sesiones para masticar: un espacio uno a uno para traer una decisión, una conversación o una idea que te esté dando vueltas y pensarla junto a Rodri.">
+<main class="homepage-main mm-v2 mm-ch-v2 mm-ses"
+      data-meta-description="Sesiones para masticar: una conversación uno a uno de 90 minutos para traer una decisión, una idea o algo que te esté dando vueltas y pensarlo junto a Rodri.">
 
-    {{!-- 1. Hero ----------------------------------------------------------- --}}
-    <section class="mm-v2-hero mm-mast-hero mm-ses-hero" aria-labelledby="ses-title">
+    {{!-- 1. Hero --}}
+    <section class="mm-v2-hero mm-ch-v2-hero mm-ses-hero" aria-labelledby="ses-title">
         <div class="mm-canvas mm-canvas--wide">
             <div class="mm-hero__inner">
-                <h1 class="mm-ses-hero__kicker" id="ses-title">Sesiones para masticar</h1>
-                <p class="mm-hero__title mm-ses-hero__headline">
+                <p class="mm-ses-hero__eyebrow">Sesiones para masticar</p>
+                <h1 class="mm-hero__title mm-ch-v2-hero__title" id="ses-title">
                     Hay cosas que cuesta <span class="mm-accent">pensar solo.</span>
-                </p>
-
-                <div class="mm-hero__lede mm-ses-hero__lede">
+                </h1>
+                <div class="mm-hero__lede mm-ch-v2-hero__lede">
                     <p>Una decisión que venís pateando. Una conversación que no sabés cómo encarar. Una idea que necesitás poner a prueba. O algo que simplemente te está dando demasiadas vueltas en la cabeza.</p>
-                    <p>Las sesiones para masticar son un espacio uno a uno para traer eso que tenés entre manos y pensarlo juntos.</p>
                 </div>
-
                 <div class="mm-actions mm-actions--center">
-                    <a href="#ses-cta-title" class="mm-btn mm-btn--primary mm-btn--lg">Tengo algo para masticar</a>
+                    <a href="#mm-ses-offer" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">Tengo algo para masticar</a>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 2. Testimonio de José (expandible en la misma página) ------------- --}}
+    {{!-- 2. Testimonio de José (peso de segundo hero, expandible) --}}
     <section class="mm-testimonial mm-ses-testimonial" aria-labelledby="ses-testimonial-title">
-        <div class="mm-canvas">
-            <figure class="mm-testimonial__figure">
-                <blockquote class="mm-testimonial__quote" id="ses-testimonial-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <figure class="mm-testimonial__figure mm-ses-testimonial__figure">
+                <blockquote class="mm-testimonial__quote mm-ses-testimonial__quote" id="ses-testimonial-title">
                     <span class="mm-testimonial__mark" aria-hidden="true">"</span>Salir de una conversación con Rodri es salir con las ideas más ordenadas y con más energía para actuar.
                 </blockquote>
 
@@ -80,78 +76,79 @@ para refinamientos específicos.
         </div>
     </section>
 
-    {{!-- 3. Una cabeza más para pensar ------------------------------------- --}}
-    <section class="mm-ses-block" aria-labelledby="ses-help-title">
+    {{!-- 3. Una cabeza más para pensar (conciso) --}}
+    <section class="mm-ch-v2-what" aria-labelledby="ses-help-title">
         <div class="mm-canvas mm-canvas--narrow">
             <h2 class="mm-v2-title" id="ses-help-title">Una cabeza más <span class="mm-accent">para pensar.</span></h2>
             <div class="mm-prose">
-                <p>No siempre necesitás más información.</p>
-                <p>A veces ya sabés muchísimo sobre el problema. Lo pensaste caminando, manejando, antes de dormir. Se lo diste vuelta diez veces. Pero seguís pensando desde el mismo lugar.</p>
-                <p>Ahí puede servir otra persona. Alguien que escuche sin estar metido en el problema. Que pregunte. Que encuentre contradicciones. Que te devuelva algo que dijiste y quizás no escuchaste. Que desafíe una historia que estás dando por cierta.</p>
-                <p>Y que, cuando sirva, también piense con vos y ponga sus propias ideas sobre la mesa.</p>
-            </div>
-            <p class="mm-ses-pullquote">No para decidir por vos.<br>Para ayudarte a <span class="mm-accent">ver mejor.</span></p>
-        </div>
-    </section>
-
-    {{!-- 4. ¿Qué podemos masticar? ----------------------------------------- --}}
-    <section class="mm-ses-block" aria-labelledby="ses-what-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <h2 class="mm-v2-title" id="ses-what-title">¿Qué podemos <span class="mm-accent">masticar?</span></h2>
-            <div class="mm-prose">
-                <p>Podés venir con una decisión importante. Con algo que está pasando en tu equipo. Con una conversación que venís evitando.</p>
-                <p>Con una idea todavía medio cruda. Con una oportunidad que te entusiasma pero también te genera dudas. O sin saber exactamente cuál es el problema.</p>
-            </div>
-            <p class="mm-ses-pullquote">No hace falta llegar con la pregunta correcta.<br>A veces encontrarla es <span class="mm-accent">buena parte de la sesión.</span></p>
-        </div>
-    </section>
-
-    {{!-- 5. Una sesión (unidad principal) ---------------------------------- --}}
-    <section class="mm-ses-offer" aria-labelledby="ses-offer-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <h2 class="mm-v2-title" id="ses-offer-title">Una sesión</h2>
-            <p class="mm-ses-offer__meta">90 minutos · uno a uno</p>
-            <div class="mm-prose">
-                <p>Traés algo que necesites pensar.</p>
-                <p>Nos damos tiempo para entender qué está pasando, cuestionar algunas cosas que quizás estabas dando por sentadas y explorar caminos que solo pueden aparecer en conversación.</p>
-                <p>Puede ser una única sesión. Y si después descubrimos que vale la pena seguir masticándolo, seguimos.</p>
-            </div>
-            <div class="mm-actions">
-                <a href="#ses-cta-title" class="mm-btn mm-btn--primary">Coordinar una sesión</a>
+                <p>A veces ya sabés muchísimo sobre el problema. Lo pensaste caminando, manejando, antes de dormir. Le diste vuelta diez veces.</p>
+                <p>Pero seguís pensando desde el mismo lugar.</p>
+                <p>Ahí puede servir otra cabeza.</p>
+                <p>Alguien que no esté metido en el problema. Que escuche, pregunte, encuentre contradicciones, desafíe algo que estás dando por cierto. Y que, cuando sirva, también ponga sus ideas sobre la mesa.</p>
             </div>
         </div>
     </section>
 
-    {{!-- 6. Cuando una sesión no alcanza (continuidad, secundaria) --------- --}}
-    <section class="mm-ses-block mm-ses-block--secondary" aria-labelledby="ses-more-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <h2 class="mm-ses-subtitle" id="ses-more-title">Cuando una sesión no alcanza.</h2>
-            <div class="mm-prose">
-                <p>Hay cosas que se destraban en una conversación. Otras se van revelando con el tiempo.</p>
-                <p>Porque tomás una decisión y aparece otra. Tenés la conversación pendiente y descubrís algo nuevo. Volvés al equipo y la realidad pone a prueba lo que habíamos pensado.</p>
-                <p>Para esos casos, podemos transformar las sesiones en un acompañamiento durante un primer ciclo de tres meses.</p>
-                <p>No para seguir un programa. Para tener un lugar al que volver mientras las cosas pasan.</p>
+    {{!-- 4. Bloque crema: ¿Qué tenés entre manos? + Una sesión para masticar.
+         En desktop, dos columnas dentro de un único panel (izq: identificación,
+         der: producto). En mobile, una sola columna apilada. --}}
+    <section class="mm-ses-offer" id="mm-ses-offer" aria-labelledby="ses-offer-title">
+        <div class="mm-canvas">
+            <div class="mm-ses-offer__panel">
+
+                {{!-- Columna izquierda — apertura: no hace falta llegar con todo claro --}}
+                <div class="mm-ses-offer__col mm-ses-offer__col--what">
+                    <h2 class="mm-ses-offer__title" id="ses-offer-title">¿Qué tenés entre manos?</h2>
+                    <div class="mm-ses-offer__intro">
+                        <p>No hace falta que llegues con el problema del todo claro.</p>
+                        <p>Podés traer eso que te está dando vueltas, aunque todavía no sepas bien cómo ponerlo en palabras.</p>
+                    </div>
+                    <p class="mm-ses-offer__note">A veces encontrar la pregunta es <em>buena parte de la sesión</em>.</p>
+                </div>
+
+                {{!-- Columna derecha — el producto --}}
+                <div class="mm-ses-offer__col mm-ses-offer__col--product">
+                    <h3 class="mm-ses-offer__product-title">Una sesión para masticar</h3>
+                    <p class="mm-ses-offer__meta">90 minutos <span aria-hidden="true">·</span> uno a uno</p>
+                    <p class="mm-ses-offer__price">USD 149</p>
+                    <div class="mm-ses-offer__body">
+                        <p>Traés algo que necesites pensar. Nos damos tiempo para mirarlo desde distintos lugares y ver qué aparece en conversación.</p>
+                        <p>Puede quedar ahí. Si después vale la pena seguir masticándolo, seguimos.</p>
+                    </div>
+                    <div class="mm-actions">
+                        <a href="#mm-ses-cta" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">Coordinar una sesión</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    {{!-- 7. No tengo una fórmula para darte -------------------------------- --}}
-    <section class="mm-ses-block" aria-labelledby="ses-formula-title">
+    {{!-- 5. No tengo una fórmula para darte (qué pasa en los 90 min) --}}
+    <section class="mm-ch-v2-what" aria-labelledby="ses-formula-title">
         <div class="mm-canvas mm-canvas--narrow">
             <h2 class="mm-v2-title" id="ses-formula-title">No tengo una fórmula <span class="mm-accent">para darte.</span></h2>
             <div class="mm-prose">
-                <p>Tengo historias, experiencias, preguntas, libros, modelos y herramientas que fui acumulando después de años intentando entender cómo nos lideramos a nosotros mismos y cómo influimos en los demás. Algunas terminaron incluso convertidas en un libro: <em>La Bestia</em>.</p>
-                <p>Pero una sesión no sigue un temario.</p>
-            </div>
-            <p class="mm-ses-emphasis">Empieza por vos y por lo que esté pasando ahora.</p>
-            <div class="mm-prose">
+                <p>Una sesión no sigue un temario.</p>
+                <p>Empieza por vos y por lo que esté pasando ahora.</p>
                 <p>A veces voy a hacer una pregunta. A veces voy a contarte algo que viví. A veces voy a desafiar lo que estás diciendo. A veces vamos a dibujar el problema en una hoja.</p>
+                <p>Y a veces voy a decirte: <em>“No sé. Pensemos.”</em></p>
             </div>
-            <p class="mm-ses-line">Y a veces voy a decirte: <span class="mm-accent">“No sé. Pensemos.”</span></p>
         </div>
     </section>
 
-    {{!-- 8. Sobre Rodri ---------------------------------------------------- --}}
+    {{!-- 6. ¿Y si querés seguir? (continuidad, claramente secundaria) --}}
+    <section class="mm-ch-v2-what mm-ses-secondary" aria-labelledby="ses-more-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <h2 class="mm-ses-secondary__title" id="ses-more-title">¿Y si querés seguir?</h2>
+            <div class="mm-prose">
+                <p>Algunas cosas se destraban en una conversación. Otras se van revelando con el tiempo.</p>
+                <p>Si tiene sentido, podemos seguir trabajando durante un primer ciclo de tres meses. No para seguir un programa, sino para tener un lugar al que volver mientras las cosas pasan.</p>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 7. Hola, soy Rodri (conciso) --}}
     <section class="mm-intro mm-ses-intro" aria-labelledby="ses-intro-title">
         <div class="mm-canvas">
             <div class="mm-intro__grid">
@@ -171,10 +168,9 @@ para refinamientos específicos.
                 <div class="mm-intro__text">
                     <h2 class="mm-v2-title" id="ses-intro-title">Hola, <span class="mm-accent">soy Rodri.</span></h2>
                     <div class="mm-prose mm-prose--intro">
-                        <p>Pasé más de una década trabajando en tecnología. Empecé programando y, con el tiempo, terminé mucho más interesado en otra clase de problemas: los que aparecen cuando hay personas del otro lado.</p>
-                        <p>Eso me llevó del desarrollo al liderazgo y, eventualmente, a acompañar al CEO de WyeWorks y a otros líderes a pensar decisiones, equipos, conversaciones y problemas difíciles.</p>
-                        <p>En ese recorrido entendí que una parte importante de liderar empieza bastante antes de influir en los demás: empieza por aprender a observar qué está pasando adentro nuestro.</p>
-                        <p>Esa búsqueda terminó dando origen a <em>Para masticar</em> y a <em>La Bestia</em>.</p>
+                        <p>Pasé más de una década en tecnología. Empecé programando y terminé acompañando al CEO de WyeWorks y a otros líderes a pensar decisiones, equipos, conversaciones y problemas difíciles.</p>
+                        <p>En el camino me fui obsesionando con otra clase de problemas: los que aparecen cuando hay personas del otro lado. Y con algo todavía más difícil: aprender a liderarnos a nosotros mismos.</p>
+                        <p>De esa búsqueda nacieron <em>Para masticar</em> y <em>La Bestia</em>.</p>
                         <p>Hoy escribo, doy charlas y acompaño a líderes y founders.</p>
                     </div>
                 </div>
@@ -182,16 +178,34 @@ para refinamientos específicos.
         </div>
     </section>
 
-    {{!-- 9. CTA final ------------------------------------------------------ --}}
-    <section class="mm-mast-cta mm-ses-cta" aria-labelledby="ses-cta-title">
+    {{!-- 8. CTA final — el formulario arranca colapsado; el botón lo revela
+         debajo, en la misma página, sin modal. --}}
+    <section class="mm-ch-v2-cta mm-ses-cta" id="mm-ses-cta" aria-labelledby="ses-cta-title">
         <div class="mm-canvas mm-canvas--narrow">
-            <div class="mm-mast-cta__inner">
+            <div class="mm-ch-v2-cta__inner">
                 <h2 class="mm-v2-title" id="ses-cta-title">¿Tenés algo <span class="mm-accent">para masticar?</span></h2>
-                <p class="mm-mast-cta__lede">No hace falta que sepas explicarlo perfecto.</p>
+                <p class="mm-ch-v2-cta__lede">No hace falta que sepas explicarlo perfecto.</p>
 
-                {{> "contact-form" show_selector=false tipo_predefinido="sesion" origen="sesiones" subject="Contacto — desde /sesiones/"}}
+                <div class="mm-actions mm-actions--center mm-ses-cta__reveal-wrap">
+                    <button type="button"
+                            class="mm-btn mm-btn--primary mm-btn--lg mm-ses-cta__reveal"
+                            aria-expanded="false"
+                            aria-controls="mm-ses-form">
+                        Contame qué tenés entre manos
+                    </button>
+                </div>
 
-                <p class="mm-mast-cta__fallback">
+                <div class="mm-ses-cta__form" id="mm-ses-form" aria-hidden="true">
+                    {{> "contact-form"
+                        show_selector=false
+                        tipo_predefinido="sesion"
+                        origen="sesiones"
+                        subject="Contacto — desde /sesiones/"
+                        message_label="¿Qué tenés entre manos?"
+                        message_placeholder="Contame lo que te está dando vueltas..."}}
+                </div>
+
+                <p class="mm-ch-v2-cta__fallback">
                     También podés escribirme a
                     <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.
                 </p>
@@ -215,9 +229,36 @@ para refinamientos específicos.
         toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
         expanded.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
         expanded.classList.toggle('is-open', !isOpen);
-        if (label) label.textContent = isOpen ? 'Leer el testimonio completo' : 'Cerrar testimonio';
+        if (label) label.textContent = isOpen ? 'Leer el testimonio completo' : 'Cerrar';
     });
 })();
 </script>
 
-{{#contentFor "body_class"}}homepage-mm-v2 page-masticadas page-sesiones{{/contentFor}}
+{{!-- CTA final: el botón revela el formulario (colapsado por defecto) en la
+     misma página. No modal. Mantiene el form/backend existentes. --}}
+<script>
+(function () {
+    'use strict';
+    var reveal = document.querySelector('.mm-ses-cta__reveal');
+    var form   = document.getElementById('mm-ses-form');
+    if (!reveal || !form) return;
+
+    {{!-- Rename the shared partial's submit to "Enviar" for this page only. --}}
+    var submit = form.querySelector('button[type="submit"]');
+    if (submit) submit.textContent = 'Enviar';
+
+    reveal.addEventListener('click', function () {
+        reveal.setAttribute('aria-expanded', 'true');
+        form.setAttribute('aria-hidden', 'false');
+        form.classList.add('is-open');
+        reveal.parentNode.classList.add('is-hidden');
+        {{!-- Move focus to the first field for keyboard users. --}}
+        var first = form.querySelector('input, textarea');
+        if (first) {
+            setTimeout(function () { first.focus({ preventScroll: true }); }, 350);
+        }
+    });
+})();
+</script>
+
+{{#contentFor "body_class"}}homepage-mm-v2 page-charlas page-sesiones{{/contentFor}}

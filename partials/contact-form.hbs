@@ -25,6 +25,12 @@ Parameters (Handlebars hash args):
                         "Contacto — desde la home". Override per page for
                         clarity in the inbox.
 
+    message_label       String. Label for the message textarea. Defaults to
+                        "Contame un poco más".
+
+    message_placeholder String. Placeholder for the message textarea. Defaults
+                        to "¿Qué estás viviendo o qué te gustaría trabajar?".
+
 Constraint: only one instance of this partial per page. IDs are DOM-global
 (mm-home-* prefix retained for backward compat with existing CSS and JS
 selectors). Two instances on the same page would collide.
@@ -85,13 +91,13 @@ selectors). Two instances on the same page would collide.
 
     <div class="mm-home-contact__row">
         <div class="mm-home-contact__field">
-            <label class="mm-home-contact__label" for="mm-home-message">Contame un poco más</label>
+            <label class="mm-home-contact__label" for="mm-home-message">{{#if message_label}}{{message_label}}{{else}}Contame un poco más{{/if}}</label>
             <textarea
                 id="mm-home-message"
                 name="mensaje"
                 rows="6"
                 required
-                placeholder="¿Qué estás viviendo o qué te gustaría trabajar?"
+                placeholder="{{#if message_placeholder}}{{message_placeholder}}{{else}}¿Qué estás viviendo o qué te gustaría trabajar?{{/if}}"
                 class="mm-home-contact__textarea"
             ></textarea>
         </div>
