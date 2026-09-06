@@ -1527,9 +1527,12 @@ body.homepage-mm-v2 .mm-v2 .mm-v2-hero {
     box-shadow:
         0 1px 0 rgba(255, 255, 255, 0.55) inset,
         0 20px 40px -32px rgba(0, 0, 0, 0.45);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     isolation: isolate;
+    /* clips the stretched-link ::after (which overshoots the card on all sides)
+       to the card bounds */
+    overflow: hidden;
 }
 
 /* hairline rule on top — never a "tab" */
@@ -1541,10 +1544,28 @@ body.homepage-mm-v2 .mm-v2 .mm-v2-hero {
     width: 2.4rem;
     height: 1px;
     background: var(--brand);
+    z-index: 1;
+}
+
+/* Card content sits above the stretched-link overlay so text stays readable
+   and selectable and the CTA rule/label render on top. */
+.mm-v2 .mm-way > * {
+    position: relative;
+    z-index: 1;
 }
 
 .mm-v2 .mm-way:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.6) inset,
+        0 28px 50px -30px rgba(0, 0, 0, 0.5);
+}
+
+/* Whole card is clickable via the link's stretched pseudo-element (below).
+   Show a keyboard focus ring on the card when the link is focused. */
+.mm-v2 .mm-way:focus-within {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
 }
 
 .mm-v2 .mm-way__title {
@@ -1561,23 +1582,24 @@ body.homepage-mm-v2 .mm-v2 .mm-v2-hero {
 .mm-v2 .mm-way__tagline {
     font-family: var(--font-post-body);
     font-style: italic;
-    font-size: 1.5rem;
-    line-height: 1.35;
-    color: rgba(29, 32, 48, 0.58);
+    font-size: 1.55rem;
+    line-height: 1.4;
+    color: rgba(29, 32, 48, 0.66);
     margin: 0 0 var(--space-4);
+    text-wrap: balance;
 }
 
 .mm-v2 .mm-way__text {
     font-family: var(--font-post-body);
-    font-size: 1.55rem;
-    line-height: 1.55;
-    color: rgba(29, 32, 48, 0.75);
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: rgba(29, 32, 48, 0.78);
     margin: 0 0 var(--space-3);
 }
 
 .mm-v2 .mm-way__text--secondary {
     margin-bottom: var(--space-5);
-    color: rgba(29, 32, 48, 0.6);
+    color: rgba(29, 32, 48, 0.7);
     flex: 1;
 }
 
@@ -1615,11 +1637,27 @@ body.homepage-mm-v2 .mm-v2 .mm-v2-hero {
     transition: width 0.25s ease;
 }
 
+/* Stretched link: make the whole card clickable without extra markup or a
+   second link. The pseudo-element is anchored to the link (position:relative)
+   and blown far past the card in every direction; the card's overflow:hidden
+   clips it to the card bounds. Robust regardless of how much copy sits above
+   the link. Text stays selectable; the link label keeps its own affordance. */
+.mm-v2 .mm-way__link::after {
+    content: "";
+    position: absolute;
+    top: -100rem;
+    left: -100rem;
+    right: -100rem;
+    bottom: -100rem;
+    z-index: 0;
+}
+
 .mm-v2 .mm-way__link:hover {
     color: var(--brand);
 }
 
-.mm-v2 .mm-way__link:hover::before {
+.mm-v2 .mm-way__link:hover::before,
+.mm-v2 .mm-way:hover .mm-way__link::before {
     width: 4.4rem;
 }
 
@@ -1628,7 +1666,8 @@ body.homepage-mm-v2 .mm-v2 .mm-v2-hero {
     transition: transform 0.2s ease;
 }
 
-.mm-v2 .mm-way__link:hover span {
+.mm-v2 .mm-way__link:hover span,
+.mm-v2 .mm-way:hover .mm-way__link span {
     transform: translateX(4px);
 }
 
@@ -1647,6 +1686,105 @@ body.homepage-mm-v2 .mm-v2 .mm-v2-hero {
     left: 0;
     height: 2px;
     background: var(--brand);
+}
+
+/* Pull the cards closer to the header (~22% less than the default section
+   header margin of space-8 = 6.4rem) so header + cards read as one block. */
+.mm-v2 .mm-ways__header {
+    margin-bottom: 5rem;
+}
+
+/* Ways header kicker: quiet display label above the title (not the decorative
+   blue eyebrow with a rule — keeps this section sober). */
+.mm-v2 .mm-ways__kicker {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 var(--space-4);
+    line-height: 1.2;
+}
+
+/* --- Ways: lead composition (home "Distintas maneras de masticar") --------
+   Sesiones is the protagonist: wider center column, taller via padding. Charlas
+   and El Viaje are deliberate mirrors (same width/height/position, CTAs aligned)
+   and sit centered against the taller lead. Hierarchy comes from scale, not
+   from a new background, badge or heavy shadow.
+
+   Equal-height technique (no magic numbers): the grid uses THREE rows. The two
+   side cards live in the MIDDLE row (row 2), so row 2's height is driven by the
+   taller side card only — that makes Charlas and El Viaje exactly equal to each
+   other regardless of copy length, with top edges, bottom edges and CTAs all
+   aligned. The lead spans all three rows and is centered, so its extra height
+   (from padding + larger type) overhangs the side cards SYMMETRICALLY above and
+   below. Rows 1 and 3 are empty auto tracks that only exist to absorb that
+   symmetric overhang. --- */
+.mm-v2 .mm-ways__grid--lead {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.18fr) minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    align-items: stretch;
+    gap: 0 clamp(var(--space-4), 2.4vw, var(--space-6));
+}
+
+/* Every card lays out its children in a column so the CTA can be pinned to the
+   bottom regardless of copy length. */
+.mm-v2 .mm-ways__grid--lead .mm-way {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Side cards (Charlas + El Viaje): pinned to the middle row and stretched to it.
+   Row 2's height = the taller of the two sides, so they end up identical.
+   Explicit columns keep Charlas left (col 1) and El Viaje right (col 3). */
+.mm-v2 .mm-way--side {
+    grid-row: 2;
+    align-self: stretch;
+}
+
+.mm-v2 .mm-way--side:first-child {
+    grid-column: 1;
+}
+
+.mm-v2 .mm-way--side:last-child {
+    grid-column: 3;
+}
+
+/* Lead card (Sesiones): spans all three rows and centers within them. Its copy
+   is shorter than the sides', so we give it a min-height that makes it just
+   slightly taller than the side cards — it overhangs them subtly, top and
+   bottom, so it predominates at the center without dwarfing them. The empty
+   rows 1 and 3 absorb that small overhang. */
+.mm-v2 .mm-way--lead {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+    min-height: clamp(31rem, 33vw, 35rem);
+    padding: clamp(3rem, 3.4vw, 3.8rem) clamp(2.8rem, 3vw, 3.4rem) clamp(2.6rem, 2.8vw, 3.2rem);
+}
+
+.mm-v2 .mm-way--lead .mm-way__title {
+    font-size: clamp(2.4rem, 2.7vw, 3.1rem);
+}
+
+.mm-v2 .mm-way--lead .mm-way__tagline {
+    font-size: 1.65rem;
+}
+
+.mm-v2 .mm-way--lead .mm-way__text {
+    font-size: 1.65rem;
+}
+
+.mm-v2 .mm-way--lead .mm-way__link {
+    font-size: 1.6rem;
+}
+
+/* Subtle second gesture: the lead card's top rule spans the full width using
+   the existing accent color — same device as the deepest offer, no new style. */
+.mm-v2 .mm-way--lead::before {
+    width: 100%;
+    left: 0;
 }
 
 /* --- Home hero: escala coherente con /equipos/ -----------------------
@@ -2281,6 +2419,34 @@ body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
     .mm-v2 .mm-ways__grid {
         grid-template-columns: minmax(0, 1fr);
         gap: var(--space-5);
+    }
+
+    /* Stacked lead layout: collapse the desktop 3-col / 3-row composition back
+       to a single column. Reset every explicit grid placement so the cards
+       stack in one track and `order` controls sequence. Sesiones leads; it
+       keeps a slightly larger heading via the .mm-way--lead rules above. */
+    .mm-v2 .mm-ways__grid--lead {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: none;
+        align-items: stretch;
+        gap: var(--space-5);
+    }
+
+    /* Cards take natural height so there are no awkward empty gaps. */
+    .mm-v2 .mm-way--side,
+    .mm-v2 .mm-way--side:first-child,
+    .mm-v2 .mm-way--side:last-child {
+        grid-row: auto;
+        grid-column: auto;
+        align-self: stretch;
+    }
+
+    .mm-v2 .mm-way--lead {
+        grid-row: auto;
+        grid-column: auto;
+        align-self: stretch;
+        min-height: 0;
+        order: -1;
     }
 
     .mm-v2 .mm-bestia__grid {

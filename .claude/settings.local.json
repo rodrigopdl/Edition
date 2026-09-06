@@ -100,7 +100,9 @@
       "Bash(magick rodri-mar-full.original.webp -modulate 110,69,100 +sigmoidal-contrast 2.5,50% -define webp:lossless=false -quality 85 rodri-mar-full.webp)",
       "Bash(magick rodri-mar-full.original.webp -modulate 110,82,100 -channel-fx \"blue=>blue\" -modulate 100,115,100 +sigmoidal-contrast 2,50% -define webp:lossless=false -quality 85 rodri-mar-full.webp)",
       "Bash(magick rodri-mar-full.original.webp -modulate 108,75,100 +sigmoidal-contrast 2,50% \\\\\\( +clone -colorspace HSL -channel R -level 45%,75% +channel -separate \\\\\\) -compose Copy_Opacity -composite -background none -flatten /tmp/blue-mask.png)",
-      "Bash(magick rodri-mar-full.original.webp -modulate 108,78,100 +sigmoidal-contrast 2,50% -define webp:lossless=false -quality 85 rodri-mar-full.webp)"
+      "Bash(magick rodri-mar-full.original.webp -modulate 108,78,100 +sigmoidal-contrast 2,50% -define webp:lossless=false -quality 85 rodri-mar-full.webp)",
+      "Bash(awk 'NR>=2240 && NR<=2285 && /@media/' assets/css/site/homepage.css)",
+      "Bash(awk -F: '$1>2200 && $1<2290')"
     ]
   }
 }

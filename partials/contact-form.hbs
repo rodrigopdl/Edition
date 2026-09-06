@@ -11,12 +11,11 @@ Parameters (Handlebars hash args):
                         emitted as a hidden input `tipo_consulta`. Formspree
                         receives it under the same field name as the radio,
                         so from the backend it's indistinguishable which
-                        page sent it. Accepted values (map to the radio
-                        options in the home):
-                          "equipo" → "Algo para mi equipo"
-                          "lider"  → "Algo para mí como líder"
-                          "charla" → "Una charla para mi evento"
-                          "otro"   → "Otro"
+                        page sent it. Accepted values:
+                          "equipo" → "El Viaje"
+                          "lider"  → "Acompañamiento"
+                          "charla" → "Una charla para mi equipo"
+                          "sesion" → "Sesión para masticar"
 
     origen              String. Value for the hidden `origen` field. Defaults
                         to "home". Pass "viaje", "lideres", etc. so leads
@@ -50,6 +49,8 @@ selectors). Two instances on the same page would collide.
             <input type="hidden" name="tipo_consulta" value="Acompañamiento">
         {{else match tipo_predefinido "charla"}}
             <input type="hidden" name="tipo_consulta" value="Una charla para mi equipo">
+        {{else match tipo_predefinido "sesion"}}
+            <input type="hidden" name="tipo_consulta" value="Sesión para masticar">
         {{/match}}
     {{/unless}}
 

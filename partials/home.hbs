@@ -60,36 +60,31 @@
     {{!-- 3. Formas de trabajar juntos --}}
     <section class="mm-ways" id="mm-home-ways" aria-labelledby="ways-title">
         <div class="mm-canvas">
-            <header class="mm-section-header">
-                <h2 class="mm-v2-title" id="ways-title">Formas de trabajar juntos.</h2>
+            <header class="mm-section-header mm-ways__header">
+                <p class="mm-ways__kicker">Formas de trabajar juntos</p>
+                <h2 class="mm-v2-title" id="ways-title">Distintas maneras de <span class="mm-accent">masticar.</span></h2>
             </header>
 
-            <div class="mm-ways__grid">
-                <article class="mm-way">
+            {{!-- Order in source is Charlas / Sesiones / Viaje. On desktop CSS
+                 keeps that left-center-right layout with Sesiones as the larger,
+                 central lead card. On mobile CSS reorders to Sesiones first. --}}
+            <div class="mm-ways__grid mm-ways__grid--lead">
+                <article class="mm-way mm-way--side">
                     <h3 class="mm-way__title">Charlas para equipos</h3>
-                    <p class="mm-way__tagline">Una buena forma de conocernos.</p>
-                    <p class="mm-way__text">Historias e ideas sobre liderazgo para ponerle nombre a cosas que ya pasan en el equipo y abrir conversaciones que vale la pena tener.</p>
-                    <p class="mm-way__text mm-way__text--secondary">Podemos quedarnos ahí o sumar una masticada: un espacio para conversar juntos sobre lo que despertó la charla y llevarlo a situaciones reales del equipo.</p>
-                    <a href="/charlas/" class="mm-way__link">Conocer las charlas <span aria-hidden="true">→</span></a>
+                    <p class="mm-way__text mm-way__text--secondary">Historias e ideas sobre liderazgo para ponerle nombre a cosas que ya pasan en el equipo y abrir nuevas formas de mirarlas y conversarlas.</p>
+                    <a href="/charlas/" class="mm-way__link">Conocé las charlas <span aria-hidden="true">→</span></a>
                 </article>
 
-                <article class="mm-way mm-way--feature">
-                    <h3 class="mm-way__title">Acompañamiento</h3>
-                    <p class="mm-way__tagline">Un espacio para pensar acompañado.</p>
-                    <p class="mm-way__text">Un espacio sostenido para frenar y pensar en profundidad sobre lo que tengas entre manos: una decisión difícil, una conversación pendiente, una duda o algo que no terminás de ordenar.</p>
-                    <p class="mm-way__text mm-way__text--secondary">Preguntas, conversación y una mirada externa para ayudarte a ver nuevos ángulos y encontrar tu propia forma de avanzar. Solemos empezar con un ciclo de tres meses y ver desde ahí.</p>
-                    <button type="button" class="mm-way__link js-way-cta" data-tipo="acompanamiento">
-                        Me interesa
-                    </button>
+                <article class="mm-way mm-way--lead">
+                    <h3 class="mm-way__title">Sesiones para masticar</h3>
+                    <p class="mm-way__text mm-way__text--secondary">Un espacio uno a uno para traer una decisión, una idea o algo que te esté dando vueltas, y pensarlo juntos.</p>
+                    <a href="/sesiones/" class="mm-way__link">Conocé las sesiones <span aria-hidden="true">→</span></a>
                 </article>
 
-                <article class="mm-way">
+                <article class="mm-way mm-way--side">
                     <h3 class="mm-way__title">El Viaje</h3>
-                    <p class="mm-way__tagline">Un espacio para mirarse como equipo.</p>
                     <p class="mm-way__text mm-way__text--secondary">Un recorrido de varias semanas para frenar y conversar sobre cosas que en el día a día no siempre encuentran lugar: qué los frena, qué los mueve y cómo quieren liderarse y trabajar juntos.</p>
-                    <a href="/viaje/" class="mm-way__link">
-                        Conocer El Viaje <span aria-hidden="true">→</span>
-                    </a>
+                    <a href="/viaje/" class="mm-way__link">Conocé El Viaje <span aria-hidden="true">→</span></a>
                 </article>
             </div>
         </div>
@@ -273,36 +268,6 @@
             if (label) label.textContent = isOpen ? 'Leer el testimonio completo' : 'Cerrar testimonio';
         });
     }
-
-    /* ── Cards → formulario ────────────────────────────────────────── */
-    var tipoMap = {
-        'charla':         'Una charla para mi equipo',
-        'acompanamiento': 'Acompañamiento'
-    };
-
-    document.querySelectorAll('.js-way-cta').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            var tipo    = btn.dataset.tipo;
-            var target  = tipoMap[tipo];
-            var contact = document.getElementById('mm-home-contact');
-            var form    = document.getElementById('mm-home-formspree');
-
-            if (target && form) {
-                var radios = form.querySelectorAll('input[name="tipo_consulta"]');
-                for (var i = 0; i < radios.length; i++) {
-                    radios[i].checked = radios[i].value === target;
-                }
-            }
-
-            if (contact) {
-                contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                setTimeout(function () {
-                    var textarea = form && form.querySelector('#mm-home-message');
-                    if (textarea) textarea.focus({ preventScroll: true });
-                }, 500);
-            }
-        });
-    });
 })();
 </script>
 

@@ -2363,3 +2363,137 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     }
 }
 
+
+/* ==========================================================================
+   Sesiones — /sesiones (custom-sesiones.hbs)
+   Namespace: .mm-ses (on top of .mm-mast.mm-cap, which supplies the editorial
+   rhythm: compact hero, tamed --section-py, surfaces, CTA, intro, testimonial).
+   Only page-specific refinements live here.
+   ========================================================================== */
+
+/* --- Surfaces: alternate calmly so sections read as an editorial sequence.
+   The .mm-mast selectors on hero/cta win by specificity over a bare class, so
+   those two are scoped through .mm-mast to override. --- */
+.mm-mast .mm-ses-hero { background: var(--surface-1); }
+.mm-ses-testimonial   { background: var(--surface-0); }
+.mm-ses .mm-ses-block { background: var(--surface-0); }
+.mm-ses-offer         { background: var(--surface-1); }
+.mm-ses-intro         { background: var(--surface-0); }
+.mm-mast .mm-ses-cta  { background: var(--surface-1); }
+
+/* --- 1. Hero ---------------------------------------------------------------- */
+
+/* "Sesiones para masticar" is the semantic H1 but visually a quiet kicker;
+   the dominant idea is the headline below it. */
+.mm-ses-hero__kicker {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 1.5vw, 1.7rem);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 var(--space-4);
+    line-height: 1.2;
+}
+
+/* Headline is the dominant idea. It reuses .mm-hero__title (so it inherits the
+   big .mm-cap hero sizing) but is a <p>, keeping the H1 semantic role above. */
+.mm-ses-hero__headline {
+    margin-inline: auto;
+}
+
+.mm-ses-hero__lede p + p {
+    margin-top: var(--space-4);
+}
+
+/* Lede here is plain (not italic like /viaje's) — quieter, more direct. */
+.mm-ses-hero .mm-ses-hero__lede {
+    font-style: normal;
+    opacity: 1;
+    color: var(--ink-2);
+}
+
+/* --- Editorial text blocks -------------------------------------------------- */
+
+.mm-ses-block .mm-v2-title,
+.mm-ses-offer .mm-v2-title {
+    margin-bottom: var(--space-5);
+}
+
+/* Secondary section ("Cuando una sesión no alcanza") sits lower in hierarchy
+   than "Una sesión": smaller heading, no accent, gentler presence. */
+.mm-ses-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 2.6vw, 3rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--ink-2);
+    margin: 0 0 var(--space-5);
+}
+
+.mm-ses-block--secondary .mm-prose {
+    color: var(--ink-3);
+}
+
+/* Pull-quote: closes a block with a two-line editorial beat. Serif italic on
+   the accent span already comes from .mm-accent. */
+.mm-ses-pullquote {
+    font-family: var(--font-post-body);
+    font-size: clamp(2rem, 2.4vw, 2.6rem);
+    line-height: 1.35;
+    color: var(--ink);
+    margin: var(--space-7) 0 0;
+    max-width: 24ch;
+    text-wrap: balance;
+}
+
+/* --- 5. Una sesión (primary offer) ----------------------------------------- */
+
+.mm-ses-offer__meta {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 1.4vw, 1.55rem);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: calc(-1 * var(--space-3)) 0 var(--space-5);
+}
+
+.mm-ses-offer .mm-actions {
+    margin-top: var(--space-6);
+}
+
+/* --- 7. No tengo una fórmula ------------------------------------------------ */
+
+/* Mid-block emphasis line — present but not theatrical. */
+.mm-ses-emphasis {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 2.4vw, 2.7rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: var(--space-6) 0;
+    max-width: 26ch;
+    text-wrap: balance;
+}
+
+/* Closing line of the section: a beat, not a banner. */
+.mm-ses-line {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.85rem, 2vw, 2.2rem);
+    line-height: 1.4;
+    color: var(--ink);
+    margin: var(--space-6) 0 0;
+}
+
+/* --- Responsive ------------------------------------------------------------- */
+
+@media (max-width: 640px) {
+    .mm-ses-pullquote,
+    .mm-ses-emphasis {
+        max-width: none;
+    }
+}
+
