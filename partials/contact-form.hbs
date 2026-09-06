@@ -54,7 +54,7 @@ selectors). Two instances on the same page would collide.
         {{else match tipo_predefinido "lider"}}
             <input type="hidden" name="tipo_consulta" value="Acompañamiento">
         {{else match tipo_predefinido "charla"}}
-            <input type="hidden" name="tipo_consulta" value="Una charla para mi equipo">
+            <input type="hidden" name="tipo_consulta" value="Charla para mi equipo">
         {{else match tipo_predefinido "sesion"}}
             <input type="hidden" name="tipo_consulta" value="Sesión para masticar">
         {{/match}}
@@ -108,12 +108,12 @@ selectors). Two instances on the same page would collide.
             <legend class="mm-home-contact__choice-legend">¿Qué te interesa explorar?</legend>
             <div class="mm-home-contact__choice-options">
                 <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Una charla para mi equipo">
-                    <span>Una charla para mi equipo</span>
+                    <input type="radio" name="tipo_consulta" value="Charla para mi equipo">
+                    <span>Charla para mi equipo</span>
                 </label>
                 <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Acompañamiento">
-                    <span>Acompañamiento</span>
+                    <input type="radio" name="tipo_consulta" value="Sesión para masticar">
+                    <span>Sesión para masticar</span>
                 </label>
                 <label class="mm-home-contact__choice-option">
                     <input type="radio" name="tipo_consulta" value="El Viaje">
@@ -167,16 +167,14 @@ selectors). Two instances on the same page would collide.
             if (!match) return;
             var requested = decodeURIComponent(match[1]).toLowerCase();
             var map = {
-                'charla':         'Una charla para mi equipo',
-                'capacitacion':   'Una charla para mi equipo',
-                'capacitación':   'Una charla para mi equipo',
-                'equipo':         'Una charla para mi equipo',
-                'lider':          'Acompañamiento',
-                'líder':          'Acompañamiento',
-                'sesion':         'Acompañamiento',
-                'sesión':         'Acompañamiento',
-                'acompanamiento': 'Acompañamiento',
-                'acompañamiento': 'Acompañamiento',
+                'charla':         'Charla para mi equipo',
+                'capacitacion':   'Charla para mi equipo',
+                'capacitación':   'Charla para mi equipo',
+                'equipo':         'Charla para mi equipo',
+                'sesion':         'Sesión para masticar',
+                'sesión':         'Sesión para masticar',
+                'lider':          'Sesión para masticar',
+                'líder':          'Sesión para masticar',
                 'viaje':          'El Viaje',
                 'masticada':      'El Viaje'
             };
