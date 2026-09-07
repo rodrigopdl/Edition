@@ -2235,6 +2235,42 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
     margin-top: var(--space-7);
 }
 
+/* Book CTA + secondary social proof grouped as one closing unit. Same line on
+   desktop with a comfortable gap; on narrow widths they wrap but stay close so
+   they still read as related. */
+.mm-v2 .mm-bestia__actions {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3) var(--space-4);
+}
+
+/* Amazon rating — small, quiet social proof next to the CTA. Not a badge. */
+.mm-v2 .mm-bestia__rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+/* Stars: keep the brand blue but a step quieter than "La Bestia." — a bit
+   smaller and slightly less intense so the title stays the main blue accent. */
+.mm-v2 .mm-bestia__stars {
+    color: var(--brand);
+    opacity: 0.75;
+    letter-spacing: 0.08em;
+    font-size: 1.1rem;
+}
+
+/* Rating text: a touch more contrast than before for easy reading on navy,
+   still clearly secondary. */
+.mm-v2 .mm-bestia__rating-text {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--ink-2);
+}
+
 /* --- 6) Bocados (compact, paneled) ----------------------------------- */
 .mm-v2 .mm-bocados__panel {
     background: #f1ece2;
@@ -2862,6 +2898,19 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
 
     .mm-v2 .mm-bestia__text .mm-actions {
         margin-top: var(--space-5);
+    }
+
+    /* On mobile, stack CTA and rating cleanly (button on top, rating below,
+       both left-aligned) so they read as one tidy closing group instead of a
+       cramped wrapped row. */
+    .mm-v2 .mm-bestia__actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-3);
+    }
+
+    .mm-v2 .mm-bestia__rating {
+        font-size: 1.35rem;
     }
 
     /* --- 6) Bocados -------------------------------------------------- */

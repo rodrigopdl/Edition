@@ -582,3 +582,45 @@ body:has(.mm-lib),
         gap: var(--space-3);
     }
 }
+
+/* ==========================================================================
+   Rating component (Amazon 5,0) — reused in hero + reviews section.
+   Same visual language as the home '.mm-bestia__rating': brand-blue stars
+   (slightly toned down) + display text, small and quiet. No box/border/bg.
+   ========================================================================== */
+.mm-lib .mm-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0;
+    font-size: 1.4rem;
+    white-space: nowrap;
+}
+
+.mm-lib .mm-rating__stars {
+    color: var(--brand);
+    opacity: 0.75;
+    letter-spacing: 0.08em;
+    font-size: 1.1rem;
+}
+
+.mm-lib .mm-rating__text {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--ink-2);
+}
+
+/* Hero: own line between the lede and the CTAs, with air above and below. */
+.mm-lib .mm-lib-hero__rating {
+    margin: var(--space-5) 0 var(--space-6);
+}
+
+/* Reviews: centered under the title. The header's own space-8 margin-bottom
+   gives the air before Luisina's quote, so here we only set the title→rating
+   gap. */
+.mm-lib .mm-lib-reviews__rating {
+    display: flex;
+    justify-content: center;
+    margin: var(--space-4) 0 0;
+}
