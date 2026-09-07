@@ -1210,6 +1210,22 @@ main.mm-v2 {
     font-style: italic;
 }
 
+/* Inline links in prose — deliberately quiet: same color as the surrounding
+   text, with only a faint underline that hints at clickability. It firms up on
+   hover instead of standing out at rest. */
+.mm-v2 .mm-prose a {
+    color: var(--ink-2);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(244, 241, 234, 0.28);
+    transition: text-decoration-color 0.2s ease;
+}
+
+.mm-v2 .mm-prose a:hover {
+    text-decoration-color: rgba(244, 241, 234, 0.6);
+}
+
 .mm-v2 .mm-section-header {
     max-width: 680px;
     margin: 0 auto var(--space-8);

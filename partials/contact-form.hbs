@@ -14,7 +14,7 @@ Parameters (Handlebars hash args):
                         page sent it. Accepted values:
                           "equipo" → "El Viaje"
                           "lider"  → "Acompañamiento"
-                          "charla" → "Una charla para mi equipo"
+                          "charla" → "Charlas"
                           "sesion" → "Sesiones para masticar"
 
     origen              String. Value for the hidden `origen` field. Defaults
@@ -54,7 +54,7 @@ selectors). Two instances on the same page would collide.
         {{else match tipo_predefinido "lider"}}
             <input type="hidden" name="tipo_consulta" value="Acompañamiento">
         {{else match tipo_predefinido "charla"}}
-            <input type="hidden" name="tipo_consulta" value="Charla para mi equipo">
+            <input type="hidden" name="tipo_consulta" value="Charlas">
         {{else match tipo_predefinido "sesion"}}
             <input type="hidden" name="tipo_consulta" value="Sesiones para masticar">
         {{/match}}
@@ -108,8 +108,8 @@ selectors). Two instances on the same page would collide.
             <legend class="mm-home-contact__choice-legend">¿Qué te interesa explorar?</legend>
             <div class="mm-home-contact__choice-options">
                 <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Charla para mi equipo">
-                    <span>Charla para mi equipo</span>
+                    <input type="radio" name="tipo_consulta" value="Charlas">
+                    <span>Charlas</span>
                 </label>
                 <label class="mm-home-contact__choice-option">
                     <input type="radio" name="tipo_consulta" value="Sesiones para masticar">
@@ -167,10 +167,10 @@ selectors). Two instances on the same page would collide.
             if (!match) return;
             var requested = decodeURIComponent(match[1]).toLowerCase();
             var map = {
-                'charla':         'Charla para mi equipo',
-                'capacitacion':   'Charla para mi equipo',
-                'capacitación':   'Charla para mi equipo',
-                'equipo':         'Charla para mi equipo',
+                'charla':         'Charlas',
+                'capacitacion':   'Charlas',
+                'capacitación':   'Charlas',
+                'equipo':         'Charlas',
                 'sesion':         'Sesiones para masticar',
                 'sesión':         'Sesiones para masticar',
                 'lider':          'Sesiones para masticar',
