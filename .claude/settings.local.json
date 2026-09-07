@@ -102,7 +102,14 @@
       "Bash(magick rodri-mar-full.original.webp -modulate 108,75,100 +sigmoidal-contrast 2,50% \\\\\\( +clone -colorspace HSL -channel R -level 45%,75% +channel -separate \\\\\\) -compose Copy_Opacity -composite -background none -flatten /tmp/blue-mask.png)",
       "Bash(magick rodri-mar-full.original.webp -modulate 108,78,100 +sigmoidal-contrast 2,50% -define webp:lossless=false -quality 85 rodri-mar-full.webp)",
       "Bash(awk 'NR>=2240 && NR<=2285 && /@media/' assets/css/site/homepage.css)",
-      "Bash(awk -F: '$1>2200 && $1<2290')"
+      "Bash(awk -F: '$1>2200 && $1<2290')",
+      "Bash(ls -la assets/built/)",
+      "Bash(ls -la assets/built/screen.css)",
+      "Bash(grep -o \"[^,{}]*\\\\.mm-v2-hero[^{]*{[^}]*}\" assets/built/screen.css)",
+      "Bash(awk 'NR<=2577 && /@media/ {line=NR; q=$0} END{}' assets/css/site/homepage.css)",
+      "Bash(awk -F: '$1 < 2577')",
+      "Bash(grep -o \"[^,{}]*\\\\.mm-hero__title[^,{]*{[^}]*font-size[^}]*}\" assets/built/screen.css)",
+      "Bash(printf '\\\\n/* cache-bust probe */\\\\n')"
     ]
   }
 }

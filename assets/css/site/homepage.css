@@ -1431,9 +1431,11 @@ main.mm-v2 {
 /* En la home, apretar el padding vertical del hero para que el ritmo
    del H1 → lede → CTAs se lea como un bloque coherente, no como
    elementos flotando en un canvas ancho. */
+/* Home hero: only slightly more presence than the service-page heroes
+   (charlas/sesiones use ~4/3rem → 6/4.5rem). Keep it just a touch bigger. */
 body.homepage-mm-v2 .mm-v2 .mm-v2-hero {
-    padding-top: clamp(5.5rem, 8vw, 8.5rem);
-    padding-bottom: clamp(4.5rem, 6.5vw, 7rem);
+    padding-top: clamp(4.5rem, 6.5vw, 6.8rem);
+    padding-bottom: clamp(3.5rem, 5vw, 5.2rem);
 }
 
 /* --- 2) Intro --------------------------------------------------------- */
@@ -1800,9 +1802,9 @@ body.homepage-mm-v2 .mm-v2 .mm-v2-hero {
    Convertimos el <h1> en un flex column para controlar el espacio entre
    ambas líneas independientemente del espacio entre título y subtítulo. */
 body.homepage-mm-v2 .mm-v2 .mm-hero__title {
-    font-size: clamp(3rem, 5.2vw, 6rem);
+    font-size: clamp(3.4rem, 5.6vw, 6.4rem);
     max-width: none;
-    line-height: 1.02;
+    line-height: 1.05;
     margin-bottom: var(--space-5);
     letter-spacing: -0.025em;
     display: flex;
@@ -1833,7 +1835,7 @@ body.homepage-mm-v2 .mm-v2 .mm-hero__title-sub {
 }
 
 body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
-    font-size: clamp(2rem, 2.1vw, 2.4rem);
+    font-size: clamp(1.8rem, 1.8vw, 2.1rem);
     line-height: 1.5;
     max-width: 52ch;
     margin-inline: auto;
