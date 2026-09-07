@@ -2023,6 +2023,14 @@ html:has(body.page-charlas) {
     max-width: none;
 }
 
+/* --- José Costa testimonial (reuses .mm-testimonial from the home) ----------
+   Editorial piece validating Rodri's track record. surface-1 sets it apart
+   from the surrounding surface-0 sections; padding follows the charlas rhythm
+   (the base .mm-testimonial uses the global --section-py-tight, larger). --- */
+.mm-ch-v2 .mm-ch-v2-jose {
+    padding-block: clamp(4rem, 6vw, 7rem);
+}
+
 /* --- 1. Hero ---------------------------------------------------------------- */
 
 /* Match the compact hero from /viaje (.mm-mast.mm-cap .mm-mast-hero).
@@ -2117,6 +2125,21 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     display: block;
 }
 
+/* Caption under the hero photo — small, centered, quiet. */
+.mm-ch-v2-what__caption {
+    margin: var(--space-3) 0 0;
+    text-align: center;
+    font-family: var(--font-post-body);
+    font-size: clamp(1.35rem, 1.3vw, 1.5rem);
+    line-height: 1.4;
+    color: var(--ink-3);
+}
+
+.mm-ch-v2-what__caption em {
+    font-style: italic;
+    color: var(--ink-2);
+}
+
 /* --- 3. Charla + Masticada -------------------------------------------------- */
 
 /* Continues from the photo above on the same surface-0. A tighter top padding
@@ -2129,41 +2152,79 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     margin-bottom: var(--space-6);
 }
 
-/* Durations: two items side by side, a touch more presence than a footnote
-   but still quiet. Wraps to stacked rows on mobile via flex-wrap + gaps. */
-.mm-ch-v2-plus__durations {
-    margin-top: var(--space-7);
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3) clamp(2rem, 4vw, 4rem);
+/* --- Cream formats block (same visual language as the /sesiones offer panel).
+   Full-width title above two equal columns with a subtle vertical divider.
+   Gives the mostly-navy page a deliberate cream break holding the tangible
+   part of the offer, just like /sesiones. --- */
+.mm-ch-v2-formats__panel {
+    background: #f1ece2;
+    color: var(--ink-on-paper);
+    border-radius: 2px;
+    padding: clamp(3.2rem, 5vw, 5rem) clamp(2.6rem, 5vw, 4.4rem);
+    margin-top: var(--space-8);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.55) inset,
+        0 30px 60px -32px rgba(0, 0, 0, 0.45);
 }
 
-.mm-ch-v2-plus__dur-item {
-    display: flex;
-    align-items: baseline;
-    gap: 0.6em;
-    margin: 0;
-    font-family: var(--font-post-body);
-    font-size: clamp(1.5rem, 1.4vw, 1.7rem);
-    line-height: 1.4;
-    color: var(--ink-2);
-}
-
-.mm-ch-v2-plus__dur-label {
+.mm-ch-v2-formats__title {
     font-family: var(--font-display);
+    font-size: clamp(2.2rem, 2.6vw, 2.9rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink-on-paper);
+    margin: 0 0 var(--space-3);
+}
+
+/* Intro line under the title — quiet, sets scope before the two formats. */
+.mm-ch-v2-formats__intro {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.6rem, 1.7vw, 1.85rem);
+    line-height: 1.5;
+    color: rgba(29, 32, 48, 0.7);
+    margin: 0 0 var(--space-6);
+    max-width: 52ch;
+}
+
+.mm-ch-v2-formats__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(3rem, 5vw, 5rem);
+    align-items: start;
+}
+
+/* Subtle vertical divider between the two columns — hairline in ink. */
+.mm-ch-v2-formats__col + .mm-ch-v2-formats__col {
+    border-left: 1px solid rgba(29, 32, 48, 0.14);
+    padding-left: clamp(3rem, 5vw, 5rem);
+}
+
+.mm-ch-v2-formats__name {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 2.2vw, 2.3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--ink-on-paper);
+    margin: 0 0 var(--space-2);
+}
+
+.mm-ch-v2-formats__duration {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 1.7vw, 1.85rem);
     font-weight: 600;
-    font-size: 0.85em;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--ink-3);
+    letter-spacing: 0.01em;
+    color: var(--brand);
+    margin: 0 0 var(--space-4);
 }
 
-.mm-ch-v2-plus__dur-sep {
-    color: var(--ink-3);
-}
-
-.mm-ch-v2-plus__dur-value {
-    color: var(--ink);
+.mm-ch-v2-formats__desc {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.6rem, 1.7vw, 1.85rem);
+    line-height: 1.5;
+    color: rgba(29, 32, 48, 0.8);
+    margin: 0;
 }
 
 /* --- 4. Experiencias (foto + testimonio por columna) ----------------------- */
@@ -2333,6 +2394,20 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     /* Tighten photo–testimonial gap slightly in stacked layout */
     .mm-ch-v2-exp {
         gap: var(--space-5);
+    }
+
+    /* Formats block: single column; the vertical divider becomes horizontal. */
+    .mm-ch-v2-formats__grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .mm-ch-v2-formats__col + .mm-ch-v2-formats__col {
+        border-left: 0;
+        padding-left: 0;
+        margin-top: clamp(2.8rem, 6vw, 3.6rem);
+        padding-top: clamp(2.8rem, 6vw, 3.6rem);
+        border-top: 1px solid rgba(29, 32, 48, 0.14);
     }
 }
 
@@ -2605,13 +2680,15 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
 
 /* --- 8. CTA final: contact form (always visible) --------------------------- */
 
-.mm-ses .mm-ch-v2-cta .mm-home-contact__form {
+.mm-ses .mm-ch-v2-cta .mm-home-contact__form,
+.mm-ch-v2-form .mm-home-contact__form {
     max-width: 560px;
     margin: var(--space-6) auto 0;
     text-align: left;
 }
 
-.mm-ses .mm-ch-v2-cta .mm-home-contact__form .mm-actions {
+.mm-ses .mm-ch-v2-cta .mm-home-contact__form .mm-actions,
+.mm-ch-v2-form .mm-home-contact__form .mm-actions {
     justify-content: center;
 }
 

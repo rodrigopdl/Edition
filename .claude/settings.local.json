@@ -110,7 +110,8 @@
       "Bash(awk -F: '$1 < 2577')",
       "Bash(grep -o \"[^,{}]*\\\\.mm-hero__title[^,{]*{[^}]*font-size[^}]*}\" assets/built/screen.css)",
       "Bash(printf '\\\\n/* cache-bust probe */\\\\n')",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(awk -F: '$1 > 2300 && $1 < 2360')"
     ]
   }
 }

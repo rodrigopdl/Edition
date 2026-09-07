@@ -13,10 +13,13 @@ Template Name: Charlas
                     Una charla para <span class="mm-accent">seguir masticando.</span>
                 </h1>
                 <div class="mm-hero__lede mm-ch-v2-hero__lede">
-                    <p>Historias sobre liderazgo para empresas y equipos. Para ponerle nombre a lo que nos pasa y abrir conversaciones que muchas veces el día a día no deja tener.</p>
+                    <p>Historias sobre liderazgo para ponerle nombre a cosas que nos pasan y abrir conversaciones que sigan después de la charla.</p>
                 </div>
                 <div class="mm-actions mm-actions--center">
-                    <a href="#mm-ch-what" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">Conocé la charla</a>
+                    <a href="#mm-ch-what" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">
+                        Conocé la charla
+                        <span aria-hidden="true">↓</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -29,10 +32,9 @@ Template Name: Charlas
                 Liderar empieza por <span class="mm-accent">uno mismo.</span>
             </h2>
             <div class="mm-prose">
-                <p>Durante más de una década trabajé en tecnología. Empecé como desarrollador y, con el tiempo, terminé acompañando al CEO y a otros líderes a pensar decisiones y problemas difíciles. Muchos de esos problemas parecían tener que ver con el trabajo, pero rara vez eran técnicos. Eran humanos.</p>
-                <p>Cuando hablo de liderazgo, no empiezo por cómo liderar a los demás. Me interesa primero lo que pasa adentro nuestro, qué nos frena, qué nos enciende y cómo elegimos actuar frente a eso. En el trabajo y fuera de él.</p>
-                <p>La charla se construye alrededor de historias, muchas de ellas propias y nacidas de situaciones cotidianas. También aparecen ideas que fui desarrollando en Para masticar y algunas herramientas que fui encontrando en el camino. Todo eso ofrece distintas formas de mirar cosas que vivimos todos los días y no siempre vemos con claridad.</p>
-                <p>Y deja algo dando vueltas para seguir masticando después.</p>
+                <p>Durante más de una década trabajé en WyeWorks, una empresa de tecnología uruguaya. Empecé como desarrollador, después pasé a formar parte del equipo de managers y terminé como acompañante estratégico del CEO, trabajando también de cerca con otros líderes. Muchos de los problemas más difíciles que encontré en ese camino parecían tener que ver con el trabajo, pero rara vez eran técnicos. Eran humanos.</p>
+                <p>Cuando hablo de liderazgo, no empiezo por cómo liderar a los demás. Empiezo por lo que pasa adentro nuestro: qué nos frena, qué nos enciende y cómo elegimos actuar frente a eso. En el trabajo y fuera de él.</p>
+                <p>En la charla comparto historias, muchas de ellas propias y nacidas de situaciones cotidianas, junto con ideas que fui desarrollando en Para masticar y herramientas que me ayudaron a entender mejor lo que nos pasa.</p>
             </div>
         </div>
 
@@ -40,17 +42,43 @@ Template Name: Charlas
             <figure class="mm-ch-v2-what__figure">
                 <div class="mm-ch-v2-what__frame">
                     <img
-                        src="{{asset "images/talks-lameetup-wide-1200.webp"}}"
-                        srcset="{{asset "images/talks-lameetup-wide-1200.webp"}} 1200w,
-                                {{asset "images/talks-lameetup-wide-2000.webp"}} 2000w"
-                        sizes="(min-width: 1200px) 1160px, 100vw"
+                        src="{{asset "images/charlas-wide.jpg"}}"
                         alt="Charla de Para masticar"
                         class="mm-ch-v2-what__img"
                         loading="lazy"
-                        width="2000"
-                        height="972"
                     >
                 </div>
+                <figcaption class="mm-ch-v2-what__caption">Presentando <em>Despertá al líder que llevás dentro</em> — Conferencia La Meetup II en Sinergia Faro.</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    {{!-- 2b. Testimonio de José Costa — valida la trayectoria y la mirada.
+         Reusa el componente .mm-testimonial de la home. Es una pieza editorial
+         propia, distinta de los testimonios de asistentes de más abajo. --}}
+    <section class="mm-testimonial mm-ch-v2-jose" aria-labelledby="ch-jose-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <figure class="mm-testimonial__figure">
+                <blockquote class="mm-testimonial__quote" id="ch-jose-title">
+                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>Rodri fue una de las voces que más nos ayudó a pensar sobre quiénes somos como organización y qué tipo de empresa queríamos construir. Su capacidad para articular ideas sobre liderazgo, autonomía, cultura y desarrollo humano generó conversaciones valiosas que dejaron huella en muchas personas dentro de WyeWorks.
+                </blockquote>
+
+                <figcaption class="mm-testimonial__cite">
+                    <div class="mm-testimonial__avatar">
+                        <img
+                            src="{{asset "images/Jose.webp"}}"
+                            alt="José Costa, Co-founder y CEO de WyeWorks"
+                            class="mm-testimonial__avatar-img"
+                            width="120"
+                            height="120"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="mm-testimonial__person">
+                        <span class="mm-testimonial__name">José Costa</span>
+                        <span class="mm-testimonial__role">Co-founder &amp; CEO, WyeWorks</span>
+                    </div>
+                </figcaption>
             </figure>
         </div>
     </section>
@@ -62,21 +90,30 @@ Template Name: Charlas
                 Y si queremos ir un poco más lejos, <span class="mm-accent">masticamos juntos.</span>
             </h2>
             <div class="mm-prose">
-                <p>A veces la charla alcanza. Otras veces dan ganas de seguir tirando del hilo.</p>
-                <p>Ahí aparece la masticada. Después de la charla, el equipo se sienta a conversar sobre lo que le quedó resonando, dónde se vio reflejado y cómo todo eso se cruza con lo que está viviendo.</p>
-                <p>Yo acompaño la conversación con preguntas y algunas ideas. No sabemos de antemano hacia dónde va a ir. Se trata de hacer un poco de espacio para esas conversaciones que muchas veces quedan tapadas por el día a día.</p>
+                <p>Hay equipos que, después de la charla, quieren seguir tirando del hilo.</p>
+                <p>Ahí aparece la masticada: al terminar la charla, nos quedamos un rato más para volver sobre lo que quedó resonando, ver dónde se sintieron reflejados y conectar esas ideas con lo que el equipo está viviendo.</p>
+                <p>Yo estoy ahí para ayudar a tirar del hilo: escuchar, preguntar y poner sobre la mesa alguna idea cuando puede servir. La conversación la va marcando lo que aparezca en el equipo.</p>
             </div>
-            <div class="mm-ch-v2-plus__durations">
-                <p class="mm-ch-v2-plus__dur-item">
-                    <span class="mm-ch-v2-plus__dur-label">Charla</span>
-                    <span class="mm-ch-v2-plus__dur-sep" aria-hidden="true">·</span>
-                    <span class="mm-ch-v2-plus__dur-value">45–60 minutos</span>
-                </p>
-                <p class="mm-ch-v2-plus__dur-item">
-                    <span class="mm-ch-v2-plus__dur-label">Charla + masticada</span>
-                    <span class="mm-ch-v2-plus__dur-sep" aria-hidden="true">·</span>
-                    <span class="mm-ch-v2-plus__dur-value">1:30–2 horas</span>
-                </p>
+        </div>
+
+        {{!-- Bloque crema: dos formatos (mismo lenguaje visual que el recuadro
+             de /sesiones). Título a ancho completo + dos columnas con divisor. --}}
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-ch-v2-formats__panel">
+                <h3 class="mm-ch-v2-formats__title">Dos formas de hacerlo.</h3>
+                <p class="mm-ch-v2-formats__intro">Para equipos y organizaciones de cualquier rubro. También para encuentros y eventos.</p>
+                <div class="mm-ch-v2-formats__grid">
+                    <div class="mm-ch-v2-formats__col">
+                        <h4 class="mm-ch-v2-formats__name">Charla</h4>
+                        <p class="mm-ch-v2-formats__duration">45–60 minutos</p>
+                        <p class="mm-ch-v2-formats__desc">Historias sobre liderazgo para dejar pensando y abrir conversaciones que sigan después.</p>
+                    </div>
+                    <div class="mm-ch-v2-formats__col">
+                        <h4 class="mm-ch-v2-formats__name">Charla + masticada</h4>
+                        <p class="mm-ch-v2-formats__duration">1:30–2 horas</p>
+                        <p class="mm-ch-v2-formats__desc">Después de la charla, nos quedamos un rato más para llevar esas ideas a lo que el equipo está viviendo.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -165,21 +202,28 @@ Template Name: Charlas
         </div>
     </section>
 
-    {{!-- 5. CTA final --}}
-    <section class="mm-ch-v2-cta" id="mm-ch-cta" aria-labelledby="ch-cta-title">
+    {{!-- 5. CTA final — formulario embebido en la página (mismo Formspree que el
+         resto del sitio), adaptado a charlas. No lleva a la home. --}}
+    <section class="mm-ch-v2-cta mm-ch-v2-form" id="mm-ch-cta" aria-labelledby="ch-cta-title">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-ch-v2-cta__inner">
                 <h2 class="mm-v2-title" id="ch-cta-title">
-                    ¿Querés llevar una charla <span class="mm-accent">a tu equipo?</span>
+                    ¿Tenés una charla <span class="mm-accent">en mente?</span>
                 </h2>
                 <p class="mm-ch-v2-cta__lede">
-                    Contame un poco sobre tu equipo y qué están viviendo. Vemos juntos por dónde empezar.
+                    Contame un poco sobre el equipo, encuentro o evento que estás organizando.
                 </p>
-                <div class="mm-actions mm-actions--center">
-                    <a href="/?tipo=charla#mm-home-contact" class="mm-btn mm-btn--primary mm-btn--lg">
-                        Hablemos
-                    </a>
+
+                <div class="mm-ch-v2-form__form" id="mm-ch-form">
+                    {{> "contact-form"
+                        show_selector=false
+                        tipo_predefinido="charla"
+                        origen="charlas"
+                        subject="Contacto — desde /charlas/"
+                        message_label="¿Qué tenés en mente?"
+                        message_placeholder="Contame un poco..."}}
                 </div>
+
                 <p class="mm-ch-v2-cta__fallback">
                     También podés escribirme a
                     <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.
@@ -189,5 +233,15 @@ Template Name: Charlas
     </section>
 
 </main>
+
+{{!-- CTA final: rename the shared partial's submit to "Enviar" for this page. --}}
+<script>
+(function () {
+    'use strict';
+    var form = document.getElementById('mm-ch-form');
+    var submit = form && form.querySelector('button[type="submit"]');
+    if (submit) submit.textContent = 'Enviar';
+})();
+</script>
 
 {{#contentFor "body_class"}}homepage-mm-v2 page-charlas{{/contentFor}}
