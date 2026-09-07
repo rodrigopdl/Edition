@@ -1460,8 +1460,8 @@ body.home-template .mm-v2 {
 /* Home hero: compact — ~22% less vertical padding than before so the next
    section starts to peek in on a 13" laptop, while keeping presence. */
 body.home-template .mm-v2 .mm-v2-hero {
-    padding-top: clamp(3.5rem, 5vw, 5.2rem);
-    padding-bottom: clamp(2.8rem, 4vw, 4rem);
+    padding-top: clamp(4rem, 5.6vw, 6rem);
+    padding-bottom: clamp(3.2rem, 4.4vw, 4.6rem);
 }
 
 /* --- 2) Intro --------------------------------------------------------- */
@@ -1838,7 +1838,7 @@ body.home-template .mm-v2 .mm-v2-hero {
    Convertimos el <h1> en un flex column para controlar el espacio entre
    ambas líneas independientemente del espacio entre título y subtítulo. */
 body.home-template .mm-v2 .mm-hero__title {
-    font-size: clamp(3.4rem, 5.6vw, 6.4rem);
+    font-size: clamp(3.6rem, 6vw, 7rem);
     max-width: 18ch;
     margin: 0 auto var(--space-5);
     line-height: 1.05;
