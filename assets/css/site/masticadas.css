@@ -2447,11 +2447,22 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
    the few things specific to this page.
    ========================================================================== */
 
-/* Surfaces. The .mm-ch-v2-* sections set their own (hero/what = surface-1/0).
-   Testimonial = surface-1 so it reads as a second hero. The cream offer block
-   is the deliberate rupture. Bio = surface-1 to break the surface-0 run. */
-.mm-ses .mm-ses-testimonial { background: var(--surface-1); }
+/* Surfaces. Hero keeps its lighter navy (surface-1). From José's testimonial
+   onward the page drops to the darker navy (surface-0): testimonial +
+   "Una cabeza más" + "No vengo solo" share surface-0 and read as one big
+   content block, told apart by spacing (not new color bands). The cream offer
+   block is the deliberate rupture after that. Bio stays surface-1 to break the
+   long run before the CTA. */
+.mm-ses .mm-ses-testimonial { background: var(--surface-0); }
 .mm-ses .mm-ses-intro       { background: var(--surface-1); }
+
+/* The base .mm-v2 .mm-testimonial::before draws a hairline at the top of the
+   testimonial. Here the hero→testimonial transition is carried by the color
+   change (surface-1 → surface-0), so drop the hairline to avoid an accidental
+   divider line on that seam. */
+.mm-ses .mm-ses-testimonial::before {
+    display: none;
+}
 
 /* Body copy: slightly larger + higher contrast than the /charlas default so it
    reads comfortably on the dark surfaces. */
@@ -2489,8 +2500,10 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
 
 /* --- 2. Testimonio de José (second-hero weight) ---------------------------- */
 
+/* Compacted ~17% vs before (was 4.5–8rem) so it doesn't take so much height
+   before "Una cabeza más para pensar", while keeping editorial presence. */
 .mm-ses-testimonial {
-    padding-block: clamp(4.5rem, 7vw, 8rem);
+    padding-block: clamp(3.6rem, 5.8vw, 6.6rem);
     text-align: center;
 }
 
