@@ -109,7 +109,8 @@
       "Bash(awk 'NR<=2577 && /@media/ {line=NR; q=$0} END{}' assets/css/site/homepage.css)",
       "Bash(awk -F: '$1 < 2577')",
       "Bash(grep -o \"[^,{}]*\\\\.mm-hero__title[^,{]*{[^}]*font-size[^}]*}\" assets/built/screen.css)",
-      "Bash(printf '\\\\n/* cache-bust probe */\\\\n')"
+      "Bash(printf '\\\\n/* cache-bust probe */\\\\n')",
+      "Bash(node -e ' *)"
     ]
   }
 }

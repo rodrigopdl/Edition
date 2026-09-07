@@ -1431,11 +1431,21 @@ main.mm-v2 {
 /* En la home, apretar el padding vertical del hero para que el ritmo
    del H1 → lede → CTAs se lea como un bloque coherente, no como
    elementos flotando en un canvas ancho. */
-/* Home hero: only slightly more presence than the service-page heroes
-   (charlas/sesiones use ~4/3rem → 6/4.5rem). Keep it just a touch bigger. */
-body.homepage-mm-v2 .mm-v2 .mm-v2-hero {
-    padding-top: clamp(4.5rem, 6.5vw, 6.8rem);
-    padding-bottom: clamp(3.5rem, 5vw, 5.2rem);
+/* Home section rhythm: the global --section-py (8–14rem) is much larger than
+   the service pages (charlas/sesiones tame it to 4–7rem via .mm-ch-v2/.mm-cap),
+   which is why the home had far more air between sections. Match that rhythm so
+   the whole site feels consistent. Scoped to body.home-template (reliable) so
+   it doesn't touch other .mm-v2 pages. */
+body.home-template .mm-v2 {
+    --section-py: clamp(4rem, 6vw, 7rem);
+    --section-py-tight: clamp(3.2rem, 5vw, 5.6rem);
+}
+
+/* Home hero: compact — ~22% less vertical padding than before so the next
+   section starts to peek in on a 13" laptop, while keeping presence. */
+body.home-template .mm-v2 .mm-v2-hero {
+    padding-top: clamp(3.5rem, 5vw, 5.2rem);
+    padding-bottom: clamp(2.8rem, 4vw, 4rem);
 }
 
 /* --- 2) Intro --------------------------------------------------------- */
@@ -1753,17 +1763,16 @@ body.homepage-mm-v2 .mm-v2 .mm-v2-hero {
     grid-column: 3;
 }
 
-/* Lead card (Sesiones): spans all three rows and centers within them. Its copy
-   is shorter than the sides', so we give it a min-height that makes it just
-   slightly taller than the side cards — it overhangs them subtly, top and
-   bottom, so it predominates at the center without dwarfing them. The empty
-   rows 1 and 3 absorb that small overhang. */
+/* Lead card (Sesiones): spans all three rows and centers within them. With the
+   tagline line its content is fuller, so only a small min-height is needed for
+   it to read as slightly taller — the difference vs the side cards is now
+   subtle and the inner space feels intentional, not empty. */
 .mm-v2 .mm-way--lead {
     grid-column: 2;
     grid-row: 1 / span 3;
     align-self: center;
-    min-height: clamp(31rem, 33vw, 35rem);
-    padding: clamp(3rem, 3.4vw, 3.8rem) clamp(2.8rem, 3vw, 3.4rem) clamp(2.6rem, 2.8vw, 3.2rem);
+    min-height: clamp(26rem, 26vw, 29rem);
+    padding: clamp(2.8rem, 3vw, 3.4rem) clamp(2.8rem, 3vw, 3.4rem) clamp(2.4rem, 2.6vw, 3rem);
 }
 
 .mm-v2 .mm-way--lead .mm-way__title {
@@ -1772,6 +1781,17 @@ body.homepage-mm-v2 .mm-v2 .mm-v2-hero {
 
 .mm-v2 .mm-way--lead .mm-way__tagline {
     font-size: 1.65rem;
+}
+
+/* Lead tagline ("Una cabeza más para pensar.") — subtly emphasised: serif
+   italic accent, a step above body but not another big title. */
+.mm-v2 .mm-way__tagline--lead {
+    font-family: var(--font-post-body);
+    font-style: italic;
+    font-size: 1.75rem;
+    line-height: 1.35;
+    color: var(--brand);
+    margin: 0 0 var(--space-3);
 }
 
 .mm-v2 .mm-way--lead .mm-way__text {
@@ -1801,19 +1821,17 @@ body.homepage-mm-v2 .mm-v2 .mm-v2-hero {
    .mm-hero__title-sub  (mitad de tamaño, sans blanca, línea propia)
    Convertimos el <h1> en un flex column para controlar el espacio entre
    ambas líneas independientemente del espacio entre título y subtítulo. */
-body.homepage-mm-v2 .mm-v2 .mm-hero__title {
+body.home-template .mm-v2 .mm-hero__title {
     font-size: clamp(3.4rem, 5.6vw, 6.4rem);
-    max-width: none;
+    max-width: 18ch;
+    margin: 0 auto var(--space-5);
     line-height: 1.05;
-    margin-bottom: var(--space-5);
     letter-spacing: -0.025em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: clamp(0.4rem, 0.6vw, 0.8rem);
+    text-align: center;
+    text-wrap: balance;
 }
 
-body.homepage-mm-v2 .mm-v2 .mm-hero__title-main {
+body.home-template .mm-v2 .mm-hero__title-main {
     display: inline-block;
     max-width: 22ch;
     text-wrap: balance;
@@ -1822,7 +1840,7 @@ body.homepage-mm-v2 .mm-v2 .mm-hero__title-main {
 /* La frase secundaria: ~50% del tamaño principal, en la misma sans,
    color blanco (--ink) sin cursiva ni azul. En desktop entra en una
    sola línea (nowrap); en mobile se permite el quiebre. */
-body.homepage-mm-v2 .mm-v2 .mm-hero__title-sub {
+body.home-template .mm-v2 .mm-hero__title-sub {
     display: inline-block;
     font-family: var(--font-display);
     font-size: 0.5em;
@@ -1834,29 +1852,33 @@ body.homepage-mm-v2 .mm-v2 .mm-hero__title-sub {
     max-width: none;
 }
 
-body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
+body.home-template .mm-v2 .mm-hero__lede {
     font-size: clamp(1.8rem, 1.8vw, 2.1rem);
     line-height: 1.5;
     max-width: 52ch;
     margin-inline: auto;
 }
 
+/* Tighter lede → CTA gap for the compact home hero. */
+body.home-template .mm-v2 .mm-v2-hero .mm-actions {
+    margin-top: var(--space-5);
+}
+
 /* Mobile: título más chico y la frase secundaria puede quebrar en
    dos líneas si no entra —usamos text-wrap: balance para que quede
    proporcional en lugar de dejar una palabra huérfana. */
 @media (max-width: 767px) {
-    body.homepage-mm-v2 .mm-v2 .mm-hero__title {
-        font-size: clamp(2.8rem, 8vw, 4rem);
-        margin-bottom: var(--space-6);
+    body.home-template .mm-v2 .mm-hero__title {
+        margin-bottom: var(--space-5);
     }
 
-    body.homepage-mm-v2 .mm-v2 .mm-hero__title-sub {
+    body.home-template .mm-v2 .mm-hero__title-sub {
         white-space: normal;
         text-wrap: balance;
         max-width: 24ch;
     }
 
-    body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
+    body.home-template .mm-v2 .mm-hero__lede {
         font-size: 1.65rem;
         line-height: 1.6;
         max-width: 42ch;
