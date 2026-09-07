@@ -2425,19 +2425,20 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
 }
 
 /* Bigger, centered quote (second-hero weight). Scoped through .mm-v2 to beat
-   the base `.mm-v2 .mm-testimonial__quote`. */
+   the base `.mm-v2 .mm-testimonial__quote`. Narrower measure than full canvas
+   for a more editorial read and to give the oversized quote mark room. More
+   air below so quote → signature reads as: cita → aire → firma. */
 .mm-v2 .mm-ses-testimonial .mm-ses-testimonial__quote {
     font-size: clamp(2.4rem, 3.4vw, 3.6rem);
-    line-height: 1.3;
+    line-height: 1.35;
     color: var(--ink);
-    margin: 0 auto var(--space-5);
-    max-width: none;
+    margin: 0 auto var(--space-7);
+    max-width: 18em;
     text-align: center;
     text-wrap: balance;
 }
 
-/* Center the cite row (avatar + name) under the big quote, tight to it so the
-   quote + attribution read as one unit. */
+/* Center the cite row (avatar + name) under the big quote. */
 .mm-v2 .mm-ses-testimonial .mm-testimonial__cite {
     justify-content: center;
     text-align: left;
@@ -2566,21 +2567,12 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     font-weight: 600;
     letter-spacing: 0.01em;
     color: var(--brand);
-    margin: 0 0 var(--space-2);
+    margin: 0 0 var(--space-3);
 }
 
 .mm-ses-offer__meta span {
     color: rgba(29, 32, 48, 0.4);
     margin: 0 0.4em;
-}
-
-/* Modality — quiet practical line under the spec, above the price. */
-.mm-ses-offer__mode {
-    font-family: var(--font-post-body);
-    font-size: clamp(1.55rem, 1.6vw, 1.75rem);
-    line-height: 1.4;
-    color: rgba(29, 32, 48, 0.6);
-    margin: 0 0 var(--space-4);
 }
 
 /* Price — presence a touch above the meta, plainly stated (no /sesión, no
@@ -2632,6 +2624,12 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     color: var(--ink-2);
     margin: var(--space-4) 0 0;
 }
+
+/* --- Acompañamiento (secondary possibility, below the single session) -------
+   Same layout/typography as the other text sections (title = .mm-v2-title,
+   body = .mm-prose) so it doesn't look different. Its secondary weight comes
+   only from the ghost CTA (not the filled primary of the session block) — no
+   cream panel, no price. */
 
 /* --- Responsive ------------------------------------------------------------ */
 

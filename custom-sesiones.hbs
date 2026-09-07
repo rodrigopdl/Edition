@@ -35,7 +35,7 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
         <div class="mm-canvas mm-canvas--narrow">
             <figure class="mm-testimonial__figure mm-ses-testimonial__figure">
                 <blockquote class="mm-testimonial__quote mm-ses-testimonial__quote" id="ses-testimonial-title">
-                    <span class="mm-testimonial__mark" aria-hidden="true">"</span>Salir de una conversación con Rodri es salir con las ideas más ordenadas y con más energía para actuar.
+                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>Salir de una conversación con Rodri es salir con las ideas más ordenadas y con más energía para actuar.
                 </blockquote>
 
                 <figcaption class="mm-testimonial__cite">
@@ -61,7 +61,8 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
                     aria-expanded="false"
                     aria-controls="ses-testimonial-expanded"
                 >
-                    <span class="mm-testimonial__toggle-label">Leer el testimonio completo</span>
+                    <span class="mm-testimonial__toggle-label">Leer testimonio completo</span>
+                    <span class="mm-testimonial__toggle-icon" aria-hidden="true"></span>
                 </button>
 
                 <div class="mm-testimonial__expanded" id="ses-testimonial-expanded" aria-hidden="true">
@@ -107,7 +108,6 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
                 <div class="mm-ses-offer__col mm-ses-offer__col--product">
                     <h3 class="mm-ses-offer__product-title">Una sesión para masticar</h3>
                     <p class="mm-ses-offer__meta">90 minutos <span aria-hidden="true">·</span> uno a uno</p>
-                    <p class="mm-ses-offer__mode">Remoto o presencial en Montevideo</p>
                     <p class="mm-ses-offer__price">USD 149</p>
                     <div class="mm-ses-offer__body">
                         <p>Nos damos tiempo para mirar lo que traigas desde distintos lugares y seguir el hilo de lo que vaya apareciendo.</p>
@@ -126,8 +126,8 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
         <div class="mm-canvas mm-canvas--narrow">
             <h2 class="mm-v2-title" id="ses-formula-title">No vengo solo a <span class="mm-accent">hacer preguntas.</span></h2>
             <div class="mm-prose">
-                <p>A la conversación también traigo lo mío: experiencias, ideas y formas de mirar las cosas que fui construyendo con los años.</p>
-                <p>Cuando creo que algo de eso puede servir, lo pongo sobre la mesa. Puede ser una idea, algo que viví o algo que encontré leyendo y me hizo pensar.</p>
+                <p>A la conversación también traigo lo mío: experiencia, criterio e ideas que fui construyendo con los años.</p>
+                <p>Cuando creo que algo de eso puede servir, lo pongo sobre la mesa. A veces viene de algo que viví, algo que leí o algo que llevo tiempo pensando.</p>
             </div>
         </div>
     </section>
@@ -152,12 +152,31 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
                 <div class="mm-intro__text">
                     <h2 class="mm-v2-title" id="ses-intro-title">Hola, <span class="mm-accent">soy Rodri.</span></h2>
                     <div class="mm-prose mm-prose--intro">
-                        <p>Pasé más de una década en tecnología. Empecé programando y terminé acompañando al CEO de WyeWorks y a otros líderes en decisiones y momentos difíciles.</p>
+                        <p>Pasé más de una década en tecnología. Empecé programando y terminé acompañando al CEO de WyeWorks y a otros líderes en decisiones y momentos desafiantes.</p>
                         <p>Con el tiempo, me fui interesando cada vez más por todo lo que no se resuelve solamente con conocimiento técnico.</p>
                         <p>De ahí nacieron <em>Para masticar</em> y <em>La Bestia</em>.</p>
                         <p>Hoy escribo, doy charlas y acompaño a personas a pensar lo que les importa.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 7. Acompañamiento — posibilidad secundaria, abierta. NO al mismo nivel
+         visual que la sesión: sin precio, sin card, jerarquía menor. --}}
+    <section class="mm-ch-v2-what mm-ses-more" aria-labelledby="ses-more-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <h2 class="mm-v2-title" id="ses-more-title">¿Y si hay algo que pide <span class="mm-accent">más tiempo?</span></h2>
+            <div class="mm-prose">
+                <p>Hay momentos en los que puede servir tener una cabeza más cerca durante un tiempo.</p>
+                <p>También trabajo de esa manera. Si sentís que es lo que necesitás, escribime y lo conversamos.</p>
+            </div>
+            <div class="mm-actions">
+                <a href="#mm-ses-cta"
+                   class="mm-btn mm-btn--ghost js-smooth-scroll mm-ses-more__cta"
+                   data-tipo="acompanamiento">
+                    Quiero conversar sobre un acompañamiento <span aria-hidden="true">↓</span>
+                </a>
             </div>
         </div>
     </section>
@@ -200,13 +219,15 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
     var toggle   = document.querySelector('.mm-ses-testimonial .mm-testimonial__toggle');
     var expanded = document.getElementById('ses-testimonial-expanded');
     var label    = toggle && toggle.querySelector('.mm-testimonial__toggle-label');
+    var icon     = toggle && toggle.querySelector('.mm-testimonial__toggle-icon');
     if (!toggle || !expanded) return;
     toggle.addEventListener('click', function () {
         var isOpen = toggle.getAttribute('aria-expanded') === 'true';
         toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
         expanded.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
         expanded.classList.toggle('is-open', !isOpen);
-        if (label) label.textContent = isOpen ? 'Leer el testimonio completo' : 'Cerrar';
+        if (label) label.textContent = isOpen ? 'Leer testimonio completo' : 'Cerrar testimonio';
+        if (icon) icon.textContent = isOpen ? '' : '↑';
     });
 })();
 </script>
@@ -218,6 +239,21 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
     var form = document.getElementById('mm-ses-form');
     var submit = form && form.querySelector('button[type="submit"]');
     if (submit) submit.textContent = 'Enviar';
+})();
+</script>
+
+{{!-- Acompañamiento CTA: al bajar al formulario, marca la consulta como
+     "Acompañamiento" en el hidden tipo_consulta (mismo form, sin campos nuevos). --}}
+<script>
+(function () {
+    'use strict';
+    var cta   = document.querySelector('.mm-ses-more__cta');
+    var form  = document.getElementById('mm-ses-form');
+    var hidden = form && form.querySelector('input[name="tipo_consulta"]');
+    if (!cta || !hidden) return;
+    cta.addEventListener('click', function () {
+        hidden.value = 'Acompañamiento';
+    });
 })();
 </script>
 

@@ -1946,7 +1946,7 @@ body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
     font-family: var(--font-post-body);
     font-style: italic;
     font-size: clamp(2.05rem, 2.3vw, 2.6rem);
-    line-height: 1.5;
+    line-height: 1.55;
     letter-spacing: -0.005em;
     color: var(--ink);
     margin: 0 auto var(--space-8);
@@ -1955,19 +1955,24 @@ body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
     position: relative;
     text-align: left;
     text-wrap: pretty;
-    max-width: 60ch;
+    max-width: 52ch;
 }
 
+/* Editorial opening quote — an inline accent that belongs to the quote, not a
+   floating decoration. Serif italic in accent blue, a bit larger than the text
+   but not competing with it. Inline flow keeps it glued to the first words and
+   is naturally robust on mobile. A small negative left margin lets it sit just
+   ahead of the first line without opening a gap. */
 .mm-v2 .mm-testimonial__mark {
-    font-family: var(--font-post-body);
-    font-style: normal;
-    font-size: 1.6em;
-    font-weight: 700;
+    font-family: 'Spectral', Georgia, serif;
+    font-style: italic;
+    font-size: 1.9em;
+    font-weight: 600;
     color: var(--brand);
     line-height: 0;
-    vertical-align: -0.18em;
-    margin-right: 0.04em;
-    display: inline-block;
+    vertical-align: -0.32em;
+    margin-right: 0.06em;
+    margin-left: -0.06em;
 }
 
 .mm-v2 .mm-testimonial__cite {
@@ -2084,26 +2089,44 @@ body.homepage-mm-v2 .mm-v2 .mm-hero__lede {
 }
 
 /* Toggle — outline button con presencia clara */
+/* Solid, high-contrast button — cream paper surface with navy text, from the
+   existing palette. Clearly visible against the dark testimonial background,
+   secondary to the hero CTA but impossible to miss. Extra top margin separates
+   it from José's signature (cita → firma → espacio → CTA). */
 .mm-v2 .mm-testimonial__toggle {
-    display: inline-block;
-    background: rgba(82, 113, 255, 0.08);
-    border: 1px solid rgba(82, 113, 255, 0.55);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #f1ece2;
+    color: var(--ink-on-paper);
+    border: 0;
     border-radius: 3px;
     cursor: pointer;
-    padding: 0.9rem 2rem;
+    padding: 1.2rem 2.4rem;
     margin-top: var(--space-6);
-    color: var(--brand);
     font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     text-decoration: none;
-    transition: border-color 0.2s ease, background 0.2s ease;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .mm-v2 .mm-testimonial__toggle:hover {
-    border-color: var(--brand);
-    background: rgba(82, 113, 255, 0.14);
+    background: #fbf6e8;
+    transform: translateY(-1px);
+}
+
+.mm-v2 .mm-testimonial__toggle-icon {
+    font-size: 0.95em;
+    line-height: 1;
+}
+
+/* The ↑ icon only exists in the open state; hide the empty span when closed so
+   the button gap doesn't leave a trailing space after the label. */
+.mm-v2 .mm-testimonial__toggle:not([aria-expanded="true"]) .mm-testimonial__toggle-icon {
+    display: none;
 }
 
 /* Expanded block — ocupa el ancho completo del figure para no quedar

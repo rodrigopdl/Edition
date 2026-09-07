@@ -95,7 +95,7 @@
         <div class="mm-canvas">
             <figure class="mm-testimonial__figure">
                 <blockquote class="mm-testimonial__quote" id="testimonial-title">
-                    <span class="mm-testimonial__mark" aria-hidden="true">"</span>Salir de una conversación con Rodri es salir con las ideas más ordenadas y con más energía para actuar, aunque él no te haya dicho qué hacer.
+                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>Salir de una conversación con Rodri es salir con las ideas más ordenadas y con más energía para actuar, aunque él no te haya dicho qué hacer.
                 </blockquote>
 
                 <figcaption class="mm-testimonial__cite">
@@ -121,7 +121,8 @@
                     aria-expanded="false"
                     aria-controls="mm-testimonial-expanded"
                 >
-                    <span class="mm-testimonial__toggle-label">Leer el testimonio completo</span>
+                    <span class="mm-testimonial__toggle-label">Leer testimonio completo</span>
+                    <span class="mm-testimonial__toggle-icon" aria-hidden="true"></span>
                 </button>
 
                 {{!-- Testimonio expandible — va después del toggle para no quedar bajo él --}}
@@ -258,6 +259,7 @@
     var toggle   = document.querySelector('.mm-testimonial__toggle');
     var expanded = document.getElementById('mm-testimonial-expanded');
     var label    = toggle && toggle.querySelector('.mm-testimonial__toggle-label');
+    var icon     = toggle && toggle.querySelector('.mm-testimonial__toggle-icon');
 
     if (toggle && expanded) {
         toggle.addEventListener('click', function () {
@@ -265,7 +267,8 @@
             toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
             expanded.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
             expanded.classList.toggle('is-open', !isOpen);
-            if (label) label.textContent = isOpen ? 'Leer el testimonio completo' : 'Cerrar testimonio';
+            if (label) label.textContent = isOpen ? 'Leer testimonio completo' : 'Cerrar testimonio';
+            if (icon) icon.textContent = isOpen ? '' : '↑';
         });
     }
 })();

@@ -15,7 +15,7 @@ Parameters (Handlebars hash args):
                           "equipo" → "El Viaje"
                           "lider"  → "Acompañamiento"
                           "charla" → "Una charla para mi equipo"
-                          "sesion" → "Sesión para masticar"
+                          "sesion" → "Sesiones para masticar"
 
     origen              String. Value for the hidden `origen` field. Defaults
                         to "home". Pass "viaje", "lideres", etc. so leads
@@ -56,7 +56,7 @@ selectors). Two instances on the same page would collide.
         {{else match tipo_predefinido "charla"}}
             <input type="hidden" name="tipo_consulta" value="Charla para mi equipo">
         {{else match tipo_predefinido "sesion"}}
-            <input type="hidden" name="tipo_consulta" value="Sesión para masticar">
+            <input type="hidden" name="tipo_consulta" value="Sesiones para masticar">
         {{/match}}
     {{/unless}}
 
@@ -112,8 +112,8 @@ selectors). Two instances on the same page would collide.
                     <span>Charla para mi equipo</span>
                 </label>
                 <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Sesión para masticar">
-                    <span>Sesión para masticar</span>
+                    <input type="radio" name="tipo_consulta" value="Sesiones para masticar">
+                    <span>Sesiones para masticar</span>
                 </label>
                 <label class="mm-home-contact__choice-option">
                     <input type="radio" name="tipo_consulta" value="El Viaje">
@@ -171,10 +171,10 @@ selectors). Two instances on the same page would collide.
                 'capacitacion':   'Charla para mi equipo',
                 'capacitación':   'Charla para mi equipo',
                 'equipo':         'Charla para mi equipo',
-                'sesion':         'Sesión para masticar',
-                'sesión':         'Sesión para masticar',
-                'lider':          'Sesión para masticar',
-                'líder':          'Sesión para masticar',
+                'sesion':         'Sesiones para masticar',
+                'sesión':         'Sesiones para masticar',
+                'lider':          'Sesiones para masticar',
+                'líder':          'Sesiones para masticar',
                 'viaje':          'El Viaje',
                 'masticada':      'El Viaje'
             };
