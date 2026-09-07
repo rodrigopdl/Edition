@@ -313,42 +313,93 @@ body:has(.mm-lib),
 }
 
 /* --- 6) Conseguí La Bestia ------------------------------------------ */
+/* Section: navy around a centered cream panel (same grammar as the concrete
+   blocks in /sesiones and /charlas). The panel is where the page moves from
+   talking about the book to showing how to get it. */
 .mm-lib .mm-lib-buy {
     padding-block: var(--section-py);
     background: var(--surface-0);
     position: relative;
 }
 
-.mm-lib .mm-lib-buy::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(1160px, calc(100% - 4rem));
-    height: 1px;
-    background: rgba(244, 241, 234, 0.06);
+/* Cream panel — resting on the navy, not a full-bleed band. Title full-width,
+   then two equal columns below. */
+/* Max-width a touch tighter than canvas--narrow so the content gains density,
+   still with navy visible on both sides. */
+.mm-lib .mm-lib-buy__panel {
+    background: #f1ece2;
+    color: var(--ink-on-paper);
+    border-radius: 2px;
+    max-width: 720px;
+    margin-inline: auto;
+    padding: clamp(2.4rem, 3.6vw, 3.6rem) clamp(2.6rem, 4.5vw, 4rem);
 }
 
-.mm-lib .mm-lib-buy .mm-section-header {
+.mm-lib .mm-lib-buy__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 2.6vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink-on-paper);
+    margin: 0 0 var(--space-5);
     text-align: center;
-    margin-bottom: var(--space-8);
 }
 
+/* Each column is treated as a small grid with shared vertical zones:
+   header → format/price info → CTA → (extra). The options grid owns the row
+   tracks; each channel is a subgrid so both columns share the same row heights.
+   Result: URUGUAY/AMAZON headers align, and both CTAs align, regardless of the
+   differing intermediate content. The extra row holds Uruguay's email and
+   Amazon's "otras tiendas" with no forced equivalence. */
 .mm-lib .mm-lib-buy__options {
-    max-width: 680px;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(4rem, 8vw, 9rem);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto;
+    gap: clamp(2.4rem, 4vw, 4rem);
+    align-items: start;
+}
+
+/* Subtle vertical divider between the two channels — hairline in ink. */
+.mm-lib .mm-lib-buy__channel + .mm-lib-buy__channel {
+    border-left: 1px solid rgba(29, 32, 48, 0.14);
+    padding-left: clamp(2.4rem, 4vw, 4rem);
 }
 
 .mm-lib .mm-lib-buy__channel {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: 1 / span 4;
+    row-gap: var(--space-2);
+    justify-items: center;
     text-align: center;
+}
+
+/* Row 1: header. Row 2: format/price info. Row 3: CTA. Row 4: extra. */
+.mm-lib .mm-lib-buy__channel-label {
+    grid-row: 1;
+}
+
+/* Info zone (Libro impreso + $590, or the Kindle/Papel line) fills row 2 and
+   stacks its own contents, centered vertically so short and tall info blocks
+   both keep the CTA on the shared row 3. */
+.mm-lib .mm-lib-buy__info {
+    grid-row: 2;
+    align-self: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--space-2);
+}
+
+.mm-lib .mm-lib-buy__cta {
+    grid-row: 3;
+    align-self: end;
+}
+
+.mm-lib .mm-lib-buy__email,
+.mm-lib .mm-lib-buy__intl-wrap {
+    grid-row: 4;
 }
 
 .mm-lib .mm-lib-buy__channel-label {
@@ -358,7 +409,7 @@ body:has(.mm-lib),
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--brand);
-    margin: 0;
+    margin: 0 0 var(--space-1);
     line-height: 1;
 }
 
@@ -366,7 +417,7 @@ body:has(.mm-lib),
 .mm-lib .mm-lib-buy__channel-format {
     font-family: var(--font-display);
     font-size: clamp(1.4rem, 1.2vw, 1.55rem);
-    color: var(--ink-3);
+    color: rgba(29, 32, 48, 0.6);
     margin: 0;
     line-height: 1;
 }
@@ -375,8 +426,8 @@ body:has(.mm-lib),
 .mm-lib .mm-lib-buy__channel-price {
     font-family: var(--font-display);
     font-size: clamp(1.8rem, 1.7vw, 2.1rem);
-    font-weight: 600;
-    color: var(--ink);
+    font-weight: 700;
+    color: var(--ink-on-paper);
     margin: 0;
     line-height: 1;
 }
@@ -385,7 +436,7 @@ body:has(.mm-lib),
 .mm-lib .mm-lib-buy__channel-formats {
     font-family: var(--font-display);
     font-size: clamp(1.4rem, 1.3vw, 1.6rem);
-    color: var(--ink-2);
+    color: rgba(29, 32, 48, 0.75);
     margin: 0;
     display: flex;
     align-items: center;
@@ -396,39 +447,40 @@ body:has(.mm-lib),
 }
 
 .mm-lib .mm-lib-buy__price-value {
-    color: var(--ink);
-    font-weight: 600;
+    color: var(--ink-on-paper);
+    font-weight: 700;
 }
 
-/* Botón: ancho natural del contenido, no full-width */
+/* Botón: ancho natural del contenido, un poco más chico que el estándar para
+   que quede proporcionado al contenido compacto del recuadro. Its vertical
+   placement is handled by the subgrid (row 3), so no margin-top here. */
 .mm-lib .mm-lib-buy__cta {
-    margin-top: var(--space-4);
     width: auto;
+    height: 4.6rem;
     padding-left: 1.8rem;
     padding-right: 1.8rem;
+    font-size: 1.4rem;
 }
 
 .mm-lib .mm-lib-buy__email {
     font-family: var(--font-display);
     font-size: 1.3rem;
-    color: rgba(244, 241, 234, 0.55);
+    color: rgba(29, 32, 48, 0.5);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     padding-bottom: 1px;
-    margin-top: calc(-1 * var(--space-1));
+    margin-top: var(--space-2);
     transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .mm-lib .mm-lib-buy__email:hover {
-    color: var(--ink-2);
-    border-bottom-color: rgba(244, 241, 234, 0.35);
+    color: var(--ink-on-paper);
+    border-bottom-color: rgba(29, 32, 48, 0.35);
 }
 
+/* "Otras tiendas de Amazon" — sits inside the Amazon column, under its button. */
 .mm-lib .mm-lib-buy__intl-wrap {
-    max-width: 680px;
-    margin: var(--space-8) auto 0;
-    padding-top: 0;
-    border-top: 0;
+    margin: var(--space-4) 0 0;
     text-align: center;
 }
 
@@ -438,8 +490,8 @@ body:has(.mm-lib),
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ink-3);
-    margin: 0 0 var(--space-4);
+    color: rgba(29, 32, 48, 0.5);
+    margin: 0 0 var(--space-2);
     line-height: 1;
 }
 
@@ -450,7 +502,7 @@ body:has(.mm-lib),
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: var(--space-3) var(--space-5);
+    gap: var(--space-2) var(--space-4);
 }
 
 .mm-lib .mm-lib-buy__intl li {
@@ -461,7 +513,7 @@ body:has(.mm-lib),
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--ink-2);
+    color: rgba(29, 32, 48, 0.75);
     font-family: var(--font-display);
     font-size: 1.35rem;
     font-weight: 600;
@@ -520,10 +572,63 @@ body:has(.mm-lib),
         margin-bottom: var(--space-5);
     }
 
+    /* Stack the two channels; the vertical divider becomes a horizontal one.
+       Drop the subgrid row-alignment (only meaningful side by side) so each
+       channel flows naturally when stacked. */
     .mm-lib .mm-lib-buy__options {
         grid-template-columns: 1fr;
-        gap: var(--space-9);
-        max-width: 320px;
+        grid-template-rows: none;
+        gap: 0;
+    }
+
+    .mm-lib .mm-lib-buy__channel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-3);
+        grid-row: auto;
+        min-width: 0;
+    }
+
+    .mm-lib .mm-lib-buy__channel-label,
+    .mm-lib .mm-lib-buy__info,
+    .mm-lib .mm-lib-buy__cta,
+    .mm-lib .mm-lib-buy__email,
+    .mm-lib .mm-lib-buy__intl-wrap {
+        grid-row: auto;
+    }
+
+    /* Long CTA labels ("Escribime para conseguirlo") must not overflow the
+       narrow column. Make the button a full-width block so it can wrap its
+       label and stay centered instead of hugging one edge. */
+    .mm-lib .mm-lib-buy__cta {
+        display: flex;
+        width: 100%;
+        max-width: 34rem;
+        align-self: center;
+        height: auto;
+        min-height: 4.6rem;
+        padding-left: 1.4rem;
+        padding-right: 1.4rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.25;
+    }
+
+    /* Keep the email link from overflowing on very narrow screens. */
+    .mm-lib .mm-lib-buy__email {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .mm-lib .mm-lib-buy__channel + .mm-lib-buy__channel {
+        border-left: 0;
+        padding-left: 0;
+        margin-top: clamp(2.8rem, 7vw, 3.6rem);
+        padding-top: clamp(2.8rem, 7vw, 3.6rem);
+        border-top: 1px solid rgba(29, 32, 48, 0.14);
     }
 
     .mm-lib .mm-lib-buy__intl-wrap {
@@ -573,13 +678,11 @@ body:has(.mm-lib),
 
     .mm-lib .mm-lib-buy__channel-formats {
         font-size: 1.5rem;
-        flex-direction: column;
-        gap: var(--space-2);
     }
 
     .mm-lib .mm-lib-buy__intl {
         flex-direction: column;
-        gap: var(--space-3);
+        gap: var(--space-2);
     }
 }
 

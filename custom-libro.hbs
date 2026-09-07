@@ -145,68 +145,72 @@ Template Name: La Bestia
         </div>
     </section>
 
-    {{!-- 6. Conseguí La Bestia --}}
+    {{!-- 6. Conseguí La Bestia — recuadro crema (misma gramática que los bloques
+         concretos de /sesiones y /charlas): navy alrededor, crema para aterrizar
+         la propuesta en cómo conseguir el libro. --}}
     <section class="mm-lib-buy" id="mm-lib-buy" aria-labelledby="lib-buy-title">
-        <div class="mm-canvas">
-            <header class="mm-section-header">
-                <h2 class="mm-v2-title" id="lib-buy-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-lib-buy__panel">
+                <h2 class="mm-lib-buy__title" id="lib-buy-title">
                     Conseguí <span class="mm-accent">La Bestia.</span>
                 </h2>
-            </header>
 
-            <div class="mm-lib-buy__options">
+                <div class="mm-lib-buy__options">
 
-                {{!-- Uruguay: compra local --}}
-                <div class="mm-lib-buy__channel">
-                    <p class="mm-lib-buy__channel-label">Uruguay</p>
-                    <p class="mm-lib-buy__channel-format">Libro impreso</p>
-                    <p class="mm-lib-buy__channel-price">$590</p>
-                    <a href="mailto:rodri@paramasticar.com?subject=La%20Bestia"
-                       class="mm-btn mm-btn--primary mm-lib-buy__cta">
-                        Escribime para conseguirlo
-                    </a>
-                    <a href="mailto:rodri@paramasticar.com" class="mm-lib-buy__email">rodri@paramasticar.com</a>
+                    {{!-- Uruguay: compra local --}}
+                    <div class="mm-lib-buy__channel">
+                        <p class="mm-lib-buy__channel-label">Uruguay</p>
+                        <div class="mm-lib-buy__info">
+                            <p class="mm-lib-buy__channel-format">Libro impreso</p>
+                            <p class="mm-lib-buy__channel-price">$590</p>
+                        </div>
+                        <a href="mailto:rodri@paramasticar.com?subject=La%20Bestia"
+                           class="mm-btn mm-btn--primary mm-lib-buy__cta">
+                            Escribime para conseguirlo
+                        </a>
+                    </div>
+
+                    {{!-- Amazon --}}
+                    <div class="mm-lib-buy__channel">
+                        <p class="mm-lib-buy__channel-label">Amazon</p>
+                        <div class="mm-lib-buy__info">
+                            <p class="mm-lib-buy__channel-formats">
+                                <span>Kindle <span class="mm-lib-buy__price-value">USD 4.99</span></span>
+                                <span aria-hidden="true">·</span>
+                                <span>Papel <span class="mm-lib-buy__price-value">USD 9.99</span></span>
+                            </p>
+                        </div>
+                        <a href="https://a.co/d/07Idzscm"
+                           class="mm-btn mm-btn--primary mm-lib-buy__cta"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Comprar en Amazon
+                        </a>
+
+                        {{!-- Otras tiendas: asociado a la columna de Amazon --}}
+                        <div class="mm-lib-buy__intl-wrap">
+                            <p class="mm-lib-buy__intl-label">Otras tiendas de Amazon</p>
+                            <ul class="mm-lib-buy__intl">
+                                <li>
+                                    <a href="https://amzn.eu/d/0j6X0j8I" target="_blank" rel="noopener noreferrer">
+                                        Amazon España <span aria-hidden="true">→</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://amzn.eu/d/02L1Epna" target="_blank" rel="noopener noreferrer">
+                                        Amazon UK <span aria-hidden="true">→</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://a.co/d/0dzwvAtm" target="_blank" rel="noopener noreferrer">
+                                        Amazon México <span aria-hidden="true">→</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
-
-                {{!-- Amazon --}}
-                <div class="mm-lib-buy__channel">
-                    <p class="mm-lib-buy__channel-label">Amazon</p>
-                    <p class="mm-lib-buy__channel-formats">
-                        <span>Kindle <span class="mm-lib-buy__price-value">USD 4.99</span></span>
-                        <span aria-hidden="true">·</span>
-                        <span>Papel <span class="mm-lib-buy__price-value">USD 9.99</span></span>
-                    </p>
-                    <a href="https://a.co/d/07Idzscm"
-                       class="mm-btn mm-btn--primary mm-lib-buy__cta"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Comprar en Amazon
-                    </a>
-                </div>
-
-            </div>
-
-            {{!-- Internacional: va debajo de ambas opciones --}}
-            <div class="mm-lib-buy__intl-wrap">
-                <p class="mm-lib-buy__intl-label">Otras tiendas de Amazon</p>
-                <ul class="mm-lib-buy__intl">
-                    <li>
-                        <a href="https://amzn.eu/d/0j6X0j8I" target="_blank" rel="noopener noreferrer">
-                            Amazon España <span aria-hidden="true">→</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://amzn.eu/d/02L1Epna" target="_blank" rel="noopener noreferrer">
-                            Amazon UK <span aria-hidden="true">→</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://a.co/d/0dzwvAtm" target="_blank" rel="noopener noreferrer">
-                            Amazon México <span aria-hidden="true">→</span>
-                        </a>
-                    </li>
-                </ul>
-
             </div>
         </div>
     </section>

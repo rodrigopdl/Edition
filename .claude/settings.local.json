@@ -111,7 +111,10 @@
       "Bash(grep -o \"[^,{}]*\\\\.mm-hero__title[^,{]*{[^}]*font-size[^}]*}\" assets/built/screen.css)",
       "Bash(printf '\\\\n/* cache-bust probe */\\\\n')",
       "Bash(node -e ' *)",
-      "Bash(awk -F: '$1 > 2300 && $1 < 2360')"
+      "Bash(awk -F: '$1 > 2300 && $1 < 2360')",
+      "Bash(awk 'NR<=534 && /@media/ {ln=NR; q=$0} END{print ln\": \"q}' assets/css/site/libro.css)",
+      "Bash(awk 'NR>=613 && NR<=720 && /mm-lib-buy/' assets/css/site/libro.css)",
+      "Bash(awk -F: '$1>=613')"
     ]
   }
 }
