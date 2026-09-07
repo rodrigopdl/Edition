@@ -7,11 +7,11 @@
         <div class="mm-canvas mm-canvas--wide">
             <div class="mm-hero__inner">
                 <h1 class="mm-hero__title" id="hero-title">
-                    Te ayudo a<br><span class="mm-accent">pensar mejor.</span>
+                    Te ayudo a <span class="mm-accent">pensar mejor.</span>
                 </h1>
 
                 <div class="mm-hero__lede">
-                    <p>A ordenar lo que tenés en la cabeza, ver lo que quizás no estás viendo y pensar qué hacer con lo que tenés por delante.</p>
+                    <p>A ordenar lo que tenés en la cabeza, ver lo que no estás viendo y decidir qué hacer con lo que tenés por delante.</p>
                 </div>
 
                 <div class="mm-actions mm-actions--center">
@@ -178,27 +178,50 @@
             <div class="mm-bocados__panel">
                 <div class="mm-bocados__row">
                     <div class="mm-bocados__text">
-                        <h2 class="mm-bocados__title" id="bocados-title">Bocados.</h2>
+                        <h2 class="mm-bocados__title" id="bocados-title">Bocados para masticar.</h2>
                         <p class="mm-bocados__lede">
                             Cada miércoles comparto un texto corto para dejarte pensando.
                         </p>
-                        <div class="mm-actions">
-                            {{#get "posts" limit="1" as |latest|}}
-                                {{#foreach latest}}
-                                    <a href="{{url}}" class="mm-btn mm-btn--ghost">Leer el último bocado</a>
-                                {{/foreach}}
-                            {{else}}
+
+                        {{!-- Miniatura del último bocado: imagen + título + excerpt.
+                             Toda la tarjeta es un link al post. --}}
+                        {{#get "posts" limit="1" as |latest|}}
+                            {{#foreach latest}}
+                                <a href="{{url}}" class="mm-bocados__latest">
+                                    {{#if feature_image}}
+                                        <span class="mm-bocados__latest-media">
+                                            <img
+                                                src="{{img_url feature_image size="s"}}"
+                                                srcset="{{img_url feature_image size="s"}} 1x, {{img_url feature_image size="m"}} 2x"
+                                                alt="{{title}}"
+                                                class="mm-bocados__latest-img"
+                                                loading="lazy"
+                                                width="160"
+                                                height="160"
+                                            >
+                                        </span>
+                                    {{/if}}
+                                    <span class="mm-bocados__latest-body">
+                                        <span class="mm-bocados__latest-eyebrow">Último bocado</span>
+                                        <span class="mm-bocados__latest-title">{{title}}</span>
+                                        <span class="mm-bocados__latest-excerpt">{{excerpt words="18"}}</span>
+                                    </span>
+                                </a>
+                            {{/foreach}}
+                        {{else}}
+                            <div class="mm-actions">
                                 <a href="/bocados/" class="mm-btn mm-btn--ghost">Leer bocados</a>
-                            {{/get}}
-                        </div>
+                            </div>
+                        {{/get}}
                     </div>
 
                     {{#if @site.members_enabled}}
                         {{#unless @site.members_invite_only}}
                             {{#unless @member}}
                                 <form class="mm-bocados__form" data-members-form>
+                                    <h3 class="mm-bocados__form-title">Un bocado, cada miércoles.</h3>
+                                    <p class="mm-bocados__form-lede">Dejame tu mail y te mando el próximo.</p>
                                     <label for="mm-bocados-email" class="mm-visually-hidden">Tu email</label>
-                                    <p class="mm-bocados__form-label">El próximo llega el miércoles</p>
                                     <div class="mm-bocados__field">
                                         <input
                                             id="mm-bocados-email"
@@ -210,7 +233,7 @@
                                             required="true"
                                         >
                                         <button class="mm-bocados__btn" type="submit" aria-label="Suscribirse a Bocados">
-                                            Recibir los bocados
+                                            Quiero recibirlos
                                         </button>
                                     </div>
                                     <p class="mm-bocados__note">Sin spam. Te das de baja cuando quieras.</p>

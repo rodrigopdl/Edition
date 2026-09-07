@@ -2304,21 +2304,118 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
     background: rgba(29, 32, 48, 0.04);
 }
 
+/* --- Último bocado: mini-card (thumbnail + title + excerpt) ----------------
+   A quiet editorial link on the cream panel: small square thumbnail brings the
+   image's color, text sits beside it. The whole card is clickable. */
+.mm-v2 .mm-bocados__latest {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.4rem, 2vw, 2rem);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
+}
+
+.mm-v2 .mm-bocados__latest:hover {
+    transform: translateY(-1px);
+}
+
+.mm-v2 .mm-bocados__latest-media {
+    flex-shrink: 0;
+    width: clamp(6.4rem, 8vw, 8.4rem);
+    height: clamp(6.4rem, 8vw, 8.4rem);
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgba(29, 32, 48, 0.06);
+    box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.35);
+}
+
+.mm-v2 .mm-bocados__latest-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.mm-v2 .mm-bocados__latest:hover .mm-bocados__latest-img {
+    transform: scale(1.04);
+}
+
+.mm-v2 .mm-bocados__latest-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 0;
+}
+
+.mm-v2 .mm-bocados__latest-eyebrow {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brand);
+}
+
+.mm-v2 .mm-bocados__latest-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 1.9vw, 1.95rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink-on-paper);
+    /* clamp to 2 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.mm-v2 .mm-bocados__latest:hover .mm-bocados__latest-title {
+    text-decoration: underline;
+    text-decoration-color: rgba(29, 32, 48, 0.3);
+    text-underline-offset: 3px;
+}
+
+.mm-v2 .mm-bocados__latest-excerpt {
+    font-family: var(--font-post-body);
+    font-size: 1.4rem;
+    line-height: 1.45;
+    color: #6a6d7c;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Explicit margins (no flex gap) so heading → lede → field → note read as one
+   tight, deliberate unit. */
 .mm-v2 .mm-bocados__form {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
 }
 
-.mm-v2 .mm-bocados__form-label {
-    margin: 0 0 var(--space-3);
+/* Subscription heading — a clear heading (not a spaced-out eyebrow) so it reads
+   as a real second action of the block. */
+.mm-v2 .mm-bocados__form-title {
     font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #6a6d7c;
-    line-height: 1;
+    font-size: clamp(2rem, 2.3vw, 2.4rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink-on-paper);
+    margin: 0 0 0.6rem;
+}
+
+/* Explanation right under the heading — tight to it and easy to read. */
+.mm-v2 .mm-bocados__form-lede {
+    font-family: var(--font-post-body);
+    font-size: 1.55rem;
+    line-height: 1.45;
+    color: #4a4d5c;
+    margin: 0 0 var(--space-4);
+    max-width: 40ch;
 }
 
 .mm-v2 .mm-bocados__field {
