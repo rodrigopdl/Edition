@@ -143,7 +143,6 @@
 
             <nav class="gh-head-menu">
                 {{navigation}}
-                <a class="gh-nav-hablemos{{#is "home"}} js-smooth-scroll{{/is}}" href="{{#is "home"}}#mm-home-contact{{else}}/#mm-home-contact{{/is}}">Hablemos</a>
                 {{#unless @site.members_enabled}}
                     {{#match @custom.navigation_layout "Stacked"}}
                         <button class="gh-search gh-icon-btn search-trigger" aria-label="Search this site">{{> "icons/search"}}</button>
