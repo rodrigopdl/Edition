@@ -1,0 +1,281 @@
+{{!< default}}
+{{!--
+Template Name: Viaje (v2)
+
+Versión alternativa, más simple y humana, de la landing de El Viaje.
+No reemplaza a custom-viaje.hbs: es un template aparte, seleccionable desde
+Ghost para comparar ambas versiones. Todo el CSS propio vive scopeado bajo
+.mm-vj (assets/css/site/viaje-v2.css). Reutiliza el sistema .mm-v2:
+tokens, .mm-canvas, .mm-btn, .mm-actions, .mm-v2-title, .mm-accent, el
+componente .mm-testimonial y el bloque cream de sesiones/charlas/bestia.
+--}}
+
+<main class="homepage-main mm-v2 mm-vj"
+      data-meta-description="El Viaje: un recorrido de varias semanas para que un equipo se conozca mejor y encuentre mejores formas de liderarse y trabajar juntos.">
+
+    {{!-- HERO --}}
+    <section class="mm-v2-hero mm-vj-hero" aria-labelledby="vj-title">
+        <div class="mm-canvas mm-canvas--wide">
+            <div class="mm-hero__inner">
+                <h1 class="mm-hero__title mm-vj-hero__title" id="vj-title">
+                    Un recorrido para <span class="mm-accent">conocerse como equipo.</span>
+                </h1>
+                <div class="mm-hero__lede mm-vj-hero__lede">
+                    <p>Un mes para frenar, conversar y encontrar mejores formas de liderarse y trabajar juntos.</p>
+                </div>
+                <div class="mm-actions mm-actions--center">
+                    <a href="#mm-vj-how" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">
+                        Conocé cómo funciona
+                        <span aria-hidden="true">↓</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 2. Conversaciones que el día a día no deja tener --}}
+    <section class="mm-vj-block" aria-labelledby="vj-talk-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <h2 class="mm-v2-title" id="vj-talk-title">
+                Hay conversaciones que el día a día <span class="mm-accent">no deja tener.</span>
+            </h2>
+            <div class="mm-prose mm-vj-prose">
+                <p>Entre reuniones, mensajes, pendientes y problemas que hay que resolver, podemos pasar meses trabajando juntos sin hablar de algunas cosas.</p>
+                <p>Qué nos pasa cuando algo se pone difícil. Por qué algunas situaciones nos sacan. Qué efecto tenemos en los demás. Qué necesitamos unos de otros. Qué tipo de equipo queremos ser.</p>
+                <p>El Viaje abre un espacio para frenar, poner esas cosas sobre la mesa y conocernos un poco más.</p>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 3. Algunas cosas necesitan tiempo (corazón de la landing) --}}
+    <section class="mm-vj-rhythm" id="mm-vj-how" aria-labelledby="vj-time-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <h2 class="mm-v2-title" id="vj-time-title">
+                Algunas cosas necesitan <span class="mm-accent">tiempo.</span>
+            </h2>
+            <div class="mm-prose mm-vj-prose">
+                <p>Una buena charla puede dejarte pensando.</p>
+                <p>Pero al día siguiente aparecen una reunión, un mensaje, algo urgente. Y esa idea que ayer parecía importante empieza a quedar lejos.</p>
+                <p>Por eso El Viaje dura un mes.</p>
+                <p>Empezamos con una charla. Unos días después llega un bocado: una historia corta, una idea o una pregunta que vuelve a traer algo de lo que hablamos. Más adelante llega otro. Y en algún momento nos volvemos a encontrar para masticar juntos.</p>
+            </div>
+        </div>
+
+        {{!-- Ritmo del recorrido: momento visual grande, secuencia tipográfica.
+             Ancho propio, más aire — no timeline con cards. --}}
+        <div class="mm-canvas mm-vj-seq-wrap">
+            <p class="mm-vj-seq" aria-label="El ritmo del recorrido: una charla inicial, después bocados, más adelante una masticada, y el proceso continúa">
+                <span class="mm-vj-seq__step mm-vj-seq__step--key">Charla</span>
+                <span class="mm-vj-seq__arrow" aria-hidden="true">→</span>
+                <span class="mm-vj-seq__step">Bocado</span>
+                <span class="mm-vj-seq__arrow" aria-hidden="true">→</span>
+                <span class="mm-vj-seq__step">Bocado</span>
+                <span class="mm-vj-seq__arrow" aria-hidden="true">→</span>
+                <span class="mm-vj-seq__step mm-vj-seq__step--key">Masticada</span>
+                <span class="mm-vj-seq__arrow" aria-hidden="true">→</span>
+                <span class="mm-vj-seq__step">Bocados</span>
+                <span class="mm-vj-seq__arrow" aria-hidden="true">→</span>
+                <span class="mm-vj-seq__step mm-vj-seq__step--dots" aria-hidden="true">…</span>
+            </p>
+        </div>
+
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-prose mm-vj-prose">
+                <p>Para entonces ya pasaron cosas. Alguien se acordó de una historia en medio de una reunión. Otro se descubrió reaccionando como siempre. Algo de lo que hablamos apareció en el momento menos pensado.</p>
+                <p>Y cuando nos volvemos a encontrar, tenemos otras cosas para masticar.</p>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 4. Nos sentamos a masticar (+ foto + testimonio Joaquín) --}}
+    <section class="mm-vj-block mm-vj-chew" aria-labelledby="vj-chew-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <h2 class="mm-v2-title" id="vj-chew-title">
+                Y empezamos a <span class="mm-accent">tirar del hilo.</span>
+            </h2>
+            <div class="mm-prose mm-vj-prose">
+                <p>En las masticadas nos sentamos en ronda.</p>
+                <p>Alguien cuenta algo que le pasó esa semana. Otro se reconoce en la historia. Aparece una situación que varios estaban viviendo sin saber que a los demás les pasaba algo parecido.</p>
+                <p>También vuelven cosas de la charla. Una idea que quedó dando vueltas. Una pregunta que nadie había terminado de responder.</p>
+                <p>Yo estoy ahí metido en la conversación. Escucho, pregunto y, cuando creo que puede servir, pongo alguna historia o idea sobre la mesa.</p>
+                <p>La conversación va llevando a lugares a los que una reunión de trabajo difícilmente llegaría.</p>
+                <p>Y en el camino, nos vamos conociendo un poco más.</p>
+            </div>
+        </div>
+
+        <div class="mm-canvas mm-vj-chew__photo">
+            <figure class="mm-vj-chew__figure">
+                <div class="mm-vj-frame">
+                    <img
+                        src="{{asset "images/masticada-fernandez.jpg"}}"
+                        alt="Ronda de una masticada en Estudio Fernández Secco"
+                        class="mm-vj-frame__img"
+                        loading="lazy"
+                    >
+                </div>
+            </figure>
+        </div>
+
+        <div class="mm-canvas mm-canvas--narrow">
+            <figure class="mm-testimonial__figure mm-vj-quote">
+                <blockquote class="mm-testimonial__quote">
+                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>La masticada con Rodrigo fue una experiencia transformadora para nuestro equipo. Se generó un espacio para compartir experiencias muy enriquecedoras sobre La Bestia que permitieron potenciar la forma en la que nos complementamos y establecer un marco de referencia común para el futuro. A través de las reflexiones de Rodrigo, cada uno del equipo pudo verse reflejado en distintas situaciones personales y compartir sus perspectivas. El equipo salió súper motivado y más conectado.
+                </blockquote>
+                <figcaption class="mm-testimonial__cite">
+                    <div class="mm-testimonial__avatar">
+                        <img
+                            src="{{asset "images/joaco.jpeg"}}"
+                            alt="Joaquín Fernández, Socio en Fernández Secco &amp; Asociados"
+                            class="mm-testimonial__avatar-img"
+                            width="120"
+                            height="120"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="mm-testimonial__person">
+                        <span class="mm-testimonial__name">Joaquín Fernández</span>
+                        <span class="mm-testimonial__role">Socio en Fernández Secco &amp; Asociados</span>
+                    </div>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    {{!-- 5. Cada equipo hace su propio viaje — bloque cream ancho, con la info
+         práctica escaneable a la derecha. Misma gramática que sesiones/charlas
+         /bestia, pero con presencia de sección concreta. --}}
+    <section class="mm-vj-offer" aria-labelledby="vj-fit-title">
+        <div class="mm-canvas">
+            <div class="mm-vj-offer__panel">
+                <div class="mm-vj-offer__grid">
+
+                    {{!-- Izquierda: contexto --}}
+                    <div class="mm-vj-offer__context">
+                        <h2 class="mm-vj-offer__title" id="vj-fit-title">
+                            Cada equipo hace <span class="mm-accent">su propio viaje.</span>
+                        </h2>
+                        <div class="mm-vj-offer__body">
+                            <p>Antes de empezar, conversamos.</p>
+                            <p>Quiero entender quiénes son, qué están viviendo y qué cosas tendría sentido poner sobre la mesa.</p>
+                            <p>Con eso diseño el recorrido: qué historias traer, qué preguntas dejar dando vueltas y cuándo volver a encontrarnos.</p>
+                            <p>El viaje va tomando forma a medida que avanzamos.</p>
+                        </div>
+                    </div>
+
+                    {{!-- Derecha: información práctica escaneable --}}
+                    <dl class="mm-vj-offer__specs">
+                        <div class="mm-vj-offer__spec">
+                            <dt class="mm-vj-offer__spec-label">Varias semanas</dt>
+                            <dd class="mm-vj-offer__spec-text">Para darle tiempo a las cosas.</dd>
+                        </div>
+                        <div class="mm-vj-offer__spec">
+                            <dt class="mm-vj-offer__spec-label">6–12 personas</dt>
+                            <dd class="mm-vj-offer__spec-text">Un tamaño que funciona especialmente bien.</dd>
+                        </div>
+                        <div class="mm-vj-offer__spec">
+                            <dt class="mm-vj-offer__spec-label">Presencial</dt>
+                            <dd class="mm-vj-offer__spec-text">Con equipos de <em>cualquier rubro.</em></dd>
+                        </div>
+                    </dl>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 6. Hola, soy Rodri (bio) + testimonio José --}}
+    <section class="mm-intro mm-vj-intro" aria-labelledby="vj-intro-title">
+        <div class="mm-canvas">
+            <div class="mm-intro__grid">
+                <figure class="mm-intro__figure">
+                    <div class="mm-intro__frame">
+                        <img
+                            src="{{asset "images/rodri3.jpg"}}"
+                            alt="Rodri Ponce de León"
+                            class="mm-intro__img"
+                            width="900"
+                            height="1100"
+                            loading="lazy"
+                        >
+                    </div>
+                </figure>
+
+                <div class="mm-intro__text">
+                    <h2 class="mm-v2-title" id="vj-intro-title">Hola, <span class="mm-accent">soy Rodri.</span></h2>
+                    <div class="mm-prose mm-prose--intro">
+                        <p>Durante más de una década trabajé en WyeWorks, una empresa de tecnología uruguaya. Empecé como desarrollador y con el tiempo terminé en un lugar bastante distinto: formando parte del equipo de managers y acompañando de cerca al CEO y a otros líderes.</p>
+                        <p>En esos años me fui dando cuenta de que muchos de los problemas más difíciles que teníamos entre manos rara vez eran técnicos. Tenían más que ver con nosotros: con cómo pensábamos, cómo reaccionábamos y las cosas que nos costaba ver.</p>
+                        <p>Me empezó a interesar cada vez más todo eso. Leí mucho, empecé a escribir y fui armando mi propia forma de entender algunas de esas cosas.</p>
+                        <p>Para masticar nació de ahí. El Viaje también: de las ganas de llevar esas ideas a un equipo y ver qué pasa cuando las masticamos juntos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mm-canvas mm-canvas--narrow mm-vj-intro__quote-wrap">
+            <figure class="mm-testimonial__figure mm-vj-quote">
+                <blockquote class="mm-testimonial__quote">
+                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>Rodri fue una de las voces que más nos ayudó a pensar sobre quiénes somos como organización y qué tipo de empresa queríamos construir. Su capacidad para articular ideas sobre liderazgo, autonomía, cultura y desarrollo humano generó conversaciones valiosas que dejaron huella en muchas personas dentro de WyeWorks.
+                </blockquote>
+                <figcaption class="mm-testimonial__cite">
+                    <div class="mm-testimonial__avatar">
+                        <img
+                            src="{{asset "images/Jose.webp"}}"
+                            alt="José Costa, Co-founder y CEO de WyeWorks"
+                            class="mm-testimonial__avatar-img"
+                            width="120"
+                            height="120"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="mm-testimonial__person">
+                        <span class="mm-testimonial__name">José Costa</span>
+                        <span class="mm-testimonial__role">Co-founder &amp; CEO, WyeWorks</span>
+                    </div>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    {{!-- CTA final: formulario embebido (mismo Formspree, adaptado a El Viaje) --}}
+    <section class="mm-ch-v2-cta mm-vj-cta" id="mm-vj-cta" aria-labelledby="vj-cta-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-ch-v2-cta__inner">
+                <h2 class="mm-v2-title" id="vj-cta-title">
+                    ¿Querés hacer este viaje <span class="mm-accent">con tu equipo?</span>
+                </h2>
+                <p class="mm-ch-v2-cta__lede">
+                    Contame un poco sobre el equipo y qué están viviendo.
+                </p>
+
+                <div class="mm-vj-cta__form" id="mm-vj-form">
+                    {{> "contact-form"
+                        show_selector=false
+                        tipo_predefinido="equipo"
+                        origen="viaje-v2"
+                        subject="Contacto — desde /viaje/ (v2)"
+                        message_label="Contame sobre tu equipo"
+                        message_placeholder="Quiénes son, qué están viviendo..."}}
+                </div>
+
+                <p class="mm-ch-v2-cta__fallback">
+                    También podés escribirme a
+                    <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+{{!-- CTA final: renombrar el submit del partial a "Hablemos" en esta página. --}}
+<script>
+(function () {
+    'use strict';
+    var form = document.getElementById('mm-vj-form');
+    var submit = form && form.querySelector('button[type="submit"]');
+    if (submit) submit.textContent = 'Hablemos';
+})();
+</script>
+
+{{#contentFor "body_class"}}homepage-mm-v2 page-viaje-v2{{/contentFor}}
