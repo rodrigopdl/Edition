@@ -28,11 +28,12 @@ html:has(body.page-viaje-v2) {
 
 /* Comfortable reading measure for prose (base .mm-v2 .mm-prose caps at 60ch;
    here it fills the narrow canvas). */
+/* Body copy matches Charlas: it inherits the base .mm-v2 .mm-prose (1.85rem /
+   1.65), so we only keep max-width:none. Previously this dropped font-size to
+   ~1.75rem (the Sesiones value), which read a touch smaller/denser than Charlas
+   on desktop. Same line-height, color, paragraph spacing and reading width. */
 .mm-vj .mm-vj-prose {
     max-width: none;
-    font-size: clamp(1.75rem, 1.6vw, 1.95rem);
-    line-height: 1.65;
-    color: var(--ink-2);
 }
 
 /* Highlighted remate lines — accent serif italic on <em>, one device reused

@@ -115,7 +115,9 @@
       "Bash(awk 'NR<=534 && /@media/ {ln=NR; q=$0} END{print ln\": \"q}' assets/css/site/libro.css)",
       "Bash(awk 'NR>=613 && NR<=720 && /mm-lib-buy/' assets/css/site/libro.css)",
       "Bash(awk -F: '$1>=613')",
-      "Bash(grep -o \"[^,{}]*mm-vj-hero__title[^,{]*{[^}]*}\" assets/built/screen.css)"
+      "Bash(grep -o \"[^,{}]*mm-vj-hero__title[^,{]*{[^}]*}\" assets/built/screen.css)",
+      "Bash(grep -o \"[^,{}]*mm-vj-prose[^,{]*{[^}]*}\" assets/built/screen.css)",
+      "Bash(grep -o \"[^,{}]*mm-ch-v2 .mm-prose[^,{]*{[^}]*}\" assets/built/screen.css)"
     ]
   }
 }
