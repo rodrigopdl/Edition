@@ -1,0 +1,63 @@
+{{!--
+Navigation partial. Overrides Ghost's default so the footer's secondary nav can
+render social links (Instagram / LinkedIn / YouTube) as icons instead of text.
+
+- URLs stay managed from Ghost Admin: only the visual rendering changes, keyed
+  off each item's label. Non-social items keep the exact default markup/classes
+  (`.nav` / `.nav a`), so the primary/header nav is unchanged.
+- Social items (labels "Instagram" / "LinkedIn" / "YouTube", as stored in Admin)
+  are pulled out of the normal item flow and wrapped in a SINGLE .social-links
+  group so the three icons behave as one indivisible unit (never wrapping a lone
+  YouTube onto its own line).
+
+Two passes over the same navigation: first the text links, then — inside one
+wrapper li — the social icons.
+--}}
+<ul class="nav">
+
+    {{!-- Pass 1: text links (everything that isn't a social item). --}}
+    {{#foreach navigation}}
+        {{#match label "Instagram"}}{{else match label "LinkedIn"}}{{else match label "YouTube"}}{{else}}
+            <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+        {{/match}}
+    {{/foreach}}
+
+    {{!-- Pass 2: social icons grouped in one indivisible unit. --}}
+    <li class="nav-social-group">
+        <span class="social-links">
+            {{#foreach navigation}}
+                {{#match label "Instagram"}}
+                    <a href="{{url absolute="true"}}" class="social-links__link" aria-label="Instagram"{{#if url}} target="_blank" rel="noopener noreferrer"{{/if}}>
+                        <span class="social-links__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5" stroke="currentColor" stroke-width="1.7"/>
+                                <circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.7"/>
+                                <circle cx="17.1" cy="6.9" r="1.15" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        <span class="social-links__label">Instagram</span>
+                    </a>
+                {{else match label "LinkedIn"}}
+                    <a href="{{url absolute="true"}}" class="social-links__link" aria-label="LinkedIn"{{#if url}} target="_blank" rel="noopener noreferrer"{{/if}}>
+                        <span class="social-links__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.94 8.5H4.06V20h2.88V8.5ZM5.5 3.75A1.67 1.67 0 1 0 5.5 7.1a1.67 1.67 0 0 0 0-3.35ZM20 20h-2.88v-6c0-1.5-.53-2.52-1.86-2.52-1.01 0-1.62.68-1.88 1.34-.1.24-.12.57-.12.9V20H10.4s.04-10.3 0-11.5h2.88v1.63c.38-.6 1.07-1.44 2.6-1.44 1.9 0 3.32 1.24 3.32 3.9V20Z"/>
+                            </svg>
+                        </span>
+                        <span class="social-links__label">LinkedIn</span>
+                    </a>
+                {{else match label "YouTube"}}
+                    <a href="{{url absolute="true"}}" class="social-links__link" aria-label="YouTube"{{#if url}} target="_blank" rel="noopener noreferrer"{{/if}}>
+                        <span class="social-links__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22.54 7.42a2.78 2.78 0 0 0-1.95-1.96C18.88 5 12 5 12 5s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 7.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 4.58 2.78 2.78 0 0 0 1.95 1.96C5.12 19 12 19 12 19s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-4.58ZM9.75 15.02V8.98L15.5 12l-5.75 3.02Z"/>
+                            </svg>
+                        </span>
+                        <span class="social-links__label">YouTube</span>
+                    </a>
+                {{/match}}
+            {{/foreach}}
+        </span>
+    </li>
+
+</ul>

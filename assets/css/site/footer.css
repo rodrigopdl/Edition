@@ -76,6 +76,81 @@
     color: #5271FF;
 }
 
+/* --- Social links as a single icon group (Instagram / LinkedIn / YouTube) ---
+   The three SVGs live in one .social-links wrapper (partials/navigation.hbs) so
+   they behave as one indivisible unit, separate from the text nav. Scoped to
+   the footer. --- */
+
+/* The wrapper li carries no list styling; if there are no social items the
+   inner span is empty, so hide it to avoid a stray gap. */
+.mm-footer-links .nav-social-group {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.mm-footer-links .social-links:empty {
+    display: none;
+}
+
+/* The group: icons close together, never wrapping, with a clear gap before it
+   separating it from the text links (that outer gap comes from .nav's gap). */
+.mm-footer-links .social-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    white-space: nowrap;
+    gap: 0.4rem;
+    margin-left: 1rem;
+}
+
+/* Visually-hidden label — the aria-label carries the accessible name. */
+.mm-footer-links .social-links__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Comfortable tap target around a small icon; icon inherits footer link color.
+   Negative block margin so the taller hit-area doesn't grow the nav row. */
+.mm-footer-links .social-links__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 3.4rem;
+    height: 3.4rem;
+    margin: -0.8rem 0;
+    color: #ffffff;
+    transition: color 0.2s ease;
+}
+
+.mm-footer-links .social-links__link:hover,
+.mm-footer-links .social-links__link:focus-visible {
+    color: #5271FF;
+}
+
+.mm-footer-links .social-links__link:focus-visible {
+    outline: 2px solid #5271FF;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.mm-footer-links .social-links__icon {
+    display: inline-flex;
+}
+
+.mm-footer-links .social-links__icon svg {
+    display: block;
+}
+
 /* Footer Bottom */
 .mm-footer-bottom {
     display: flex;
@@ -144,14 +219,29 @@
         align-items: center;
     }
 
+    /* Text links stack, centered; the social group is a single centered li that
+       already lays its icons in one row via .social-links. */
     .mm-footer-links .nav {
         flex-direction: column;
         gap: 1.4rem;
+        justify-content: center;
         align-items: center;
     }
 
     .mm-footer-links .nav a {
         font-size: 1.3rem;
+    }
+
+    /* Center the icon group and give it more space above so it doesn't read as a
+       fifth nav row. Its own margin-left (desktop) is removed here. */
+    .mm-footer-links .nav-social-group {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .mm-footer-links .social-links {
+        margin-left: 0;
+        gap: 0.8rem;
     }
 
     .mm-footer-bottom {
