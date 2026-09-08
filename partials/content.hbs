@@ -40,6 +40,15 @@
     </div>
 
     {{#is "post"}}
+        {{!-- CTA sutil a Sesiones — continuación natural tras la pregunta final
+             del Bocado. Solo en posts. Sin caja, integrado sobre el navy;
+             jerarquía menor que el bloque "Para masticar" de arriba. --}}
+        <aside class="mm-post-sessions gh-canvas" aria-label="Sesiones para masticar">
+            <p class="mm-post-sessions__q">¿Te dejó algo dando vueltas?</p>
+            <p class="mm-post-sessions__body">Si te vendría bien otra cabeza para pensarlo, podemos masticarlo juntos en una sesión uno a uno.</p>
+            <a href="/sesiones/" class="mm-post-sessions__link">Conocé las sesiones <span aria-hidden="true">→</span></a>
+        </aside>
+
         <div class="single-footer mm-post-footer gh-canvas">
             {{> "share"}}
         </div>

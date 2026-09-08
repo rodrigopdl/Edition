@@ -971,3 +971,81 @@ body.post-template .mm-post .share-link:hover {
         font-size: 1.3rem;
     }
 }
+
+/* ==========================================================================
+   Bocados → Sesiones CTA (partials/content.hbs .mm-post-sessions)
+   A quiet editorial note after the post's "Para masticar" question, before
+   Compartir. No box/background — sits on the navy. Scoped to posts only.
+   ========================================================================== */
+body.post-template .mm-post-sessions {
+    max-width: 720px;
+    margin: 4.5rem auto 0;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.post-template .mm-post-sessions__q {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 2.4vw, 2.3rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    margin: 0 0 1.2rem;
+}
+
+body.post-template .mm-post-sessions__body {
+    font-family: var(--font-post-body);
+    font-size: 1.75rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0 0 1.8rem;
+    max-width: 52ch;
+}
+
+body.post-template .mm-post-sessions__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    color: #5271FF;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+body.post-template .mm-post-sessions__link:hover {
+    opacity: 0.8;
+}
+
+body.post-template .mm-post-sessions__link span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+body.post-template .mm-post-sessions__link:hover span {
+    transform: translateX(4px);
+}
+
+/* The Compartir footer already carries a top border + 6rem gap; with the CTA
+   now filling that space, tighten its top margin so the end doesn't grow. */
+body.post-template .mm-post-sessions + .single-footer {
+    margin-top: 3.5rem;
+}
+
+@media (max-width: 768px) {
+    body.post-template .mm-post-sessions {
+        margin-top: 3.5rem;
+        padding-top: 2.4rem;
+    }
+
+    body.post-template .mm-post-sessions__body {
+        font-size: 1.65rem;
+    }
+
+    body.post-template .mm-post-sessions + .single-footer {
+        margin-top: 3rem;
+    }
+}
