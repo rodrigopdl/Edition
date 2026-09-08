@@ -2264,6 +2264,14 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     aspect-ratio: 3/2;
 }
 
+/* Charla photo (Lucía column): tighter crop toward Rodri so it reads faster
+   that he's giving a talk. Same aspect ratio / asset; just a gentle zoom +
+   reframe (the frame clips the overflow). */
+.mm-ch-v2-real__img--talk {
+    transform: scale(1.18);
+    transform-origin: 50% 42%;
+}
+
 /* Testimonios — live inside each experience column, no max-width cap needed */
 .mm-ch-v2-testimonial {
     margin: 0;
@@ -2325,7 +2333,7 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
 
 .mm-ch-v2-testimonial__name {
     font-family: var(--font-display);
-    font-size: clamp(1.15rem, 1vw, 1.3rem);
+    font-size: clamp(1.4rem, 1.3vw, 1.6rem);
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -2334,9 +2342,9 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
 
 .mm-ch-v2-testimonial__role {
     font-family: var(--font-display);
-    font-size: clamp(1.05rem, 0.9vw, 1.2rem);
+    font-size: clamp(1.3rem, 1.15vw, 1.45rem);
     color: var(--ink-3);
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
 }
 
 /* --- 5. CTA final ---------------------------------------------------------- */
@@ -2396,6 +2404,17 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
         gap: var(--space-5);
     }
 
+    /* Author: same layout for both cards when stacked (avatar left, name/role
+       beside it, top-aligned) so Lucía and Joaquín line up identically —
+       regardless of quote length or name wrapping. */
+    .mm-ch-v2-testimonial__author {
+        align-items: flex-start;
+    }
+
+    .mm-ch-v2-testimonial__avatar {
+        margin-top: 0.2rem;
+    }
+
     /* Formats block: single column; the vertical divider becomes horizontal. */
     .mm-ch-v2-formats__grid {
         grid-template-columns: 1fr;
@@ -2430,13 +2449,6 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     }
 }
 
-@media (max-width: 480px) {
-    .mm-ch-v2-testimonial__author {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-2);
-    }
-}
 
 
 /* ==========================================================================
