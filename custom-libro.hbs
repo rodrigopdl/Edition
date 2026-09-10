@@ -64,19 +64,99 @@ Template Name: La Bestia
         </div>
     </section>
 
-    {{!-- 3. Leer un capítulo --}}
+    {{!-- 3. Leer un capítulo — muestra desplegable en la misma página --}}
     <section class="mm-lib-sample" id="mm-lib-sample" aria-labelledby="lib-sample-title">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-lib-sample__inner">
                 <h2 class="mm-v2-title" id="lib-sample-title">
-                    Empezá por <span class="mm-accent">La Bestia que asfixia.</span>
+                    Leé un capítulo de <span class="mm-accent">La Bestia.</span>
                 </h2>
                 <p class="mm-lib-sample__text">
-                    Leé un capítulo de La Bestia y fijate si reconocés algo tuyo ahí.
+                    Una historia sobre esa Bestia que a veces aparece cuando intentamos ayudar a alguien.
                 </p>
-                <div class="mm-actions mm-actions--center">
-                    <a href="/la-bestia-asfixia" class="mm-btn mm-btn--ghost">Leer el capítulo</a>
+                <div class="mm-actions mm-actions--center mm-lib-sample__actions">
+                    <button type="button"
+                            class="mm-btn mm-btn--ghost mm-lib-sample__toggle"
+                            aria-expanded="false"
+                            aria-controls="mm-lib-chapter">
+                        Leer el capítulo
+                    </button>
                 </div>
+            </div>
+
+            {{!-- Capítulo desplegable --}}
+            <div class="mm-lib-chapter" id="mm-lib-chapter" aria-hidden="true">
+                <article class="mm-lib-chapter__inner">
+                    <header class="mm-lib-chapter__header" id="mm-lib-chapter-start">
+                        <p class="mm-lib-chapter__kicker">Un capítulo de La Bestia</p>
+                        <h3 class="mm-lib-chapter__title">La Bestia que asfixia</h3>
+                    </header>
+
+                    <div class="mm-lib-chapter__body gh-content">
+                        <p>Una vez, un cliente me pidió que programara en vivo mientras miraba mi pantalla.</p>
+                        <p>Mirada punzante. Silencio pesado. Aunque estábamos en una videollamada, sentía su presencia justo detrás de mí.</p>
+                        <p>La respiración en la nuca.</p>
+                        <p>— ¿Rodrigo, no sabés programar esto?</p>
+                        <p>Touché.</p>
+                        <p>Me quedé paralizado.</p>
+                        <p>En lugar de enfocarme en resolver lo que pedía, solo podía pensar en que no iba a poder. Cuando sentís que te observan de cerca, pensar se vuelve más complicado. Lo único que te sale es evitar equivocarte.</p>
+                        <p>Esa experiencia me quedó grabada. No por el cliente, sino por lo que me hizo descubrir después.</p>
+                        <p>Mi hija mayor está en la etapa de los dictados. Cada dos viernes, tiene que escribir frases en inglés dictadas por la maestra. Sin errores, o con los menos posibles.</p>
+                        <p>Practicar el "dictation" es todo un desafío…</p>
+                        <p>Hay días en los que vuelve del colegio sin ganas de nada. Ni de bañarse, ni de comer, y mucho menos de practicar una tarea.</p>
+                        <p>En esos momentos aparece mi peor versión.</p>
+                        <p>Prendo el modo "obligar" y empiezo a gritar "¡Dictation!". El problema es que, por más fuerte que grite y señale el pizarrón, nada logra moverla de la cuadrícula de parquet en la que está parada.</p>
+                        <p>Es como gritarle a un poste.</p>
+                        <p>Un día, en medio de una de esas sesiones, me frené.</p>
+                        <p>Estaba parado detrás de ella, inclinado sobre su hombro, corrigiéndole cada letra antes de que terminara de escribirla. Ella con la mirada clavada en el pizarrón, tensa, sin moverse. Y yo ahí, respirándole en la nuca.</p>
+                        <p>Le estaba haciendo a mi hija exactamente lo que el cliente me había hecho a mí.</p>
+                        <p>Soy <em>La Bestia</em> que asfixia.</p>
+                        <p>A veces, de tanto insistir, logro que dé un paso y se acerque al pizarrón, pero la ilusión se desvanece cuando la veo dibujando flores y garabatos en piloto automático.</p>
+                        <p>Pero también tenemos días de gloria...</p>
+                        <p>Días en los que se ríe, se divierte y aprende. Días en los que está abierta a las correcciones y las incorpora en un chasquido de dedos. Terminamos sacando una foto de sus palabras en la pizarra.</p>
+                        <p>Mi enfoque determina el tipo de día que tendremos.</p>
+                        <p>Si estoy ansioso y apurado, nos espera un día para el olvido. Si estoy sereno y dedicado, será un día memorable. Yo marco el tono de la habitación, y mi hija lo capta.</p>
+                        <p>De la calma nace la diversión.</p>
+                        <p>Traigo los marcadores de colores para que tenga que escribir cada palabra con uno diferente, o invento un sistema de puntos por cada palabra correcta. Cualquier idea que convierta la tarea en un juego parece funcionar con ella.</p>
+                        <p>El desafío también tiene que estar bien calibrado.</p>
+                        <p>Cuando le recito el dictado completo de una sola vez — que es lo que hago cuando estoy ansioso — es de esperar varios errores y mucho tiempo de trabajo. La corrección en exceso la satura, la apaga, y garantiza un peor resultado al día siguiente.</p>
+                        <p>La mejor estrategia ha sido achicar el dragón.</p>
+                        <p>Una frase por día.</p>
+                        <p>O ni siquiera eso, a veces solo tres palabras, cuidadosamente seleccionadas: dos fáciles y una difícil.</p>
+                        <p>Cada sesión liviana. Y siempre con progreso.</p>
+                        <p>El clima tenso saca lo peor de ella. Cuando grito y no escucho, se cierra. Ella alcanza su mejor versión cuando elige estar ahí. Cuando le encuentra sentido. Cuando disfrutamos y celebramos los avances.</p>
+                        <p>Los mejores días no estoy obligando.</p>
+                        <p>Los mejores días, estoy liderando.</p>
+                        <p>Y la diferencia entre uno y otro empieza por quién tiene la correa: yo o <em>La Bestia</em>.</p>
+                    </div>
+
+                    {{!-- Cierre: puente hacia la compra --}}
+                    <div class="mm-lib-chapter__close">
+                        <div class="mm-lib-chapter__close-visual">
+                            <img
+                                src="{{asset "images/cover-es-720.webp"}}"
+                                srcset="{{asset "images/cover-es-720.webp"}} 720w, {{asset "images/cover-es-1080.webp"}} 1080w"
+                                sizes="160px"
+                                alt="La Bestia, libro de Rodrigo Ponce de León"
+                                class="mm-lib-chapter__cover"
+                                loading="lazy"
+                                width="720"
+                                height="1152"
+                            >
+                        </div>
+                        <div class="mm-lib-chapter__close-text">
+                            <h3 class="mm-v2-title mm-lib-chapter__close-title">
+                                Esto fue un capítulo de <span class="mm-accent">La Bestia.</span>
+                            </h3>
+                            <p class="mm-lib-chapter__close-lede">
+                                La Bestia reúne historias como esta para aprender a reconocer eso que a veces te frena, te apura o toma el control sin que te des cuenta.
+                            </p>
+                            <div class="mm-actions">
+                                <a href="#mm-lib-buy" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">Quiero seguir leyendo</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -216,5 +296,37 @@ Template Name: La Bestia
     </section>
 
 </main>
+
+{{!-- Muestra: desplegar el capítulo en la misma página. Al abrir, scroll suave
+     al comienzo del capítulo. El botón pasa a "Ocultar capítulo". --}}
+<script>
+(function () {
+    'use strict';
+    var toggle  = document.querySelector('.mm-lib-sample__toggle');
+    var chapter = document.getElementById('mm-lib-chapter');
+    if (!toggle || !chapter) return;
+
+    var start = document.getElementById('mm-lib-chapter-start');
+
+    toggle.addEventListener('click', function () {
+        var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        chapter.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+        chapter.classList.toggle('is-open', !isOpen);
+        toggle.textContent = isOpen ? 'Leer el capítulo' : 'Ocultar capítulo';
+
+        {{!-- Al abrir, llevar el comienzo del capítulo a la vista. --}}
+        if (!isOpen && start) {
+            setTimeout(function () {
+                start.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 120);
+        } else if (isOpen) {
+            {{!-- Al cerrar, volver a la intro de la muestra. --}}
+            var sample = document.getElementById('mm-lib-sample');
+            if (sample) sample.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+})();
+</script>
 
 {{#contentFor "body_class"}} page-libro homepage-mm-v2{{/contentFor}}

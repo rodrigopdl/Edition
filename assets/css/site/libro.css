@@ -175,6 +175,119 @@ body:has(.mm-lib),
     margin: 0 0 var(--space-6);
 }
 
+/* --- 3b) Chapter: in-page expandable sample ------------------------------- */
+
+/* Collapsed by default; expands in place with a soft transition (no flashy
+   effects). max-height is generous enough for the full chapter. */
+.mm-lib .mm-lib-chapter {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
+}
+
+.mm-lib .mm-lib-chapter.is-open {
+    max-height: 900rem;
+    opacity: 1;
+}
+
+/* Reading column — narrower than the section, close to a book page. Plenty of
+   air above and below. Not a card, no borders. */
+.mm-lib .mm-lib-chapter__inner {
+    max-width: 620px;
+    margin: 0 auto;
+    padding-top: clamp(4rem, 7vw, 6.5rem);
+}
+
+.mm-lib .mm-lib-chapter__header {
+    text-align: center;
+    margin-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
+.mm-lib .mm-lib-chapter__kicker {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 var(--space-3);
+}
+
+.mm-lib .mm-lib-chapter__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 4vw, 4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+}
+
+/* Body reads like a book page: serif, generous line-height, comfortable size.
+   Reuses .gh-content but tightens the measure and rhythm for this context. */
+.mm-lib .mm-lib-chapter__body.gh-content {
+    max-width: none;
+    font-size: clamp(1.85rem, 1.8vw, 2.05rem);
+    line-height: 1.75;
+    color: var(--ink);
+}
+
+.mm-lib .mm-lib-chapter__body.gh-content p {
+    margin: 0 0 1.6rem;
+    text-align: left;
+}
+
+.mm-lib .mm-lib-chapter__body.gh-content em {
+    font-style: italic;
+}
+
+/* Close: a bridge to the buy section, with air before it so the chapter breathes. */
+.mm-lib .mm-lib-chapter__close {
+    max-width: 720px;
+    margin: clamp(4.5rem, 8vw, 7rem) auto 0;
+    padding-top: clamp(3.5rem, 6vw, 5rem);
+    border-top: 1px solid rgba(244, 241, 234, 0.10);
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: clamp(2.4rem, 4vw, 4rem);
+    align-items: center;
+}
+
+.mm-lib .mm-lib-chapter__close-visual {
+    flex-shrink: 0;
+}
+
+.mm-lib .mm-lib-chapter__cover {
+    display: block;
+    width: clamp(11rem, 14vw, 15rem);
+    height: auto;
+    border-radius: 3px;
+    box-shadow:
+        0 18px 40px -18px rgba(0, 0, 0, 0.55),
+        0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.mm-lib .mm-lib-chapter__close-title {
+    margin: 0 0 var(--space-4);
+    font-size: clamp(2.2rem, 2.8vw, 3rem);
+    text-align: left;
+}
+
+.mm-lib .mm-lib-chapter__close-lede {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.7rem, 1.6vw, 1.9rem);
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0 0 var(--space-5);
+}
+
+/* When the chapter is open, the intro toggle stays as a discreet "Ocultar". */
+.mm-lib .mm-lib-sample__toggle[aria-expanded="true"] {
+    /* handled by JS label swap; keep ghost styling */
+}
+
 /* --- 4) Reviews ----------------------------------------------------- */
 .mm-lib .mm-lib-reviews {
     padding-block: var(--section-py);
@@ -661,6 +774,27 @@ body:has(.mm-lib),
 
     .mm-lib .mm-lib-sample__text {
         font-size: 1.6rem;
+    }
+
+    /* Chapter on mobile: comfortable reading, close stacks vertically. */
+    .mm-lib .mm-lib-chapter__body.gh-content {
+        font-size: 1.75rem;
+        line-height: 1.7;
+    }
+
+    .mm-lib .mm-lib-chapter__close {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .mm-lib .mm-lib-chapter__close-title,
+    .mm-lib .mm-lib-chapter__close-lede {
+        text-align: center;
+    }
+
+    .mm-lib .mm-lib-chapter__close .mm-actions {
+        justify-content: center;
     }
 
     .mm-lib .mm-lib-reviews__featured {
