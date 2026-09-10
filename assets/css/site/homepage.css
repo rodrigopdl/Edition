@@ -2136,37 +2136,63 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
 .mm-v2 .mm-testimonial__toggle {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.7rem;
     background: #f1ece2;
     color: var(--ink-on-paper);
     border: 0;
-    border-radius: 3px;
+    border-radius: 999px;
     cursor: pointer;
-    padding: 1.2rem 2.4rem;
+    padding: 1.2rem 2.2rem;
     margin-top: var(--space-6);
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 0.01em;
     text-decoration: none;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-    transition: background 0.2s ease, transform 0.2s ease;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.5) inset,
+        0 8px 20px -10px rgba(0, 0, 0, 0.45);
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .mm-v2 .mm-testimonial__toggle:hover {
     background: #fbf6e8;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.6) inset,
+        0 12px 26px -10px rgba(0, 0, 0, 0.5);
 }
 
+.mm-v2 .mm-testimonial__toggle:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+}
+
+/* Chevron affordance — always visible, signals "expands here" (accordion), not
+   navigation. Rotates 180° when open. The ⌄ glyph sits low in its em box, so a
+   small negative offset lifts its tip to the text's optical line. */
 .mm-v2 .mm-testimonial__toggle-icon {
-    font-size: 0.95em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
     line-height: 1;
+    transform: translateY(-0.15em);
+    transition: transform 0.25s ease;
 }
 
-/* The ↑ icon only exists in the open state; hide the empty span when closed so
-   the button gap doesn't leave a trailing space after the label. */
-.mm-v2 .mm-testimonial__toggle:not([aria-expanded="true"]) .mm-testimonial__toggle-icon {
-    display: none;
+/* Hover: chevron nudges down, hinting the content will unfold below. */
+.mm-v2 .mm-testimonial__toggle:hover .mm-testimonial__toggle-icon {
+    transform: translateY(calc(-0.15em + 2px));
+}
+
+/* Open: chevron flips to point up (collapse), keeping the same optical lift. */
+.mm-v2 .mm-testimonial__toggle[aria-expanded="true"] .mm-testimonial__toggle-icon {
+    transform: translateY(-0.15em) rotate(180deg);
+}
+
+.mm-v2 .mm-testimonial__toggle[aria-expanded="true"]:hover .mm-testimonial__toggle-icon {
+    transform: translateY(calc(-0.15em + 2px)) rotate(180deg);
 }
 
 /* Expanded block — ocupa el ancho completo del figure para no quedar

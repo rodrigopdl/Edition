@@ -62,7 +62,7 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
                     aria-controls="ses-testimonial-expanded"
                 >
                     <span class="mm-testimonial__toggle-label">Leer testimonio completo</span>
-                    <span class="mm-testimonial__toggle-icon" aria-hidden="true"></span>
+                    <span class="mm-testimonial__toggle-icon" aria-hidden="true">⌄</span>
                 </button>
 
                 <div class="mm-testimonial__expanded" id="ses-testimonial-expanded" aria-hidden="true">
@@ -223,7 +223,6 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
     var toggle   = document.querySelector('.mm-ses-testimonial .mm-testimonial__toggle');
     var expanded = document.getElementById('ses-testimonial-expanded');
     var label    = toggle && toggle.querySelector('.mm-testimonial__toggle-label');
-    var icon     = toggle && toggle.querySelector('.mm-testimonial__toggle-icon');
     if (!toggle || !expanded) return;
     toggle.addEventListener('click', function () {
         var isOpen = toggle.getAttribute('aria-expanded') === 'true';
@@ -231,7 +230,6 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
         expanded.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
         expanded.classList.toggle('is-open', !isOpen);
         if (label) label.textContent = isOpen ? 'Leer testimonio completo' : 'Cerrar testimonio';
-        if (icon) icon.textContent = isOpen ? '' : '↑';
     });
 })();
 </script>

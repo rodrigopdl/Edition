@@ -88,7 +88,7 @@
                     aria-controls="mm-testimonial-expanded"
                 >
                     <span class="mm-testimonial__toggle-label">Leer testimonio completo</span>
-                    <span class="mm-testimonial__toggle-icon" aria-hidden="true"></span>
+                    <span class="mm-testimonial__toggle-icon" aria-hidden="true">⌄</span>
                 </button>
 
                 {{!-- Testimonio expandible — va después del toggle para no quedar bajo él --}}
@@ -283,10 +283,11 @@
     'use strict';
 
     /* ── Testimonio expandible ─────────────────────────────────────── */
+    /* The chevron is always present and rotates via CSS on [aria-expanded];
+       JS only toggles state and the label. */
     var toggle   = document.querySelector('.mm-testimonial__toggle');
     var expanded = document.getElementById('mm-testimonial-expanded');
     var label    = toggle && toggle.querySelector('.mm-testimonial__toggle-label');
-    var icon     = toggle && toggle.querySelector('.mm-testimonial__toggle-icon');
 
     if (toggle && expanded) {
         toggle.addEventListener('click', function () {
@@ -295,7 +296,6 @@
             expanded.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
             expanded.classList.toggle('is-open', !isOpen);
             if (label) label.textContent = isOpen ? 'Leer testimonio completo' : 'Cerrar testimonio';
-            if (icon) icon.textContent = isOpen ? '' : '↑';
         });
     }
 })();
