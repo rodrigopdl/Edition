@@ -7,11 +7,12 @@ Parameters (Handlebars hash args):
                         radio group. If false/omitted, no selector is shown.
                         The home uses show_selector=true; service pages don't.
 
-    session_choice      Boolean. /sesiones-specific two-option selector
-                        ("¿Qué querés coordinar?": sesión USD 75 / llamada de
-                        20 min). Renders its own tipo_consulta radios, so when
-                        set the hidden tipo_predefinido input is suppressed.
-                        Use with show_selector=false.
+    session_choice      Boolean. /sesiones-specific three-option selector
+                        ("¿Qué te interesa?": sesión USD 75 / llamada de 20 min /
+                        sesiones para un equipo). Renders its own tipo_consulta
+                        radios, so when set the hidden tipo_predefinido input is
+                        suppressed. Default checked: llamada. Use with
+                        show_selector=false.
 
     tipo_predefinido    String. When show_selector is false, this value is
                         emitted as a hidden input `tipo_consulta`. Formspree
@@ -69,19 +70,24 @@ selectors). Two instances on the same page would collide.
     {{/unless}}
 
     {{#if session_choice}}
-        {{!-- /sesiones: dos puertas de entrada. Encabeza el formulario para que
-             la persona elija primero qué quiere coordinar. Un CTA del recuadro
-             crema puede preseleccionar via ?tipo= o data-attr (ver page JS). --}}
+        {{!-- /sesiones: tres puertas de entrada. Encabeza el formulario para que
+             la persona elija primero qué le interesa. Los CTA de la página
+             preseleccionan la opción correspondiente (ver page JS). Default:
+             llamada de 20 min, si se llega sin usar ningún CTA. --}}
         <fieldset class="mm-home-contact__choice mm-ses-choice">
-            <legend class="mm-home-contact__choice-legend">¿Qué querés coordinar?</legend>
+            <legend class="mm-home-contact__choice-legend">¿Qué te interesa?</legend>
             <div class="mm-home-contact__choice-options mm-ses-choice__options">
                 <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Sesión para masticar (USD 75)" checked>
+                    <input type="radio" name="tipo_consulta" value="Sesión para masticar (USD 75)">
                     <span>Una sesión para masticar — USD 75</span>
                 </label>
                 <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Llamada de 20 min (sin costo)">
+                    <input type="radio" name="tipo_consulta" value="Llamada de 20 min (sin costo)" checked>
                     <span>Una llamada de 20 minutos para conocernos — sin costo</span>
+                </label>
+                <label class="mm-home-contact__choice-option">
+                    <input type="radio" name="tipo_consulta" value="Sesiones para un equipo (empresa)">
+                    <span>Sesiones para personas de mi equipo</span>
                 </label>
             </div>
         </fieldset>

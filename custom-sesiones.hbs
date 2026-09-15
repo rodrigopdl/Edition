@@ -229,8 +229,9 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
         </div>
     </section>
 
-    {{!-- 7. CTA final — formulario con las dos puertas de entrada (sesión USD 75
-         / llamada de 20 min). Siempre visible, en la misma página, sin modal. --}}
+    {{!-- 7. CTA final — formulario con las tres puertas de entrada (sesión USD 75
+         / llamada de 20 min / sesiones para un equipo). Siempre visible, en la
+         misma página, sin modal. --}}
     <section class="mm-ch-v2-cta mm-ses-cta" id="mm-ses-cta" aria-labelledby="ses-cta-title">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-ch-v2-cta__inner">
@@ -294,6 +295,7 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
     var submit = form.querySelector('button[type="submit"]');
     var SESSION = 'Sesión para masticar (USD 75)';
     var CALL    = 'Llamada de 20 min (sin costo)';
+    var TEAM    = 'Sesiones para un equipo (empresa)';
 
     function checkedValue() {
         for (var i = 0; i < radios.length; i++) {
@@ -302,6 +304,7 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
         return '';
     }
 
+    {{!-- Preselecciona una opción del selector y deja el foco visual claro. --}}
     function selectValue(val) {
         for (var i = 0; i < radios.length; i++) {
             if (radios[i].value === val) { radios[i].checked = true; break; }
@@ -314,8 +317,12 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
         var v = checkedValue();
         if (v === CALL) submit.textContent = 'Coordinar una llamada';
         else if (v === SESSION) submit.textContent = 'Coordinar una sesión';
+        else if (v === TEAM) submit.textContent = 'Conversemos';
         else submit.textContent = 'Coordinar';
     }
+
+    {{!-- Los tres CTA de la página preseleccionan su opción en el selector.
+         El valor elegido viaja en el envío como `tipo_consulta`. --}}
 
     {{!-- Recuadro crema: "Quiero coordinar una sesión" → sesión USD 75. --}}
     var sessionCta = document.querySelector('.mm-ses-offer__col--product .mm-btn--primary');
@@ -325,9 +332,14 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
     var callLink = document.querySelector('.mm-ses-offer__intro-call-link');
     if (callLink) callLink.addEventListener('click', function () { selectValue(CALL); });
 
-    {{!-- Puertas independientes que no son sesión ni llamada: se registran en un
-         hidden aparte (origen_detalle) sin tocar el selector visible del form. --}}
-    function setDetalle(val) {
+    {{!-- Para empresas: "Quiero saber más" → sesiones para un equipo. --}}
+    var teamsCta = document.querySelector('.mm-ses-teams__cta');
+    if (teamsCta) teamsCta.addEventListener('click', function () { selectValue(TEAM); });
+
+    {{!-- Acompañamiento: puerta independiente, no es una de las tres opciones del
+         selector. Se registra en un hidden aparte para distinguir el lead. --}}
+    var moreCta = document.querySelector('.mm-ses-more__cta');
+    if (moreCta) moreCta.addEventListener('click', function () {
         var hidden = form.querySelector('input[name="origen_detalle"]');
         if (!hidden) {
             hidden = document.createElement('input');
@@ -335,20 +347,7 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
             hidden.name = 'origen_detalle';
             form.appendChild(hidden);
         }
-        hidden.value = val;
-    }
-
-    {{!-- Acompañamiento: puerta independiente. --}}
-    var moreCta = document.querySelector('.mm-ses-more__cta');
-    if (moreCta) moreCta.addEventListener('click', function () {
-        setDetalle('Acompañamiento');
-    });
-
-    {{!-- Para empresas: guiño a sesiones individuales para un equipo. Marca el
-         lead como consulta de empresa sin agregar una opción visible al form. --}}
-    var teamsCta = document.querySelector('.mm-ses-teams__cta');
-    if (teamsCta) teamsCta.addEventListener('click', function () {
-        setDetalle('Empresa (sesiones para un equipo)');
+        hidden.value = 'Acompañamiento';
     });
 
     {{!-- Mantener el submit en sync cuando la persona cambia de opción a mano. --}}
