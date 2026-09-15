@@ -2671,30 +2671,233 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     margin: 0 0 var(--space-3);
 }
 
-/* "90 minutos · uno a uno" — the practical spec, read immediately. */
+/* Specs row: duración · formato · modalidad, con iconos y divisores.
+   Se lee de un vistazo, arriba del precio. */
 .mm-ses-offer__meta {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 0 clamp(1.2rem, 1.8vw, 1.8rem);
+    margin: 0 0 var(--space-4);
+    padding: 0;
+}
+
+.mm-ses-offer__meta-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.45em;
+    position: relative;
     font-family: var(--font-display);
-    font-size: clamp(1.9rem, 2.1vw, 2.4rem);
+    font-size: clamp(1.4rem, 1.5vw, 1.7rem);
     font-weight: 600;
-    letter-spacing: 0.01em;
-    color: var(--brand);
-    margin: 0 0 var(--space-3);
-}
-
-.mm-ses-offer__meta span {
-    color: rgba(29, 32, 48, 0.4);
-    margin: 0 0.4em;
-}
-
-/* Price — presence a touch above the meta, plainly stated (no /sesión, no
-   "desde", no badge). Just the number and currency. */
-.mm-ses-offer__price {
-    font-family: var(--font-display);
-    font-size: clamp(2.2rem, 2.5vw, 2.9rem);
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.005em;
+    line-height: 1.2;
+    white-space: nowrap;
     color: var(--ink-on-paper);
+}
+
+/* El tercer item ("Remoto" + subtexto) puede quedarse el sobrante y su
+   subtexto puede envolver sin empujar a los otros dos a un segundo renglón. */
+.mm-ses-offer__meta-item:last-child {
+    white-space: normal;
+    min-width: 0;
+}
+
+/* Divisor vertical entre items — anclado a la primera línea, así queda
+   alineado con las etiquetas aunque el item de "Remoto" tenga subtexto. */
+.mm-ses-offer__meta-item + .mm-ses-offer__meta-item::before {
+    content: "";
+    position: absolute;
+    left: calc(clamp(1.2rem, 1.8vw, 1.8rem) / -2);
+    top: 0.1em;
+    width: 1px;
+    height: 1.3em;
+    background: rgba(29, 32, 48, 0.18);
+}
+
+.mm-ses-offer__meta-icon {
+    flex-shrink: 0;
+    width: clamp(1.5rem, 1.7vw, 1.8rem);
+    height: clamp(1.5rem, 1.7vw, 1.8rem);
+    margin-top: -0.02em;
+    color: var(--brand);
+}
+
+.mm-ses-offer__meta-note {
+    display: block;
+    font-family: var(--font-post-body);
+    font-weight: 400;
+    font-size: 0.82em;
+    letter-spacing: 0;
+    line-height: 1.3;
+    color: rgba(29, 32, 48, 0.55);
+    margin-top: 0.15em;
+}
+
+/* Price capsule — lavender panel. USD 75 is the primary number; USD 150
+   (company) sits to its right, clearly visible but secondary. Two prices
+   stated simply, not a pricing table. */
+.mm-ses-offer__price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: clamp(1.6rem, 2.4vw, 2.8rem);
+    background: rgba(82, 113, 255, 0.08);
+    border-radius: 16px;
+    padding: clamp(1.8rem, 2.4vw, 2.4rem) clamp(2rem, 2.6vw, 2.8rem);
     margin: 0 0 var(--space-5);
+}
+
+.mm-ses-offer__price-primary {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+/* Divisor vertical entre el precio principal y el de empresa. */
+.mm-ses-offer__price-secondary {
+    position: relative;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 22ch;
+    padding-left: clamp(1.6rem, 2.4vw, 2.8rem);
+}
+
+/* Divisor entre precio principal y empresa — altura acotada (no full-stretch),
+   para que respire junto al layout centrado. */
+.mm-ses-offer__price-secondary::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 3.2em;
+    background: rgba(82, 113, 255, 0.2);
+}
+
+.mm-ses-offer__price-num {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 3.8vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--brand);
+    margin: 0;
+}
+
+.mm-ses-offer__price-when {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 1.75vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    color: var(--brand);
+    margin: 0.5em 0 0;
+}
+
+/* Empresa: información secundaria. Más chico, menos contraste, menos bold que
+   el USD 75 — presente pero sin competir con el precio principal. */
+.mm-ses-offer__price-num-alt {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 1.6vw, 1.7rem);
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    line-height: 1;
+    color: rgba(29, 32, 48, 0.62);
+    margin: 0;
+}
+
+.mm-ses-offer__price-when-alt {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.4rem, 1.45vw, 1.55rem);
+    line-height: 1.4;
+    color: rgba(29, 32, 48, 0.5);
+    margin: 0.4em 0 0;
+}
+
+/* Opción secundaria: llamada previa de 20 min. Párrafo discreto bajo el CTA,
+   con un link inline (sin icono ni caja) — CTA secundario claro pero liviano. */
+.mm-ses-offer__intro-call {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.5rem, 1.55vw, 1.65rem);
+    line-height: 1.5;
+    color: rgba(29, 32, 48, 0.6);
+    margin: var(--space-5) 0 0;
+    max-width: 46ch;
+}
+
+.mm-ses-offer__intro-call-link {
+    color: var(--brand);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: rgba(82, 113, 255, 0.35);
+    transition: text-decoration-color 0.18s ease;
+}
+
+.mm-ses-offer__intro-call-link:hover,
+.mm-ses-offer__intro-call-link:focus-visible {
+    text-decoration-color: var(--brand);
+}
+
+/* --- Guiño a empresas ------------------------------------------------------
+   Nota secundaria dentro de "¿Y si hay algo que pide más tiempo?", debajo del
+   CTA de acompañamiento. Deliberadamente liviana: divisor fino, eyebrow azul
+   pequeño, texto y bastante aire. NO es una card ni un tercer producto. */
+.mm-ses-teams {
+    margin-top: clamp(3.2rem, 5vw, 4.4rem);
+    padding-top: clamp(2.4rem, 3.6vw, 3.2rem);
+    border-top: 1px solid rgba(244, 241, 234, 0.14);
+}
+
+.mm-ses-teams__eyebrow {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0 0 var(--space-3);
+    line-height: 1;
+}
+
+.mm-ses-teams__text {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.7rem, 1.8vw, 1.95rem);
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0 0 var(--space-4);
+    max-width: 56ch;
+}
+
+.mm-ses-teams__cta {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: clamp(1.55rem, 1.65vw, 1.75rem);
+    font-weight: 500;
+    color: var(--brand);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: rgba(82, 113, 255, 0.35);
+    transition: text-decoration-color 0.18s ease;
+}
+
+.mm-ses-teams__cta:hover,
+.mm-ses-teams__cta:focus-visible {
+    text-decoration-color: var(--brand);
+}
+
+.mm-ses-teams__cta span {
+    display: inline-block;
+    margin-left: 0.15em;
+    transition: transform 0.18s ease;
+}
+
+.mm-ses-teams__cta:hover span,
+.mm-ses-teams__cta:focus-visible span {
+    transform: translateX(0.15em);
 }
 
 .mm-ses-offer__body p {
@@ -2709,10 +2912,6 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
 .mm-ses-offer__col--product .mm-actions {
     margin-top: var(--space-6);
 }
-
-/* The "90 minutos" meta gets a touch more presence as the answer to
-   "what am I getting?" — brand color already set above. */
-
 
 /* --- 8. CTA final: contact form (always visible) --------------------------- */
 
@@ -2760,6 +2959,41 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
         margin-top: clamp(3.2rem, 6vw, 4.4rem);
         padding-top: clamp(3.2rem, 6vw, 4.4rem);
         border-top: 1px solid rgba(29, 32, 48, 0.14);
+    }
+}
+
+/* Price capsule + specs row on narrow screens: stack the two prices with a
+   horizontal divider so USD 150 keeps full width and never gets squeezed. */
+@media (max-width: 560px) {
+    .mm-ses-offer__price {
+        flex-direction: column;
+        gap: clamp(1.4rem, 4vw, 1.8rem);
+    }
+
+    .mm-ses-offer__price-secondary {
+        max-width: none;
+        padding-left: 0;
+        padding-top: clamp(1.4rem, 4vw, 1.8rem);
+    }
+
+    /* Al apilar, el divisor pasa a horizontal, arriba del bloque de empresa. */
+    .mm-ses-offer__price-secondary::before {
+        left: 0;
+        top: 0;
+        transform: none;
+        width: 3.2em;
+        height: 1px;
+    }
+
+    .mm-ses-offer__meta {
+        flex-wrap: wrap;
+        gap: clamp(0.9rem, 3vw, 1.4rem) clamp(1.4rem, 4vw, 2rem);
+    }
+
+    /* Al envolver, el divisor vertical (que asume vecinos en la misma línea)
+       se oculta para no quedar flotando al inicio de un renglón. */
+    .mm-ses-offer__meta-item + .mm-ses-offer__meta-item::before {
+        display: none;
     }
 }
 

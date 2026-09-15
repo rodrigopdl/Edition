@@ -7,6 +7,12 @@ Parameters (Handlebars hash args):
                         radio group. If false/omitted, no selector is shown.
                         The home uses show_selector=true; service pages don't.
 
+    session_choice      Boolean. /sesiones-specific two-option selector
+                        ("¿Qué querés coordinar?": sesión USD 75 / llamada de
+                        20 min). Renders its own tipo_consulta radios, so when
+                        set the hidden tipo_predefinido input is suppressed.
+                        Use with show_selector=false.
+
     tipo_predefinido    String. When show_selector is false, this value is
                         emitted as a hidden input `tipo_consulta`. Formspree
                         receives it under the same field name as the radio,
@@ -46,19 +52,40 @@ selectors). Two instances on the same page would collide.
     <input type="hidden" name="origen" value="{{#if origen}}{{origen}}{{else}}home{{/if}}">
 
     {{#unless show_selector}}
-        {{!-- Hidden tipo_consulta for pages without selector.
-             Same field name as the radio group, so Formspree sees a single
-             consistent `tipo_consulta` regardless of which form submitted. --}}
-        {{#match tipo_predefinido "equipo"}}
-            <input type="hidden" name="tipo_consulta" value="El Viaje">
-        {{else match tipo_predefinido "lider"}}
-            <input type="hidden" name="tipo_consulta" value="Acompañamiento">
-        {{else match tipo_predefinido "charla"}}
-            <input type="hidden" name="tipo_consulta" value="Charlas">
-        {{else match tipo_predefinido "sesion"}}
-            <input type="hidden" name="tipo_consulta" value="Sesiones para masticar">
-        {{/match}}
+        {{#unless session_choice}}
+            {{!-- Hidden tipo_consulta for pages without any selector.
+                 Same field name as the radio group, so Formspree sees a single
+                 consistent `tipo_consulta` regardless of which form submitted. --}}
+            {{#match tipo_predefinido "equipo"}}
+                <input type="hidden" name="tipo_consulta" value="El Viaje">
+            {{else match tipo_predefinido "lider"}}
+                <input type="hidden" name="tipo_consulta" value="Acompañamiento">
+            {{else match tipo_predefinido "charla"}}
+                <input type="hidden" name="tipo_consulta" value="Charlas">
+            {{else match tipo_predefinido "sesion"}}
+                <input type="hidden" name="tipo_consulta" value="Sesiones para masticar">
+            {{/match}}
+        {{/unless}}
     {{/unless}}
+
+    {{#if session_choice}}
+        {{!-- /sesiones: dos puertas de entrada. Encabeza el formulario para que
+             la persona elija primero qué quiere coordinar. Un CTA del recuadro
+             crema puede preseleccionar via ?tipo= o data-attr (ver page JS). --}}
+        <fieldset class="mm-home-contact__choice mm-ses-choice">
+            <legend class="mm-home-contact__choice-legend">¿Qué querés coordinar?</legend>
+            <div class="mm-home-contact__choice-options mm-ses-choice__options">
+                <label class="mm-home-contact__choice-option">
+                    <input type="radio" name="tipo_consulta" value="Sesión para masticar (USD 75)" checked>
+                    <span>Una sesión para masticar — USD 75</span>
+                </label>
+                <label class="mm-home-contact__choice-option">
+                    <input type="radio" name="tipo_consulta" value="Llamada de 20 min (sin costo)">
+                    <span>Una llamada de 20 minutos para conocernos — sin costo</span>
+                </label>
+            </div>
+        </fieldset>
+    {{/if}}
 
     {{!-- Field order is intentionally lead-first: name + email, then what the
          person is bringing, and only then (optionally) what they want to

@@ -3266,6 +3266,32 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
     outline-offset: 3px;
 }
 
+/* /sesiones — two-option selector ("¿Qué querés coordinar?"). Overrides the
+   compact-chip layout: the two options carry longer labels (session USD 75 /
+   free call), so they stack full-width and read as a clear pair. Sits at the
+   top of the form. */
+.mm-v2 .mm-ses-choice__options {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+}
+
+.mm-v2 .mm-ses-choice__options .mm-home-contact__choice-option {
+    width: 100%;
+    height: auto;
+    min-height: 4.4rem;
+    padding: 1.2rem 1.6rem;
+    border-radius: 12px;
+    font-size: clamp(1.5rem, 1.6vw, 1.65rem);
+}
+
+/* Radio aligns to the first line of the label (labels are single-line here,
+   but keep it robust if they wrap on very narrow screens). */
+.mm-v2 .mm-ses-choice__options .mm-home-contact__choice-option > span {
+    transform: none;
+    line-height: 1.35;
+}
+
 /* Rows */
 .mm-v2 .mm-home-contact__row {
     margin-bottom: var(--space-4);
