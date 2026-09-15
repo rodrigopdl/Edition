@@ -76,10 +76,11 @@ Template Name: La Bestia
                 </p>
                 <div class="mm-actions mm-actions--center mm-lib-sample__actions">
                     <button type="button"
-                            class="mm-btn mm-btn--ghost mm-lib-sample__toggle"
+                            class="mm-testimonial__toggle mm-lib-sample__toggle"
                             aria-expanded="false"
                             aria-controls="mm-lib-chapter">
-                        Leer el capítulo
+                        <span class="mm-testimonial__toggle-label">Leer el capítulo</span>
+                        <span class="mm-testimonial__toggle-icon" aria-hidden="true">⌄</span>
                     </button>
                 </div>
             </div>
@@ -307,13 +308,14 @@ Template Name: La Bestia
     if (!toggle || !chapter) return;
 
     var start = document.getElementById('mm-lib-chapter-start');
+    var label = toggle.querySelector('.mm-testimonial__toggle-label');
 
     toggle.addEventListener('click', function () {
         var isOpen = toggle.getAttribute('aria-expanded') === 'true';
         toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
         chapter.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
         chapter.classList.toggle('is-open', !isOpen);
-        toggle.textContent = isOpen ? 'Leer el capítulo' : 'Ocultar capítulo';
+        if (label) label.textContent = isOpen ? 'Leer el capítulo' : 'Ocultar capítulo';
 
         {{!-- Al abrir, llevar el comienzo del capítulo a la vista. --}}
         if (!isOpen && start) {

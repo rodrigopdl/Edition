@@ -283,10 +283,9 @@ body:has(.mm-lib),
     margin: 0 0 var(--space-5);
 }
 
-/* When the chapter is open, the intro toggle stays as a discreet "Ocultar". */
-.mm-lib .mm-lib-sample__toggle[aria-expanded="true"] {
-    /* handled by JS label swap; keep ghost styling */
-}
+/* The sample toggle reuses the testimonial toggle styling (.mm-testimonial__
+   toggle) for a consistent pill button with rotating chevron. No extra rules
+   needed here. */
 
 /* --- 4) Reviews ----------------------------------------------------- */
 .mm-lib .mm-lib-reviews {
