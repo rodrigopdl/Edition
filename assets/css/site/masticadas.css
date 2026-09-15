@@ -2227,6 +2227,17 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     margin: 0;
 }
 
+/* Secondary note under the Masticada description — quieter, italic, hints the
+   format can be shaped around the team's topic. */
+.mm-ch-v2-formats__note {
+    font-family: var(--font-post-body);
+    font-style: italic;
+    font-size: clamp(1.45rem, 1.5vw, 1.6rem);
+    line-height: 1.45;
+    color: rgba(29, 32, 48, 0.55);
+    margin: var(--space-3) 0 0;
+}
+
 /* --- 4. Experiencias (foto + testimonio por columna) ----------------------- */
 
 /* Shares surface-0 with "plus" above and continues its narrative (the photos
