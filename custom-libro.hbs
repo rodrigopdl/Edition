@@ -25,8 +25,8 @@ Template Name: La Bestia
                     </p>
 
                     <div class="mm-actions">
-                        <a href="#mm-lib-buy" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">Conseguir el libro</a>
-                        <a href="#mm-lib-sample" class="mm-btn mm-btn--text js-smooth-scroll">Leer un capítulo</a>
+                        <a href="https://a.co/d/07Idzscm" class="mm-btn mm-btn--primary mm-btn--lg" target="_blank" rel="noopener noreferrer">Comprar en Amazon</a>
+                        <a href="#mm-lib-sample" class="mm-btn mm-btn--text js-smooth-scroll">Leer un capítulo gratis</a>
                     </div>
                 </div>
 
@@ -46,6 +46,64 @@ Template Name: La Bestia
                     </div>
                 </figure>
             </div>
+        </div>
+    </section>
+
+    {{!-- 1b. Compra arriba — versión compacta de "Conseguí La Bestia", con
+         Amazon como protagonista para el tráfico internacional. Mismas URLs que
+         el bloque final para no romper el tracking (Meta Pixel / PostHog). Id
+         propio para no duplicar #mm-lib-buy. --}}
+    <section class="mm-lib-buy mm-lib-buy--top" aria-labelledby="lib-buy-top-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-lib-buy__panel">
+                <h2 class="mm-lib-buy__title" id="lib-buy-top-title">
+                    Conseguí <span class="mm-accent">La Bestia.</span>
+                </h2>
+
+                {{!-- Amazon protagonista, centrado --}}
+                <div class="mm-lib-buy-top__main">
+                    <p class="mm-lib-buy__channel-formats mm-lib-buy-top__formats">
+                        <span>Kindle <span class="mm-lib-buy__price-value">USD 4.99</span></span>
+                        <span aria-hidden="true">·</span>
+                        <span>Papel <span class="mm-lib-buy__price-value">USD 9.99</span></span>
+                    </p>
+                    <div class="mm-actions mm-actions--center">
+                        <a href="https://a.co/d/07Idzscm"
+                           class="mm-btn mm-btn--primary mm-btn--lg"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Comprar en Amazon
+                        </a>
+                    </div>
+                    <p class="mm-lib-buy-top__intl">
+                        <span class="mm-lib-buy-top__intl-label">Otras tiendas:</span>
+                        <a href="https://amzn.eu/d/0j6X0j8I" target="_blank" rel="noopener noreferrer">España</a>
+                        <a href="https://amzn.eu/d/02L1Epna" target="_blank" rel="noopener noreferrer">UK</a>
+                        <a href="https://a.co/d/0dzwvAtm" target="_blank" rel="noopener noreferrer">México</a>
+                    </p>
+                </div>
+
+                {{!-- Uruguay: nota discreta a todo el ancho, no compite con Amazon --}}
+                <p class="mm-lib-buy-top__uy">
+                    ¿En Uruguay? Libro impreso a $590 —
+                    <a href="mailto:rodri@paramasticar.com?subject=La%20Bestia">escribime para conseguirlo</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 1c. Reseña temprana — continúa el problema del anuncio, cerca de la compra --}}
+    <section class="mm-lib-earlyreview" aria-label="Reseña de un lector">
+        <div class="mm-canvas mm-canvas--narrow">
+            <figure class="mm-lib-earlyreview__figure">
+                <blockquote class="mm-lib-earlyreview__quote">
+                    <span class="mm-lib-earlyreview__mark" aria-hidden="true">“</span>Si alguna vez sentiste que sabés lo que tenés que hacer pero hay algo adentro tuyo que no te deja, dale una oportunidad.
+                </blockquote>
+                <figcaption class="mm-lib-earlyreview__cite">
+                    <span class="mm-lib-earlyreview__stars" aria-hidden="true">★★★★★</span>
+                    <span class="mm-lib-earlyreview__source">Reseña verificada en Amazon</span>
+                </figcaption>
+            </figure>
         </div>
     </section>
 

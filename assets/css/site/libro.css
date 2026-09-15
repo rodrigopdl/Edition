@@ -434,6 +434,151 @@ body:has(.mm-lib),
     position: relative;
 }
 
+/* Top buy block: same component, tighter vertical rhythm so it sits high up
+   without pushing the rest of the page down too much. Continues the hero's
+   surface (surface-1) so it reads as part of the opening. */
+.mm-lib .mm-lib-buy--top {
+    padding-top: clamp(2.4rem, 4vw, 4rem);
+    padding-bottom: clamp(3rem, 5vw, 5rem);
+    background: var(--surface-1);
+}
+
+/* Amazon-first compact layout inside the cream panel: prices, big CTA, then a
+   small "otras tiendas" line — centered. */
+.mm-lib .mm-lib-buy-top__main {
+    text-align: center;
+}
+
+.mm-lib .mm-lib-buy-top__formats {
+    justify-content: center;
+    margin: 0 0 var(--space-4);
+    font-size: clamp(1.5rem, 1.5vw, 1.75rem);
+}
+
+.mm-lib .mm-lib-buy-top__intl {
+    margin: var(--space-4) 0 0;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: rgba(29, 32, 48, 0.6);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem 1.2rem;
+}
+
+.mm-lib .mm-lib-buy-top__intl-label {
+    letter-spacing: 0.02em;
+}
+
+.mm-lib .mm-lib-buy-top__intl a {
+    font-weight: 600;
+    color: rgba(29, 32, 48, 0.75);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.mm-lib .mm-lib-buy-top__intl a:hover {
+    color: var(--brand);
+    border-bottom-color: var(--brand);
+}
+
+/* Uruguay: a quiet full-width note below Amazon — present but not competing. */
+.mm-lib .mm-lib-buy-top__uy {
+    margin: var(--space-5) 0 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(29, 32, 48, 0.12);
+    text-align: center;
+    font-family: var(--font-post-body);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: rgba(29, 32, 48, 0.6);
+}
+
+.mm-lib .mm-lib-buy-top__uy a {
+    color: var(--ink-on-paper);
+    text-decoration: underline;
+    text-decoration-color: rgba(29, 32, 48, 0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s ease;
+}
+
+.mm-lib .mm-lib-buy-top__uy a:hover {
+    text-decoration-color: var(--brand);
+    color: var(--brand);
+}
+
+/* --- Early review: focused social proof right after the top buy block ------- */
+.mm-lib .mm-lib-earlyreview {
+    padding-block: clamp(3rem, 5vw, 4.5rem);
+    background: var(--surface-0);
+    position: relative;
+}
+
+.mm-lib .mm-lib-earlyreview::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1160px, calc(100% - 4rem));
+    height: 1px;
+    background: rgba(244, 241, 234, 0.06);
+}
+
+.mm-lib .mm-lib-earlyreview__figure {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mm-lib .mm-lib-earlyreview__quote {
+    font-family: var(--font-post-body);
+    font-style: italic;
+    font-size: clamp(2rem, 2.2vw, 2.5rem);
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0 0 var(--space-4);
+    text-wrap: balance;
+    position: relative;
+}
+
+.mm-lib .mm-lib-earlyreview__mark {
+    font-family: var(--font-post-body);
+    font-style: normal;
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--brand);
+    line-height: 0;
+    vertical-align: -0.32em;
+    margin-right: 0.06em;
+}
+
+.mm-lib .mm-lib-earlyreview__cite {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-style: normal;
+}
+
+.mm-lib .mm-lib-earlyreview__stars {
+    color: var(--brand);
+    opacity: 0.85;
+    letter-spacing: 0.08em;
+    font-size: 1.4rem;
+}
+
+.mm-lib .mm-lib-earlyreview__source {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+}
+
 /* Cream panel — resting on the navy, not a full-bleed band. Title full-width,
    then two equal columns below. */
 /* Max-width a touch tighter than canvas--narrow so the content gains density,
