@@ -3,7 +3,6 @@
         {{#get "posts" limit="6" filter="tags:[{{post.tags}}]+id:-{{post.id}}" as |related|}}
         {{#if related}}
         <header class="mm-post-related__header">
-            <p class="mm-eyebrow">Seguí masticando</p>
             <h2 class="mm-v2-title mm-post-related__title">
                 Otros <span class="mm-accent">bocados.</span>
             </h2>

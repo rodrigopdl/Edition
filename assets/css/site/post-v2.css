@@ -1029,6 +1029,53 @@ body.post-template .mm-post-sessions__link:hover span {
     transform: translateX(4px);
 }
 
+/* Three ways to work together — three simple columns, no cards. Thin vertical
+   dividers between them. The service names carry more weight than the copy. */
+body.post-template .mm-post-ways {
+    list-style: none;
+    margin: 2.8rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.4rem;
+}
+
+body.post-template .mm-post-ways__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Divisor fino entre columnas (no antes de la primera). */
+body.post-template .mm-post-ways__item + .mm-post-ways__item {
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    padding-left: 2.4rem;
+}
+
+body.post-template .mm-post-ways__name {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    margin: 0 0 0.9rem;
+}
+
+body.post-template .mm-post-ways__desc {
+    font-family: var(--font-post-body);
+    font-size: 1.55rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 1.4rem;
+}
+
+/* CTA justo debajo de su descripción — sin forzar alturas iguales entre las
+   tres columnas (está bien que difieran según el largo del texto). */
+body.post-template .mm-post-ways__link {
+    font-size: 1.5rem;
+}
+
 /* The Compartir footer already carries a top border + 6rem gap; with the CTA
    now filling that space, tighten its top margin so the end doesn't grow. */
 body.post-template .mm-post-sessions + .single-footer {
@@ -1043,6 +1090,19 @@ body.post-template .mm-post-sessions + .single-footer {
 
     body.post-template .mm-post-sessions__body {
         font-size: 1.65rem;
+    }
+
+    /* Apiladas en mobile: el divisor pasa de vertical a horizontal. */
+    body.post-template .mm-post-ways {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+
+    body.post-template .mm-post-ways__item + .mm-post-ways__item {
+        border-left: 0;
+        padding-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 2rem;
     }
 
     body.post-template .mm-post-sessions + .single-footer {
