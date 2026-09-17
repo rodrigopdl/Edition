@@ -2152,6 +2152,37 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     margin-bottom: var(--space-6);
 }
 
+/* Foto sola de una masticada (Ruby Meetup), entre los textos introductorios y
+   el recuadro crema. Es un .mm-canvas, así que hereda ancho, centrado y padding
+   lateral de la sección. Bordes redondeados como el resto de las fotos, pero
+   SIN sombra ni borde: se lee como un documento real de la experiencia.
+   Aire natural sobre la foto y un poco más debajo, antes del recuadro crema,
+   para un ritmo más editorial (evita la sucesión de rectángulos pegados). */
+.mm-ch-v2-ruby {
+    margin-top: clamp(3.6rem, 5vw, 5.5rem);
+    margin-bottom: clamp(4.4rem, 6.5vw, 7rem);
+}
+
+/* Collage a ~88% del ancho de la sección y centrado, para que tenga presencia
+   sin dominar. Mantiene aspect ratio (height:auto), sin crop. */
+.mm-ch-v2-ruby__img {
+    display: block;
+    width: 88%;
+    max-width: 88%;
+    height: auto;
+    margin-inline: auto;
+    border-radius: 8px;
+}
+
+/* En mobile el 88% queda innecesariamente chico: usar el ancho disponible
+   completo dentro de los márgenes de la sección, conservando la proporción. */
+@media (max-width: 768px) {
+    .mm-ch-v2-ruby__img {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
 /* --- Cream formats block (same visual language as the /sesiones offer panel).
    Full-width title above two equal columns with a subtle vertical divider.
    Gives the mostly-navy page a deliberate cream break holding the tangible
@@ -2244,7 +2275,7 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
    are evidence of the two modalities). A tighter top padding keeps the flow
    duración → fotos continuous instead of reading as a new section. */
 .mm-ch-v2-real {
-    padding-top: clamp(3rem, 4.5vw, 4.5rem);
+    padding-top: clamp(4.4rem, 6vw, 6.5rem);
 }
 
 /* Two-column grid: each column = one complete experience */
