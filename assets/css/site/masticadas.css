@@ -2146,6 +2146,10 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
    than the full --section-py keeps photo → title reading as one flow. */
 .mm-ch-v2-plus {
     padding-top: clamp(3rem, 4.5vw, 4.5rem);
+    /* Trimmed bottom padding at the contact with "real": halves the vertical
+       gap between the Charla block and Joaquín's testimonial (both share
+       surface-0, so shrinking here doesn't create a seam). */
+    padding-bottom: clamp(2.4rem, 3.2vw, 3.4rem);
 }
 
 .mm-ch-v2-plus .mm-v2-title {
@@ -2163,24 +2167,18 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     margin-bottom: clamp(4.4rem, 6.5vw, 7rem);
 }
 
-/* Collage a ~88% del ancho de la sección y centrado, para que tenga presencia
-   sin dominar. Mantiene aspect ratio (height:auto), sin crop. */
-.mm-ch-v2-ruby__img {
-    display: block;
-    width: 88%;
-    max-width: 88%;
-    height: auto;
-    margin-inline: auto;
-    border-radius: 8px;
+.mm-ch-v2-ruby__figure {
+    margin: 0;
 }
 
-/* En mobile el 88% queda innecesariamente chico: usar el ancho disponible
-   completo dentro de los márgenes de la sección, conservando la proporción. */
-@media (max-width: 768px) {
-    .mm-ch-v2-ruby__img {
-        width: 100%;
-        max-width: 100%;
-    }
+/* Collage a ancho completo de la sección: la Masticada es el corazón de la
+   página, así que su foto grupal es protagonista (con al menos el mismo peso
+   que la foto de la charla). Mantiene aspect ratio (height:auto), sin crop. */
+.mm-ch-v2-ruby__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 /* --- Cream formats block (same visual language as the /sesiones offer panel).
@@ -2269,29 +2267,205 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     margin: var(--space-3) 0 0;
 }
 
+/* --- La Masticada como corazón de la página -------------------------------- */
+
+/* Card protagonista de la Masticada. Reusa el panel crema pero con más aire y
+   jerarquía: es inequívocamente el formato destacado. Sin badges — el peso lo
+   dan tamaño, espacio y el CTA propio. */
+.mm-ch-v2-formats__panel--hero {
+    padding: clamp(3.6rem, 5.5vw, 6rem) clamp(2.8rem, 5vw, 5rem);
+    text-align: center;
+}
+
+.mm-ch-v2-formats__panel--hero .mm-ch-v2-formats__duration {
+    margin: 0 0 var(--space-2);
+}
+
+/* "Masticada" a gran tamaño — el título del formato principal. */
+.mm-ch-v2-formats__name--hero {
+    font-size: clamp(3rem, 4.6vw, 4.8rem);
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--space-3);
+}
+
+/* Frase-gancho bajo el nombre. */
+.mm-ch-v2-formats__lead {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.9rem, 2.1vw, 2.4rem);
+    line-height: 1.4;
+    color: var(--ink-on-paper);
+    margin: 0 auto var(--space-4);
+    max-width: 30ch;
+}
+
+.mm-ch-v2-formats__panel--hero .mm-ch-v2-formats__desc {
+    max-width: 52ch;
+    margin: 0 auto;
+    color: rgba(29, 32, 48, 0.75);
+}
+
+.mm-ch-v2-formats__actions {
+    margin-top: var(--space-6);
+    justify-content: center;
+}
+
+/* --- La Charla como alternativa secundaria --------------------------------- */
+
+/* Sin panel crema: texto + foto sobre el navy, con jerarquía claramente menor
+   que la card de Masticada, pero con entidad propia (link secundario e imagen
+   que representa el formato). Divisor fino arriba. */
+.mm-ch-v2-alt {
+    margin-top: clamp(4rem, 6vw, 5.6rem);
+    padding-top: clamp(3rem, 4.5vw, 4rem);
+    border-top: 1px solid rgba(244, 241, 234, 0.14);
+}
+
+.mm-ch-v2-alt__q {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 1.15vw, 1.5rem);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 var(--space-4);
+}
+
+/* Texto a la izquierda + foto de la charla a la derecha. Composición secundaria
+   (menor peso que la card crema de Masticada): la foto es más chica y no lleva
+   fondo crema. Representa el formato (yo frente a una audiencia). */
+.mm-ch-v2-alt__body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: clamp(2.4rem, 4vw, 4rem);
+    align-items: center;
+}
+
+.mm-ch-v2-alt__head {
+    margin-bottom: var(--space-3);
+}
+
+.mm-ch-v2-alt__name {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 2.1vw, 2.3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0 0 var(--space-1);
+}
+
+.mm-ch-v2-alt__duration {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 1.5vw, 1.7rem);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--brand);
+    margin: 0;
+}
+
+.mm-ch-v2-alt__desc {
+    font-family: var(--font-post-body);
+    font-size: clamp(1.6rem, 1.6vw, 1.8rem);
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0 0 var(--space-4);
+}
+
+/* Link secundario — azul con flecha, mismo lenguaje que otros links del sitio,
+   pero sin ser un botón (la Masticada conserva el botón). */
+.mm-ch-v2-alt__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 1.55vw, 1.7rem);
+    font-weight: 600;
+    color: var(--brand);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.mm-ch-v2-alt__link:hover,
+.mm-ch-v2-alt__link:focus-visible {
+    opacity: 0.8;
+}
+
+.mm-ch-v2-alt__link span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.mm-ch-v2-alt__link:hover span,
+.mm-ch-v2-alt__link:focus-visible span {
+    transform: translateX(4px);
+}
+
+.mm-ch-v2-alt__photo {
+    margin: 0;
+}
+
+.mm-ch-v2-alt__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 3/2;
+}
+
+@media (max-width: 640px) {
+    .mm-ch-v2-alt__body {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+
+    /* En mobile: primero el texto, luego la foto (orden natural del DOM). */
+}
+
 /* --- 4. Experiencias (foto + testimonio por columna) ----------------------- */
 
 /* Shares surface-0 with "plus" above and continues its narrative (the photos
-   are evidence of the two modalities). A tighter top padding keeps the flow
-   duración → fotos continuous instead of reading as a new section. */
+   are evidence of the two modalities). Reduced top padding (~50%) so the gap
+   after the Charla block isn't excessive — the two sections still read as
+   distinct (surface is continuous, so shrinking here doesn't create a seam). */
 .mm-ch-v2-real {
-    padding-top: clamp(4.4rem, 6vw, 6.5rem);
+    padding-top: clamp(2.4rem, 3.2vw, 3.4rem);
 }
 
-/* Two-column grid: each column = one complete experience */
-.mm-ch-v2-exp-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(3rem, 5vw, 5rem);
-    align-items: start;
-    width: 100%;
-}
-
-/* Each experience column: photo on top, testimonial below */
+/* Cada experiencia: foto + testimonio. La principal (masticada) va a lo ancho;
+   la secundaria (charla) es una composición más chica y lateral. */
 .mm-ch-v2-exp {
     display: flex;
     flex-direction: column;
     gap: var(--space-6);
+}
+
+/* Principal (masticada): foto grande centrada + testimonio destacado. */
+.mm-ch-v2-exp--lead {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.mm-ch-v2-exp--lead .mm-ch-v2-testimonial__quote {
+    font-size: clamp(2.1rem, 2.2vw, 2.6rem);
+    line-height: 1.55;
+}
+
+/* Secundaria (charla): foto a la izquierda (más chica) + testimonio al lado.
+   Separada de la principal por aire y un divisor fino, con menor peso visual. */
+.mm-ch-v2-exp--aside {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2.4rem, 4vw, 4rem);
+    align-items: center;
+    max-width: 860px;
+    margin: clamp(4rem, 6vw, 6.5rem) auto 0;
+    padding-top: clamp(3.2rem, 5vw, 4.4rem);
+    border-top: 1px solid rgba(244, 241, 234, 0.14);
+}
+
+.mm-ch-v2-exp--aside .mm-ch-v2-testimonial__quote {
+    font-size: clamp(1.7rem, 1.55vw, 1.95rem);
+    margin-bottom: var(--space-4);
 }
 
 .mm-ch-v2-exp__photo {
@@ -2341,14 +2515,6 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
     border: none;
     background: none;
     text-wrap: pretty;
-}
-
-/* Lucía's column is naturally shorter. Give her quote a touch more air so the
-   left column doesn't read as weaker than Joaquín's — without forcing equal
-   heights (each experience keeps its natural length). */
-.mm-ch-v2-exp:first-child .mm-ch-v2-testimonial__quote {
-    line-height: 1.75;
-    margin-bottom: var(--space-6);
 }
 
 .mm-ch-v2-testimonial__author {
@@ -2435,10 +2601,10 @@ body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
 /* --- Responsive ------------------------------------------------------------- */
 
 @media (max-width: 800px) {
-    /* Stack experiences vertically on tablet/mobile */
-    .mm-ch-v2-exp-grid {
+    /* La experiencia secundaria (charla) pasa de foto-al-lado a apilada. */
+    .mm-ch-v2-exp--aside {
         grid-template-columns: 1fr;
-        gap: clamp(4rem, 8vw, 6rem);
+        gap: var(--space-5);
     }
 
     /* Tighten photo–testimonial gap slightly in stacked layout */

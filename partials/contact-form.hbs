@@ -14,6 +14,12 @@ Parameters (Handlebars hash args):
                         suppressed. Default checked: llamada. Use with
                         show_selector=false.
 
+    charla_choice       Boolean. /charlas-specific three-option selector
+                        ("¿Qué tenés en mente?": una masticada / una charla /
+                        todavía no sé). Renders its own tipo_consulta radios, so
+                        when set the hidden tipo_predefinido input is suppressed.
+                        Default checked: masticada. Use with show_selector=false.
+
     tipo_predefinido    String. When show_selector is false, this value is
                         emitted as a hidden input `tipo_consulta`. Formspree
                         receives it under the same field name as the radio,
@@ -54,6 +60,7 @@ selectors). Two instances on the same page would collide.
 
     {{#unless show_selector}}
         {{#unless session_choice}}
+        {{#unless charla_choice}}
             {{!-- Hidden tipo_consulta for pages without any selector.
                  Same field name as the radio group, so Formspree sees a single
                  consistent `tipo_consulta` regardless of which form submitted. --}}
@@ -67,7 +74,32 @@ selectors). Two instances on the same page would collide.
                 <input type="hidden" name="tipo_consulta" value="Sesiones para masticar">
             {{/match}}
         {{/unless}}
+        {{/unless}}
     {{/unless}}
+
+    {{#if charla_choice}}
+        {{!-- /charlas: selector de formato. Masticada es el producto principal,
+             así que va primero; charla como alternativa; y una salida para quien
+             todavía no sabe (no obliga a decidir). Un CTA de la página puede
+             preseleccionar Masticada (ver page JS). --}}
+        <fieldset class="mm-home-contact__choice mm-ses-choice">
+            <legend class="mm-home-contact__choice-legend">¿Qué tenés en mente?</legend>
+            <div class="mm-home-contact__choice-options mm-ses-choice__options">
+                <label class="mm-home-contact__choice-option">
+                    <input type="radio" name="tipo_consulta" value="Una masticada" checked>
+                    <span>Una masticada</span>
+                </label>
+                <label class="mm-home-contact__choice-option">
+                    <input type="radio" name="tipo_consulta" value="Una charla">
+                    <span>Una charla</span>
+                </label>
+                <label class="mm-home-contact__choice-option">
+                    <input type="radio" name="tipo_consulta" value="Todavía no sé">
+                    <span>No estoy seguro todavía</span>
+                </label>
+            </div>
+        </fieldset>
+    {{/if}}
 
     {{#if session_choice}}
         {{!-- /sesiones: tres puertas de entrada. Encabeza el formulario para que

@@ -10,14 +10,14 @@ Template Name: Charlas
         <div class="mm-canvas mm-canvas--wide">
             <div class="mm-hero__inner">
                 <h1 class="mm-hero__title mm-ch-v2-hero__title" id="ch-title">
-                    Una charla para <span class="mm-accent">seguir masticando.</span>
+                    Liderazgo <br><span class="mm-accent">para masticar.</span>
                 </h1>
                 <div class="mm-hero__lede mm-ch-v2-hero__lede">
-                    <p>Historias e ideas sobre liderazgo para dejar pensando y abrir conversaciones que vale la pena tener.</p>
+                    <p>Historias e ideas para abrir conversaciones que vale la pena tener.</p>
                 </div>
                 <div class="mm-actions mm-actions--center">
-                    <a href="#mm-ch-what" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">
-                        Conocé las opciones
+                    <a href="#mm-ch-mast" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">
+                        Conocé las masticadas
                         <span aria-hidden="true">↓</span>
                     </a>
                 </div>
@@ -32,25 +32,28 @@ Template Name: Charlas
                 Liderar empieza por <span class="mm-accent">uno mismo.</span>
             </h2>
             <div class="mm-prose">
-                <p>Durante más de una década trabajé en WyeWorks, una empresa de tecnología uruguaya. Empecé como desarrollador, después pasé a formar parte del equipo de managers y terminé como acompañante estratégico del CEO, trabajando también de cerca con otros líderes.</p>
-                <p>Muchos de los problemas más difíciles que encontré en ese camino parecían tener que ver con el trabajo, pero rara vez eran técnicos. Eran humanos. Y muchas veces empezaban por uno mismo.</p>
-                <p>Ahí entendí que para liderar a otros primero tenía que aprender a liderarme a mí mismo.</p>
-                <p>Por eso, cuando hablo de liderazgo, empiezo por ahí: por lo que pasa adentro nuestro. Por lo que nos frena, lo que nos enciende y cómo elegimos actuar frente a eso. En el trabajo y fuera de él.</p>
-                <p>En la charla comparto historias, muchas de ellas propias y nacidas de situaciones cotidianas, junto con ideas de Para masticar y herramientas que ayudan a mirar todo eso desde otro lugar.</p>
+                <p>Durante más de una década trabajé en WyeWorks, una empresa de tecnología uruguaya. Empecé como desarrollador, después pasé a formar parte del equipo de managers y terminé acompañando estratégicamente al CEO y trabajando de cerca con otros líderes.</p>
+                <p>Muchos de los problemas más difíciles que encontré en ese camino parecían tener que ver con el trabajo, pero rara vez eran técnicos. Eran humanos. Y muchas veces empezaban por mí.</p>
+                <p>Ahí entendí algo que cambió mi forma de ver el liderazgo: para liderar a otros, primero tenía que aprender a lidiar con lo que me pasaba a mí.</p>
+                <p>Los miedos, las dudas, los impulsos. Lo que me frenaba y lo que me empujaba a moverme.</p>
+                <p>De ahí nació buena parte de lo que hoy comparto en Para masticar y en La Bestia: una mirada sobre el liderazgo que empieza bastante antes de liderar a otros.</p>
             </div>
         </div>
 
-        <div class="mm-canvas mm-ch-v2-what__photo">
-            <figure class="mm-ch-v2-what__figure">
-                <div class="mm-ch-v2-what__frame">
-                    <img
-                        src="{{asset "images/charlas-wide.jpg"}}"
-                        alt="Charla de Para masticar"
-                        class="mm-ch-v2-what__img"
-                        loading="lazy"
-                    >
-                </div>
-                <figcaption class="mm-ch-v2-what__caption">Presentando “Despertá al líder que llevás dentro” — Conferencia La Meetup II en Sinergia Faro.</figcaption>
+        {{!-- Imagen principal de la primera parte: collage de una masticada
+             (personas conversando). Instala temprano que la propuesta no es
+             solo escucharme, y hace de transición hacia la sección de Masticadas.
+             Sin sombra ni borde. Caption discreto (mismo tratamiento del sitio)
+             para dejar claro que es una masticada real. --}}
+        <div class="mm-canvas mm-ch-v2-ruby">
+            <figure class="mm-ch-v2-ruby__figure">
+                <img
+                    src="{{asset "images/masticada-ruby.png"}}"
+                    alt="Escenas de una masticada: personas sentadas conversando"
+                    class="mm-ch-v2-ruby__img"
+                    loading="lazy"
+                >
+                <figcaption class="mm-ch-v2-what__caption">Una masticada en la Ruby MVD Meetup</figcaption>
             </figure>
         </div>
     </section>
@@ -85,135 +88,155 @@ Template Name: Charlas
         </div>
     </section>
 
-    {{!-- 3. Charla + Masticada --}}
-    <section class="mm-ch-v2-plus" aria-labelledby="ch-plus-title">
+    {{!-- 3. La Masticada — corazón de la página --}}
+    <section class="mm-ch-v2-plus" id="mm-ch-mast" aria-labelledby="ch-plus-title">
         <div class="mm-canvas mm-canvas--narrow">
             <h2 class="mm-v2-title" id="ch-plus-title">
                 Hay cosas que vale la pena <span class="mm-accent">masticar juntos.</span>
             </h2>
-            <div class="mm-prose">
-                <p>A veces hay algo que un equipo necesita masticar.</p>
-                <p>Ahí aparece la masticada: una charla y conversación grupal alrededor de algo que el equipo esté viviendo. Puedo adaptar mis historias e ideas para abrir ese tema y después quedarnos a masticarlo juntos.</p>
-                <p>Yo estoy ahí para ayudar a tirar del hilo: escuchar, preguntar y poner sobre la mesa alguna idea cuando puede servir. La conversación la va marcando lo que aparezca en el equipo.</p>
+            <div class="mm-prose mm-ch-v2-mast-prose">
+                <p>Una masticada empieza conmigo poniendo algunas historias sobre la mesa.</p>
+                <p>Pero esa es solo la primera parte.</p>
+                <p>Después, la palabra pasa al grupo.</p>
+                <p>Cada uno trae lo que le resonó, lo conecta con sus propias experiencias y descubre cómo lo viven los demás.</p>
+                <p>Ahí suelen aparecer conversaciones que el día a día no deja mucho lugar para tener. Diferencias, dudas y experiencias compartidas. Y también algo que me interesa especialmente: personas que trabajan juntas empiezan a conocerse de otra manera.</p>
+                <p>Yo voy acompañando esa conversación, haciendo preguntas y sumando algo cuando puede ayudar a llevarla un poco más lejos.</p>
             </div>
         </div>
 
-        {{!-- Foto sola de una masticada (Ruby Meetup). Documenta la experiencia,
-             sin epígrafe ni texto. Va entre los textos introductorios y el
-             recuadro crema. Sin sombra ni borde. --}}
-        <div class="mm-canvas mm-ch-v2-ruby">
-            <img
-                src="{{asset "images/masticada-ruby.png"}}"
-                alt="Escenas de una masticada en la Ruby Meetup"
-                class="mm-ch-v2-ruby__img"
-                loading="lazy"
-            >
+        {{!-- Bloque crema: Masticada como formato protagonista (card grande,
+             con CTA propio). La simetría anterior se rompe a propósito. --}}
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-ch-v2-formats__panel mm-ch-v2-formats__panel--hero">
+                <p class="mm-ch-v2-formats__duration">2 horas</p>
+                <h3 class="mm-ch-v2-formats__name mm-ch-v2-formats__name--hero">Masticada</h3>
+                <p class="mm-ch-v2-formats__lead">Una conversación distinta para que un grupo piense, comparta y se conozca más allá del día a día.</p>
+                <!--p class="mm-ch-v2-formats__desc">Un espacio para compartir, pensar juntos y conocerse un poco más.</p-->
+                <div class="mm-actions mm-ch-v2-formats__actions">
+                    <a href="#mm-ch-cta"
+                       class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll mm-ch-v2-mast-cta"
+                       data-tipo="masticada">
+                        Quiero saber más
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </div>
         </div>
 
-        {{!-- Bloque crema: dos formatos con el mismo peso visual (mismo lenguaje
-             que el recuadro de /sesiones). Título a ancho completo + dos columnas
-             con divisor. --}}
+        {{!-- Alternativa secundaria: la Charla. Menor peso visual que la
+             Masticada, pero con entidad: texto + foto de La Meetup (yo frente a
+             una audiencia) para que la imagen represente el formato. --}}
         <div class="mm-canvas mm-canvas--narrow">
-            <div class="mm-ch-v2-formats__panel">
-                <h3 class="mm-ch-v2-formats__title">Dos formas de hacerlo.</h3>
-                <p class="mm-ch-v2-formats__intro">Para equipos y organizaciones de cualquier rubro. También para encuentros y eventos.</p>
-                <div class="mm-ch-v2-formats__grid">
-                    <div class="mm-ch-v2-formats__col">
-                        <h4 class="mm-ch-v2-formats__name">Charla</h4>
-                        <p class="mm-ch-v2-formats__duration">45 minutos</p>
-                        <p class="mm-ch-v2-formats__desc">Historias e ideas sobre liderazgo para dejar pensando y abrir conversaciones que sigan después.</p>
+            <div class="mm-ch-v2-alt">
+                <p class="mm-ch-v2-alt__q">¿Buscás algo más breve?</p>
+                <div class="mm-ch-v2-alt__body">
+                    <div class="mm-ch-v2-alt__text">
+                        <div class="mm-ch-v2-alt__head">
+                            <h4 class="mm-ch-v2-alt__name">Charla</h4>
+                            <p class="mm-ch-v2-alt__duration">45 minutos</p>
+                        </div>
+                        <p class="mm-ch-v2-alt__desc">Historias e ideas sobre liderazgo para dejar algunas preguntas dando vueltas.</p>
+                        <a href="#mm-ch-cta"
+                           class="mm-ch-v2-alt__link js-smooth-scroll mm-ch-v2-charla-cta"
+                           data-tipo="charla">
+                            Conocé la charla <span aria-hidden="true">→</span>
+                        </a>
                     </div>
-                    <div class="mm-ch-v2-formats__col">
-                        <h4 class="mm-ch-v2-formats__name">Masticada</h4>
-                        <p class="mm-ch-v2-formats__duration">1:30–2 horas</p>
-                        <p class="mm-ch-v2-formats__desc">Una charla y conversación grupal alrededor de algo que el equipo quiera poner sobre la mesa.</p>
-                    </div>
+                    <figure class="mm-ch-v2-alt__photo">
+                        <div class="mm-ch-v2-real__frame">
+                            <img
+                                src="{{asset "images/charlas-wide.jpg"}}"
+                                alt="Rodri dando una charla frente a una audiencia — Conferencia La Meetup II en Sinergia Faro"
+                                class="mm-ch-v2-alt__img"
+                                loading="lazy"
+                            >
+                        </div>
+                    </figure>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 4. Experiencias: dos columnas foto + testimonio --}}
+    {{!-- 4. Prueba social — Masticada (Joaquín) como testimonio principal,
+         a lo ancho; la Charla (Lucía) como prueba secundaria más abajo. --}}
     <section class="mm-ch-v2-real" aria-labelledby="ch-real-title">
         <div class="mm-canvas">
-            <div class="mm-ch-v2-exp-grid">
 
-                {{!-- Experiencia 1: charla --}}
-                <div class="mm-ch-v2-exp">
-                    <figure class="mm-ch-v2-exp__photo">
-                        <div class="mm-ch-v2-real__frame">
-                            <img
-                                src="{{asset "images/talks-lameetup-2-1200.webp"}}"
-                                srcset="{{asset "images/talks-lameetup-2-720.webp"}} 720w,
-                                        {{asset "images/talks-lameetup-2-1200.webp"}} 1200w"
-                                sizes="(min-width: 900px) 50vw, 100vw"
-                                alt="Rodri dando una charla en La Meetup"
-                                class="mm-ch-v2-real__img mm-ch-v2-real__img--talk"
-                                loading="lazy"
-                                width="1200"
-                                height="800"
-                            >
+            {{!-- Principal: masticada. Foto grupal grande + testimonio destacado. --}}
+            <div class="mm-ch-v2-exp mm-ch-v2-exp--lead">
+                <figure class="mm-ch-v2-exp__photo">
+                    <div class="mm-ch-v2-real__frame">
+                        <img
+                            src="{{asset "images/masticada-fernandez.jpg"}}"
+                            alt="Masticada en Fernández Secco"
+                            class="mm-ch-v2-real__img"
+                            loading="lazy"
+                            width="1200"
+                            height="800"
+                        >
+                    </div>
+                </figure>
+                <figure class="mm-ch-v2-testimonial">
+                    <p class="mm-ch-v2-testimonial__context">Después de una masticada</p>
+                    <blockquote class="mm-ch-v2-testimonial__quote">
+                        La masticada con Rodri fue una experiencia transformadora para nuestro equipo. Se generó un espacio para compartir experiencias muy enriquecedoras sobre La Bestia que permitieron potenciar la forma en la que nos complementamos y establecer un marco de referencia común para el futuro.
+                    </blockquote>
+                    <figcaption class="mm-ch-v2-testimonial__author">
+                        <img
+                            src="{{asset "images/joaco.jpeg"}}"
+                            alt="Joaquín Fernández"
+                            class="mm-ch-v2-testimonial__avatar"
+                            width="48"
+                            height="48"
+                            loading="lazy"
+                        >
+                        <div>
+                            <span class="mm-ch-v2-testimonial__name">Joaquín Fernández</span>
+                            <span class="mm-ch-v2-testimonial__role">Socio, Fernández Secco &amp; Asociados</span>
                         </div>
-                    </figure>
-                    <figure class="mm-ch-v2-testimonial">
-                        <p class="mm-ch-v2-testimonial__context">Después de una charla</p>
-                        <blockquote class="mm-ch-v2-testimonial__quote">
-                            Tu presentación me inspiró muchísimo. Quiero destacar la tranquilidad que transmitiste, y el sentimiento de "es re por acá" que me dejaste.
-                        </blockquote>
-                        <figcaption class="mm-ch-v2-testimonial__author">
-                            <img
-                                src="{{asset "images/lucia.jpeg"}}"
-                                alt="Lucía Del Arco"
-                                class="mm-ch-v2-testimonial__avatar"
-                                width="48"
-                                height="48"
-                                loading="lazy"
-                            >
-                            <div>
-                                <span class="mm-ch-v2-testimonial__name">Lucía Del Arco</span>
-                                <span class="mm-ch-v2-testimonial__role">Delivery Manager</span>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </div>
-
-                {{!-- Experiencia 2: charla + masticada --}}
-                <div class="mm-ch-v2-exp">
-                    <figure class="mm-ch-v2-exp__photo">
-                        <div class="mm-ch-v2-real__frame">
-                            <img
-                                src="{{asset "images/masticada-fernandez.jpg"}}"
-                                alt="Masticada en Fernández Secco"
-                                class="mm-ch-v2-real__img"
-                                loading="lazy"
-                                width="1200"
-                                height="800"
-                            >
-                        </div>
-                    </figure>
-                    <figure class="mm-ch-v2-testimonial">
-                        <p class="mm-ch-v2-testimonial__context">Después de una masticada</p>
-                        <blockquote class="mm-ch-v2-testimonial__quote">
-                            La masticada con Rodrigo fue una experiencia transformadora para nuestro equipo. Se generó un espacio para compartir experiencias muy enriquecedoras sobre La Bestia que permitieron potenciar la forma en la que nos complementamos y establecer un marco de referencia común para el futuro.
-                        </blockquote>
-                        <figcaption class="mm-ch-v2-testimonial__author">
-                            <img
-                                src="{{asset "images/joaco.jpeg"}}"
-                                alt="Joaquín Fernández"
-                                class="mm-ch-v2-testimonial__avatar"
-                                width="48"
-                                height="48"
-                                loading="lazy"
-                            >
-                            <div>
-                                <span class="mm-ch-v2-testimonial__name">Joaquín Fernández</span>
-                                <span class="mm-ch-v2-testimonial__role">Socio, Fernández Secco &amp; Asociados</span>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </div>
-
+                    </figcaption>
+                </figure>
             </div>
+
+            {{!-- Secundario: charla. Menor peso — foto más chica al lado del texto. --}}
+            <div class="mm-ch-v2-exp mm-ch-v2-exp--aside">
+                <figure class="mm-ch-v2-exp__photo">
+                    <div class="mm-ch-v2-real__frame">
+                        <img
+                            src="{{asset "images/talks-lameetup-2-1200.webp"}}"
+                            srcset="{{asset "images/talks-lameetup-2-720.webp"}} 720w,
+                                    {{asset "images/talks-lameetup-2-1200.webp"}} 1200w"
+                            sizes="(min-width: 900px) 40vw, 100vw"
+                            alt="Rodri dando una charla en La Meetup"
+                            class="mm-ch-v2-real__img mm-ch-v2-real__img--talk"
+                            loading="lazy"
+                            width="1200"
+                            height="800"
+                        >
+                    </div>
+                </figure>
+                <figure class="mm-ch-v2-testimonial">
+                    <p class="mm-ch-v2-testimonial__context">Después de una charla</p>
+                    <blockquote class="mm-ch-v2-testimonial__quote">
+                        Tu presentación me inspiró muchísimo. Quiero destacar la tranquilidad que transmitiste, y el sentimiento de "es re por acá" que me dejaste.
+                    </blockquote>
+                    <figcaption class="mm-ch-v2-testimonial__author">
+                        <img
+                            src="{{asset "images/lucia.jpeg"}}"
+                            alt="Lucía Del Arco"
+                            class="mm-ch-v2-testimonial__avatar"
+                            width="48"
+                            height="48"
+                            loading="lazy"
+                        >
+                        <div>
+                            <span class="mm-ch-v2-testimonial__name">Lucía Del Arco</span>
+                            <span class="mm-ch-v2-testimonial__role">Delivery Manager</span>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+
         </div>
     </section>
 
@@ -226,12 +249,13 @@ Template Name: Charlas
                     ¿Tenés algo <span class="mm-accent">en mente?</span>
                 </h2>
                 <p class="mm-ch-v2-cta__lede">
-                    Contame un poco sobre el equipo, encuentro o evento que estás organizando.
+                    Ya sea una masticada o una charla, contame un poco sobre el equipo, encuentro o evento que estás organizando.
                 </p>
 
                 <div class="mm-ch-v2-form__form" id="mm-ch-form">
                     {{> "contact-form"
                         show_selector=false
+                        charla_choice=true
                         tipo_predefinido="charla"
                         origen="charlas"
                         subject="Contacto — desde /charlas/"
@@ -249,13 +273,31 @@ Template Name: Charlas
 
 </main>
 
-{{!-- CTA final: rename the shared partial's submit to "Enviar" for this page. --}}
+{{!-- CTA final: rename the shared partial's submit to "Enviar" for this page,
+     y preseleccionar "Una masticada" cuando se llega desde el CTA del bloque
+     protagonista de Masticada. --}}
 <script>
 (function () {
     'use strict';
     var form = document.getElementById('mm-ch-form');
-    var submit = form && form.querySelector('button[type="submit"]');
+    if (!form) return;
+
+    var submit = form.querySelector('button[type="submit"]');
     if (submit) submit.textContent = 'Enviar';
+
+    {{!-- Los CTA de cada formato preseleccionan su opción en el selector. --}}
+    function preselect(val) {
+        var radios = form.querySelectorAll('input[name="tipo_consulta"]');
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].value === val) { radios[i].checked = true; break; }
+        }
+    }
+
+    var mastCta = document.querySelector('.mm-ch-v2-mast-cta');
+    if (mastCta) mastCta.addEventListener('click', function () { preselect('Una masticada'); });
+
+    var charlaCta = document.querySelector('.mm-ch-v2-charla-cta');
+    if (charlaCta) charlaCta.addEventListener('click', function () { preselect('Una charla'); });
 })();
 </script>
 

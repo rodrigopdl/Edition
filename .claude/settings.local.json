@@ -120,7 +120,8 @@
       "Bash(grep -o \"[^,{}]*mm-ch-v2 .mm-prose[^,{]*{[^}]*}\" assets/built/screen.css)",
       "Bash(awk 'NR>=2520 && NR<=2560' assets/css/site/masticadas.css)",
       "Bash(awk 'NR>=2600 && NR<=2625' assets/css/site/masticadas.css)",
-      "Bash(awk '/\\\\.mm-ch-v2-what \\\\{/,/^\\\\}/' assets/css/site/masticadas.css)"
+      "Bash(awk '/\\\\.mm-ch-v2-what \\\\{/,/^\\\\}/' assets/css/site/masticadas.css)",
+      "Bash(awk 'NR>=2402 && NR<=2520 && /@media|mm-ch-v2-exp-grid|mm-ch-v2-formats__grid|grid-template|flex-direction/' assets/css/site/masticadas.css)"
     ]
   }
 }
