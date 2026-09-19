@@ -29,14 +29,14 @@ Template Name: Charlas
     <section class="mm-ch-v2-what" id="mm-ch-what" aria-labelledby="ch-what-title">
         <div class="mm-canvas mm-canvas--narrow">
             <h2 class="mm-v2-title" id="ch-what-title">
-                Liderar empieza por <span class="mm-accent">uno mismo.</span>
+                Hay cosas que vale la pena<br><span class="mm-accent">masticar juntos.</span>
             </h2>
             <div class="mm-prose">
-                <p>Durante más de una década trabajé en WyeWorks, una empresa de tecnología uruguaya. Empecé como desarrollador, después pasé a formar parte del equipo de managers y terminé acompañando estratégicamente al CEO y trabajando de cerca con otros líderes.</p>
-                <p>Muchos de los problemas más difíciles que encontré en ese camino parecían tener que ver con el trabajo, pero rara vez eran técnicos. Eran humanos. Y muchas veces empezaban por mí.</p>
-                <p>Ahí entendí algo que cambió mi forma de ver el liderazgo: para liderar a otros, primero tenía que aprender a lidiar con lo que me pasaba a mí.</p>
-                <p>Los miedos, las dudas, los impulsos. Lo que me frenaba y lo que me empujaba a moverme.</p>
-                <p>De ahí nacieron Para masticar y las masticadas, una forma de llevar estas ideas a un grupo y conversarlas juntos.</p>
+                <p>Una masticada empieza conmigo poniendo algunas historias sobre la mesa. Relatos sobre liderazgo, La Bestia y eso que nos pasa por dentro cuando intentamos hacer algo que nos importa.</p>
+                <p>Pero esa es solo la primera parte. Después, la palabra pasa al grupo.</p>
+                <p>Cada uno trae lo que le resonó, lo conecta con sus propias experiencias y descubre cómo lo viven los demás.</p>
+                <p>Ahí suelen aparecer conversaciones que el día a día no deja mucho lugar para tener. Diferencias, dudas, experiencias compartidas. Y también algo que me interesa especialmente: personas que trabajan juntas empiezan a conocerse de otra manera.</p>
+                <p>Yo voy acompañando esa conversación, haciendo preguntas y sumando algo cuando puede ayudar a llevarla un poco más lejos.</p>
             </div>
         </div>
 
@@ -88,27 +88,17 @@ Template Name: Charlas
         </div>
     </section>
 
-    {{!-- 3. La Masticada — corazón de la página --}}
-    <section class="mm-ch-v2-plus" id="mm-ch-mast" aria-labelledby="ch-plus-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <h2 class="mm-v2-title" id="ch-plus-title">
-                Hay cosas que vale la pena <span class="mm-accent">masticar juntos.</span>
-            </h2>
-            <div class="mm-prose mm-ch-v2-mast-prose">
-                <p>Una masticada empieza conmigo poniendo algunas historias sobre la mesa.</p>
-                <p>Después, la palabra pasa al grupo.</p>
-                <p>Cada uno trae lo que le resonó, lo conecta con sus propias experiencias y descubre cómo lo viven los demás.</p>
-                <p>Ahí suelen aparecer conversaciones que el día a día no deja mucho lugar para tener. Y también algo que me interesa especialmente: personas que trabajan juntas empiezan a conocerse de otra manera.</p>
-                <p>Yo voy acompañando esa conversación, haciendo preguntas y sumando algo cuando puede ayudar a llevarla un poco más lejos.</p>
-            </div>
-        </div>
+    {{!-- 3. La Masticada — corazón de la página. El título + texto introductorio
+         se movieron a la sección "Liderar empieza por uno mismo"; acá quedan la
+         card de Masticada y el bloque de Charla. Conserva id=mm-ch-mast. --}}
+    <section class="mm-ch-v2-plus" id="mm-ch-mast" aria-labelledby="ch-mast-name">
 
         {{!-- Bloque crema: Masticada como formato protagonista (card grande,
              con CTA propio). La simetría anterior se rompe a propósito. --}}
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-ch-v2-formats__panel mm-ch-v2-formats__panel--hero">
                 <p class="mm-ch-v2-formats__duration">2 horas</p>
-                <h3 class="mm-ch-v2-formats__name mm-ch-v2-formats__name--hero">Masticada</h3>
+                <h3 class="mm-ch-v2-formats__name mm-ch-v2-formats__name--hero" id="ch-mast-name">Masticada</h3>
                 <p class="mm-ch-v2-formats__lead">Una conversación distinta para que un grupo piense, comparta y se conozca más allá del día a día.</p>
                 <!--p class="mm-ch-v2-formats__desc">Un espacio para compartir, pensar juntos y conocerse un poco más.</p-->
                 <div class="mm-actions mm-ch-v2-formats__actions">
