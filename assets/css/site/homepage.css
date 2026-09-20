@@ -1763,9 +1763,9 @@ body.home-template .mm-v2 .mm-v2-hero {
     flex-direction: column;
 }
 
-/* Side cards (Charlas + El Viaje): pinned to the middle row and stretched to it.
+/* Side cards (Sesiones + El Viaje): pinned to the middle row and stretched to it.
    Row 2's height = the taller of the two sides, so they end up identical.
-   Explicit columns keep Charlas left (col 1) and El Viaje right (col 3). */
+   Explicit columns keep Sesiones left (col 1) and El Viaje right (col 3). */
 .mm-v2 .mm-way--side {
     grid-row: 2;
     align-self: stretch;
@@ -1779,7 +1779,7 @@ body.home-template .mm-v2 .mm-v2-hero {
     grid-column: 3;
 }
 
-/* Lead card (Sesiones): spans all three rows and centers within them. With the
+/* Lead card (Masticadas): spans all three rows and centers within them. With the
    tagline line its content is fuller, so only a small min-height is needed for
    it to read as slightly taller — the difference vs the side cards is now
    subtle and the inner space feels intentional, not empty. */
@@ -2133,12 +2133,15 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
    existing palette. Clearly visible against the dark testimonial background,
    secondary to the hero CTA but impossible to miss. Extra top margin separates
    it from José's signature (cita → firma → espacio → CTA). */
+/* Toggle en azul de acción (mismo azul que los CTA principales) — invita
+   claramente a desplegar. Compartido por todos los desplegables del sitio
+   (home, /libro, /sesiones). */
 .mm-v2 .mm-testimonial__toggle {
     display: inline-flex;
     align-items: center;
     gap: 0.7rem;
-    background: #f1ece2;
-    color: var(--ink-on-paper);
+    background: var(--brand);
+    color: #fff;
     border: 0;
     border-radius: 999px;
     cursor: pointer;
@@ -2149,18 +2152,14 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
     font-weight: 600;
     letter-spacing: 0.01em;
     text-decoration: none;
-    box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.5) inset,
-        0 8px 20px -10px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 8px 20px -10px rgba(82, 113, 255, 0.6);
     transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .mm-v2 .mm-testimonial__toggle:hover {
-    background: #fbf6e8;
+    background: #3f5cf0;
     transform: translateY(-2px);
-    box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.6) inset,
-        0 12px 26px -10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 12px 26px -10px rgba(82, 113, 255, 0.7);
 }
 
 .mm-v2 .mm-testimonial__toggle:focus-visible {
@@ -2645,7 +2644,7 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
 
     /* Stacked lead layout: collapse the desktop 3-col / 3-row composition back
        to a single column. Reset every explicit grid placement so the cards
-       stack in one track and `order` controls sequence. Sesiones leads; it
+       stack in one track and `order` controls sequence. Masticadas leads; it
        keeps a slightly larger heading via the .mm-way--lead rules above. */
     .mm-v2 .mm-ways__grid--lead {
         grid-template-columns: minmax(0, 1fr);

@@ -17,14 +17,14 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
         <div class="mm-canvas mm-canvas--wide">
             <div class="mm-hero__inner">
                 <h1 class="mm-hero__title mm-ch-v2-hero__title" id="ses-title">
-                    Hay cosas que cuesta <span class="mm-accent">pensar solo.</span>
+                    Hay cosas que cuesta<br><span class="mm-accent">pensar solo.</span>
                 </h1>
                 <div class="mm-hero__lede mm-ch-v2-hero__lede">
-                    <p>Si tenés algo que te vendría bien pensar con alguien, para eso son estas sesiones.</p>
+                    <p>Un espacio para poner sobre la mesa eso que tenés entre manos y mirarlo con alguien de afuera.</p>
                 </div>
                 <div class="mm-actions mm-actions--center">
-                    <a href="#mm-ses-offer" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">
-                        Conocé las sesiones
+                    <a href="#ses-help" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">
+                        Cómo son las sesiones
                         <span aria-hidden="true">↓</span>
                     </a>
                 </div>
@@ -59,30 +59,42 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
 
                 <button
                     type="button"
-                    class="mm-testimonial__toggle"
+                    class="mm-testimonial__toggle mm-ses-testimonial__toggle"
                     aria-expanded="false"
                     aria-controls="ses-testimonial-expanded"
                 >
-                    <span class="mm-testimonial__toggle-label">Leer testimonio completo</span>
+                    <span class="mm-testimonial__toggle-label">Leer lo que cuenta José</span>
                     <span class="mm-testimonial__toggle-icon" aria-hidden="true">⌄</span>
                 </button>
 
                 <div class="mm-testimonial__expanded" id="ses-testimonial-expanded" aria-hidden="true">
                     <div class="mm-testimonial__expanded-body">
                         <p>Tener a Rodri como acompañante es tener acceso a una persona profundamente curiosa, con una mente pensativa, sin apuro y sin agenda personal. Está entregado a la relación, y eso genera un espacio raro de encontrar: podés pensar tranquilo, ver los ángulos que no venías viendo, y sentirte acompañado sin sentir que te están tratando de vender algo.</p>
-                        <p>Puede traerte frameworks o herramientas cuando corresponde, pero no es eso lo que hace la diferencia. Es el espacio que genera y sostiene en el tiempo. Cualquiera puede conocer las herramientas, pero sin ese vínculo de fondo, no rinden.</p>
                         <p>Yo recurría a él en decisiones difíciles, momentos de duda, planificación estratégica, y sobre todo cuando necesitaba pensar en voz alta para encontrar claridad —sobre lo que queríamos como empresa, sobre cómo comunicar valores, sobre qué era realmente lo que queríamos decir.</p>
-                        <p>Rodri es un tipo calmo, pero sus ideas y la forma en que encuadra las cosas te movilizan. Es difícil describirlo mejor: te transmite alivio y te energiza al mismo tiempo, desde un lugar que sigue siendo calmo. Tener a alguien así disponible para pilotear ideas, pensar procesos y sostener claridad en el tiempo es un lujo raro.</p>
+                        <p>Rodri es un tipo calmo, pero sus ideas y la forma en que encuadra las cosas te movilizan. Es difícil describirlo mejor: te transmite alivio y te energiza al mismo tiempo, desde un lugar que sigue siendo calmo.</p>
                     </div>
                 </div>
             </figure>
         </div>
     </section>
 
-    {{!-- 3. Bloque crema: ¿Qué tenés entre manos? + Una sesión para masticar.
-         Se adelanta (justo después del testimonio) para que se entienda pronto
-         qué es una sesión y cuánto cuesta. En desktop, dos columnas dentro de un
-         único panel (izq: identificación, der: producto). Mobile: una columna. --}}
+    {{!-- 3. Cómo es pensar conmigo — "Una cabeza más para pensar". Va antes del
+         recuadro crema: primero se entiende qué aporto a la conversación y luego
+         se ve la sesión concreta. Ancla del hero (scroll-margin en CSS). --}}
+    <section class="mm-ch-v2-what" id="ses-help" aria-labelledby="ses-help-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <h2 class="mm-v2-title" id="ses-help-title">Una cabeza más <span class="mm-accent">para pensar.</span></h2>
+            <div class="mm-prose">
+                <p>Hay cosas que desde adentro cuesta ver.</p>
+                <p>Yo llego desde afuera. Puedo escuchar, preguntar y detenerme en cosas que quizás a vos se te están escapando.</p>
+                <p>Y no vengo solo a hacer preguntas. A la conversación también traigo lo mío: experiencias, ideas y marcos que fui construyendo con los años. Cuando creo que algo de eso puede servir, lo pongo sobre la mesa.</p>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 4. Bloque crema: concreta lo explicado arriba en un servicio. En desktop,
+         dos columnas dentro de un único panel (izq: identificación, der: producto).
+         Mobile: una columna. --}}
     <section class="mm-ses-offer" id="mm-ses-offer" aria-labelledby="ses-offer-title">
         <div class="mm-canvas">
             <div class="mm-ses-offer__panel">
@@ -116,21 +128,9 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
                         </li>
                     </ul>
 
-                    {{!-- Qué pasa durante esa hora — antes del precio --}}
+                    {{!-- Qué pasa durante esa hora --}}
                     <div class="mm-ses-offer__body">
                         <p>Una hora para traer algo concreto y masticarlo juntos, siguiendo el hilo de lo que aparezca.</p>
-                    </div>
-
-                    {{!-- Cápsula de precio: USD 75 principal | USD 150 (empresa) secundario --}}
-                    <div class="mm-ses-offer__price">
-                        <div class="mm-ses-offer__price-primary">
-                            <p class="mm-ses-offer__price-num">USD 75</p>
-                            <p class="mm-ses-offer__price-when">si venís por tu cuenta.</p>
-                        </div>
-                        <div class="mm-ses-offer__price-secondary">
-                            <p class="mm-ses-offer__price-num-alt">USD 150</p>
-                            <p class="mm-ses-offer__price-when-alt">si la sesión la contrata o cubre una empresa.</p>
-                        </div>
                     </div>
 
                     <div class="mm-actions">
@@ -139,29 +139,8 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
                             <span aria-hidden="true">→</span>
                         </a>
                     </div>
-
-                    {{!-- Opción secundaria: llamada previa de 20 min sin costo --}}
-                    <p class="mm-ses-offer__intro-call">
-                        ¿Querés charlar antes? Podemos tener una
-                        <a href="#mm-ses-cta"
-                           class="mm-ses-offer__intro-call-link js-smooth-scroll"
-                           data-tipo="llamada">llamada de 20 minutos sin costo</a>.
-                    </p>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    {{!-- 4. Cómo es pensar conmigo — fusión de "Una cabeza más para pensar" y
-         "No vengo solo a hacer preguntas" en una sola sección, sin repetición. --}}
-    <section class="mm-ch-v2-what" aria-labelledby="ses-help-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <h2 class="mm-v2-title" id="ses-help-title">Una cabeza más <span class="mm-accent">para pensar.</span></h2>
-            <div class="mm-prose">
-                <p>Hay cosas que desde adentro cuesta ver.</p>
-                <p>Yo llego desde afuera. Puedo escuchar, preguntar y detenerme en cosas que quizás a vos se te están escapando.</p>
-                <p>Y no vengo solo a hacer preguntas. A la conversación también traigo lo mío: experiencias, ideas y marcos que fui construyendo con los años. Cuando creo que algo de eso puede servir, lo pongo sobre la mesa.</p>
             </div>
         </div>
     </section>
@@ -230,26 +209,25 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
         </div>
     </section>
 
-    {{!-- 7. CTA final — formulario con las tres puertas de entrada (sesión USD 75
-         / llamada de 20 min / sesiones para un equipo). Siempre visible, en la
-         misma página, sin modal. --}}
+    {{!-- 7. CTA final — formulario simple (nombre, email, mensaje), sin selector.
+         Un solo camino: la persona cuenta qué tiene y Rodri responde para
+         coordinar. Siempre visible, en la misma página, sin modal. --}}
     <section class="mm-ch-v2-cta mm-ses-cta" id="mm-ses-cta" aria-labelledby="ses-cta-title">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-ch-v2-cta__inner">
                 <h2 class="mm-v2-title" id="ses-cta-title">¿Tenés algo <span class="mm-accent">para masticar?</span></h2>
-                <p class="mm-ch-v2-cta__lede">Contame qué te gustaría masticar. No hace falta que sepas explicarlo perfecto.</p>
+                <p class="mm-ch-v2-cta__lede">Contame qué tenés entre manos. No hace falta que sepas explicarlo perfecto.</p>
 
                 <div class="mm-ses-cta__form" id="mm-ses-form">
                     {{> "contact-form"
                         show_selector=false
-                        session_choice=true
                         tipo_predefinido="sesion"
                         origen="sesiones"
                         subject="Contacto — desde /sesiones/"
                         message_label="¿Qué tenés entre manos?"
                         message_placeholder="Lo que quieras contarme..."}}
 
-                    <p class="mm-ses-cta__reassure">Te respondo personalmente para coordinar.</p>
+                    <p class="mm-ses-cta__reassure">Te respondo personalmente para contarte los detalles y coordinar.</p>
                 </div>
 
                 <p class="mm-ch-v2-cta__fallback">
@@ -276,69 +254,28 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
         toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
         expanded.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
         expanded.classList.toggle('is-open', !isOpen);
-        if (label) label.textContent = isOpen ? 'Leer testimonio completo' : 'Cerrar testimonio';
+        if (label) label.textContent = isOpen ? 'Leer lo que cuenta José' : 'Cerrar';
     });
 })();
 </script>
 
-{{!-- Formulario de /sesiones: gestiona las dos puertas de entrada.
-     - El selector "¿Qué querés coordinar?" (sesión / llamada) marca tipo_consulta.
-     - Los CTA del recuadro crema preseleccionan la opción correspondiente.
-     - Acompañamiento viaja como dato aparte (origen_detalle), sin pisar el grupo.
-     - El submit adapta su texto a la opción elegida. --}}
+{{!-- Formulario de /sesiones: un solo camino, sin selector de opciones.
+     - El submit dice "Quiero coordinar →".
+     - Acompañamiento (sección "¿Y si hay algo que pide más tiempo?") sigue
+       bajando al form y se distingue con un hidden origen_detalle. --}}
 <script>
 (function () {
     'use strict';
     var form = document.getElementById('mm-ses-form');
     if (!form) return;
 
-    var radios = form.querySelectorAll('input[name="tipo_consulta"]');
     var submit = form.querySelector('button[type="submit"]');
-    var SESSION = 'Sesión para masticar (USD 75)';
-    var CALL    = 'Llamada de 20 min (sin costo)';
-    var TEAM    = 'Sesiones para un equipo (empresa)';
+    {{!-- textContent (no innerHTML): el JS del partial restaura el botón por
+         textContent tras enviar, así que la flecha va como texto para que
+         persista igual después del envío. --}}
+    if (submit) submit.textContent = 'Quiero coordinar →';
 
-    function checkedValue() {
-        for (var i = 0; i < radios.length; i++) {
-            if (radios[i].checked) return radios[i].value;
-        }
-        return '';
-    }
-
-    {{!-- Preselecciona una opción del selector y deja el foco visual claro. --}}
-    function selectValue(val) {
-        for (var i = 0; i < radios.length; i++) {
-            if (radios[i].value === val) { radios[i].checked = true; break; }
-        }
-        syncSubmit();
-    }
-
-    function syncSubmit() {
-        if (!submit) return;
-        var v = checkedValue();
-        if (v === CALL) submit.textContent = 'Coordinar una llamada';
-        else if (v === SESSION) submit.textContent = 'Coordinar una sesión';
-        else if (v === TEAM) submit.textContent = 'Conversemos';
-        else submit.textContent = 'Coordinar';
-    }
-
-    {{!-- Los tres CTA de la página preseleccionan su opción en el selector.
-         El valor elegido viaja en el envío como `tipo_consulta`. --}}
-
-    {{!-- Recuadro crema: "Quiero coordinar una sesión" → sesión USD 75. --}}
-    var sessionCta = document.querySelector('.mm-ses-offer__col--product .mm-btn--primary');
-    if (sessionCta) sessionCta.addEventListener('click', function () { selectValue(SESSION); });
-
-    {{!-- Recuadro crema: "llamada de 20 minutos" → llamada sin costo. --}}
-    var callLink = document.querySelector('.mm-ses-offer__intro-call-link');
-    if (callLink) callLink.addEventListener('click', function () { selectValue(CALL); });
-
-    {{!-- Para empresas: "Quiero saber más" → sesiones para un equipo. --}}
-    var teamsCta = document.querySelector('.mm-ses-teams__cta');
-    if (teamsCta) teamsCta.addEventListener('click', function () { selectValue(TEAM); });
-
-    {{!-- Acompañamiento: puerta independiente, no es una de las tres opciones del
-         selector. Se registra en un hidden aparte para distinguir el lead. --}}
+    {{!-- Acompañamiento: se registra en un hidden aparte para distinguir el lead. --}}
     var moreCta = document.querySelector('.mm-ses-more__cta');
     if (moreCta) moreCta.addEventListener('click', function () {
         var hidden = form.querySelector('input[name="origen_detalle"]');
@@ -350,12 +287,6 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
         }
         hidden.value = 'Acompañamiento';
     });
-
-    {{!-- Mantener el submit en sync cuando la persona cambia de opción a mano. --}}
-    for (var i = 0; i < radios.length; i++) {
-        radios[i].addEventListener('change', syncSubmit);
-    }
-    syncSubmit();
 })();
 </script>
 

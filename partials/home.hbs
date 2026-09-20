@@ -87,7 +87,7 @@
                     aria-expanded="false"
                     aria-controls="mm-testimonial-expanded"
                 >
-                    <span class="mm-testimonial__toggle-label">Leer testimonio completo</span>
+                    <span class="mm-testimonial__toggle-label">Leer lo que cuenta José</span>
                     <span class="mm-testimonial__toggle-icon" aria-hidden="true">⌄</span>
                 </button>
 
@@ -112,21 +112,21 @@
                 <h2 class="mm-v2-title" id="ways-title">Distintas maneras de <span class="mm-accent">masticar.</span></h2>
             </header>
 
-            {{!-- Order in source is Charlas / Sesiones / Viaje. On desktop CSS
-                 keeps that left-center-right layout with Sesiones as the larger,
-                 central lead card. On mobile CSS reorders to Sesiones first. --}}
+            {{!-- Order in source is Sesiones / Masticadas / Viaje. On desktop CSS
+                 keeps that left-center-right layout with Masticadas as the larger,
+                 central lead card. On mobile CSS reorders to Masticadas first. --}}
             <div class="mm-ways__grid mm-ways__grid--lead">
                 <article class="mm-way mm-way--side">
-                    <h3 class="mm-way__title">Masticadas</h3>
-                    <p class="mm-way__text mm-way__text--secondary">Historias e ideas sobre liderazgo para abrir conversaciones que vale la pena tener.</p>
-                    <a href="/charlas/" class="mm-way__link">Conocé las masticadas <span aria-hidden="true">→</span></a>
+                    <h3 class="mm-way__title">Sesiones para masticar</h3>
+                    <p class="mm-way__text mm-way__text--secondary">Un espacio uno a uno para ordenar lo que tenés en la cabeza y salir sabiendo mejor qué hacer con eso.</p>
+                    <a href="/sesiones/" class="mm-way__link">Conocé las sesiones <span aria-hidden="true">→</span></a>
                 </article>
 
                 <article class="mm-way mm-way--lead">
-                    <h3 class="mm-way__title">Sesiones para masticar</h3>
-                    <p class="mm-way__tagline mm-way__tagline--lead">Una cabeza más para pensar.</p>
-                    <p class="mm-way__text mm-way__text--secondary">Un espacio uno a uno para ordenar lo que tenés en la cabeza y salir sabiendo mejor qué hacer con eso.</p>
-                    <a href="/sesiones/" class="mm-way__link">Conocé las sesiones <span aria-hidden="true">→</span></a>
+                    <h3 class="mm-way__title">Masticadas</h3>
+                    <!--p class="mm-way__tagline mm-way__tagline--lead">Liderazgo para masticar.</p-->
+                    <p class="mm-way__text mm-way__text--secondary">Historias e ideas sobre liderazgo para abrir conversaciones que acerquen a un equipo.</p>
+                    <a href="/charlas/" class="mm-way__link">Conocé las masticadas <span aria-hidden="true">→</span></a>
                 </article>
 
                 <article class="mm-way mm-way--side">
@@ -295,7 +295,7 @@
             toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
             expanded.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
             expanded.classList.toggle('is-open', !isOpen);
-            if (label) label.textContent = isOpen ? 'Leer testimonio completo' : 'Cerrar testimonio';
+            if (label) label.textContent = isOpen ? 'Leer lo que cuenta José' : 'Cerrar';
         });
     }
 })();
