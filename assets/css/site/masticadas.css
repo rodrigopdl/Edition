@@ -2332,6 +2332,16 @@ body.page-charlas .mm-ch-v2-hero .mm-hero__lede {
     color: rgba(29, 32, 48, 0.75);
 }
 
+/* Nota bajo la descripción: sans más chica, tono secundario. */
+.mm-ch-v2-formats__note-hero {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 1.4vw, 1.55rem);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: rgba(29, 32, 48, 0.55);
+    margin: var(--space-3) 0 0;
+}
+
 .mm-ch-v2-formats__actions {
     margin-top: var(--space-6);
     justify-content: center;
