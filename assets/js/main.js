@@ -276,18 +276,30 @@ function archiveLoadMore() {
     var perPage = parseInt(grid.getAttribute('data-per-page')) || 18;
     var loading = false;
     var hasMore = true;
-    
+
+    // The first page skips the featured post, so API pagination overlaps by one.
+    // Remember what's already shown and skip duplicates when loading more.
+    // Normalize to path (the grid renders relative hrefs, the API returns
+    // absolute URLs) so both compare equal.
+    function normalizeUrl(u) {
+        return (u || '').replace(/^https?:\/\/[^\/]+/, '').replace(/\/$/, '');
+    }
+    var seenUrls = {};
+    Array.prototype.forEach.call(grid.querySelectorAll('a[href]'), function (a) {
+        seenUrls[normalizeUrl(a.getAttribute('href'))] = true;
+    });
+
     // Check on page load if there are more posts available
     function checkIfMorePostsExist() {
         var apiUrl = window.ghostConfig ? window.ghostConfig.apiUrl : '/ghost/api/content';
         var apiKey = window.ghostConfig ? window.ghostConfig.apiKey : '';
-        
+
         // Get pagination info for the next page
-        var url = apiUrl + '/posts/?key=' + apiKey + 
-                  '&limit=' + perPage + 
+        var url = apiUrl + '/posts/?key=' + apiKey +
+                  '&limit=' + perPage +
                   '&page=' + (currentPage + 1) +
                   '&fields=id';
-        
+
         fetch(url)
             .then(function(response) {
                 return response.json();
@@ -322,7 +334,7 @@ function archiveLoadMore() {
                   '&limit=' + perPage +
                   '&page=' + nextPage +
                   '&fields=id,title,url,custom_excerpt,excerpt,published_at';
-        
+
         fetch(url)
             .then(function(response) {
                 return response.json();
@@ -338,8 +350,12 @@ function archiveLoadMore() {
                     return;
                 }
                 
-                // Add new posts to the grid
+                // Add new posts to the grid, skipping any already shown (the
+                // 1-post overlap from the offset).
                 posts.forEach(function(post) {
+                    var key = normalizeUrl(post.url);
+                    if (key && seenUrls[key]) return;
+                    if (key) seenUrls[key] = true;
                     var card = createArchiveCard(post);
                     grid.appendChild(card);
                 });

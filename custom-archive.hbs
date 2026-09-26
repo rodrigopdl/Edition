@@ -128,10 +128,15 @@ Template Name: Archive
             </header>
 
             <div class="mm-boc-archive__container">
-                {{#get "posts" limit="18" as |initial_posts|}}
+                {{!-- El primer post (índice 0) es el featured de arriba: se trae
+                     uno de más (limit 19) y se saltea con {{#unless @first}} para
+                     excluir dinámicamente el destacado sin filtrar por id/slug.
+                     Al publicar uno nuevo, este pasa a featured y @first lo saltea. --}}
+                {{#get "posts" limit="19" as |initial_posts|}}
                     {{#if initial_posts}}
                         <ul class="archive-grid mm-boc-archive__list" id="archiveGrid" data-page="1" data-per-page="18">
                             {{#foreach initial_posts}}
+                            {{#unless @first}}
                             <li class="archive-card mm-boc-archive__item">
                                 <a href="{{url}}" class="archive-card-link mm-boc-archive__item-link">
                                     <div class="mm-boc-archive__item-meta">
@@ -149,6 +154,7 @@ Template Name: Archive
                                     {{/if}}
                                 </a>
                             </li>
+                            {{/unless}}
                             {{/foreach}}
                         </ul>
 
