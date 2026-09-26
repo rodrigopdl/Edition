@@ -2229,9 +2229,13 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
     opacity: 1;
 }
 
+/* Wider measure (~720px, ~25% more than the old 60ch) so the full testimonial
+   doesn't over-wrap and read as heavier than it is. Still narrower than the main
+   quote for a comfortable line length. Tighter top margin so the body reads as
+   part of the same component as the "Cerrar" toggle. Kept centered. */
 .mm-v2 .mm-testimonial__expanded-body {
-    max-width: 60ch;
-    margin: var(--space-7) auto var(--space-5);
+    max-width: 720px;
+    margin: var(--space-5) auto var(--space-5);
     text-align: left;
 }
 
