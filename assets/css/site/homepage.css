@@ -2326,7 +2326,7 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
     color: var(--ink-on-paper);
     border: 0;
     border-radius: 2px;
-    padding: clamp(3.6rem, 5vw, 5.6rem) clamp(2.8rem, 5vw, 5rem);
+    padding: clamp(3.2rem, 4.4vw, 4.8rem) clamp(2.8rem, 5vw, 5rem);
     max-width: 1040px;
     margin-inline: auto;
     position: relative;
@@ -2485,19 +2485,19 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
 .mm-v2 .mm-bocados__latest--feature .mm-bocados__latest-media {
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
     border-radius: 6px;
 }
 
 .mm-v2 .mm-bocados__latest--feature .mm-bocados__latest-title {
     font-size: clamp(2rem, 2.3vw, 2.4rem);
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
 }
 
 .mm-v2 .mm-bocados__latest--feature .mm-bocados__latest-excerpt {
     font-size: 1.5rem;
     line-height: 1.55;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
 }
 
 .mm-v2 .mm-bocados__latest--feature:hover {
@@ -2737,15 +2737,27 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
 /* Discover layout: left column (what Bocados are + archive) | right column
    (the last bocado, given real presence). Subtle vertical hairline between,
    the same device used elsewhere on the site. */
+/* Two columns aligned to the top: both headers start on the same line. The two
+   columns are balanced in height (left gets more type weight; the last-bocado
+   card is kept contained), so neither floats with dead air. */
 .mm-v2 .mm-bocados__row--discover {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    align-items: center;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+    align-items: start;
     gap: clamp(3.2rem, 5vw, 5.6rem);
 }
 
-/* Left column vertically centered against the taller last-bocado card. */
-.mm-v2 .mm-bocados__row--discover .mm-bocados__text {
-    align-self: center;
+/* Left column carries the section, so give it a touch more typographic weight
+   and air so it holds its own next to the last-bocado card. */
+.mm-v2 .mm-bocados__row--discover .mm-bocados__title {
+    font-size: clamp(2.8rem, 3.6vw, 3.8rem);
+    margin-bottom: var(--space-5);
+}
+
+.mm-v2 .mm-bocados__row--discover .mm-bocados__lede {
+    font-size: 1.85rem;
+    line-height: 1.65;
+    max-width: 34ch;
+    margin-bottom: var(--space-6);
 }
 
 /* Hairline divider between the two columns. */
@@ -2756,7 +2768,7 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
 }
 
 .mm-v2 .mm-bocados__archive {
-    margin: var(--space-5) 0 0;
+    margin: 0;
 }
 
 .mm-v2 .mm-bocados__archive-link {
