@@ -1180,13 +1180,12 @@ main.mm-v2 {
 
 .mm-v2 .mm-accent {
     color: var(--brand);
-    /* Safari is picky resolving CSS variables on inline elements that also
-       set font-style. Declare the family literally so the italic file is
-       always reached. */
-    font-family: 'Spectral', Georgia, serif;
-    font-style: italic;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    /* Same League Spartan (display) as the rest of the title — no serif italic.
+       The accent is just the brand-blue emphasis, keeping the type consistent. */
+    font-family: var(--font-display);
+    font-style: normal;
+    font-weight: inherit;
+    letter-spacing: inherit;
 }
 
 .mm-v2 .mm-prose {
@@ -3876,9 +3875,9 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
     letter-spacing: -0.02em;
 }
 
-/* .mm-accent: mismo cream que el resto del título, con italic Spectral
-   heredada del sistema. Sobre cielo, el azul brand se disuelve; el
-   cream cálido pertenece a la paleta del sitio. */
+/* .mm-accent sobre imagen de cover: usa cream en vez del azul brand, que se
+   disuelve sobre la foto. La tipografía la hereda del sistema (League Spartan,
+   igual que el resto del título). */
 .mm-v2 .mm-home-service--over-cover .mm-home-service__title .mm-accent {
     color: var(--ink);
 }
