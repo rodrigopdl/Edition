@@ -17,7 +17,7 @@
         </div>
     </section>
 
-    {{!-- 1b. Bocados — suscripción compacta, justo bajo el hero. Es la forma
+    {{!-- 2. Bocados — suscripción compacta, justo bajo el hero. Es la forma
          simple y gratuita de empezar. Reutiliza el mecanismo nativo de members
          de Ghost (data-members-form) y las clases de campo/botón de la sección
          Bocados de más abajo. Menor jerarquía que el hero: panel más contenido. --}}
@@ -27,14 +27,13 @@
     <section class="mm-boc-sub" id="bocados" aria-labelledby="boc-sub-title">
         <div class="mm-canvas">
             <div class="mm-boc-sub__panel">
-                <p class="mm-boc-sub__eyebrow">Una forma de masticar</p>
                 <h2 class="mm-boc-sub__title" id="boc-sub-title">Un bocado cada <span class="mm-accent">miércoles.</span></h2>
-                <p class="mm-boc-sub__lede">Un texto corto para dejarte algo dando vueltas.</p>
+                <p class="mm-boc-sub__lede">Un texto corto para dejarte masticando.</p>
 
                 <form class="mm-boc-sub__form mm-bocados__form" data-members-form>
                     <label for="mm-boc-sub-email" class="mm-visually-hidden">Tu email</label>
                     <div class="mm-bocados__field">
-                        <input
+                        <input  
                             id="mm-boc-sub-email"
                             class="mm-bocados__input"
                             type="email"
@@ -44,7 +43,7 @@
                             required="true"
                         >
                         <button class="mm-bocados__btn" type="submit" aria-label="Suscribirse a Bocados">
-                            Quiero recibirlos <span aria-hidden="true">→</span>
+                            Quiero recibirlos
                         </button>
                     </div>
                     <p class="mm-boc-sub__note">Gratis, directo a tu correo.</p>
@@ -58,7 +57,41 @@
     {{/unless}}
     {{/if}}
 
-    {{!-- 2. Bio --}}
+    {{!-- 3. Formas de trabajar juntos — sube aquí (justo tras Bocados) para que
+         las propuestas se descubran temprano, sobre todo en mobile. --}}
+    <section class="mm-ways" id="mm-home-ways" aria-labelledby="ways-title">
+        <div class="mm-canvas">
+            <header class="mm-section-header mm-ways__header">
+                <h2 class="mm-v2-title" id="ways-title">Otras formas de <span class="mm-accent">masticar.</span></h2>
+            </header>
+
+            {{!-- Order in source is Sesiones / Masticadas / Viaje. On desktop CSS
+                 keeps that left-center-right layout with Masticadas as the larger,
+                 central lead card. On mobile CSS reorders to Masticadas first. --}}
+            <div class="mm-ways__grid mm-ways__grid--lead">
+                <article class="mm-way mm-way--side">
+                    <h3 class="mm-way__title">Sesiones uno a uno</h3>
+                    <p class="mm-way__text mm-way__text--secondary">Un espacio para ordenar lo que tenés en la cabeza y salir sabiendo mejor qué hacer con eso.</p>
+                    <a href="/sesiones/" class="mm-way__link">Conocé las sesiones <span aria-hidden="true">→</span></a>
+                </article>
+
+                <article class="mm-way mm-way--lead">
+                    <h3 class="mm-way__title">Masticadas y charlas</h3>
+                    <!--p class="mm-way__tagline mm-way__tagline--lead">Liderazgo para masticar.</p-->
+                    <p class="mm-way__text mm-way__text--secondary">Historias e ideas sobre liderazgo para abrir conversaciones que acerquen a un equipo.</p>
+                    <a href="/charlas/" class="mm-way__link">Conocé las masticadas <span aria-hidden="true">→</span></a>
+                </article>
+
+                <article class="mm-way mm-way--side">
+                    <h3 class="mm-way__title">El Viaje</h3>
+                    <p class="mm-way__text mm-way__text--secondary">Un mes para frenar, conversar y conocerse mejor como equipo.</p>
+                    <a href="/viaje/" class="mm-way__link">Conocé El Viaje <span aria-hidden="true">→</span></a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 4. Bio --}}
     <section class="mm-intro" aria-labelledby="intro-title">
         <div class="mm-canvas">
             <div class="mm-intro__grid">
@@ -90,7 +123,7 @@
         </div>
     </section>
 
-    {{!-- 3. Testimonio --}}
+    {{!-- 5. Testimonio --}}
     <section class="mm-testimonial" aria-labelledby="testimonial-title">
         <div class="mm-canvas">
             <figure class="mm-testimonial__figure">
@@ -135,40 +168,6 @@
                     </div>
                 </div>
             </figure>
-        </div>
-    </section>
-
-    {{!-- 4. Formas de trabajar juntos --}}
-    <section class="mm-ways" id="mm-home-ways" aria-labelledby="ways-title">
-        <div class="mm-canvas">
-            <header class="mm-section-header mm-ways__header">
-                <p class="mm-ways__kicker">Formas de trabajar juntos</p>
-                <h2 class="mm-v2-title" id="ways-title">Otras formas de <span class="mm-accent">masticar.</span></h2>
-            </header>
-
-            {{!-- Order in source is Sesiones / Masticadas / Viaje. On desktop CSS
-                 keeps that left-center-right layout with Masticadas as the larger,
-                 central lead card. On mobile CSS reorders to Masticadas first. --}}
-            <div class="mm-ways__grid mm-ways__grid--lead">
-                <article class="mm-way mm-way--side">
-                    <h3 class="mm-way__title">Sesiones para masticar</h3>
-                    <p class="mm-way__text mm-way__text--secondary">Un espacio uno a uno para ordenar lo que tenés en la cabeza y salir sabiendo mejor qué hacer con eso.</p>
-                    <a href="/sesiones/" class="mm-way__link">Conocé las sesiones <span aria-hidden="true">→</span></a>
-                </article>
-
-                <article class="mm-way mm-way--lead">
-                    <h3 class="mm-way__title">Masticadas</h3>
-                    <!--p class="mm-way__tagline mm-way__tagline--lead">Liderazgo para masticar.</p-->
-                    <p class="mm-way__text mm-way__text--secondary">Historias e ideas sobre liderazgo para abrir conversaciones que acerquen a un equipo.</p>
-                    <a href="/charlas/" class="mm-way__link">Conocé las masticadas <span aria-hidden="true">→</span></a>
-                </article>
-
-                <article class="mm-way mm-way--side">
-                    <h3 class="mm-way__title">El Viaje</h3>
-                    <p class="mm-way__text mm-way__text--secondary">Un mes para frenar, conversar y conocerse mejor como equipo.</p>
-                    <a href="/viaje/" class="mm-way__link">Conocé El Viaje <span aria-hidden="true">→</span></a>
-                </article>
-            </div>
         </div>
     </section>
 
