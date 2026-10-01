@@ -123,7 +123,10 @@
       "Bash(awk '/\\\\.mm-ch-v2-what \\\\{/,/^\\\\}/' assets/css/site/masticadas.css)",
       "Bash(awk 'NR>=2402 && NR<=2520 && /@media|mm-ch-v2-exp-grid|mm-ch-v2-formats__grid|grid-template|flex-direction/' assets/css/site/masticadas.css)",
       "Bash(grep -E \"^\\(mm-v2-hero|mm-boc-sub|mm-ways|mm-intro|mm-testimonial|mm-bestia|mm-bocados|mm-home-contact\\)$\")",
-      "Bash(awk '!seen[$0]++')"
+      "Bash(awk '!seen[$0]++')",
+      "Bash(awk 'NR>=2900 && NR<=2985 && /@media/' assets/css/site/homepage.css)",
+      "Bash(awk -F: '$1>2900 && $1<3010')",
+      "Bash(grep -n \"mm-bocados__form-title\\\\|mm-bocados__form-lede\\\\|mm-bocados__form-label\\\\|\\\\.mm-bocados    {\\\\|\\\\.mm-bocados {\\\\|mm-bocados \\\\.handpicked\\\\|mm-bocados__form,\\\\|mm-bocados\\\\b\" assets/css/site/homepage.css)"
     ]
   }
 }

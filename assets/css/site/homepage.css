@@ -1335,23 +1335,26 @@ main.mm-v2 {
     position: relative;
 }
 
+/* Alternancia de fondos (solo los dos azules existentes), para que el ritmo
+   lea la arquitectura: hero CLARO → Bocados OSCURO → Otras formas CLARO →
+   Rodri + testimonio OSCURO (una sola unidad) → La Bestia CLARO → Hablemos
+   OSCURO. surface-1 = claro (#222538), surface-0 = oscuro (#1d2030). */
 .mm-v2 .mm-v2-hero    { background: var(--surface-1); padding-top: clamp(7rem, 10vw, 11rem); padding-bottom: clamp(6.4rem, 9vw, 10rem); }
 .mm-v2 .mm-intro      { background: var(--surface-0); }
-.mm-v2 .mm-testimonial{ background: var(--surface-1); padding-block: var(--section-py-tight); }
-.mm-v2 .mm-ways       { background: var(--surface-0); }
+.mm-v2 .mm-testimonial{ background: var(--surface-0); padding-block: var(--section-py-tight); }
+.mm-v2 .mm-ways       { background: var(--surface-1); }
 .mm-v2 .mm-bestia     { background: var(--surface-1); }
-.mm-v2 .mm-bocados    { background: var(--surface-0); padding-block: var(--section-py-tight); }
-.mm-v2 .mm-boc-sub    { background: var(--surface-0); padding-block: var(--section-py-tight); }
+/* Bocados subscribe: a compact editorial pause (not a full section). Tighter
+   than --section-py-tight so it reads as a light beat between the hero and the
+   service cards, without becoming a screen of its own on mobile. */
+.mm-v2 .mm-boc-sub    { background: var(--surface-0); padding-block: clamp(3rem, 4.5vw, 4.4rem); }
 .mm-v2 .mm-closing    { background: var(--surface-1); }
 
-/* Hairline separators between sections */
-.mm-v2 .mm-intro::before,
-.mm-v2 .mm-ways::before,
-.mm-v2 .mm-testimonial::before,
-.mm-v2 .mm-bestia::before,
-.mm-v2 .mm-bocados::before,
-.mm-v2 .mm-boc-sub::before,
-.mm-v2 .mm-closing::before {
+/* Internal divider only: Bio → Testimonio de José share the dark surface (one
+   chromatic unit), so a subtle hairline between them helps read them as two
+   blocks. Every other section transition is now a background change, so their
+   hairlines were redundant and were removed — the surface shift is enough. */
+.mm-v2 .mm-testimonial::before {
     content: "";
     position: absolute;
     top: 0;
@@ -1475,12 +1478,18 @@ body.home-template .mm-v2 .mm-v2-hero .mm-hero__title {
     margin-bottom: var(--space-6);
 }
 
-/* Bajada más ancha para que ocupe 2–3 líneas en desktop en vez de varias muy
-   cortas, y algo más grande para acompañar el título. */
+/* Bajada en League Spartan (misma familia que el H1) para que el hero lea como
+   una composición tipográfica única, no un párrafo serif suelto. Jerarquía
+   claramente secundaria: peso regular, bastante menor que el H1, off-white
+   secundario, ancho controlado para 2–3 líneas equilibradas en desktop. */
 body.home-template .mm-v2 .mm-v2-hero .mm-hero__lede {
-    font-size: clamp(2.05rem, 1.9vw, 2.5rem);
-    line-height: 1.55;
-    max-width: 40ch;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.05rem, 2vw, 2.6rem);
+    line-height: 1.45;
+    letter-spacing: -0.005em;
+    color: var(--ink-2);
+    max-width: 46ch;
 }
 
 /* --- 2) Intro --------------------------------------------------------- */
@@ -1708,16 +1717,6 @@ body.home-template .mm-v2 .mm-v2-hero .mm-hero__lede {
     width: 4.4rem;
 }
 
-.mm-v2 .mm-way__link span {
-    display: inline-block;
-    transition: transform 0.2s ease;
-}
-
-.mm-v2 .mm-way__link:hover span,
-.mm-v2 .mm-way:hover .mm-way__link span {
-    transform: translateX(4px);
-}
-
 /* Feature card: warmer paper, full brand rule on top, deeper shadow.
    Reads clearly as the deepest offer without becoming a pricing card. */
 .mm-v2 .mm-way--feature {
@@ -1913,10 +1912,10 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
         max-width: 24ch;
     }
 
-    body.home-template .mm-v2 .mm-hero__lede {
+    body.home-template .mm-v2 .mm-v2-hero .mm-hero__lede {
         font-size: 1.65rem;
-        line-height: 1.6;
-        max-width: 42ch;
+        line-height: 1.55;
+        max-width: 34ch;
     }
 }
 
@@ -2319,217 +2318,11 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
     color: var(--ink-2);
 }
 
-/* --- 6) Bocados (compact, paneled) ----------------------------------- */
-.mm-v2 .mm-bocados__panel {
-    background: #f1ece2;
-    color: var(--ink-on-paper);
-    border: 0;
-    border-radius: 2px;
-    padding: clamp(3.2rem, 4.4vw, 4.8rem) clamp(2.8rem, 5vw, 5rem);
-    max-width: 1040px;
-    margin-inline: auto;
-    position: relative;
-    box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.55) inset,
-        0 30px 60px -32px rgba(0, 0, 0, 0.45);
-}
-
-.mm-v2 .mm-bocados__panel::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 4rem;
-    height: 2px;
-    background: var(--brand);
-    opacity: 0.7;
-}
-
-.mm-v2 .mm-bocados__row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(3.2rem, 6vw, 5.6rem);
-    /* Center the shorter form column against the taller text column so the
-       empty space below the form is distributed as balance, not dead air.
-       On mobile the columns stack, so this has no effect there. */
-    align-items: center;
-}
-
-.mm-v2 .mm-bocados__title {
-    font-family: var(--font-display);
-    font-size: clamp(2.6rem, 3.2vw, 3.4rem);
-    font-weight: 600;
-    color: var(--ink-on-paper);
-    margin: 0 0 var(--space-4);
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-}
-
-.mm-v2 .mm-bocados__lede {
-    font-family: var(--font-post-body);
-    font-size: 1.7rem;
-    line-height: 1.6;
-    color: #4a4d5c;
-    margin: 0 0 var(--space-6);
-    max-width: 44ch;
-}
-
-.mm-v2 .mm-bocados__text .mm-actions {
-    margin-top: 0;
-}
-
-/* Ghost button lives inside the cream panel — invert colors so it reads. */
-.mm-v2 .mm-bocados__panel .mm-btn--ghost {
-    color: var(--ink-on-paper);
-    border-color: rgba(29, 32, 48, 0.22);
-}
-
-.mm-v2 .mm-bocados__panel .mm-btn--ghost:hover {
-    border-color: var(--ink-on-paper);
-    background: rgba(29, 32, 48, 0.04);
-}
-
-/* --- Último bocado: mini-card (thumbnail + title + excerpt) ----------------
-   A quiet editorial link on the cream panel: small square thumbnail brings the
-   image's color, text sits beside it. The whole card is clickable. */
-.mm-v2 .mm-bocados__latest {
-    display: flex;
-    align-items: center;
-    gap: clamp(1.4rem, 2vw, 2rem);
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s ease;
-}
-
-.mm-v2 .mm-bocados__latest:hover {
-    transform: translateY(-1px);
-}
-
-.mm-v2 .mm-bocados__latest-media {
-    flex-shrink: 0;
-    width: clamp(6.4rem, 8vw, 8.4rem);
-    height: clamp(6.4rem, 8vw, 8.4rem);
-    border-radius: 4px;
-    overflow: hidden;
-    background: rgba(29, 32, 48, 0.06);
-    box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.35);
-}
-
-.mm-v2 .mm-bocados__latest-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.35s ease;
-}
-
-.mm-v2 .mm-bocados__latest:hover .mm-bocados__latest-img {
-    transform: scale(1.04);
-}
-
-.mm-v2 .mm-bocados__latest-body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    min-width: 0;
-}
-
-.mm-v2 .mm-bocados__latest-eyebrow {
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--brand);
-}
-
-.mm-v2 .mm-bocados__latest-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.7rem, 1.9vw, 1.95rem);
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    color: var(--ink-on-paper);
-    /* clamp to 2 lines */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.mm-v2 .mm-bocados__latest:hover .mm-bocados__latest-title {
-    text-decoration: underline;
-    text-decoration-color: rgba(29, 32, 48, 0.3);
-    text-underline-offset: 3px;
-}
-
-.mm-v2 .mm-bocados__latest-excerpt {
-    font-family: var(--font-post-body);
-    font-size: 1.4rem;
-    line-height: 1.45;
-    color: #6a6d7c;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-/* Feature variant (discover column): vertical card with a wide image on top and
-   the text below, so the last bocado gets real presence and fills the column. */
-.mm-v2 .mm-bocados__latest--feature {
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--space-4);
-}
-
-.mm-v2 .mm-bocados__latest--feature .mm-bocados__latest-media {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    border-radius: 6px;
-}
-
-.mm-v2 .mm-bocados__latest--feature .mm-bocados__latest-title {
-    font-size: clamp(2rem, 2.3vw, 2.4rem);
-    -webkit-line-clamp: 2;
-}
-
-.mm-v2 .mm-bocados__latest--feature .mm-bocados__latest-excerpt {
-    font-size: 1.5rem;
-    line-height: 1.55;
-    -webkit-line-clamp: 2;
-}
-
-.mm-v2 .mm-bocados__latest--feature:hover {
-    transform: translateY(-2px);
-}
-
 /* Explicit margins (no flex gap) so heading → lede → field → note read as one
    tight, deliberate unit. */
 .mm-v2 .mm-bocados__form {
     display: flex;
     flex-direction: column;
-}
-
-/* Subscription heading — a clear heading (not a spaced-out eyebrow) so it reads
-   as a real second action of the block. */
-.mm-v2 .mm-bocados__form-title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 2.3vw, 2.4rem);
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-    color: var(--ink-on-paper);
-    margin: 0 0 0.6rem;
-}
-
-/* Explanation right under the heading — tight to it and easy to read. */
-.mm-v2 .mm-bocados__form-lede {
-    font-family: var(--font-post-body);
-    font-size: 1.55rem;
-    line-height: 1.45;
-    color: #4a4d5c;
-    margin: 0 0 var(--space-4);
-    max-width: 40ch;
 }
 
 .mm-v2 .mm-bocados__field {
@@ -2577,6 +2370,7 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
     margin: 0;
     padding: 1.5rem 2.4rem;
     background: var(--brand);
@@ -2621,101 +2415,54 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
     color: var(--brand);
 }
 
-/* Secondary CTA inside the newsletter panel: "Leer el último bocado".
-   Lives after the subscribe form to give the visitor a lightweight way
-   to sample content without committing to the email. Separated with a
-   hairline so it reads as an alternative action, not a duplicate. */
-.mm-v2 .mm-bocados__cta-secondary {
-    margin-top: var(--space-5);
-    padding-top: var(--space-4);
-    border-top: 1px solid rgba(29, 32, 48, 0.10);
-    display: flex;
-    justify-content: flex-start;
-}
 
-.mm-v2 .mm-bocados__member {
-    display: flex;
-    justify-content: flex-start;
-}
-
-/* Hide handpicked posts inside compact Bocados to keep section quiet */
-.mm-v2 .mm-bocados .handpicked-wrapper {
-    display: none;
-}
-
-/* --- Bocados subscribe (right after the hero) -----------------------------
-   Cream panel, editorial and centered: contained inner width, generous vertical
-   padding, title → lede → form → note stacked and centered. The form is the
-   protagonist. Lower weight than the hero. Reuses .mm-bocados__form field/btn. */
-.mm-v2 .mm-boc-sub__panel {
-    background: #f1ece2;
-    color: var(--ink-on-paper);
-    border-radius: 2px;
-    padding: clamp(4.4rem, 6vw, 6.8rem) clamp(3rem, 5.5vw, 5rem);
-    max-width: 840px;
+/* --- Bocados (single home appearance): subscribe + latest + archive --------
+   NOT a card: an open editorial block directly on the dark background, so it
+   contrasts with the cream service cards below. Two columns on desktop
+   (left: subscribe — the primary action; right: a sample of the content), a
+   subtle vertical hairline between. Stacks on mobile. */
+.mm-v2 .mm-boc-sub__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    gap: clamp(3.2rem, 5vw, 5.6rem);
+    align-items: center;
+    max-width: 1000px;
     margin-inline: auto;
-    position: relative;
-    box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.55) inset,
-        0 30px 60px -32px rgba(0, 0, 0, 0.45);
+}
+
+/* Left column — subscription, text-aligned left (not centered) to read as a
+   column in the two-up layout. */
+.mm-v2 .mm-boc-sub__subscribe {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.mm-v2 .mm-boc-sub__panel::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4rem;
-    height: 2px;
-    background: var(--brand);
-    opacity: 0.7;
-}
-
-/* Eyebrow: same treatment as .mm-ways__kicker (sans, uppercase, tracking) but
-   dark, since it sits on the cream panel. Secondary hierarchy — keeps the block
-   from reading like a second hero. */
-.mm-v2 .mm-boc-sub__eyebrow {
-    font-family: var(--font-display);
-    font-size: 1.45rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    line-height: 1.2;
-    color: rgba(29, 32, 48, 0.5);
-    margin: 0 0 var(--space-4);
+    align-items: flex-start;
+    text-align: left;
 }
 
 .mm-v2 .mm-boc-sub__title {
     font-family: var(--font-display);
-    font-size: clamp(3rem, 3.8vw, 4rem);
+    font-size: clamp(2.8rem, 3.4vw, 3.8rem);
     font-weight: 600;
     letter-spacing: -0.02em;
     line-height: 1.1;
-    color: var(--ink-on-paper);
+    color: var(--ink);
     margin: 0 0 var(--space-3);
 }
 
 .mm-v2 .mm-boc-sub__lede {
     font-family: var(--font-post-body);
-    font-size: 1.85rem;
+    font-size: 1.8rem;
     line-height: 1.55;
-    color: #4a4d5c;
-    margin: 0 0 var(--space-6);
-    max-width: 42ch;
+    color: var(--ink-2);
+    margin: 0 0 var(--space-5);
+    max-width: 38ch;
 }
 
-/* The form reuses .mm-bocados__form field/input/btn. Center it and cap its
-   width so the input+button pair reads as a compact, contained action. */
+/* The form reuses .mm-bocados__form field/input/btn. */
 .mm-v2 .mm-boc-sub__form {
     margin: 0;
     width: 100%;
-    max-width: 50rem;
-    align-items: center;
+    max-width: 44rem;
 }
 
 .mm-v2 .mm-boc-sub__form .mm-bocados__field {
@@ -2727,73 +2474,119 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
     font-family: var(--font-post-body);
     font-size: 1.4rem;
     line-height: 1.5;
-    color: #6a6d7c;
-    text-align: center;
+    color: var(--ink-3);
 }
 
-/* --- Bocados section (below): two columns — text/archive + last bocado ------ */
-
-/* Discover layout: left column (what Bocados are + archive) | right column
-   (the last bocado, given real presence). Subtle vertical hairline between,
-   the same device used elsewhere on the site. */
-/* Two columns aligned to the top: both headers start on the same line. The two
-   columns are balanced in height (left gets more type weight; the last-bocado
-   card is kept contained), so neither floats with dead air. */
-.mm-v2 .mm-bocados__row--discover {
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
-    align-items: start;
-    gap: clamp(3.2rem, 5vw, 5.6rem);
-}
-
-/* Left column carries the section, so give it a touch more typographic weight
-   and air so it holds its own next to the last-bocado card. */
-.mm-v2 .mm-bocados__row--discover .mm-bocados__title {
-    font-size: clamp(2.8rem, 3.6vw, 3.8rem);
-    margin-bottom: var(--space-5);
-}
-
-.mm-v2 .mm-bocados__row--discover .mm-bocados__lede {
-    font-size: 1.85rem;
-    line-height: 1.65;
-    max-width: 34ch;
-    margin-bottom: var(--space-6);
-}
-
-/* Hairline divider between the two columns. */
-.mm-v2 .mm-bocados__discover {
-    position: relative;
+/* Right column — content sample. Subtle vertical hairline on the left (same
+   device the site uses elsewhere). */
+.mm-v2 .mm-boc-sub__sample {
     padding-left: clamp(3.2rem, 5vw, 5.6rem);
-    border-left: 1px solid rgba(29, 32, 48, 0.12);
+    border-left: 1px solid rgba(244, 241, 234, 0.1);
 }
 
-.mm-v2 .mm-bocados__archive {
-    margin: 0;
+/* Latest bocado — small editorial piece (image + "Último bocado" + title),
+   the whole thing clickable. Deliberately more contained than the old feature
+   card: small image, no long excerpt. */
+.mm-v2 .mm-boc-sub__latest {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.4rem, 2vw, 2rem);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
 }
 
-.mm-v2 .mm-bocados__archive-link {
+.mm-v2 .mm-boc-sub__latest:hover {
+    transform: translateY(-1px);
+}
+
+.mm-v2 .mm-boc-sub__latest-media {
+    flex-shrink: 0;
+    width: clamp(9rem, 13vw, 12rem);
+    aspect-ratio: 4 / 3;
+    border-radius: 6px;
+    overflow: hidden;
+    background: rgba(244, 241, 234, 0.05);
+}
+
+.mm-v2 .mm-boc-sub__latest-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.mm-v2 .mm-boc-sub__latest:hover .mm-boc-sub__latest-img {
+    transform: scale(1.04);
+}
+
+.mm-v2 .mm-boc-sub__latest-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+}
+
+/* Discreet "Último bocado" indicator — small, in brand blue to tie it to the
+   other blue accents on the page. Same size/uppercase/tracking as before. */
+.mm-v2 .mm-boc-sub__latest-eyebrow {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brand);
+}
+
+.mm-v2 .mm-boc-sub__latest-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 1.9vw, 2rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: text-decoration-color 0.2s ease;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
+}
+
+/* Subtle interactive cue: the whole block is a link (image zooms slightly on
+   hover); the title also underlines on hover so it reads as clickable. */
+.mm-v2 .mm-boc-sub__latest:hover .mm-boc-sub__latest-title {
+    text-decoration-color: rgba(244, 241, 234, 0.4);
+}
+
+/* Archive link — secondary, below the latest bocado. */
+.mm-v2 .mm-boc-sub__archive-link {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    margin-top: var(--space-5);
     font-family: var(--font-display);
-    font-size: 1.55rem;
+    font-size: 1.45rem;
     font-weight: 600;
-    letter-spacing: 0.005em;
-    color: var(--brand);
+    color: var(--ink-2);
     text-decoration: none;
-    transition: opacity 0.2s ease;
+    transition: color 0.2s ease;
 }
 
-.mm-v2 .mm-bocados__archive-link:hover {
-    opacity: 0.8;
+.mm-v2 .mm-boc-sub__archive-link:hover {
+    color: var(--brand);
 }
 
-.mm-v2 .mm-bocados__archive-link span {
+.mm-v2 .mm-boc-sub__archive-link span {
     display: inline-block;
     transition: transform 0.2s ease;
 }
 
-.mm-v2 .mm-bocados__archive-link:hover span {
-    transform: translateX(4px);
+.mm-v2 .mm-boc-sub__archive-link:hover span {
+    transform: translateX(3px);
 }
 
 /* --- 7) Closing ------------------------------------------------------- */
@@ -2889,17 +2682,14 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
         max-width: 180px;
     }
 
-    .mm-v2 .mm-bocados__row {
+    /* Bocados (top): stack to one column. DOM order already gives us subscribe →
+       latest → archive, so no reordering needed. Drop the vertical hairline. */
+    .mm-v2 .mm-boc-sub__inner {
         grid-template-columns: minmax(0, 1fr);
-        gap: var(--space-6);
+        gap: var(--space-7);
     }
 
-    /* Discover: single column, drop the vertical divider (becomes stacked). */
-    .mm-v2 .mm-bocados__row--discover {
-        align-items: stretch;
-    }
-
-    .mm-v2 .mm-bocados__discover {
+    .mm-v2 .mm-boc-sub__sample {
         padding-left: 0;
         border-left: 0;
     }
@@ -3149,34 +2939,7 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
         font-size: 1.35rem;
     }
 
-    /* --- 6) Bocados -------------------------------------------------- */
-    .mm-v2 .mm-bocados__panel {
-        padding: var(--space-6) var(--space-5);
-        border-radius: 3px;
-    }
-
-    .mm-v2 .mm-bocados__panel::before {
-        width: 3rem;
-    }
-
-    .mm-v2 .mm-bocados__title {
-        font-size: 2.2rem;
-        line-height: 1.15;
-        margin-bottom: var(--space-3);
-    }
-
-    .mm-v2 .mm-bocados__lede {
-        font-size: 1.5rem;
-        line-height: 1.55;
-        margin-bottom: var(--space-5);
-    }
-
-    .mm-v2 .mm-bocados__form-label {
-        font-size: 1.05rem;
-        letter-spacing: 0.18em;
-        margin-bottom: var(--space-3);
-    }
-
+    /* --- Bocados form (mobile): stack input over button -------------- */
     .mm-v2 .mm-bocados__field {
         flex-direction: column;
         gap: var(--space-2);
@@ -3192,7 +2955,7 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
         width: 100%;
     }
 
-    .mm-v2 .mm-bocados__note {
+    .mm-v2 .mm-boc-sub__note {
         font-size: 1.25rem;
     }
 
@@ -3269,19 +3032,8 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
 /* --- Home contact form (consolidated entry point) ------------------ */
 .mm-v2 .mm-home-contact {
     padding-block: clamp(5.6rem, 8vw, 8rem);
-    background: var(--surface-1);
+    background: var(--surface-0);
     position: relative;
-}
-
-.mm-v2 .mm-home-contact::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(1160px, calc(100% - 4rem));
-    height: 1px;
-    background: rgba(244, 241, 234, 0.06);
 }
 
 /* Dark editorial panel — matches the original /conversar form look. */
