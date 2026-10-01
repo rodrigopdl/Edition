@@ -2500,13 +2500,18 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
     transform: translateY(-1px);
 }
 
+/* The media acts as a thin, uniform cream frame around the cover: its cream
+   padding is the frame, and the image sits inside it. A small overscale on the
+   image crops the cover's own baked-in border so only the UI-generated frame
+   shows — a single consistent cream frame regardless of the original cover. */
 .mm-v2 .mm-boc-sub__latest-media {
     flex-shrink: 0;
     width: clamp(9rem, 13vw, 12rem);
     aspect-ratio: 4 / 3;
-    border-radius: 6px;
     overflow: hidden;
-    background: rgba(244, 241, 234, 0.05);
+    padding: 3px;
+    background: #f1ece2;
+    box-sizing: border-box;
 }
 
 .mm-v2 .mm-boc-sub__latest-img {
@@ -2514,11 +2519,7 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.35s ease;
-}
-
-.mm-v2 .mm-boc-sub__latest:hover .mm-boc-sub__latest-img {
-    transform: scale(1.04);
+    border-radius: 3px;
 }
 
 .mm-v2 .mm-boc-sub__latest-body {
