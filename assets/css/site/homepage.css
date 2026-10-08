@@ -2506,17 +2506,22 @@ body.home-template .mm-v2 .mm-v2-hero .mm-actions {
    shows — a single consistent cream frame regardless of the original cover. */
 .mm-v2 .mm-boc-sub__latest-media {
     flex-shrink: 0;
+    align-self: flex-start;
     width: clamp(9rem, 13vw, 12rem);
-    aspect-ratio: 4 / 3;
     overflow: hidden;
     padding: 3px;
     background: #f1ece2;
     box-sizing: border-box;
+    line-height: 0;
 }
 
+/* The image defines the height via its own aspect-ratio (robust inside a flex
+   item, where aspect-ratio on the container + height:100% can collapse on iOS
+   Safari and crop the bottom of the cream frame). */
 .mm-v2 .mm-boc-sub__latest-img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     display: block;
     border-radius: 3px;
