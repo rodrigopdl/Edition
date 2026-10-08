@@ -2023,12 +2023,22 @@ html:has(body.page-charlas) {
     max-width: none;
 }
 
-/* --- José Costa testimonial (reuses .mm-testimonial from the home) ----------
-   Editorial piece validating Rodri's track record. surface-1 sets it apart
-   from the surrounding surface-0 sections; padding follows the charlas rhythm
-   (the base .mm-testimonial uses the global --section-py-tight, larger). --- */
-.mm-ch-v2 .mm-ch-v2-jose {
-    padding-block: clamp(4rem, 6vw, 7rem);
+/* Beats de la narración: las dos frases que marcan las etapas de una masticada
+   ("Durante la primera parte..." / "Después llega el momento de compartir.").
+   Un poco más de presencia que el resto del relato —tamaño algo mayor, tinta
+   plena, más aire arriba— para que quien escanea identifique los dos momentos,
+   sin convertirlas en títulos ni bloques destacados. */
+.mm-ch-v2 .mm-prose p.mm-ch-v2-beat {
+    font-size: clamp(2.05rem, 2.2vw, 2.4rem);
+    line-height: 1.4;
+    color: var(--ink);
+    margin-top: clamp(2.6rem, 4vw, 3.8rem);
+}
+
+/* El primer párrafo del segundo bloque de prose es un beat; sin margen superior
+   extra duplicado (ya lo da el espacio entre bloques). */
+.mm-ch-v2 .mm-prose p.mm-ch-v2-beat:first-child {
+    margin-top: 0;
 }
 
 /* --- 1. Hero ---------------------------------------------------------------- */
@@ -2184,6 +2194,14 @@ body.page-charlas .mm-ch-v2-hero .mm-hero__lede {
     margin-bottom: var(--space-6);
 }
 
+/* Sección Charla (alternativa), ahora tras los testimonios: padding simétrico
+   (la card Masticada reduce su bottom por su proximidad a la prueba social;
+   la Charla no necesita ese recorte). */
+.mm-ch-v2-plus--alt {
+    padding-top: clamp(3.2rem, 4vw, 4.4rem);
+    padding-bottom: clamp(3.6rem, 5vw, 5.6rem);
+}
+
 /* Foto sola de una masticada (Ruby Meetup), entre los textos introductorios y
    el recuadro crema. Es un .mm-canvas, así que hereda ancho, centrado y padding
    lateral de la sección. Bordes redondeados como el resto de las fotos, pero
@@ -2193,6 +2211,22 @@ body.page-charlas .mm-ch-v2-hero .mm-hero__lede {
 .mm-ch-v2-ruby {
     margin-top: clamp(3.6rem, 5vw, 5.5rem);
     margin-bottom: clamp(4.4rem, 6.5vw, 7rem);
+}
+
+/* Foto de cierre (Piano Piano): un poco más de aire arriba para dejar respirar
+   el cierre narrativo, y menos aire abajo para conectar con la tarjeta Masticada
+   (el relato termina y aparece la propuesta). La tarjeta aporta el resto del
+   aire con su propio margin-top acotado (ver .mm-ch-v2-plus padding-top). */
+.mm-ch-v2-ruby--close {
+    margin-top: clamp(5rem, 7vw, 7.5rem);
+    margin-bottom: clamp(2.4rem, 3.5vw, 3.6rem);
+}
+
+/* Variante con marco crema (Piano Piano): la imagen vive dentro de
+   .mm-ch-v2-real__frame, que ya da radius + borde off-white; la imagen no lleva
+   su propio radius. */
+.mm-ch-v2-ruby--framed .mm-ch-v2-ruby__img {
+    border-radius: 8px;
 }
 
 .mm-ch-v2-ruby__figure {
@@ -2218,7 +2252,6 @@ body.page-charlas .mm-ch-v2-hero .mm-hero__lede {
     color: var(--ink-on-paper);
     border-radius: 2px;
     padding: clamp(3.2rem, 5vw, 5rem) clamp(2.6rem, 5vw, 4.4rem);
-    margin-top: var(--space-8);
     box-shadow:
         0 1px 0 rgba(255, 255, 255, 0.55) inset,
         0 30px 60px -32px rgba(0, 0, 0, 0.45);
@@ -2467,6 +2500,10 @@ body.page-charlas .mm-ch-v2-hero .mm-hero__lede {
    distinct (surface is continuous, so shrinking here doesn't create a seam). */
 .mm-ch-v2-real {
     padding-top: clamp(2.4rem, 3.2vw, 3.4rem);
+    /* Bottom acotado: comparte surface-0 con la sección Charla siguiente, así
+       que reducir aquí no crea costura y evita un hueco grande antes de
+       "¿Buscás algo más breve?". */
+    padding-bottom: clamp(2.4rem, 3.2vw, 3.6rem);
 }
 
 /* Cada experiencia: foto + testimonio. La principal (masticada) va a lo ancho;
@@ -2591,6 +2628,46 @@ body.page-charlas .mm-ch-v2-hero .mm-hero__lede {
     font-size: clamp(1.3rem, 1.15vw, 1.45rem);
     color: var(--ink-3);
     margin-top: 0.3rem;
+}
+
+/* --- Respaldo: testimonio sobrio sin foto grupal (medida angosta, cita algo
+   menor), separado del bloque anterior por un hairline para que se lea como
+   complemento y no como sección aparte. Lo usa el testimonio de Lucía tras el
+   bloque Charla (su prueba social, sin repetir la foto de charla). --- */
+.mm-ch-v2-backing {
+    max-width: 720px;
+    margin: clamp(3rem, 4.5vw, 4.4rem) auto 0;
+    padding-top: clamp(2.8rem, 4vw, 3.6rem);
+    border-top: 1px solid rgba(244, 241, 234, 0.14);
+    text-align: center;
+}
+
+.mm-ch-v2-backing__quote {
+    font-family: var(--font-post-body);
+    font-style: italic;
+    font-size: clamp(1.7rem, 1.6vw, 2rem);
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0 auto var(--space-5);
+    max-width: 56ch;
+    text-wrap: pretty;
+}
+
+.mm-ch-v2-backing__author {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-align: left;
+    font-style: normal;
+}
+
+.mm-ch-v2-backing__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin: 0;
 }
 
 /* --- 5. CTA final ---------------------------------------------------------- */

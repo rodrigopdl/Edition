@@ -164,7 +164,7 @@
         <div class="mm-canvas">
             <figure class="mm-testimonial__figure">
                 <blockquote class="mm-testimonial__quote" id="testimonial-title">
-                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>Salir de una conversación con Rodri es salir con las ideas más ordenadas y con más energía para actuar, aunque él no te haya dicho qué hacer.
+                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>Rodri fue una de las voces que más nos ayudó a pensar sobre quiénes somos como organización y qué tipo de empresa queríamos construir. Su capacidad para articular ideas sobre liderazgo, autonomía, cultura y desarrollo humano generó conversaciones valiosas que dejaron huella en muchas personas dentro de WyeWorks.
                 </blockquote>
 
                 <figcaption class="mm-testimonial__cite">
@@ -183,26 +183,6 @@
                         <span class="mm-testimonial__role">Co-founder &amp; CEO, WyeWorks</span>
                     </div>
                 </figcaption>
-
-                <button
-                    type="button"
-                    class="mm-testimonial__toggle"
-                    aria-expanded="false"
-                    aria-controls="mm-testimonial-expanded"
-                >
-                    <span class="mm-testimonial__toggle-label">Leer lo que cuenta José</span>
-                    <span class="mm-testimonial__toggle-icon" aria-hidden="true">⌄</span>
-                </button>
-
-                {{!-- Testimonio expandible — va después del toggle para no quedar bajo él --}}
-                <div class="mm-testimonial__expanded" id="mm-testimonial-expanded" aria-hidden="true">
-                    <div class="mm-testimonial__expanded-body">
-                        <p>Tener a Rodri como acompañante es tener acceso a una persona profundamente curiosa, con una mente pensativa, sin apuro y sin agenda personal. Está entregado a la relación, y eso genera un espacio raro de encontrar: podés pensar tranquilo, ver los ángulos que no venías viendo, y sentirte acompañado sin sentir que te están tratando de vender algo.</p>
-                        <p>Puede traerte frameworks o herramientas cuando corresponde, pero no es eso lo que hace la diferencia. Es el espacio que genera y sostiene en el tiempo. Cualquiera puede conocer las herramientas, pero sin ese vínculo de fondo, no rinden.</p>
-                        <p>Yo recurría a él en decisiones difíciles, momentos de duda, planificación estratégica, y sobre todo cuando necesitaba pensar en voz alta para encontrar claridad —sobre lo que queríamos como empresa, sobre cómo comunicar valores, sobre qué era realmente lo que queríamos decir.</p>
-                        <p>Rodri es un tipo calmo, pero sus ideas y la forma en que encuadra las cosas te movilizan. Es difícil describirlo mejor: te transmite alivio y te energiza al mismo tiempo, desde un lugar que sigue siendo calmo. Tener a alguien así disponible para pilotear ideas, pensar procesos y sostener claridad en el tiempo es un lujo raro.</p>
-                    </div>
-                </div>
             </figure>
         </div>
     </section>
@@ -269,29 +249,5 @@
     </section>
 
 </main>
-
-{{!-- Homepage interactions: testimonio expandible + cards → formulario --}}
-<script>
-(function () {
-    'use strict';
-
-    /* ── Testimonio expandible ─────────────────────────────────────── */
-    /* The chevron is always present and rotates via CSS on [aria-expanded];
-       JS only toggles state and the label. */
-    var toggle   = document.querySelector('.mm-testimonial__toggle');
-    var expanded = document.getElementById('mm-testimonial-expanded');
-    var label    = toggle && toggle.querySelector('.mm-testimonial__toggle-label');
-
-    if (toggle && expanded) {
-        toggle.addEventListener('click', function () {
-            var isOpen = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-            expanded.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
-            expanded.classList.toggle('is-open', !isOpen);
-            if (label) label.textContent = isOpen ? 'Leer lo que cuenta José' : 'Cerrar';
-        });
-    }
-})();
-</script>
 
 {{#contentFor "body_class"}}homepage-mm-v2{{/contentFor}}

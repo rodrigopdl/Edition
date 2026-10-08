@@ -29,23 +29,23 @@ Template Name: Charlas
     <section class="mm-ch-v2-what" id="mm-ch-what" aria-labelledby="ch-what-title">
         <div class="mm-canvas mm-canvas--narrow">
             <h2 class="mm-v2-title" id="ch-what-title">
-                Hay cosas que vale la pena<br><span class="mm-accent">masticar juntos.</span>
+                Nos sentamos en <span class="mm-accent">una gran ronda.</span>
             </h2>
             <div class="mm-prose">
-                <p>Una masticada empieza conmigo poniendo algunas historias sobre la mesa. Relatos sobre liderazgo, La Bestia y eso que nos pasa por dentro cuando intentamos hacer algo que nos importa.</p>
-                <p>Pero esa es solo la primera parte. Después, la palabra pasa al grupo.</p>
-                <p>Cada uno trae lo que le resonó, lo conecta con sus propias experiencias y descubre cómo lo viven los demás.</p>
-                <p>Ahí suelen aparecer conversaciones que el día a día no deja mucho lugar para tener. Diferencias, dudas, experiencias compartidas. Y también algo que me interesa especialmente: personas que trabajan juntas empiezan a conocerse de otra manera.</p>
-                <p>Yo voy acompañando esa conversación, haciendo preguntas y sumando algo cuando puede ayudar a llevarla un poco más lejos.</p>
+                <p>Pongo un parlante en el centro. Suena un jazz tenue de fondo, de esos que mezclan sonidos de lluvia y cafetería. No hay pantallas ni diapositivas. Si hay luces bajas, ideal. La ambientación es parte del secreto.</p>
+                <p class="mm-ch-v2-beat">Durante la primera parte cuento historias.</p>
+                <p>De hobbies, de liderazgo, de clientes difíciles, de deporte y de lo cotidiano que a primera vista no parece decir mucho pero que a veces esconde algo más profundo.</p>
+                <p>Mis historias tienen mucho que ver con dos fuerzas que conviven dentro nuestro. Una es La Bestia, esa parte de nosotros que aparece cuando algo se pone difícil y trata de convencernos de reaccionar, evitar, controlar o elegir el camino fácil. La otra es el fuego, eso que arde cuando estamos entusiasmados y que nos ayuda a transitar mejor los momentos en los que La Bestia está a la vuelta de la esquina.</p>
+                <p>Aprender a ver esas fuerzas me ayudó a transitar desafíos personales y profesionales, y a entender qué podía hacer para tener un efecto positivo en otros.</p>
+                <p>Soy un tipo calmo e introspectivo, y eso se nota desde el primer momento. No suelo dar fórmulas. Prefiero dejar ideas dando vueltas y que cada uno descubra qué hacer con ellas.</p>
+                <p>Mientras cuento las historias, mastico en voz alta lo que me dejaron. Es como si estuviera descifrando mis experiencias de vida en un relato de fogón. Y, al hacerlo, invito al resto a hacer lo mismo con las suyas.</p>
             </div>
         </div>
 
-        {{!-- Imagen principal de la primera parte: collage de una masticada
-             (personas conversando). Instala temprano que la propuesta no es
-             solo escucharme, y hace de transición hacia la sección de Masticadas.
-             Sin sombra ni borde. Caption discreto (mismo tratamiento del sitio)
-             para dejar claro que es una masticada real. --}}
-        <div class="mm-canvas mm-ch-v2-ruby">
+        {{!-- Imagen de una masticada (collage Ruby Meetup), en medio del texto:
+             tras contar cómo arranca y antes del momento de compartir. Mismo
+             ancho que el texto. Sin sombra ni borde. --}}
+        <div class="mm-canvas mm-canvas--narrow mm-ch-v2-ruby">
             <figure class="mm-ch-v2-ruby__figure">
                 <img
                     src="{{asset "images/masticada-ruby.png"}}"
@@ -56,45 +56,42 @@ Template Name: Charlas
                 <figcaption class="mm-ch-v2-what__caption">Una masticada en la Ruby MVD Meetup</figcaption>
             </figure>
         </div>
-    </section>
 
-    {{!-- 2b. Testimonio de José Costa — valida la trayectoria y la mirada.
-         Reusa el componente .mm-testimonial de la home. Es una pieza editorial
-         propia, distinta de los testimonios de asistentes de más abajo. --}}
-    <section class="mm-testimonial mm-ch-v2-jose" aria-labelledby="ch-jose-title">
         <div class="mm-canvas mm-canvas--narrow">
-            <figure class="mm-testimonial__figure">
-                <blockquote class="mm-testimonial__quote" id="ch-jose-title">
-                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>Rodri fue una de las voces que más nos ayudó a pensar sobre quiénes somos como organización y qué tipo de empresa queríamos construir. Su capacidad para articular ideas sobre liderazgo, autonomía, cultura y desarrollo humano generó conversaciones valiosas que dejaron huella en muchas personas dentro de WyeWorks.
-                </blockquote>
+            <div class="mm-prose">
+                <p class="mm-ch-v2-beat">Después llega el momento de compartir.</p>
+                <p>El protagonismo pasa al equipo. Yo me encargo de facilitar el intercambio e ir guiándolo con preguntas que ayuden a las personas a escucharse y conocerse un poco más.</p>
+                <p>En esta parte, el arranque a veces es tímido. Silencio. Nadie está obligado a hablar. Solo habla el que le nace. Hasta que alguien da el primer paso. Por ahí comparte una anécdota que le resonó de mi relato, o algo parecido que le pasó en su vida. Y esa primera intervención suele abrir la puerta para que aparezcan otras.</p>
+                <p>Suelo terminar con la sensación de conocer un poco más a quienes estuvieron ahí conmigo. Sobre todo a los que participaron. Uno hasta recuerda dónde estaban sentados los demás.</p>
+                <p>Algo de la ronda, la música, los relatos y lo que aparece en la conversación hace que la experiencia se sienta distinta.</p>
+            </div>
+        </div>
 
-                <figcaption class="mm-testimonial__cite">
-                    <div class="mm-testimonial__avatar">
-                        <img
-                            src="{{asset "images/Jose.webp"}}"
-                            alt="José Costa, Co-founder y CEO de WyeWorks"
-                            class="mm-testimonial__avatar-img"
-                            width="120"
-                            height="120"
-                            loading="lazy"
-                        >
-                    </div>
-                    <div class="mm-testimonial__person">
-                        <span class="mm-testimonial__name">José Costa</span>
-                        <span class="mm-testimonial__role">Co-founder &amp; CEO, WyeWorks</span>
-                    </div>
-                </figcaption>
+        {{!-- Segunda foto de masticada (Piano Piano), tras el cierre narrativo.
+             Con el marco crema (.mm-ch-v2-real__frame) de las demás fotos del
+             sitio. Un poco más de aire antes para dejar respirar el cierre. --}}
+        <div class="mm-canvas mm-canvas--narrow mm-ch-v2-ruby mm-ch-v2-ruby--close mm-ch-v2-ruby--framed">
+            <figure class="mm-ch-v2-ruby__figure">
+                <div class="mm-ch-v2-real__frame">
+                    <img
+                        src="{{asset "images/pianopiano.jpg"}}"
+                        alt="Masticada con el equipo de Piano Piano Producciones"
+                        class="mm-ch-v2-ruby__img"
+                        loading="lazy"
+                    >
+                </div>
+                <figcaption class="mm-ch-v2-what__caption">Masticada con el equipo de Piano Piano Producciones</figcaption>
             </figure>
         </div>
     </section>
 
-    {{!-- 3. La Masticada — corazón de la página. El título + texto introductorio
-         se movieron a la sección "Liderar empieza por uno mismo"; acá quedan la
-         card de Masticada y el bloque de Charla. Conserva id=mm-ch-mast. --}}
+    {{!-- 3. La Masticada — tarjeta protagonista, inmediatamente después de la
+         narración + fotos: transición natural del relato a la propuesta concreta.
+         Conserva id=mm-ch-mast (ancla del hero). --}}
     <section class="mm-ch-v2-plus" id="mm-ch-mast" aria-labelledby="ch-mast-name">
 
         {{!-- Bloque crema: Masticada como formato protagonista (card grande,
-             con CTA propio). La simetría anterior se rompe a propósito. --}}
+             con CTA propio). --}}
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-ch-v2-formats__panel mm-ch-v2-formats__panel--hero">
                 <p class="mm-ch-v2-formats__duration">2 horas</p>
@@ -112,13 +109,61 @@ Template Name: Charlas
                 </div>
             </div>
         </div>
+    </section>
 
-        {{!-- Alternativa secundaria: la Charla. Menor peso visual que la
-             Masticada, pero con entidad: texto + foto de La Meetup (yo frente a
-             una audiencia) para que la imagen represente el formato. --}}
+    {{!-- 4. Prueba social — Joaquín (masticada real) primero y protagonista;
+         José (trayectoria) como respaldo complementario debajo; Lucía (charla)
+         como prueba del formato más breve. Todo en una sola sección para que no
+         se perciban desconectados. --}}
+    <section class="mm-ch-v2-real" aria-labelledby="ch-real-title">
+        <div class="mm-canvas">
+
+            {{!-- Prueba social de la masticada: foto grupal grande + testimonio
+                 de Joaquín. (El testimonio arranca con "La masticada con Rodri…",
+                 así que no lleva encabezado de contexto.) --}}
+            <div class="mm-ch-v2-exp mm-ch-v2-exp--lead">
+                <figure class="mm-ch-v2-exp__photo">
+                    <div class="mm-ch-v2-real__frame">
+                        <img
+                            src="{{asset "images/masticada-fernandez.jpg"}}"
+                            alt="Masticada en Fernández Secco"
+                            class="mm-ch-v2-real__img"
+                            loading="lazy"
+                            width="1200"
+                            height="800"
+                        >
+                    </div>
+                </figure>
+                <figure class="mm-ch-v2-testimonial">
+                    <blockquote class="mm-ch-v2-testimonial__quote">
+                        La masticada con Rodri fue una experiencia transformadora para nuestro equipo. Se generó un espacio para compartir experiencias muy enriquecedoras sobre La Bestia que permitieron potenciar la forma en la que nos complementamos y establecer un marco de referencia común para el futuro.
+                    </blockquote>
+                    <figcaption class="mm-ch-v2-testimonial__author">
+                        <img
+                            src="{{asset "images/joaco.jpeg"}}"
+                            alt="Joaquín Fernández"
+                            class="mm-ch-v2-testimonial__avatar"
+                            width="48"
+                            height="48"
+                            loading="lazy"
+                        >
+                        <div>
+                            <span class="mm-ch-v2-testimonial__name">Joaquín Fernández</span>
+                            <span class="mm-ch-v2-testimonial__role">Socio, Fernández Secco &amp; Asociados</span>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+
+        </div>
+    </section>
+
+    {{!-- 5. Alternativa secundaria: la Charla. Después de los testimonios, con
+         menor peso visual que la tarjeta crema de Masticada. --}}
+    <section class="mm-ch-v2-plus mm-ch-v2-plus--alt" aria-labelledby="ch-alt-title">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-ch-v2-alt">
-                <p class="mm-ch-v2-alt__q">¿Buscás algo más breve?</p>
+                <p class="mm-ch-v2-alt__q" id="ch-alt-title">¿Buscás algo más breve?</p>
                 <div class="mm-ch-v2-alt__body">
                     <div class="mm-ch-v2-alt__text">
                         <div class="mm-ch-v2-alt__head">
@@ -143,78 +188,19 @@ Template Name: Charlas
                         </div>
                     </figure>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    {{!-- 4. Prueba social — Masticada (Joaquín) como testimonio principal,
-         a lo ancho; la Charla (Lucía) como prueba secundaria más abajo. --}}
-    <section class="mm-ch-v2-real" aria-labelledby="ch-real-title">
-        <div class="mm-canvas">
-
-            {{!-- Principal: masticada. Foto grupal grande + testimonio destacado. --}}
-            <div class="mm-ch-v2-exp mm-ch-v2-exp--lead">
-                <figure class="mm-ch-v2-exp__photo">
-                    <div class="mm-ch-v2-real__frame">
-                        <img
-                            src="{{asset "images/masticada-fernandez.jpg"}}"
-                            alt="Masticada en Fernández Secco"
-                            class="mm-ch-v2-real__img"
-                            loading="lazy"
-                            width="1200"
-                            height="800"
-                        >
-                    </div>
-                </figure>
-                <figure class="mm-ch-v2-testimonial">
-                    <p class="mm-ch-v2-testimonial__context">Después de una masticada</p>
-                    <blockquote class="mm-ch-v2-testimonial__quote">
-                        La masticada con Rodri fue una experiencia transformadora para nuestro equipo. Se generó un espacio para compartir experiencias muy enriquecedoras sobre La Bestia que permitieron potenciar la forma en la que nos complementamos y establecer un marco de referencia común para el futuro.
-                    </blockquote>
-                    <figcaption class="mm-ch-v2-testimonial__author">
-                        <img
-                            src="{{asset "images/joaco.jpeg"}}"
-                            alt="Joaquín Fernández"
-                            class="mm-ch-v2-testimonial__avatar"
-                            width="48"
-                            height="48"
-                            loading="lazy"
-                        >
-                        <div>
-                            <span class="mm-ch-v2-testimonial__name">Joaquín Fernández</span>
-                            <span class="mm-ch-v2-testimonial__role">Socio, Fernández Secco &amp; Asociados</span>
-                        </div>
-                    </figcaption>
-                </figure>
-            </div>
-
-            {{!-- Secundario: charla. Menor peso — foto más chica al lado del texto. --}}
-            <div class="mm-ch-v2-exp mm-ch-v2-exp--aside">
-                <figure class="mm-ch-v2-exp__photo">
-                    <div class="mm-ch-v2-real__frame">
-                        <img
-                            src="{{asset "images/talks-lameetup-2-1200.webp"}}"
-                            srcset="{{asset "images/talks-lameetup-2-720.webp"}} 720w,
-                                    {{asset "images/talks-lameetup-2-1200.webp"}} 1200w"
-                            sizes="(min-width: 900px) 40vw, 100vw"
-                            alt="Rodri dando una charla en La Meetup"
-                            class="mm-ch-v2-real__img mm-ch-v2-real__img--talk"
-                            loading="lazy"
-                            width="1200"
-                            height="800"
-                        >
-                    </div>
-                </figure>
-                <figure class="mm-ch-v2-testimonial">
-                    <p class="mm-ch-v2-testimonial__context">Después de una charla</p>
-                    <blockquote class="mm-ch-v2-testimonial__quote">
+                {{!-- Prueba social de la charla: testimonio de Lucía. Sin foto
+                     (el bloque Charla de arriba ya muestra la imagen del formato),
+                     para no repetir dos fotos de charla seguidas. --}}
+                <figure class="mm-ch-v2-backing mm-ch-v2-backing--alt">
+                    <blockquote class="mm-ch-v2-backing__quote">
                         Tu presentación me inspiró muchísimo. Quiero destacar la tranquilidad que transmitiste, y el sentimiento de "es re por acá" que me dejaste.
                     </blockquote>
-                    <figcaption class="mm-ch-v2-testimonial__author">
+                    <figcaption class="mm-ch-v2-backing__author">
                         <img
                             src="{{asset "images/lucia.jpeg"}}"
                             alt="Lucía Del Arco"
-                            class="mm-ch-v2-testimonial__avatar"
+                            class="mm-ch-v2-backing__avatar"
                             width="48"
                             height="48"
                             loading="lazy"
@@ -226,7 +212,6 @@ Template Name: Charlas
                     </figcaption>
                 </figure>
             </div>
-
         </div>
     </section>
 
