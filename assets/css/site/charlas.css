@@ -152,7 +152,7 @@ body.page-charlas .mm-ch-v2-what {
 
 body.page-charlas .mm-ch-v2-testimonial {
     width: 100%;
-    max-width: var(--charlas-measure);
+    max-width: 80rem;
     margin: var(--space-3) auto 0;
 }
 
@@ -268,7 +268,7 @@ body.page-charlas .mm-ch-v2-alt {
 body.page-charlas .mm-ch-v2-backing--alt {
     max-width: none;
     box-sizing: border-box;
-    padding-inline: max(0px, calc((100% - 54rem) / 2));
+    padding-inline: max(0px, calc((100% - 64rem) / 2));
     margin-inline: auto;
     text-align: left;
 }
@@ -339,7 +339,117 @@ body.page-charlas .mm-ch-v2-cta__fallback {
     overflow-wrap: anywhere;
 }
 
+/* Shared testimonial details, with the compact rhythm of this landing. */
+body.page-charlas .mm-ch-v2 .mm-testimonial__cite {
+    margin-bottom: 0;
+    align-items: center;
+    text-align: left;
+}
+
+body.page-charlas .mm-ch-v2 .mm-testimonial__avatar {
+    width: 5.6rem;
+    height: 5.6rem;
+    border: 2px solid var(--surface-paper);
+    box-sizing: border-box;
+}
+
+body.page-charlas .mm-ch-v2 .mm-testimonial__person {
+    min-width: 0;
+    text-align: left;
+    gap: var(--space-2);
+}
+
+body.page-charlas .mm-ch-v2 .mm-testimonial__role {
+    line-height: 1.45;
+}
+
+body.page-charlas .mm-ch-v2 .mm-testimonial__quote {
+    width: 100%;
+    max-width: none;
+    margin-bottom: var(--space-5);
+}
+
+/* A quiet introduction on the same editorial surface as the experience. */
+body.page-charlas .mm-ch-v2-intro {
+    padding-top: clamp(4.8rem, 7vw, 7.2rem);
+    padding-bottom: clamp(1.6rem, 2.5vw, 3.2rem);
+}
+
+body.page-charlas .mm-ch-v2-intro .mm-canvas {
+    max-width: 110rem;
+}
+
+body.page-charlas .mm-ch-v2-intro .mm-intro__grid {
+    grid-template-columns: minmax(0, 3.5fr) minmax(0, 6.5fr);
+    gap: clamp(3.2rem, 4vw, 4.8rem);
+    align-items: center;
+}
+
+body.page-charlas .mm-ch-v2-intro .mm-intro__img {
+    aspect-ratio: auto;
+    height: auto;
+    transform: scale(1.4);
+    transform-origin: 50% 42%;
+}
+
+body.page-charlas .mm-ch-v2-intro .mm-intro__frame::after {
+    border-width: 2px;
+    border-color: var(--surface-paper);
+}
+
+body.page-charlas .mm-ch-v2-intro .mm-v2-title {
+    margin-bottom: var(--space-5);
+}
+
+body.page-charlas .mm-ch-v2-intro .mm-prose {
+    font-size: clamp(1.7rem, 1.4vw, 1.85rem);
+    line-height: 1.65;
+}
+
+@media (max-width: 800px) {
+    body.page-charlas .mm-ch-v2-intro .mm-intro__grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-6);
+    }
+
+    body.page-charlas .mm-ch-v2-intro .mm-intro__figure {
+        width: 100%;
+        max-width: 27rem;
+    }
+
+    body.page-charlas .mm-ch-v2-intro .mm-intro__text {
+        max-width: none;
+    }
+}
+
 @media (max-width: 640px) {
+    body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
+        padding-top: 3.2rem;
+        padding-bottom: 2.8rem;
+    }
+
+    body.page-charlas .mm-v2 .mm-eyebrow.mm-ch-v2-hero__eyebrow {
+        font-size: 1.4rem;
+        margin-bottom: var(--space-4);
+    }
+
+    body.page-charlas .mm-ch-v2-hero .mm-hero__title {
+        margin-bottom: var(--space-3);
+    }
+
+    body.page-charlas .mm-ch-v2-hero .mm-hero__lede {
+        font-size: 1.64rem;
+        line-height: 1.6;
+    }
+
+    body.page-charlas .mm-ch-v2-hero .mm-actions {
+        margin-top: var(--space-5);
+    }
+
+    body.page-charlas .mm-ch-v2-hero .mm-btn--lg {
+        height: 4.8rem;
+    }
+
     body.page-charlas .mm-ch-v2 .mm-v2-title {
         font-size: clamp(2.8rem, 7.5vw, 3.4rem);
     }

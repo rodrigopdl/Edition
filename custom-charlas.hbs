@@ -9,9 +9,9 @@ Template Name: Charlas
     <section class="mm-v2-hero mm-ch-v2-hero" aria-labelledby="ch-title">
         <div class="mm-canvas mm-canvas--wide">
             <div class="mm-hero__inner">
-                <p class="mm-eyebrow mm-ch-v2-hero__eyebrow">Un encuentro para equipos de cualquier rubro</p>
+                <p class="mm-eyebrow mm-ch-v2-hero__eyebrow">Un encuentro para equipos</p>
                 <h1 class="mm-hero__title mm-ch-v2-hero__title" id="ch-title">
-                    <span class="mm-accent">Las masticadas.</span>
+                    <span class="mm-accent">La masticada.</span>
                 </h1>
                 <div class="mm-hero__lede mm-ch-v2-hero__lede">
                     <p>Historias, ideas y conversaciones para reconocer cómo influimos en los demás y pensar qué queremos aportar al equipo.</p>
@@ -61,21 +61,23 @@ Template Name: Charlas
                     </div>
                 </figure>
                 <figure class="mm-ch-v2-testimonial">
-                    <blockquote class="mm-ch-v2-testimonial__quote">
-                        La masticada con Rodri fue una experiencia transformadora para nuestro equipo. Se generó un espacio para compartir experiencias muy enriquecedoras sobre La Bestia que permitieron potenciar la forma en la que nos complementamos y establecer un marco de referencia común para el futuro. El equipo salió súper motivado y más conectado de la masticada.
+                    <blockquote class="mm-testimonial__quote mm-ch-v2-testimonial__quote">
+                        <span class="mm-testimonial__mark" aria-hidden="true">“</span>La masticada con Rodri fue una experiencia transformadora para nuestro equipo. Se generó un espacio para compartir experiencias muy enriquecedoras sobre La Bestia que permitieron potenciar la forma en la que nos complementamos y establecer un marco de referencia común para el futuro. El equipo salió súper motivado y más conectado de la masticada.
                     </blockquote>
-                    <figcaption class="mm-ch-v2-testimonial__author">
+                    <figcaption class="mm-testimonial__cite mm-ch-v2-testimonial__author">
+                        <div class="mm-testimonial__avatar">
                         <img
                             src="{{asset "images/joaco.jpeg"}}"
                             alt="Joaquín Fernández"
-                            class="mm-ch-v2-testimonial__avatar"
+                            class="mm-testimonial__avatar-img"
                             width="48"
                             height="48"
                             loading="lazy"
                         >
-                        <div>
-                            <span class="mm-ch-v2-testimonial__name">Joaquín Fernández</span>
-                            <span class="mm-ch-v2-testimonial__role">Socio, Fernández Secco &amp; Asociados</span>
+                        </div>
+                        <div class="mm-testimonial__person">
+                            <span class="mm-testimonial__name">Joaquín Fernández</span>
+                            <span class="mm-testimonial__role">Socio, Fernández Secco &amp; Asociados</span>
                         </div>
                     </figcaption>
                 </figure>
@@ -150,6 +152,34 @@ Template Name: Charlas
         </div>
     </section>
 
+    {{!-- Presentación personal, entre la experiencia y la propuesta. --}}
+    <section class="mm-intro mm-ch-v2-intro" aria-labelledby="ch-intro-title">
+        <div class="mm-canvas">
+            <div class="mm-intro__grid">
+                <figure class="mm-intro__figure">
+                    <div class="mm-intro__frame">
+                        <img
+                            src="{{asset "images/rodri3.jpg"}}"
+                            alt="Rodri Ponce de León"
+                            class="mm-intro__img"
+                            width="800"
+                            height="1200"
+                            loading="lazy"
+                        >
+                    </div>
+                </figure>
+                <div class="mm-intro__text">
+                    <h2 class="mm-v2-title" id="ch-intro-title">Hola, <span class="mm-accent">soy Rodri.</span></h2>
+                    <div class="mm-prose">
+                        <p>Durante más de una década trabajé en WyeWorks, una empresa de tecnología uruguaya. Empecé como desarrollador de software, después pasé a formar parte del equipo de managers y terminé como acompañante estratégico del CEO.</p>
+                        <p>En ese camino entendí que muchos de los problemas más difíciles no eran técnicos. Eran humanos. Y muchas veces empezaban por uno mismo.</p>
+                        <p>Eso me llevó a leer, escribir y prestar más atención a cómo pensamos, qué nos frena y cómo influimos en los demás. Con el tiempo fui construyendo mi propia forma de mirar el liderazgo. Así nació <em>Para masticar</em>: un proyecto que empezó con los bocados que escribo cada semana y fue creciendo hasta dar lugar a mi libro <em>La Bestia</em> y a encuentros como las masticadas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{!-- 5. Bloque crema comercial: "Organizá una masticada". Transición natural
          del relato a la propuesta concreta. Conserva id=mm-ch-mast. --}}
     <section class="mm-ch-v2-plus" id="mm-ch-mast" aria-labelledby="ch-mast-name">
@@ -208,21 +238,23 @@ Template Name: Charlas
                      (el bloque Charla de arriba ya muestra la imagen del formato),
                      para no repetir dos fotos de charla seguidas. --}}
                 <figure class="mm-ch-v2-backing mm-ch-v2-backing--alt">
-                    <blockquote class="mm-ch-v2-backing__quote">
-                        Tu presentación me inspiró muchísimo. Quiero destacar la tranquilidad que transmitiste, y el sentimiento de "es re por acá" que me dejaste.
+                    <blockquote class="mm-testimonial__quote mm-ch-v2-backing__quote">
+                        <span class="mm-testimonial__mark" aria-hidden="true">“</span>Tu presentación me inspiró muchísimo. Quiero destacar la tranquilidad que transmitiste, y el sentimiento de 'es re por acá' que me dejaste.
                     </blockquote>
-                    <figcaption class="mm-ch-v2-backing__author">
+                    <figcaption class="mm-testimonial__cite mm-ch-v2-backing__author">
+                        <div class="mm-testimonial__avatar">
                         <img
                             src="{{asset "images/lucia.jpeg"}}"
                             alt="Lucía Del Arco"
-                            class="mm-ch-v2-backing__avatar"
+                            class="mm-testimonial__avatar-img"
                             width="48"
                             height="48"
                             loading="lazy"
                         >
-                        <div>
-                            <span class="mm-ch-v2-testimonial__name">Lucía Del Arco</span>
-                            <span class="mm-ch-v2-testimonial__role">Delivery Manager</span>
+                        </div>
+                        <div class="mm-testimonial__person">
+                            <span class="mm-testimonial__name">Lucía Del Arco</span>
+                            <span class="mm-testimonial__role">Delivery Manager</span>
                         </div>
                     </figcaption>
                 </figure>
