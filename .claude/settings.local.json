@@ -128,7 +128,8 @@
       "Bash(awk -F: '$1>2900 && $1<3010')",
       "Bash(grep -n \"mm-bocados__form-title\\\\|mm-bocados__form-lede\\\\|mm-bocados__form-label\\\\|\\\\.mm-bocados    {\\\\|\\\\.mm-bocados {\\\\|mm-bocados \\\\.handpicked\\\\|mm-bocados__form,\\\\|mm-bocados\\\\b\" assets/css/site/homepage.css)",
       "Bash(awk '/\\\\.mm-v2 \\\\.mm-eyebrow\\\\b/{p=1} p{print NR\": \"$0} /\\\\}/{if\\(p\\){p=0}}' assets/css/site/homepage.css)",
-      "Bash(awk '/\\\\.mm-ch-v2-testimonial__author \\\\{/{p=1} p{print NR\": \"$0} /\\\\}/{if\\(p\\){p=0}}' assets/css/site/masticadas.css)"
+      "Bash(awk '/\\\\.mm-ch-v2-testimonial__author \\\\{/{p=1} p{print NR\": \"$0} /\\\\}/{if\\(p\\){p=0}}' assets/css/site/masticadas.css)",
+      "Bash(grep -o \"eyebrow\\\\.mm-ch-v2-hero__eyebrow,[^{]*{[^}]*}\" assets/built/screen.css)"
     ]
   }
 }

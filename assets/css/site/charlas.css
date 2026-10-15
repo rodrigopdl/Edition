@@ -1,0 +1,363 @@
+/* Charlas: page-specific refinements. Sesiones shares the mm-ch-v2 system. */
+body.page-charlas .mm-ch-v2 {
+    --charlas-measure: 72rem;
+}
+
+/* One reading column for the introduction, narrative and accompanying photos. */
+body.page-charlas .mm-ch-v2 .mm-canvas--narrow {
+    max-width: calc(var(--charlas-measure) + 8rem);
+}
+
+body.page-charlas .mm-ch-v2 .mm-prose {
+    font-size: clamp(1.75rem, 1.45vw, 1.95rem);
+    line-height: 1.7;
+    text-align: left;
+}
+
+body.page-charlas .mm-ch-v2 .mm-prose p {
+    font-size: inherit;
+    line-height: inherit;
+    text-wrap: pretty;
+    margin: 0 0 var(--space-5);
+}
+
+body.page-charlas .mm-ch-v2 .mm-prose p:last-child {
+    margin-bottom: 0;
+}
+
+body.page-charlas .mm-ch-v2 .mm-prose p.mm-ch-v2-beat {
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 2.2vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.25;
+    margin-top: var(--space-7);
+    margin-bottom: var(--space-4);
+}
+
+body.page-charlas .mm-ch-v2 .mm-prose p.mm-ch-v2-beat:first-child {
+    margin-top: 0;
+}
+
+body.page-charlas .mm-ch-v2 .mm-v2-title {
+    font-size: clamp(3rem, 4vw, 4.6rem);
+    line-height: 1.12;
+    text-wrap: balance;
+}
+
+body.page-charlas .mm-ch-v2-why {
+    text-align: left;
+}
+
+body.page-charlas .mm-ch-v2-why .mm-prose {
+    max-width: none;
+}
+
+/* Small labels remain legible without competing with the heading or photo. */
+body.page-charlas .mm-v2 .mm-eyebrow {
+    font-size: clamp(1.4rem, 1.15vw, 1.5rem);
+    line-height: 1.45;
+    font-weight: 600;
+    letter-spacing: 0.035em;
+}
+
+body.page-charlas .mm-v2 .mm-eyebrow.mm-ch-v2-hero__eyebrow {
+    font-size: clamp(1.7rem, 1.5vw, 1.9rem);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--ink-2);
+    margin-bottom: var(--space-5);
+}
+
+body.page-charlas .mm-ch-v2-hero .mm-hero__lede {
+    max-width: 58ch;
+    font-size: clamp(1.8rem, 1.7vw, 2.1rem);
+    line-height: 1.6;
+    text-wrap: pretty;
+}
+
+/* Center the compact offer while keeping its copy wide enough to read. */
+body.page-charlas .mm-ch-v2-formats__panel--hero {
+    padding: clamp(3.2rem, 6vw, 6.8rem) clamp(2.4rem, 5vw, 5.6rem);
+    text-align: center;
+}
+
+body.page-charlas .mm-ch-v2-formats__name--hero {
+    font-size: clamp(2.8rem, 3.4vw, 3.8rem);
+    line-height: 1.15;
+    text-wrap: balance;
+}
+
+body.page-charlas .mm-ch-v2-formats__lead {
+    max-width: 52ch;
+    margin: 0 auto var(--space-5);
+    font-size: clamp(1.75rem, 1.6vw, 2rem);
+    line-height: 1.65;
+    text-wrap: pretty;
+}
+
+body.page-charlas .mm-ch-v2-formats__actions {
+    justify-content: center;
+}
+
+body.page-charlas .mm-ch-v2-cta__lede {
+    max-width: 58ch;
+    text-wrap: pretty;
+}
+
+/* Evidence reads as one composition: label, photograph, quote, signature. */
+body.page-charlas .mm-ch-v2-exp--lead {
+    max-width: 88rem;
+    gap: var(--space-5);
+}
+
+body.page-charlas .mm-ch-v2-exp__heading {
+    width: 100%;
+    max-width: var(--charlas-measure);
+    align-self: center;
+    margin: 0 0 calc(-1 * var(--space-3));
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 2vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-wrap: balance;
+}
+
+body.page-charlas .mm-ch-v2-exp__heading-intro {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: var(--ink-2);
+}
+
+body.page-charlas .mm-ch-v2-exp__heading--photo {
+    margin-bottom: var(--space-3);
+}
+
+body.page-charlas .mm-ch-v2-why {
+    padding-bottom: var(--space-5);
+}
+
+body.page-charlas .mm-ch-v2-real {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+}
+
+body.page-charlas .mm-ch-v2-what {
+    padding-top: clamp(3.2rem, 4vw, 4.8rem);
+}
+
+body.page-charlas .mm-ch-v2-testimonial {
+    width: 100%;
+    max-width: var(--charlas-measure);
+    margin: var(--space-3) auto 0;
+}
+
+body.page-charlas .mm-ch-v2-exp--lead .mm-ch-v2-testimonial__quote {
+    font-size: clamp(1.85rem, 1.8vw, 2.2rem);
+    line-height: 1.65;
+}
+
+body.page-charlas .mm-ch-v2-testimonial__name {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 1.7rem;
+    line-height: 1.3;
+}
+
+body.page-charlas .mm-ch-v2-testimonial__role {
+    line-height: 1.4;
+}
+
+body.page-charlas .mm-ch-v2-testimonial__author,
+body.page-charlas .mm-ch-v2-testimonial__author > div {
+    text-align: left;
+    min-width: 0;
+}
+
+body.page-charlas .mm-ch-v2-exp__cta {
+    margin-top: var(--space-5);
+}
+
+body.page-charlas .mm-ch-v2-exp__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: 4.4rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 1.6vw, 2rem);
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+    color: var(--brand);
+    text-decoration: none;
+    border-bottom: 0;
+    box-shadow: none;
+}
+
+body.page-charlas .mm-ch-v2-exp__link:hover {
+    color: var(--brand-2);
+}
+
+body.page-charlas .mm-ch-v2-exp__link:focus-visible {
+    outline: 2px solid var(--brand-2);
+    outline-offset: 5px;
+}
+
+/* Preserve the people at the edges of the group photo, including on mobile. */
+body.page-charlas .mm-ch-v2-real__img {
+    aspect-ratio: auto;
+    height: auto;
+}
+
+body.page-charlas .mm-ch-v2-real__frame::after {
+    border-width: 2px;
+    border-color: var(--surface-paper);
+}
+
+body.page-charlas .mm-ch-v2-what__caption {
+    margin-top: var(--space-3);
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    line-height: 1.45;
+    text-align: left;
+    color: var(--ink-2);
+}
+
+body.page-charlas .mm-ch-v2-alt__q {
+    font-size: clamp(1.7rem, 1.5vw, 1.9rem);
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    color: var(--ink-2);
+    margin-bottom: var(--space-5);
+}
+
+/* Supporting photos sit within the reading column; the main photo is wider. */
+body.page-charlas .mm-ch-v2-ruby {
+    margin-top: var(--space-7);
+    margin-bottom: var(--space-7);
+}
+
+body.page-charlas .mm-ch-v2-ruby--close {
+    margin-bottom: 0;
+}
+
+body.page-charlas .mm-ch-v2-plus {
+    padding-top: clamp(4rem, 6vw, 6.4rem);
+    padding-bottom: 0;
+}
+
+body.page-charlas .mm-ch-v2-plus--alt {
+    padding-top: clamp(4rem, 6vw, 6.4rem);
+    padding-bottom: clamp(5.6rem, 8vw, 8rem);
+    background: var(--surface-0);
+    display: flow-root;
+}
+
+body.page-charlas .mm-ch-v2-alt {
+    margin-top: 0;
+    padding-top: clamp(3.2rem, 4vw, 4.8rem);
+}
+
+body.page-charlas .mm-ch-v2-backing--alt {
+    max-width: none;
+    box-sizing: border-box;
+    padding-inline: max(0px, calc((100% - 54rem) / 2));
+    margin-inline: auto;
+    text-align: left;
+}
+
+body.page-charlas .mm-ch-v2-backing__quote {
+    max-width: 46ch;
+    margin-inline: 0;
+    font-size: clamp(1.8rem, 1.7vw, 2rem);
+    line-height: 1.65;
+    text-wrap: pretty;
+}
+
+/* The contact heading and fields share a single left edge and reading width. */
+body.page-charlas .mm-ch-v2-cta__inner {
+    text-align: left;
+}
+
+body.page-charlas .mm-ch-v2-cta__lede {
+    margin-inline: 0;
+}
+
+body.page-charlas .mm-ch-v2-form .mm-home-contact__form {
+    max-width: none;
+    margin-top: var(--space-7);
+}
+
+body.page-charlas .mm-home-contact__label,
+body.page-charlas .mm-home-contact__choice-legend {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.4;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--ink-2);
+}
+
+body.page-charlas .mm-home-contact__row {
+    margin-bottom: var(--space-5);
+}
+
+body.page-charlas .mm-home-contact__input,
+body.page-charlas .mm-home-contact__textarea {
+    min-width: 0;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+body.page-charlas .mm-home-contact__textarea::placeholder {
+    color: var(--ink-3);
+}
+
+body.page-charlas .mm-ch-v2-form__hint {
+    margin: var(--space-3) 0 0;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: var(--ink-3);
+    text-wrap: pretty;
+}
+
+body.page-charlas .mm-ch-v2-form .mm-home-contact__form .mm-actions {
+    justify-content: flex-start;
+    margin-top: var(--space-6);
+}
+
+body.page-charlas .mm-ch-v2-cta__fallback {
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+    body.page-charlas .mm-ch-v2 .mm-v2-title {
+        font-size: clamp(2.8rem, 7.5vw, 3.4rem);
+    }
+
+    body.page-charlas .mm-ch-v2 .mm-btn {
+        white-space: normal;
+        text-align: center;
+    }
+
+    body.page-charlas .mm-ch-v2-testimonial {
+        margin-top: 0;
+    }
+
+    body.page-charlas .mm-ch-v2-hero .mm-hero__title {
+        font-size: clamp(3.6rem, 10vw, 5.4rem);
+    }
+
+    body.page-charlas .mm-ch-v2 .mm-home-contact__row--two {
+        gap: var(--space-5);
+    }
+}
