@@ -980,6 +980,7 @@ body.post-template .mm-post-sessions {
     max-width: 720px;
     margin: 4.5rem auto 0;
     padding-top: 3rem;
+    padding-bottom: clamp(4.5rem, 7vw, 7rem);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -1017,15 +1018,6 @@ body.post-template .mm-post-sessions__link {
 
 body.post-template .mm-post-sessions__link:hover {
     opacity: 0.8;
-}
-
-body.post-template .mm-post-sessions__link span {
-    display: inline-block;
-    transition: transform 0.2s ease;
-}
-
-body.post-template .mm-post-sessions__link:hover span {
-    transform: translateX(4px);
 }
 
 /* Three ways to work together — three simple columns, no cards. Thin vertical

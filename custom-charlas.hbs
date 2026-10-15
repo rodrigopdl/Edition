@@ -9,119 +9,42 @@ Template Name: Charlas
     <section class="mm-v2-hero mm-ch-v2-hero" aria-labelledby="ch-title">
         <div class="mm-canvas mm-canvas--wide">
             <div class="mm-hero__inner">
+                <p class="mm-eyebrow mm-ch-v2-hero__eyebrow">Una experiencia para equipos</p>
                 <h1 class="mm-hero__title mm-ch-v2-hero__title" id="ch-title">
-                    Las <span class="mm-accent">masticadas.</span>
+                    La <span class="mm-accent">masticada.</span>
                 </h1>
                 <div class="mm-hero__lede mm-ch-v2-hero__lede">
-                    <p>Historias e ideas para pensar juntos y abrir conversaciones que no suelen darse en el día a día.</p>
+                    <p>Dos horas de historias, ideas y conversaciones para reconocer cómo influimos en los demás y pensar qué queremos aportar al equipo.</p>
                 </div>
+                <p class="mm-ch-v2-hero__facts">2 horas <span aria-hidden="true">·</span> Experiencia presencial</p>
                 <div class="mm-actions mm-actions--center">
-                    <a href="#mm-ch-what" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">
-                        Conocé las masticadas
-                        <span aria-hidden="true">↓</span>
+                    <a href="#mm-ch-cta" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll mm-ch-v2-mast-cta">
+                        Quiero organizar una masticada
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 2. Qué pasa en una charla --}}
-    <section class="mm-ch-v2-what" id="mm-ch-what" aria-labelledby="ch-what-title">
+    {{!-- 2. El porqué de una masticada — antes de contar cómo se desarrolla. --}}
+    <section class="mm-ch-v2-why" id="mm-ch-what" aria-labelledby="ch-why-title">
         <div class="mm-canvas mm-canvas--narrow">
-            <h2 class="mm-v2-title" id="ch-what-title">
-                Nos sentamos en <span class="mm-accent">una gran ronda.</span>
+            <h2 class="mm-v2-title" id="ch-why-title">
+                Un equipo se construye <span class="mm-accent">entre todos.</span>
             </h2>
             <div class="mm-prose">
-                <p>Pongo un parlante en el centro. Suena un jazz tenue de fondo, de esos que mezclan sonidos de lluvia y cafetería. No hay pantallas ni diapositivas. Si hay luces bajas, ideal. La ambientación es parte del secreto.</p>
-                <p class="mm-ch-v2-beat">Durante la primera parte cuento historias.</p>
-                <p>De hobbies, de liderazgo, de clientes difíciles, de deporte y de lo cotidiano que a primera vista no parece decir mucho pero que a veces esconde algo más profundo.</p>
-                <p>Mis historias tienen mucho que ver con dos fuerzas que conviven dentro nuestro. Una es La Bestia, esa parte de nosotros que aparece cuando algo se pone difícil y trata de convencernos de reaccionar, evitar, controlar o elegir el camino fácil. La otra es el fuego, eso que arde cuando estamos entusiasmados y que nos ayuda a transitar mejor los momentos en los que La Bestia está a la vuelta de la esquina.</p>
-                <p>Aprender a ver esas fuerzas me ayudó a transitar desafíos personales y profesionales, y a entender qué podía hacer para tener un efecto positivo en otros.</p>
-                <p>Soy un tipo calmo e introspectivo, y eso se nota desde el primer momento. No suelo dar fórmulas. Prefiero dejar ideas dando vueltas y que cada uno descubra qué hacer con ellas.</p>
-                <p>Mientras cuento las historias, mastico en voz alta lo que me dejaron. Es como si estuviera descifrando mis experiencias de vida en un relato de fogón. Y, al hacerlo, invito al resto a hacer lo mismo con las suyas.</p>
-            </div>
-        </div>
-
-        {{!-- Imagen de una masticada (collage Ruby Meetup), en medio del texto:
-             tras contar cómo arranca y antes del momento de compartir. Mismo
-             ancho que el texto. Sin sombra ni borde. --}}
-        <div class="mm-canvas mm-canvas--narrow mm-ch-v2-ruby">
-            <figure class="mm-ch-v2-ruby__figure">
-                <img
-                    src="{{asset "images/masticada-ruby.png"}}"
-                    alt="Escenas de una masticada: personas sentadas conversando"
-                    class="mm-ch-v2-ruby__img"
-                    loading="lazy"
-                >
-                <figcaption class="mm-ch-v2-what__caption">Una masticada en la Ruby MVD Meetup</figcaption>
-            </figure>
-        </div>
-
-        <div class="mm-canvas mm-canvas--narrow">
-            <div class="mm-prose">
-                <p class="mm-ch-v2-beat">Después llega el momento de compartir.</p>
-                <p>El protagonismo pasa al equipo. Yo me encargo de facilitar el intercambio e ir guiándolo con preguntas que ayuden a las personas a escucharse y conocerse un poco más.</p>
-                <p>En esta parte, el arranque a veces es tímido. Silencio. Nadie está obligado a hablar. Solo habla el que le nace. Hasta que alguien da el primer paso. Por ahí comparte una anécdota que le resonó de mi relato, o algo parecido que le pasó en su vida. Y esa primera intervención suele abrir la puerta para que aparezcan otras.</p>
-                <p>Suelo terminar con la sensación de conocer un poco más a quienes estuvieron ahí conmigo. Sobre todo a los que participaron. Uno hasta recuerda dónde estaban sentados los demás.</p>
-                <p>Algo de la ronda, la música, los relatos y lo que aparece en la conversación hace que la experiencia se sienta distinta.</p>
-            </div>
-        </div>
-
-        {{!-- Segunda foto de masticada (Piano Piano), tras el cierre narrativo.
-             Con el marco crema (.mm-ch-v2-real__frame) de las demás fotos del
-             sitio. Un poco más de aire antes para dejar respirar el cierre. --}}
-        <div class="mm-canvas mm-canvas--narrow mm-ch-v2-ruby mm-ch-v2-ruby--close mm-ch-v2-ruby--framed">
-            <figure class="mm-ch-v2-ruby__figure">
-                <div class="mm-ch-v2-real__frame">
-                    <img
-                        src="{{asset "images/pianopiano.jpg"}}"
-                        alt="Masticada con el equipo de Piano Piano Producciones"
-                        class="mm-ch-v2-ruby__img"
-                        loading="lazy"
-                    >
-                </div>
-                <figcaption class="mm-ch-v2-what__caption">Masticada con el equipo de Piano Piano Producciones</figcaption>
-            </figure>
-        </div>
-    </section>
-
-    {{!-- 3. La Masticada — tarjeta protagonista, inmediatamente después de la
-         narración + fotos: transición natural del relato a la propuesta concreta.
-         Conserva id=mm-ch-mast (ancla del hero). --}}
-    <section class="mm-ch-v2-plus" id="mm-ch-mast" aria-labelledby="ch-mast-name">
-
-        {{!-- Bloque crema: Masticada como formato protagonista (card grande,
-             con CTA propio). --}}
-        <div class="mm-canvas mm-canvas--narrow">
-            <div class="mm-ch-v2-formats__panel mm-ch-v2-formats__panel--hero">
-                <p class="mm-ch-v2-formats__duration">2 horas</p>
-                <h3 class="mm-ch-v2-formats__name mm-ch-v2-formats__name--hero" id="ch-mast-name">Masticada</h3>
-                <p class="mm-ch-v2-formats__lead">Una conversación distinta para que un grupo piense, comparta y se conozca más allá del día a día.</p>
-                <!--p class="mm-ch-v2-formats__desc">Un espacio para compartir, pensar juntos y conocerse un poco más.</p-->
-                <p class="mm-ch-v2-formats__note-hero">Para equipos de cualquier rubro.</p>
-                <div class="mm-actions mm-ch-v2-formats__actions">
-                    <a href="#mm-ch-cta"
-                       class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll mm-ch-v2-mast-cta"
-                       data-tipo="masticada">
-                        Quiero saber más
-                        <span aria-hidden="true">→</span>
-                    </a>
-                </div>
+                <p>Cada persona influye en los demás. Con lo que dice, con lo que hace, con cómo reacciona ante las dificultades y con la energía que lleva al trabajo cada día.</p>
+                <p>Una masticada es una invitación a detenernos y pensar en esa influencia. A reconocer que todos tenemos algo que aportar al equipo que construimos juntos.</p>
             </div>
         </div>
     </section>
 
-    {{!-- 4. Prueba social — Joaquín (masticada real) primero y protagonista;
-         José (trayectoria) como respaldo complementario debajo; Lucía (charla)
-         como prueba del formato más breve. Todo en una sola sección para que no
-         se perciban desconectados. --}}
+    {{!-- 3. Prueba social de la masticada (Joaquín): foto grupal + testimonio,
+         antes de narrar la experiencia. --}}
     <section class="mm-ch-v2-real" aria-labelledby="ch-real-title">
         <div class="mm-canvas">
-
-            {{!-- Prueba social de la masticada: foto grupal grande + testimonio
-                 de Joaquín. (El testimonio arranca con "La masticada con Rodri…",
-                 así que no lleva encabezado de contexto.) --}}
             <div class="mm-ch-v2-exp mm-ch-v2-exp--lead">
+                <p class="mm-eyebrow mm-ch-v2-exp__eyebrow">Una masticada en Fernández Secco &amp; Asociados</p>
                 <figure class="mm-ch-v2-exp__photo">
                     <div class="mm-ch-v2-real__frame">
                         <img
@@ -153,8 +76,86 @@ Template Name: Charlas
                         </div>
                     </figcaption>
                 </figure>
-            </div>
 
+                <div class="mm-actions mm-ch-v2-exp__cta">
+                    <a href="#mm-ch-cta" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll mm-ch-v2-mast-cta" data-tipo="masticada">
+                        Quiero organizar una masticada
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- 4. Cómo se desarrolla una masticada — narración condensada en tres
+         momentos (ambientación, historias, conversación), con las fotos reales. --}}
+    <section class="mm-ch-v2-what" aria-labelledby="ch-what-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <h2 class="mm-v2-title" id="ch-what-title">
+                Nos sentamos en <span class="mm-accent">una gran ronda.</span>
+            </h2>
+            <div class="mm-prose">
+                <p>Pongo un parlante en el centro, suena un jazz tenue de fondo. No hay pantallas ni diapositivas, y si hay luces bajas, mejor. La ambientación es parte del secreto.</p>
+                <p class="mm-ch-v2-beat">Primero cuento historias.</p>
+                <p>De lo cotidiano, del liderazgo, de clientes difíciles, del deporte. Historias que giran alrededor de dos fuerzas que conviven dentro nuestro: La Bestia, esa parte que aparece cuando algo se pone difícil y nos empuja a reaccionar, evitar o elegir el camino fácil; y el fuego, eso que arde cuando estamos entusiasmados y nos ayuda en los momentos difíciles.</p>
+                <p>No doy fórmulas. Prefiero masticar en voz alta lo que me dejaron esas historias y dejar ideas dando vueltas para que cada uno descubra qué hacer con ellas.</p>
+            </div>
+        </div>
+
+        {{!-- Imagen de una masticada (collage Ruby Meetup), entre el momento de
+             las historias y el de la conversación. Mismo ancho que el texto. --}}
+        <div class="mm-canvas mm-canvas--narrow mm-ch-v2-ruby">
+            <figure class="mm-ch-v2-ruby__figure">
+                <img
+                    src="{{asset "images/masticada-ruby.png"}}"
+                    alt="Escenas de una masticada: personas sentadas conversando"
+                    class="mm-ch-v2-ruby__img"
+                    loading="lazy"
+                >
+                <figcaption class="mm-ch-v2-what__caption">Una masticada en la Ruby MVD Meetup</figcaption>
+            </figure>
+        </div>
+
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-prose">
+                <p class="mm-ch-v2-beat">Después, el protagonismo pasa al equipo.</p>
+                <p>Facilito la conversación con preguntas que ayuden a las personas a escucharse. Nadie está obligado a hablar: solo habla el que le nace. Hasta que alguien da el primer paso, comparte algo que le resonó, y eso abre la puerta para que aparezcan otras voces.</p>
+                <p>Suelo terminar con la sensación de que el equipo se conoce un poco más. Algo de la ronda, la música y lo que aparece en la conversación hace que la experiencia se sienta distinta.</p>
+            </div>
+        </div>
+
+        {{!-- Segunda foto de masticada (Piano Piano), tras el cierre narrativo.
+             Con el marco crema de las demás fotos del sitio. --}}
+        <div class="mm-canvas mm-canvas--narrow mm-ch-v2-ruby mm-ch-v2-ruby--close mm-ch-v2-ruby--framed">
+            <figure class="mm-ch-v2-ruby__figure">
+                <div class="mm-ch-v2-real__frame">
+                    <img
+                        src="{{asset "images/pianopiano.jpg"}}"
+                        alt="Masticada con el equipo de Piano Piano Producciones"
+                        class="mm-ch-v2-ruby__img"
+                        loading="lazy"
+                    >
+                </div>
+                <figcaption class="mm-ch-v2-what__caption">Masticada con el equipo de Piano Piano Producciones</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    {{!-- 5. Bloque crema comercial: "Organizá una masticada". Transición natural
+         del relato a la propuesta concreta. Conserva id=mm-ch-mast. --}}
+    <section class="mm-ch-v2-plus" id="mm-ch-mast" aria-labelledby="ch-mast-name">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-ch-v2-formats__panel mm-ch-v2-formats__panel--hero">
+                <h3 class="mm-ch-v2-formats__name mm-ch-v2-formats__name--hero" id="ch-mast-name">Organizá una masticada.</h3>
+                <p class="mm-ch-v2-formats__lead">Una conversación distinta para que tu equipo comparta historias, se escuche y se conozca más allá del día a día.</p>
+                <p class="mm-ch-v2-formats__note-hero">2 horas <span aria-hidden="true">·</span> Experiencia presencial</p>
+                <div class="mm-actions mm-ch-v2-formats__actions">
+                    <a href="#mm-ch-cta"
+                       class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll mm-ch-v2-mast-cta"
+                       data-tipo="masticada">
+                        Consultar por una masticada
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -233,9 +234,9 @@ Template Name: Charlas
                         charla_choice=true
                         tipo_predefinido="charla"
                         origen="charlas"
-                        subject="Contacto — desde /charlas/"
+                        subject="Contacto — desde /masticadas/"
                         message_label="Contame un poco"
-                        message_placeholder="Contame un poco..."}}
+                        message_placeholder="Contame un poco sobre tu equipo, cuántas personas son y qué tenés en mente."}}
                 </div>
 
                 <p class="mm-ch-v2-cta__fallback">
@@ -268,8 +269,11 @@ Template Name: Charlas
         }
     }
 
-    var mastCta = document.querySelector('.mm-ch-v2-mast-cta');
-    if (mastCta) mastCta.addEventListener('click', function () { preselect('Una masticada'); });
+    {{!-- Hay varios CTA de masticada (hero + bloque crema); todos preseleccionan. --}}
+    var mastCtas = document.querySelectorAll('.mm-ch-v2-mast-cta');
+    for (var m = 0; m < mastCtas.length; m++) {
+        mastCtas[m].addEventListener('click', function () { preselect('Una masticada'); });
+    }
 
     var charlaCta = document.querySelector('.mm-ch-v2-charla-cta');
     if (charlaCta) charlaCta.addEventListener('click', function () { preselect('Una charla'); });

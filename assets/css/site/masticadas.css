@@ -2013,6 +2013,7 @@ html:has(body.page-charlas) {
    the modalities just explained, not as a separate section. The tone shift
    happens only at the final CTA. */
 .mm-ch-v2-hero  { background: var(--surface-1); }
+.mm-ch-v2-why   { background: var(--surface-0); }
 .mm-ch-v2-what  { background: var(--surface-0); }
 .mm-ch-v2-plus  { background: var(--surface-0); }
 .mm-ch-v2-real  { background: var(--surface-0); }
@@ -2101,12 +2102,85 @@ body.page-charlas .mm-ch-v2-hero .mm-hero__lede {
     max-width: 46ch;
 }
 
+/* Eyebrows de esta landing: más editoriales que el .mm-eyebrow base. Sin la raya
+   decorativa, sin uppercase (formato oración), tracking natural y un poco más
+   grandes/legibles. Scoped a /masticadas para no tocar el resto del sitio. */
+.mm-ch-v2-hero__eyebrow,
+.mm-ch-v2-exp__eyebrow {
+    font-size: clamp(1.5rem, 1.5vw, 1.7rem);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    line-height: 1.3;
+    color: var(--brand);
+}
+
+.mm-ch-v2-hero__eyebrow::before,
+.mm-ch-v2-exp__eyebrow::before {
+    content: none;
+}
+
+/* Eyebrow del hero — centrado y con aire antes del título. */
+.mm-ch-v2-hero__eyebrow {
+    align-self: center;
+    margin-bottom: var(--space-3);
+}
+
+/* Datos prácticos bajo el lede: duración · tamaño · modalidad. Discreto, para
+   que quien llega de un anuncio entienda el formato de un vistazo. */
+.mm-ch-v2-hero__facts {
+    margin: var(--space-4) auto 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 1.4vw, 1.6rem);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--ink-3);
+    text-align: center;
+}
+
+.mm-ch-v2-hero__facts span {
+    color: var(--brand);
+    margin: 0 0.5em;
+}
+
 .mm-ch-v2-hero .mm-actions {
     margin-top: var(--space-6);
     justify-content: center;
 }
 
-/* --- 2. Qué pasa en una charla --------------------------------------------- */
+/* --- 2. El porqué de una masticada ----------------------------------------- */
+
+/* Sección breve y centrada: el "por qué" antes de contar el "cómo". Mismo
+   lenguaje editorial, prose un punto más presente que la narración. */
+.mm-ch-v2-why {
+    text-align: center;
+}
+
+.mm-ch-v2-why .mm-v2-title {
+    margin-bottom: var(--space-6);
+}
+
+/* Título centrado, pero el texto en un bloque centrado con párrafos alineados a
+   la izquierda — rompe la simetría demasiado prolija de dos párrafos centrados. */
+.mm-ch-v2-why .mm-prose {
+    max-width: 56rem;
+    margin-inline: auto;
+    text-align: left;
+}
+
+.mm-ch-v2-why .mm-prose p {
+    font-size: clamp(1.95rem, 2vw, 2.3rem);
+    line-height: 1.55;
+    color: var(--ink);
+}
+
+/* Menos aire abajo: "el porqué" y el testimonio de Joaquín se leen como una
+   secuencia conectada (ambos sobre surface-0, sin costura). */
+.mm-ch-v2-why {
+    padding-bottom: clamp(2.4rem, 3.2vw, 3.4rem);
+}
+
+/* --- Qué pasa en una masticada --------------------------------------------- */
 
 /* Section 2 (what) and section 3 (plus) share the same surface-0 background
    and read as one continuous passage: text → photo → text. Drop the bottom
@@ -2342,11 +2416,12 @@ body.page-charlas .mm-ch-v2-hero .mm-hero__lede {
     margin: 0 0 var(--space-2);
 }
 
-/* "Masticada" a gran tamaño — el título del formato principal. */
+/* Título del bloque comercial ("Organizá una masticada."). */
 .mm-ch-v2-formats__name--hero {
-    font-size: clamp(3rem, 4.6vw, 4.8rem);
+    font-size: clamp(2.8rem, 3.8vw, 4rem);
+    line-height: 1.1;
     letter-spacing: -0.02em;
-    margin: 0 0 var(--space-3);
+    margin: 0 0 var(--space-4);
 }
 
 /* Frase-gancho bajo el nombre. */
@@ -2365,14 +2440,20 @@ body.page-charlas .mm-ch-v2-hero .mm-hero__lede {
     color: rgba(29, 32, 48, 0.75);
 }
 
-/* Nota bajo la descripción: sans más chica, tono secundario. */
+/* Datos prácticos bajo el lead: duración · tamaño · modalidad. Sans chica,
+   tono secundario, separadores en azul. */
 .mm-ch-v2-formats__note-hero {
     font-family: var(--font-display);
     font-size: clamp(1.4rem, 1.4vw, 1.55rem);
     font-weight: 500;
-    letter-spacing: 0.01em;
-    color: rgba(29, 32, 48, 0.55);
+    letter-spacing: 0.02em;
+    color: rgba(29, 32, 48, 0.62);
     margin: var(--space-3) 0 0;
+}
+
+.mm-ch-v2-formats__note-hero span {
+    color: var(--brand);
+    margin: 0 0.45em;
 }
 
 .mm-ch-v2-formats__actions {
@@ -2499,11 +2580,11 @@ body.page-charlas .mm-ch-v2-hero .mm-hero__lede {
    after the Charla block isn't excessive — the two sections still read as
    distinct (surface is continuous, so shrinking here doesn't create a seam). */
 .mm-ch-v2-real {
-    padding-top: clamp(2.4rem, 3.2vw, 3.4rem);
-    /* Bottom acotado: comparte surface-0 con la sección Charla siguiente, así
-       que reducir aquí no crea costura y evita un hueco grande antes de
-       "¿Buscás algo más breve?". */
-    padding-bottom: clamp(2.4rem, 3.2vw, 3.6rem);
+    /* Testimonio de Joaquín, entre "el porqué" y la narración. Paddings acotados:
+       todo comparte surface-0, así que reducir no crea costura y mantiene el
+       ritmo continuo del cuerpo editorial. Top chico para conectar con "el porqué". */
+    padding-top: clamp(1.6rem, 2.4vw, 2.6rem);
+    padding-bottom: clamp(2.8rem, 4vw, 4.4rem);
 }
 
 /* Cada experiencia: foto + testimonio. La principal (masticada) va a lo ancho;
@@ -2523,6 +2604,19 @@ body.page-charlas .mm-ch-v2-hero .mm-hero__lede {
 .mm-ch-v2-exp--lead .mm-ch-v2-testimonial__quote {
     font-size: clamp(2.1rem, 2.2vw, 2.6rem);
     line-height: 1.55;
+}
+
+/* Eyebrow sobre la foto de Joaquín: identifica el equipo. Pegado a la imagen
+   (gap de la columna menos un respiro) y alineado al inicio del contenido. */
+.mm-ch-v2-exp__eyebrow {
+    margin-bottom: calc(var(--space-6) * -0.5);
+}
+
+/* CTA de cierre: botón azul centrado respecto del conjunto, con buena
+   separación de la firma para que se lea como una acción independiente. */
+.mm-ch-v2-exp__cta {
+    margin-top: var(--space-6);
+    justify-content: center;
 }
 
 /* Secundaria (charla): foto a la izquierda (más chica) + testimonio al lado.

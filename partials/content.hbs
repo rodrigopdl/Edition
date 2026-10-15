@@ -40,33 +40,9 @@
     </div>
 
     {{#is "post"}}
-        {{!-- Las tres formas de trabajar conmigo — continuación natural tras la
-             pregunta final del Bocado. Solo en posts. Sin caja: integrado sobre
-             el navy, editorial. Tres columnas en desktop, apiladas en mobile. --}}
-        <aside class="mm-post-sessions gh-canvas" aria-label="Formas de trabajar con Rodri">
-            <p class="mm-post-sessions__q">¿Seguimos masticando?</p>
-
-            <ul class="mm-post-ways" role="list">
-                <li class="mm-post-ways__item">
-                    <h3 class="mm-post-ways__name">Masticadas para equipos</h3>
-                    <p class="mm-post-ways__desc">Historias e ideas para pensar juntos y abrir conversaciones que no suelen darse en el día a día.</p>
-                    <a href="/masticadas/" class="mm-post-sessions__link mm-post-ways__link">Conocé las masticadas <span aria-hidden="true">→</span></a>
-                </li>
-                
-                <li class="mm-post-ways__item">
-                    <h3 class="mm-post-ways__name">Sesiones uno a uno</h3>
-                    <p class="mm-post-ways__desc">Una cabeza más para pensar eso que tenés entre manos.</p>
-                    <a href="/sesiones/" class="mm-post-sessions__link mm-post-ways__link">Conocé las sesiones <span aria-hidden="true">→</span></a>
-                </li>
-                
-                <li class="mm-post-ways__item">
-                    <h3 class="mm-post-ways__name">El Viaje</h3>
-                    <p class="mm-post-ways__desc">Un mes para salir del día a día, profundizar conversaciones y conocerse mejor como grupo.</p>
-                    <a href="/viaje/" class="mm-post-sessions__link mm-post-ways__link">Conocé El Viaje <span aria-hidden="true">→</span></a>
-                </li>
-            </ul>
-        </aside>
-
+        {{!-- Compartir este bocado — pegado al final del texto para no quedar
+             descolgado. La suscripción, "¿Seguimos masticando?" y "Otros
+             bocados" van después, en post-footer. --}}
         <div class="single-footer mm-post-footer gh-canvas">
             {{> "share"}}
         </div>
