@@ -229,16 +229,27 @@ body.page-charlas .mm-ch-v2-what__caption {
 }
 
 body.page-charlas .mm-ch-v2-alt__q {
-    font-size: clamp(1.7rem, 1.5vw, 1.9rem);
-    font-weight: 500;
-    line-height: 1.45;
-    letter-spacing: 0.01em;
+    font-size: clamp(2.3rem, 2.5vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
     text-transform: none;
-    color: var(--ink-2);
-    margin-bottom: var(--space-5);
+    color: var(--ink);
+    text-align: left;
+    text-wrap: pretty;
+    max-width: none;
+    margin: 0 0 var(--space-6);
 }
 
 /* Supporting photos sit within the reading column; the main photo is wider. */
+body.page-charlas .mm-ch-v2-alt__name {
+    color: var(--ink);
+}
+
+body.page-charlas .mm-ch-v2-alt__duration {
+    color: var(--brand);
+}
+
 body.page-charlas .mm-ch-v2-ruby {
     margin-top: var(--space-7);
     margin-bottom: var(--space-7);
