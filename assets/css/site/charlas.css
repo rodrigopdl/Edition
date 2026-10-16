@@ -434,6 +434,38 @@ body.page-charlas .mm-ch-v2-intro .mm-prose {
 }
 
 @media (max-width: 640px) {
+    body.page-charlas .mm-ch-v2 .mm-testimonial__cite {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: var(--space-3);
+        text-align: center;
+    }
+
+    body.page-charlas .mm-ch-v2 .mm-testimonial__person {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Let mobile paragraphs fill each line naturally instead of rebalancing
+       their words with pretty wrapping. Keep the existing title treatment. */
+    body.page-charlas .mm-ch-v2 .mm-prose {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+    }
+
+    body.page-charlas .mm-ch-v2 .mm-prose p,
+    body.page-charlas .mm-ch-v2 .mm-testimonial__quote,
+    body.page-charlas .mm-ch-v2-hero .mm-hero__lede,
+    body.page-charlas .mm-ch-v2-formats__lead,
+    body.page-charlas .mm-ch-v2-alt__desc,
+    body.page-charlas .mm-ch-v2-cta__lede {
+        text-wrap: wrap;
+    }
+
     body.page-charlas .mm-ch-v2-hero.mm-v2-hero {
         padding-top: 3.2rem;
         padding-bottom: 2.8rem;
