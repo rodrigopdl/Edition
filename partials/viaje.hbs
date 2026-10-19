@@ -1,0 +1,90 @@
+{{!-- Shared El Viaje landing. Contact attribution is passed by each template. --}}
+<main class="homepage-main mm-v2 mm-vj"
+      data-meta-description="El Viaje: un mes para que un equipo explore en profundidad una pregunta que le importa, combinando masticadas y bocados en un recorrido a medida.">
+
+    <section class="mm-v2-hero mm-vj-hero" aria-labelledby="vj-title">
+        <div class="mm-canvas mm-canvas--wide">
+            <div class="mm-hero__inner">
+                <h1 class="mm-hero__title" id="vj-title">Un mes para <span class="mm-accent">masticar juntos.</span></h1>
+                <div class="mm-hero__lede">
+                    <p>Un mes para que tu equipo explore a fondo una pregunta que le importa.</p>
+                </div>
+                <div class="mm-actions mm-actions--center">
+                    <a href="#mm-vj-cta" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">Conversemos sobre El Viaje</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mm-vj-block" aria-labelledby="vj-time-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <h2 class="mm-v2-title" id="vj-time-title">Hay preguntas que merecen <span class="mm-accent">más tiempo.</span></h2>
+            <div class="mm-prose mm-vj-prose">
+                <p class="mm-vj-questions">
+                    <span>¿Cómo podemos ser mejores líderes?</span>
+                    <span>¿Qué tipo de equipo queremos construir?</span>
+                    <span>¿Cómo podemos trabajar mejor juntos?</span>
+                </p>
+                <p>El Viaje es una invitación a dedicarles un mes. A volver sobre ellas, mirarlas desde distintos ángulos y descubrir cosas que quizás no habíamos considerado.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mm-vj-rhythm" aria-labelledby="vj-rhythm-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <h2 class="mm-v2-title" id="vj-rhythm-title">Masticadas, bocados y <span class="mm-accent">tiempo para pensar.</span></h2>
+            <div class="mm-prose mm-vj-prose">
+                <p>Empezamos encontrando una pregunta que valga la pena explorar.</p>
+                <p>A partir de ahí, preparo un recorrido que combina <a href="/masticadas/">masticadas</a> para conversar en equipo con <a href="/bocados">bocados</a> que voy compartiendo entre encuentros.</p>
+                <p>Historias, ideas y preguntas para seguir pensando en lo que estamos explorando.</p>
+                <p>La idea es que la conversación no termine cuando nos levantamos de la ronda. Que las ideas nos acompañen durante el mes y vuelvan a aparecer cuando nos encontramos otra vez.</p>
+            </div>
+        </div>
+
+        <div class="mm-canvas mm-vj-seq-wrap">
+            <figure class="mm-vj-journey">
+                <p class="mm-vj-seq" aria-label="Un posible recorrido: masticada, bocados, masticada, y la exploración continúa.">
+                    <span class="mm-vj-seq__step mm-vj-seq__step--key">Masticada</span>
+                    <span class="mm-vj-seq__arrow" aria-hidden="true">→</span>
+                    <span class="mm-vj-seq__step">Bocados</span>
+                    <span class="mm-vj-seq__arrow" aria-hidden="true">→</span>
+                    <span class="mm-vj-seq__step mm-vj-seq__step--key">Masticada</span>
+                    <span class="mm-vj-seq__arrow" aria-hidden="true">→</span>
+                    <span class="mm-vj-seq__step mm-vj-seq__step--dots" aria-hidden="true">…</span>
+                </p>
+                <figcaption class="mm-vj-seq__caption">
+                    Un mes para volver sobre una misma pregunta desde distintas perspectivas.
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="mm-vj-cta" id="mm-vj-cta" aria-labelledby="vj-cta-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <h2 class="mm-v2-title" id="vj-cta-title">¿Qué podría masticar <span class="mm-accent">tu equipo?</span></h2>
+            <div class="mm-prose mm-vj-prose">
+                <p>¿Hay alguna pregunta que te gustaría explorar con tu equipo?</p>
+                <p>Contame qué tienen entre manos y vemos juntos qué viaje podríamos armar.</p>
+            </div>
+            <div class="mm-vj-cta__form" id="mm-vj-form">
+                {{> "contact-form"
+                    show_selector=false
+                    tipo_predefinido="equipo"
+                    origen=contact_origin
+                    subject=contact_subject
+                    message_label="Contame sobre tu equipo"
+                    message_placeholder="Quiénes son, qué están viviendo..."}}
+            </div>
+            <p class="mm-vj-cta__fallback">También podés escribirme a <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.</p>
+        </div>
+    </section>
+</main>
+
+<script>
+(function () {
+    'use strict';
+    var form = document.getElementById('mm-vj-form');
+    var submit = form && form.querySelector('button[type="submit"]');
+    if (submit) submit.textContent = 'Hablemos';
+})();
+</script>
