@@ -1545,6 +1545,20 @@ body.home-template .mm-v2 .mm-v2-hero .mm-hero__lede {
     max-width: 60ch;
 }
 
+/* Same portrait crop and cream frame as the Masticadas introduction. */
+body.home-template .mm-v2 .mm-intro__img {
+    aspect-ratio: auto;
+    height: auto;
+    max-height: none;
+    transform: scale(1.4);
+    transform-origin: 50% 42%;
+}
+
+body.home-template .mm-v2 .mm-intro__frame::after {
+    border-width: 2px;
+    border-color: var(--surface-paper);
+}
+
 .mm-v2 .mm-intro__text .mm-v2-title {
     margin-bottom: var(--space-7);
 }
