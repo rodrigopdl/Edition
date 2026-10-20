@@ -18,7 +18,7 @@ wrapper li — the social icons.
     {{!-- Pass 1: text links (everything that isn't a social item). --}}
     {{#foreach navigation}}
         {{#match label "Instagram"}}{{else match label "LinkedIn"}}{{else match label "YouTube"}}{{else}}
-            <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+            <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}">{{#match url "~" "/sesiones"}}Masticadas individuales{{else}}{{label}}{{/match}}</a></li>
         {{/match}}
     {{/foreach}}
 

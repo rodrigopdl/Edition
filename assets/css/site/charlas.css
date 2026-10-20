@@ -52,6 +52,23 @@ body.page-charlas .mm-ch-v2-why .mm-prose {
     max-width: none;
 }
 
+body.page-charlas .mm-ch-v2-why .mm-v2-title {
+    text-wrap: wrap;
+}
+
+body.page-charlas .mm-ch-v2 .mm-prose p.mm-ch-v2-questions {
+    display: grid;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+    font-size: 1.08em;
+    line-height: 1.5;
+    color: var(--ink);
+}
+
+body.page-charlas .mm-ch-v2-questions > span {
+    display: block;
+}
+
 /* Small labels remain legible without competing with the heading or photo. */
 body.page-charlas .mm-v2 .mm-eyebrow {
     font-size: clamp(1.4rem, 1.15vw, 1.5rem);

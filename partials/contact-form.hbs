@@ -44,6 +44,10 @@ Parameters (Handlebars hash args):
     message_placeholder String. Placeholder for the message textarea. Defaults
                         to "¿Qué estás viviendo o qué te gustaría trabajar?".
 
+    individual_context  Boolean. Masticadas individuales only: short required
+                        topic + optional context, submitted under their full
+                        question labels so both answers are identifiable.
+
 Constraint: only one instance of this partial per page. IDs are DOM-global
 (mm-home-* prefix retained for backward compat with existing CSS and JS
 selectors). Two instances on the same page would collide.
@@ -153,14 +157,31 @@ selectors). Two instances on the same page would collide.
             <label class="mm-home-contact__label" for="mm-home-message">{{#if message_label}}{{message_label}}{{else}}Contame un poco más{{/if}}</label>
             <textarea
                 id="mm-home-message"
-                name="mensaje"
-                rows="6"
+                name="{{#if individual_context}}¿Qué te gustaría masticar?{{else}}mensaje{{/if}}"
+                rows="{{#if individual_context}}2{{else}}6{{/if}}"
                 required
                 placeholder="{{#if message_placeholder}}{{message_placeholder}}{{else}}¿Qué estás viviendo o qué te gustaría trabajar?{{/if}}"
                 class="mm-home-contact__textarea"
             ></textarea>
         </div>
     </div>
+
+    {{#if individual_context}}
+    <div class="mm-home-contact__row">
+        <div class="mm-home-contact__field">
+            <label class="mm-home-contact__label" for="mm-ind-context">¿Qué te llevó a querer explorar esto ahora? <span class="mm-ind-form__optional">(opcional)</span></label>
+            <textarea
+                id="mm-ind-context"
+                name="¿Qué te llevó a querer explorar esto ahora?"
+                rows="3"
+                placeholder="¿Pasó algo? ¿Hay una decisión por delante? ¿Hay algo que te entusiasma explorar?"
+                aria-describedby="mm-ind-context-hint"
+                class="mm-home-contact__textarea"
+            ></textarea>
+            <p class="mm-ind-form__hint" id="mm-ind-context-hint">Esto me ayuda a preparar nuestro encuentro.</p>
+        </div>
+    </div>
+    {{/if}}
 
     {{#if show_selector}}
         <fieldset class="mm-home-contact__choice">
@@ -172,7 +193,7 @@ selectors). Two instances on the same page would collide.
                 </label>
                 <label class="mm-home-contact__choice-option">
                     <input type="radio" name="tipo_consulta" value="Sesiones para masticar">
-                    <span>Sesiones uno a uno</span>
+                    <span>Masticadas individuales</span>
                 </label>
                 <label class="mm-home-contact__choice-option">
                     <input type="radio" name="tipo_consulta" value="El Viaje">

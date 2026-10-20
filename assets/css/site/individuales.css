@@ -1,0 +1,164 @@
+/* Masticadas individuales: keeps /sesiones/ and its existing components. */
+body.page-sesiones .mm-ind .mm-v2-title {
+    text-wrap: wrap;
+}
+
+body.page-sesiones .mm-ind .mm-ses-hero .mm-hero__title {
+    white-space: normal;
+    max-width: 22ch;
+}
+
+body.page-sesiones .mm-ind .mm-ses-hero .mm-hero__lede {
+    max-width: 54ch;
+}
+
+body.page-sesiones .mm-ind-topic .mm-prose {
+    max-width: 72rem;
+}
+
+.mm-ind .mm-ind-questions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+    list-style: none;
+    padding: 0;
+    margin: var(--space-5) 0 var(--space-6);
+}
+
+.mm-ind-questions li {
+    margin: 0;
+    padding: clamp(1.8rem, 3vw, 2.4rem);
+    background: var(--surface-1);
+    border: 1px solid rgba(244, 241, 234, 0.08);
+    border-radius: 6px;
+    font-family: var(--font-post-body);
+    font-size: clamp(1.75rem, 1.8vw, 2rem);
+    line-height: 1.5;
+    color: var(--ink);
+}
+
+.mm-ind-preparation {
+    margin-top: clamp(3.2rem, 5vw, 4.8rem);
+    padding-top: clamp(3.2rem, 5vw, 4.8rem);
+    border-top: 1px solid rgba(244, 241, 234, 0.12);
+}
+
+.mm-ind-preparation__title {
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-display);
+    font-size: clamp(2.3rem, 2.8vw, 3rem);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+}
+
+.mm-ind-preparation__emphasis {
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.mm-ind .mm-ses-offer__panel {
+    display: block;
+    text-align: center;
+    padding-block: clamp(2.8rem, 4vw, 4rem);
+}
+
+body.page-sesiones .mm-ind .mm-ind-topic {
+    padding-bottom: var(--space-5);
+}
+
+body.page-sesiones .mm-ind .mm-ses-offer {
+    padding-top: var(--space-5);
+}
+
+.mm-ind .mm-ses-offer__title {
+    margin-bottom: var(--space-4);
+    font-size: clamp(2.8rem, 3.4vw, 3.8rem);
+    line-height: 1.15;
+}
+
+.mm-ind-offer__facts {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.mm-ind-offer__facts span {
+    color: var(--brand);
+    margin-inline: 0.25em;
+}
+
+.mm-ind .mm-ses-offer__panel .mm-actions {
+    margin-top: var(--space-5);
+    justify-content: center;
+}
+
+.mm-ind-teams .mm-ses-teams__cta {
+    margin-top: var(--space-5);
+    min-height: 4.4rem;
+}
+
+body.page-sesiones .mm-ind .mm-btn {
+    height: auto;
+    min-height: 5rem;
+    padding-block: 1.4rem;
+    white-space: normal;
+    text-align: center;
+}
+
+.mm-ind #mm-ses-cta {
+    scroll-margin-top: 9.6rem;
+}
+
+/* Keep the contact copy, fields and submit on the same editorial left edge. */
+body.page-sesiones .mm-ind .mm-ses-cta .mm-home-contact__form {
+    width: 100%;
+    max-width: none;
+    margin: var(--space-6) 0 0;
+}
+
+body.page-sesiones .mm-ind .mm-ses-cta .mm-home-contact__form .mm-actions {
+    justify-content: flex-start;
+    margin-top: var(--space-6);
+}
+
+body.page-sesiones .mm-ind .mm-ses-cta__reassure {
+    text-align: left;
+}
+
+body.page-sesiones .mm-ind .mm-home-contact__textarea {
+    min-height: 0;
+    height: auto;
+}
+
+.mm-ind-form__optional {
+    color: var(--ink-3);
+    font-size: 0.9em;
+}
+
+.mm-ind .mm-ind-form__hint {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: var(--ink-3);
+}
+
+@media (max-width: 640px) {
+    .mm-ind .mm-ind-questions {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-3);
+    }
+
+    .mm-ind-questions li {
+        padding: 1.8rem;
+    }
+
+    .mm-ind-preparation {
+        margin-top: var(--space-6);
+        padding-top: var(--space-6);
+    }
+}

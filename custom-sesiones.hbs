@@ -1,32 +1,21 @@
 {{!< default}}
 {{!--
-Template Name: Sesiones
-
-Landing del servicio de sesiones uno a uno ("Sesiones para masticar").
-Sigue el sistema visual de /masticadas (.mm-v2 .mm-ch-v2) para el hero, los bloques
-de texto y el CTA; suma un bloque crema (.mm-ses-offer) como ruptura visual que
-presenta el producto concreto. .mm-intro para la bio, .mm-testimonial para José.
-El namespace propio .mm-ses lleva solo lo específico de esta página.
+Template Name: Masticadas individuales
+La URL y el archivo custom-sesiones se conservan para los enlaces existentes.
 --}}
 
-<main class="homepage-main mm-v2 mm-ch-v2 mm-ses"
-      data-meta-description="Sesiones para masticar: una conversación uno a uno de una hora para traer una decisión, una idea o algo que te esté dando vueltas y pensarlo junto a Rodri.">
+<main class="homepage-main mm-v2 mm-ch-v2 mm-ses mm-ind"
+      data-meta-description="Masticadas individuales con Rodri: encuentros uno a uno de 60 minutos, remotos, para explorar algo que te importa con historias e ideas preparadas para la conversación.">
 
-    {{!-- 1. Hero --}}
     <section class="mm-v2-hero mm-ch-v2-hero mm-ses-hero" aria-labelledby="ses-title">
         <div class="mm-canvas mm-canvas--wide">
             <div class="mm-hero__inner">
-                <h1 class="mm-hero__title mm-ch-v2-hero__title" id="ses-title">
-                    Hay cosas que cuesta<br><span class="mm-accent">pensar solo.</span>
-                </h1>
+                <h1 class="mm-hero__title mm-ch-v2-hero__title" id="ses-title">¿Qué tenés para <span class="mm-accent">masticar?</span></h1>
                 <div class="mm-hero__lede mm-ch-v2-hero__lede">
-                    <p>Un espacio para poner sobre la mesa eso que tenés entre manos y mirarlo con alguien de afuera.</p>
+                    <p>Un encuentro para pensar a fondo sobre algo que te importa, con historias e ideas que enriquecen la conversación.</p>
                 </div>
                 <div class="mm-actions mm-actions--center">
-                    <a href="#ses-help" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">
-                        Cómo son las sesiones
-                        <span aria-hidden="true">↓</span>
-                    </a>
+                    <a href="#ses-help" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">Conocé cómo funciona <span aria-hidden="true">↓</span></a>
                 </div>
             </div>
         </div>
@@ -78,69 +67,52 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
         </div>
     </section>
 
-    {{!-- 3. Cómo es pensar conmigo — "Una cabeza más para pensar". Va antes del
-         recuadro crema: primero se entiende qué aporto a la conversación y luego
-         se ve la sesión concreta. Ancla del hero (scroll-margin en CSS). --}}
-    <section class="mm-ch-v2-what" id="ses-help" aria-labelledby="ses-help-title">
+    <section class="mm-ch-v2-what mm-ind-topic" id="ses-help" aria-labelledby="ses-help-title">
         <div class="mm-canvas mm-canvas--narrow">
-            <h2 class="mm-v2-title" id="ses-help-title">Una cabeza más <span class="mm-accent">para pensar.</span></h2>
+            <h2 class="mm-v2-title" id="ses-help-title">Vos elegís <span class="mm-accent">el tema.</span></h2>
             <div class="mm-prose">
-                <p>Hay cosas que desde adentro cuesta ver.</p>
-                <p>Yo llego desde afuera. Puedo escuchar, preguntar y detenerme en cosas que quizás a vos se te están escapando.</p>
-                <p>Y no vengo solo a hacer preguntas. A la conversación también traigo lo mío: experiencias, ideas y marcos que fui construyendo con los años. Cuando creo que algo de eso puede servir, lo pongo sobre la mesa.</p>
+                <p>Antes de encontrarnos, me contás qué te gustaría explorar.</p>
+                <p>Puede ser algo como:</p>
+            </div>
+            <ul class="mm-ind-questions" role="list">
+                <li>¿Por qué sigo postergando algo que quiero hacer?</li>
+                <li>¿Cómo hago para leer más?</li>
+                <li>¿Qué tipo de líder quiero ser?</li>
+                <li>¿Y si me animo a empezar algo completamente nuevo?</li>
+                <li>¿Cómo encaro esa conversación que vengo evitando?</li>
+                <li>¿Qué hago con esa idea de emprendimiento que me entusiasma?</li>
+            </ul>
+            <div class="mm-prose">
+                <p>O cualquier otra pregunta a la que quieras dedicarle una buena conversación. Incluso alguna que te haya surgido leyendo uno de <a href="/bocados">mis bocados</a>.</p>
+            </div>
+            <div class="mm-ind-preparation">
+                <h3 class="mm-ind-preparation__title">Yo también me preparo para la masticada.</h3>
+                <div class="mm-prose">
+                    <p>Me apoyo en mi experiencia trabajando con personas y líderes, mis lecturas y los años que llevo explorando estas preguntas, en mi propia vida y a través de Para masticar.</p>
+                    <p>De ahí elijo historias e ideas que puedan aportar algo al encuentro.</p>
+                    <p><strong class="mm-ind-preparation__emphasis">No voy solamente a escucharte y hacerte preguntas.</strong> También comparto lo que pienso, las conexiones que encuentro y las cosas que fui aprendiendo.</p>
+                    <p>La idea es que entre los dos podamos pensar más y mejor de lo que hubiéramos pensado por separado.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    {{!-- 4. Bloque crema: concreta lo explicado arriba en un servicio. En desktop,
-         dos columnas dentro de un único panel (izq: identificación, der: producto).
-         Mobile: una columna. --}}
     <section class="mm-ses-offer" id="mm-ses-offer" aria-labelledby="ses-offer-title">
-        <div class="mm-canvas">
+        <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-ses-offer__panel">
-
-                {{!-- Columna izquierda — apertura: no hace falta llegar con todo claro --}}
-                <div class="mm-ses-offer__col mm-ses-offer__col--what">
-                    <h2 class="mm-ses-offer__title" id="ses-offer-title">Podés traer lo que tengas.</h2>
-                    <div class="mm-ses-offer__intro">
-                        <p>Puede ser una decisión que estás pensando, una situación que no sabés bien cómo encarar, una idea que querés poner a prueba o algo que simplemente te vendría bien conversar con alguien.</p>
-                        <p>No hace falta que llegues con todo claro. Lo vamos viendo juntos.</p>
-                    </div>
+                <h2 class="mm-ses-offer__title" id="ses-offer-title">Una masticada individual.</h2>
+                <p class="mm-ind-offer__facts">60 minutos <span aria-hidden="true">·</span> Uno a uno <span aria-hidden="true">·</span> Remoto</p>
+                <div class="mm-actions">
+                    <a href="#mm-ses-cta" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">Quiero coordinar una masticada <span aria-hidden="true">→</span></a>
                 </div>
-
-                {{!-- Columna derecha — el producto --}}
-                <div class="mm-ses-offer__col mm-ses-offer__col--product">
-                    <h3 class="mm-ses-offer__product-title">Una sesión para masticar</h3>
-
-                    {{!-- Fila de specs con iconos: duración · formato · modalidad --}}
-                    <ul class="mm-ses-offer__meta" role="list">
-                        <li class="mm-ses-offer__meta-item">
-                            <svg class="mm-ses-offer__meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-                            <span>60 minutos</span>
-                        </li>
-                        <li class="mm-ses-offer__meta-item">
-                            <svg class="mm-ses-offer__meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg>
-                            <span>Uno a uno</span>
-                        </li>
-                        <li class="mm-ses-offer__meta-item">
-                            <svg class="mm-ses-offer__meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M9 21h6M12 17v4"/></svg>
-                            <span>Remoto <!--span class="mm-ses-offer__meta-note">(o presencial en Montevideo)</span--></span>
-                        </li>
-                    </ul>
-
-                    {{!-- Qué pasa durante esa hora --}}
-                    <div class="mm-ses-offer__body">
-                        <p>Una hora para traer algo concreto y masticarlo juntos, siguiendo el hilo de lo que aparezca.</p>
-                    </div>
-
-                    <div class="mm-actions">
-                        <a href="#mm-ses-cta" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll">
-                            Quiero coordinar una sesión
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </div>
+            </div>
+            <div class="mm-ses-teams mm-ind-teams" aria-labelledby="ses-teams-title">
+                <h3 class="mm-ses-teams__eyebrow" id="ses-teams-title">Masticadas individuales para tu equipo.</h3>
+                <div class="mm-prose">
+                    <p>También podés ofrecerles a las personas de tu equipo un espacio para explorar sus propias preguntas, ideas o desafíos.</p>
+                    <p>Podemos coordinar masticadas individuales para quienes quieran aprovecharlas.</p>
                 </div>
-
+                <a href="#mm-ses-cta" class="mm-ses-teams__cta js-smooth-scroll" data-tipo="empresa">Exploremos la idea <span aria-hidden="true">→</span></a>
             </div>
         </div>
     </section>
@@ -165,79 +137,36 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
                 <div class="mm-intro__text">
                     <h2 class="mm-v2-title" id="ses-intro-title">Hola, <span class="mm-accent">soy Rodri.</span></h2>
                     <div class="mm-prose mm-prose--intro">
-                        <p>Durante más de una década trabajé en WyeWorks, una empresa de tecnología uruguaya. Empecé como desarrollador, después pasé a formar parte del equipo de managers y terminé como acompañante estratégico del CEO, trabajando también de cerca con otros líderes.</p>
-                        <p>Ahí aprendí que muchos de los problemas más difíciles rara vez eran técnicos. Eran humanos. Y muchas veces empezaban por uno mismo.</p>
-                        <p>También aprendí el valor de tener otra cabeza cerca cuando hay algo difícil que pensar. Alguien que escuche, pregunte, desafíe algún supuesto y aporte otra mirada cuando pueda servir.</p>
-                        <p>De esa búsqueda nacieron Para masticar, La Bestia y, con el tiempo, estas sesiones.</p>
+                        <p>Durante más de una década trabajé en WyeWorks, una empresa de tecnología uruguaya. Empecé como desarrollador de software, después pasé a formar parte del equipo de managers y terminé como acompañante estratégico del CEO.</p>
+                        <p>En ese camino entendí que muchos de los problemas más difíciles no eran técnicos. Eran humanos. Y muchas veces empezaban por uno mismo.</p>
+                        <p>Eso me llevó a leer, escribir y prestar más atención a cómo pensamos, qué nos frena y qué nos mueve. Con el tiempo fui construyendo mi propia forma de mirar estas cosas.</p>
+                        <p>Así nació Para masticar: un proyecto que empezó con los bocados que escribo cada semana y fue creciendo hasta dar lugar a mi libro <em>La Bestia</em> y a encuentros como las masticadas.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 6. Acompañamiento — posibilidad secundaria, abierta. NO al mismo nivel
-         visual que la sesión: sin precio, sin card, jerarquía menor. --}}
-    <section class="mm-ch-v2-what mm-ses-more" aria-labelledby="ses-more-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <h2 class="mm-v2-title" id="ses-more-title">¿Y si hay algo que pide <span class="mm-accent">más tiempo?</span></h2>
-            <div class="mm-prose">
-                <p>Hay momentos en los que puede servir tener una cabeza más cerca durante un tiempo.</p>
-                <p>Quizás acabás de asumir un nuevo desafío, estás atravesando un cambio o hay algo que vas a tener que ir pensando a medida que avanzás.</p>
-                <p>Podemos encontrarnos semana a semana e ir masticando juntos lo que vaya apareciendo.</p>
-                <p>Si pensás que algo así te podría servir, escribime y lo conversamos.</p>
-            </div>
-            <div class="mm-actions">
-                <a href="#mm-ses-cta"
-                   class="mm-btn mm-btn--ghost js-smooth-scroll mm-ses-more__cta"
-                   data-tipo="acompanamiento">
-                    Quiero conversar sobre un acompañamiento <span aria-hidden="true">↓</span>
-                </a>
-            </div>
-
-            {{!-- Guiño a empresas: nota secundaria, no un tercer producto. Abre
-                 la puerta a sesiones individuales para un equipo, sin definir
-                 la modalidad comercial. Divisor fino + eyebrow azul + texto. --}}
-            <div class="mm-ses-teams">
-                <p class="mm-ses-teams__eyebrow">Para empresas</p>
-                <p class="mm-ses-teams__text">También podés ofrecerles a las personas de tu equipo una cabeza más para pensar cuando la necesiten.</p>
-                <a href="#mm-ses-cta"
-                   class="mm-ses-teams__cta js-smooth-scroll"
-                   data-tipo="empresa">
-                    Quiero saber más <span aria-hidden="true">→</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    {{!-- 7. CTA final — formulario simple (nombre, email, mensaje), sin selector.
-         Un solo camino: la persona cuenta qué tiene y Rodri responde para
-         coordinar. Siempre visible, en la misma página, sin modal. --}}
     <section class="mm-ch-v2-cta mm-ses-cta" id="mm-ses-cta" aria-labelledby="ses-cta-title">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-ch-v2-cta__inner">
-                <h2 class="mm-v2-title" id="ses-cta-title">¿Tenés algo <span class="mm-accent">para masticar?</span></h2>
-                <p class="mm-ch-v2-cta__lede">Contame qué tenés entre manos. No hace falta que sepas explicarlo perfecto.</p>
-
+                <h2 class="mm-v2-title" id="ses-cta-title">Coordinemos <span class="mm-accent">una masticada.</span></h2>
+                <p class="mm-ch-v2-cta__lede">Contame un poco sobre lo que te gustaría explorar. Con unas pocas líneas alcanza.</p>
                 <div class="mm-ses-cta__form" id="mm-ses-form">
                     {{> "contact-form"
                         show_selector=false
                         tipo_predefinido="sesion"
                         origen="sesiones"
-                        subject="Contacto — desde /sesiones/"
-                        message_label="¿Qué tenés entre manos?"
-                        message_placeholder="Lo que quieras contarme..."}}
-
+                        subject="Contacto — Masticadas individuales (/sesiones/)"
+                        individual_context=true
+                        message_label="¿Qué te gustaría masticar?"
+                        message_placeholder="Por ejemplo: me gustaría pensar cómo animarme a emprender."}}
                     <p class="mm-ses-cta__reassure">Te respondo personalmente para contarte los detalles y coordinar.</p>
                 </div>
-
-                <p class="mm-ch-v2-cta__fallback">
-                    También podés escribirme a
-                    <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.
-                </p>
+                <p class="mm-ch-v2-cta__fallback">También podés escribirme a <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.</p>
             </div>
         </div>
     </section>
-
 </main>
 
 {{!-- Testimonio expandible — mismo comportamiento que en la home
@@ -259,35 +188,29 @@ El namespace propio .mm-ses lleva solo lo específico de esta página.
 })();
 </script>
 
-{{!-- Formulario de /sesiones: un solo camino, sin selector de opciones.
-     - El submit dice "Quiero coordinar →".
-     - Acompañamiento (sección "¿Y si hay algo que pide más tiempo?") sigue
-       bajando al form y se distingue con un hidden origen_detalle. --}}
+{{!-- Keep the existing form submit lifecycle and preserve anything already typed. --}}
 <script>
 (function () {
     'use strict';
-    var form = document.getElementById('mm-ses-form');
-    if (!form) return;
-
-    var submit = form.querySelector('button[type="submit"]');
-    {{!-- textContent (no innerHTML): el JS del partial restaura el botón por
-         textContent tras enviar, así que la flecha va como texto para que
-         persista igual después del envío. --}}
+    var wrapper = document.getElementById('mm-ses-form');
+    if (!wrapper) return;
+    var form = wrapper.querySelector('form');
+    var submit = form && form.querySelector('button[type="submit"]');
     if (submit) submit.textContent = 'Quiero coordinar →';
-
-    {{!-- Acompañamiento: se registra en un hidden aparte para distinguir el lead. --}}
-    var moreCta = document.querySelector('.mm-ses-more__cta');
-    if (moreCta) moreCta.addEventListener('click', function () {
-        var hidden = form.querySelector('input[name="origen_detalle"]');
-        if (!hidden) {
-            hidden = document.createElement('input');
-            hidden.type = 'hidden';
-            hidden.name = 'origen_detalle';
-            form.appendChild(hidden);
+    var teamCta = document.querySelector('.mm-ind-teams [data-tipo="empresa"]');
+    var message = form && form.querySelector('#mm-home-message');
+    if (teamCta && message) teamCta.addEventListener('click', function () {
+        if (!message.value.trim()) {
+            message.value = 'Me gustaría saber más sobre masticadas individuales para las personas de mi equipo.';
+            message.dispatchEvent(new Event('input', {bubbles: true}));
         }
-        hidden.value = 'Acompañamiento';
     });
 })();
 </script>
 
 {{#contentFor "body_class"}}homepage-mm-v2 page-charlas page-sesiones{{/contentFor}}
+
+{{#contentFor "page_title"}}Masticadas individuales — {{@site.title}}{{/contentFor}}
+{{#contentFor "page_metadata"}}
+    {{> "individuales-meta"}}
+{{/contentFor}}

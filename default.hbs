@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{meta_title}}</title>
+    <title>{{#if (block "page_title")}}{{{block "page_title"}}}{{else}}{{meta_title}}{{/if}}</title>
 
     {{!-- Resource hints for better performance --}}
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
@@ -111,7 +111,12 @@
         })();
     </script>
 
-    {{ghost_head}}
+    {{#if (block "page_metadata")}}
+        {{ghost_head exclude="metadata,social_data,schema"}}
+        {{{block "page_metadata"}}}
+    {{else}}
+        {{ghost_head}}
+    {{/if}}
     
     {{!-- Ghost Content API Configuration for Search --}}
     <script>
