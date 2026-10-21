@@ -185,13 +185,27 @@ Template Name: Charlas
         </div>
     </section>
 
+    {{!-- Individual encounters complement the group proposal, with secondary weight. --}}
+    <section class="mm-ch-v2-individuals" aria-labelledby="ch-individuals-title">
+        <div class="mm-canvas mm-canvas--narrow">
+            <div class="mm-ses-teams mm-ch-v2-individuals__inner">
+                <h3 class="mm-ses-teams__eyebrow" id="ch-individuals-title">Masticadas individuales para tu equipo.</h3>
+                <div class="mm-prose">
+                    <p>Además de los encuentros grupales, también ofrezco masticadas uno a uno.</p>
+                    <p>Podés ponerlas a disposición de las personas de tu equipo, para que quienes quieran aprovecharlas tengan un espacio donde explorar sus propias preguntas, ideas o desafíos.</p>
+                </div>
+                <a href="/sesiones" class="mm-ses-teams__cta">Conocé las masticadas para vos <span aria-hidden="true">→</span></a>
+            </div>
+        </div>
+    </section>
+
     {{!-- 5. Bloque crema comercial: "Organizá una masticada". Transición natural
          del relato a la propuesta concreta. Conserva id=mm-ch-mast. --}}
     <section class="mm-ch-v2-plus" id="mm-ch-mast" aria-labelledby="ch-mast-name">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-ch-v2-formats__panel mm-ch-v2-formats__panel--hero">
                 <h3 class="mm-ch-v2-formats__name mm-ch-v2-formats__name--hero" id="ch-mast-name">Organizá una masticada.</h3>
-                <p class="mm-ch-v2-formats__lead">Un encuentro para que tu equipo explore una pregunta que le importa, comparta experiencias y descubra nuevas perspectivas.</p>
+                <p class="mm-ch-v2-formats__lead">Un encuentro para que tu equipo converse sobre un tema que quiere explorar, comparta experiencias y se conozca mejor.</p>
                 <!--p class="mm-ch-v2-formats__note-hero">2 horas <span aria-hidden="true">·</span> Experiencia presencial</p-->
                 <div class="mm-actions mm-ch-v2-formats__actions">
                     <a href="#mm-ch-cta"
@@ -206,7 +220,7 @@ Template Name: Charlas
 
     {{!-- 5. Charlas: otro formato disponible. La tarjeta crema mantiene
          a la Masticada como propuesta protagonista. --}}
-    <section class="mm-ch-v2-plus mm-ch-v2-plus--alt" aria-labelledby="ch-alt-title">
+    <!--section class="mm-ch-v2-plus mm-ch-v2-plus--alt" aria-labelledby="ch-alt-title">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-ch-v2-alt">
                 <h2 class="mm-ch-v2-alt__q" id="ch-alt-title">También doy charlas.</h2>
@@ -265,7 +279,7 @@ Template Name: Charlas
                 </figure>
             </div>
         </div>
-    </section>
+    </section-->
 
     {{!-- 5. CTA final — formulario embebido en la página (mismo Formspree que el
          resto del sitio), adaptado a charlas. No lleva a la home. --}}

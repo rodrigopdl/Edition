@@ -977,7 +977,9 @@ body.post-template .mm-post .share-link:hover {
    Compartir. No box/background — sits on the navy. Scoped to posts only.
    ========================================================================== */
 body.post-template .mm-post-sessions {
-    max-width: 720px;
+    display: block;
+    width: calc(100% - 4.4rem);
+    max-width: 960px;
     margin: 4.5rem auto 0;
     padding-top: 3rem;
     padding-bottom: clamp(4.5rem, 7vw, 7rem);
@@ -1045,7 +1047,7 @@ body.post-template .mm-post-ways__item + .mm-post-ways__item {
 
 body.post-template .mm-post-ways__name {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.01em;
@@ -1061,10 +1063,10 @@ body.post-template .mm-post-ways__desc {
     margin: 0 0 1.4rem;
 }
 
-/* CTA justo debajo de su descripción — sin forzar alturas iguales entre las
-   tres columnas (está bien que difieran según el largo del texto). */
+/* Keep the three text CTAs on the same baseline despite differing copy. */
 body.post-template .mm-post-ways__link {
     font-size: 1.5rem;
+    margin-top: auto;
 }
 
 /* The Compartir footer already carries a top border + 6rem gap; with the CTA

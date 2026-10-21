@@ -101,27 +101,24 @@
                 <h2 class="mm-v2-title" id="ways-title">Otras formas de <span class="mm-accent">masticar.</span></h2>
             </header>
 
-            {{!-- Order in source is Sesiones / Masticadas / Viaje. On desktop CSS
-                 keeps that left-center-right layout with Masticadas as the larger,
-                 central lead card. On mobile CSS reorders to Masticadas first. --}}
-            <div class="mm-ways__grid mm-ways__grid--lead">
-                <article class="mm-way mm-way--side">
-                    <h3 class="mm-way__title">Masticadas individuales</h3>
-                    <p class="mm-way__text mm-way__text--secondary">Un encuentro para pensar a fondo sobre algo que te importa, con historias e ideas que enriquecen la conversación.</p>
-                    <a href="/sesiones/" class="mm-way__link">Conocé las masticadas individuales</a>
+            {{!-- Equal proposals, in the same order on desktop and mobile. --}}
+            <div class="mm-ways__grid mm-ways__grid--three">
+                <article class="mm-way">
+                    <h3 class="mm-way__title">Masticadas para vos</h3>
+                    <p class="mm-way__text mm-way__text--secondary">Para pensar a fondo sobre algo que te importa, con historias e ideas preparadas especialmente para nuestra conversación.</p>
+                    <a href="/sesiones/" class="mm-way__link" aria-label="Conocé más sobre Masticadas para vos">Conocé más</a>
                 </article>
 
-                <article class="mm-way mm-way--lead">
+                <article class="mm-way">
                     <h3 class="mm-way__title">Masticadas para equipos</h3>
-                    <!--p class="mm-way__tagline mm-way__tagline--lead">Liderazgo para masticar.</p-->
-                    <p class="mm-way__text mm-way__text--secondary">Un encuentro para que tu equipo converse sobre lo que le importa. Yo llevo historias e ideas para alimentar la conversación.</p>
-                    <a href="/masticadas/" class="mm-way__link">Conocé las masticadas</a>
+                    <p class="mm-way__text mm-way__text--secondary">Para que tu equipo converse sobre lo que está viviendo, comparta experiencias y se conozca mejor.</p>
+                    <a href="/masticadas/" class="mm-way__link" aria-label="Conocé más sobre Masticadas para equipos">Conocé más</a>
                 </article>
 
-                <article class="mm-way mm-way--side">
-                    <h3 class="mm-way__title">El Viaje</h3>
-                    <p class="mm-way__text mm-way__text--secondary">Un mes de masticadas y bocados para que tu equipo explore a fondo una pregunta que le importa.</p>
-                    <a href="/viaje/" class="mm-way__link">Conocé El Viaje</a>
+                <article class="mm-way">
+                    <h3 class="mm-way__title">El Viaje Para masticar</h3>
+                    <p class="mm-way__text mm-way__text--secondary">Un mes de masticadas y bocados para que tu equipo profundice en un tema que quiere trabajar.</p>
+                    <a href="/viaje/" class="mm-way__link" aria-label="Conocé más sobre El Viaje Para masticar">Conocé más</a>
                 </article>
             </div>
         </div>

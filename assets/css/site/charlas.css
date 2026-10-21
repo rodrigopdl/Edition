@@ -281,6 +281,10 @@ body.page-charlas .mm-ch-v2-plus {
     padding-bottom: 0;
 }
 
+body.page-charlas #mm-ch-mast {
+    padding-bottom: clamp(2.4rem, 4vw, 4rem);
+}
+
 body.page-charlas .mm-ch-v2-plus--alt {
     padding-top: clamp(4rem, 6vw, 6.4rem);
     padding-bottom: clamp(5.6rem, 8vw, 8rem);
@@ -307,6 +311,26 @@ body.page-charlas .mm-ch-v2-backing__quote {
     font-size: clamp(1.8rem, 1.7vw, 2rem);
     line-height: 1.65;
     text-wrap: pretty;
+}
+
+/* A quiet cross-link before contact, using the existing editorial team note. */
+body.page-charlas .mm-ch-v2-individuals {
+    background: var(--surface-0);
+    padding-top: clamp(2.4rem, 3vw, 3.2rem);
+    padding-bottom: 0;
+}
+
+body.page-charlas .mm-ch-v2-individuals__inner {
+    margin-top: 0;
+}
+
+body.page-charlas .mm-ch-v2-individuals .mm-prose {
+    font-size: clamp(1.7rem, 1.5vw, 1.85rem);
+}
+
+body.page-charlas .mm-ch-v2-individuals .mm-ses-teams__cta {
+    margin-top: var(--space-5);
+    min-height: 4.4rem;
 }
 
 /* The contact heading and fields share a single left edge and reading width. */

@@ -1726,6 +1726,26 @@ body.home-template .mm-v2 .mm-intro__frame::after {
     color: var(--brand);
 }
 
+/* Home proposals share a single row and equal visual weight. */
+body.home-template #mm-home-ways .mm-ways__grid {
+    align-items: stretch;
+}
+
+body.home-template #mm-home-ways .mm-way__link {
+    margin-top: auto;
+    padding-top: 0;
+}
+
+body.home-template #mm-home-ways .mm-way__link::before {
+    content: none;
+}
+
+@media (min-width: 961px) {
+    body.home-template #mm-home-ways .mm-way__title {
+        min-height: 2.3em;
+    }
+}
+
 .mm-v2 .mm-way__link:hover::before,
 .mm-v2 .mm-way:hover .mm-way__link::before {
     width: 4.4rem;
