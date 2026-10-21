@@ -56,6 +56,58 @@ body.page-charlas .mm-ch-v2-why .mm-v2-title {
     text-wrap: wrap;
 }
 
+body.page-charlas .mm-ch-v2-book {
+    background: var(--surface-0);
+    padding-top: clamp(3.2rem, 5vw, 5.6rem);
+    padding-bottom: clamp(3.2rem, 4vw, 4.8rem);
+}
+
+body.page-charlas .mm-ch-v2-book .mm-canvas {
+    max-width: 104rem;
+}
+
+body.page-charlas .mm-ch-v2-book__grid {
+    display: grid;
+    grid-template-columns: 24rem minmax(0, 1fr);
+    gap: clamp(3.2rem, 5vw, 5.6rem);
+    align-items: center;
+}
+
+body.page-charlas .mm-ch-v2-book__figure {
+    margin: 0;
+}
+
+body.page-charlas .mm-ch-v2-book__image {
+    display: block;
+    width: 22rem;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+    border: 2px solid var(--surface-paper);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+body.page-charlas .mm-ch-v2-book__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 2.2vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 0 0 var(--space-4);
+}
+
+@media (max-width: 760px) {
+    body.page-charlas .mm-ch-v2-book__grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-5);
+    }
+
+    body.page-charlas .mm-ch-v2-book__image {
+        width: 16rem;
+    }
+}
+
 body.page-charlas .mm-ch-v2 .mm-prose p.mm-ch-v2-questions {
     display: grid;
     gap: var(--space-2);
