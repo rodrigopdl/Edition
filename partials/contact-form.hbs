@@ -188,20 +188,20 @@ selectors). Two instances on the same page would collide.
             <legend class="mm-home-contact__choice-legend">¿Qué te interesa explorar?</legend>
             <div class="mm-home-contact__choice-options">
                 <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Charlas">
-                    <span>Charlas y masticadas</span>
+                    <input type="radio" name="tipo_consulta" value="Masticada para vos">
+                    <span>Masticada para vos</span>
                 </label>
                 <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Sesiones para masticar">
-                    <span>Masticadas individuales</span>
+                    <input type="radio" name="tipo_consulta" value="Masticada para tu equipo">
+                    <span>Masticada para tu equipo</span>
                 </label>
                 <label class="mm-home-contact__choice-option">
                     <input type="radio" name="tipo_consulta" value="El Viaje">
                     <span>El Viaje</span>
                 </label>
                 <label class="mm-home-contact__choice-option">
-                    <input type="radio" name="tipo_consulta" value="Todavía no sé">
-                    <span>Todavía no sé</span>
+                    <input type="radio" name="tipo_consulta" value="Otra cosa">
+                    <span>Otra cosa</span>
                 </label>
             </div>
         </fieldset>
@@ -258,6 +258,11 @@ selectors). Two instances on the same page would collide.
                 'viaje':          'El Viaje',
                 'masticada':      'El Viaje'
             };
+            {{#if show_selector}}
+            {{!-- Preserve existing deep links with the home selector's new values. --}}
+            map.charla = map.capacitacion = map['capacitación'] = map.equipo = map.masticada = 'Masticada para tu equipo';
+            map.sesion = map['sesión'] = map.lider = map['líder'] = 'Masticada para vos';
+            {{/if}}
             var target = map[requested];
             if (!target) return;
             var radios = form.querySelectorAll('input[name="tipo_consulta"]');
