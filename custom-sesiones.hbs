@@ -140,8 +140,16 @@ La URL y el archivo custom-sesiones se conservan para los enlaces existentes.
     </section>
 
     <section class="mm-ind-gift" aria-labelledby="ses-gift-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <div class="mm-ses-teams">
+        <div class="mm-canvas mm-ind-gift__grid">
+            <div class="mm-gift-card-scene" aria-hidden="true">
+                <div class="mm-gift-card">
+                    <div class="mm-gift-card__face">
+                        <span class="mm-gift-card__brand">Para masticar</span>
+                        <span class="mm-gift-card__title">Una masticada<br>de regalo.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mm-ses-teams mm-ind-gift__copy">
                 <h3 class="mm-ses-teams__eyebrow" id="ses-gift-title">¿Y si regalás una masticada?</h3>
                 <div class="mm-prose">
                     <p>Una buena conversación también puede ser un regalo.</p>
@@ -174,6 +182,38 @@ La URL y el archivo custom-sesiones se conservan para los enlaces existentes.
         </div>
     </section>
 </main>
+
+<script>
+(function () {
+    'use strict';
+    var scene = document.querySelector('.mm-gift-card-scene');
+    if (!scene) return;
+    var card = scene.querySelector('.mm-gift-card');
+    var motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var pointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    function reset() {
+        card.classList.remove('is-tracking');
+        ['--gift-x', '--gift-y', '--gift-light-x', '--gift-light-y'].forEach(function (name) {
+            card.style.removeProperty(name);
+        });
+    }
+    scene.addEventListener('pointermove', function (event) {
+        if (motion.matches || !pointer.matches || event.pointerType === 'touch') return;
+        var bounds = scene.getBoundingClientRect();
+        var x = Math.max(0, Math.min(1, (event.clientX - bounds.left) / bounds.width));
+        var y = Math.max(0, Math.min(1, (event.clientY - bounds.top) / bounds.height));
+        card.classList.add('is-tracking');
+        card.style.setProperty('--gift-x', (3.5 - y * 7) + 'deg');
+        card.style.setProperty('--gift-y', (x * 7 - 3.5) + 'deg');
+        card.style.setProperty('--gift-light-x', (x * 100) + '%');
+        card.style.setProperty('--gift-light-y', (y * 100) + '%');
+    });
+    scene.addEventListener('pointerleave', reset);
+    scene.addEventListener('pointercancel', reset);
+    motion.addEventListener('change', reset);
+    pointer.addEventListener('change', reset);
+})();
+</script>
 
 {{!-- Testimonio expandible — mismo comportamiento que en la home
      (toggle en la misma página, sin modal ni navegación). --}}
