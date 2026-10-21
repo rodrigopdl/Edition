@@ -225,9 +225,13 @@ body.page-charlas .mm-ch-v2-testimonial {
     margin: var(--space-3) auto 0;
 }
 
-body.page-charlas .mm-ch-v2-exp--lead .mm-ch-v2-testimonial__quote {
+body.page-charlas .mm-ch-v2 .mm-ch-v2-testimonial__quote {
     font-size: clamp(1.85rem, 1.8vw, 2.2rem);
     line-height: 1.65;
+}
+
+body.page-charlas .mm-ch-v2-ruby--close .mm-ch-v2-testimonial {
+    margin-top: var(--space-6);
 }
 
 body.page-charlas .mm-ch-v2-testimonial__name {
