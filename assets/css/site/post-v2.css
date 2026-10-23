@@ -1047,26 +1047,53 @@ body.post-template .mm-post-ways__item + .mm-post-ways__item {
 
 body.post-template .mm-post-ways__name {
     font-family: var(--font-display);
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.13;
     letter-spacing: -0.01em;
-    color: #ffffff;
-    margin: 0 0 0.9rem;
+    color: #f1f1f1;
+    margin: 0 0 1.4rem;
+}
+
+body.post-template .mm-post-ways__accent {
+    display: block;
+    color: var(--brand, #5271ff);
 }
 
 body.post-template .mm-post-ways__desc {
     font-family: var(--font-post-body);
-    font-size: 1.55rem;
-    line-height: 1.55;
-    color: rgba(255, 255, 255, 0.6);
-    margin: 0 0 1.4rem;
+    font-size: 1.65rem;
+    line-height: 1.6;
+    color: rgba(241, 241, 241, 0.78);
+    margin: 0 0 1.8rem;
 }
 
 /* Keep the three text CTAs on the same baseline despite differing copy. */
 body.post-template .mm-post-ways__link {
     font-size: 1.5rem;
     margin-top: auto;
+    color: #f1f1f1;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+    transition: color 250ms ease;
+}
+
+body.post-template .mm-post-ways__link:hover,
+body.post-template .mm-post-ways__link:focus-visible {
+    color: var(--brand, #5271ff);
+    opacity: 1;
+}
+
+body.post-template .mm-post-ways__link:focus-visible {
+    outline: 2px solid var(--brand, #5271ff);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.post-template .mm-post-ways__link {
+        transition: none;
+    }
 }
 
 /* The Compartir footer already carries a top border + 6rem gap; with the CTA
