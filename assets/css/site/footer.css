@@ -67,7 +67,7 @@
     font-weight: 600;
     color: #ffffff;
     text-decoration: none;
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 0.05em;
     transition: color 0.2s ease;
 }

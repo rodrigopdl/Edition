@@ -20,7 +20,7 @@
     color: #f1f1f1 !important;
 }
 .gh-head-menu {
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .gh-head-menu,
@@ -31,6 +31,7 @@
 
 .gh-head .nav a {
     color: #f1f1f1 !important;
+    font-weight: 600;
 }
 
 .gh-head .nav a:hover {
@@ -113,9 +114,9 @@
 .gh-nav-hablemos {
     color: #f1f1f1;
     text-decoration: none;
-    text-transform: uppercase;
+    text-transform: none;
     font-size: 1.6rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .gh-nav-hablemos:hover {
