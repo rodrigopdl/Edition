@@ -174,8 +174,8 @@ body.post-template .mm-post-content blockquote,
 body.post-template .gh-content blockquote,
 body.post-template .mm-post-content > blockquote {
     position: relative;
-    padding: var(--space-3) 0 var(--space-3) var(--space-6) !important;
-    margin: clamp(3.2rem, 4vw, 4.4rem) 0 !important;
+    padding: 0.8rem 0 0.8rem var(--space-5) !important;
+    margin: var(--space-5) 0 0 !important;
     background: none !important;
     border: 0 !important;
     border-left: 1px solid rgba(82, 113, 255, 0.55) !important;
@@ -184,8 +184,8 @@ body.post-template .mm-post-content > blockquote {
     color: var(--ink) !important;
     font-family: var(--font-post-body);
     font-style: italic;
-    font-size: clamp(2rem, 2.2vw, 2.4rem);
-    line-height: 1.55;
+    font-size: clamp(1.85rem, 1.6vw, 2.05rem);
+    line-height: 1.65;
     letter-spacing: -0.005em;
     text-align: left !important;
 }
@@ -235,11 +235,106 @@ body.post-template .mm-post-content blockquote.kg-blockquote-alt,
 body.post-template .gh-content blockquote.kg-blockquote-alt {
     border-left: 0 !important;
     padding: 0 !important;
-    margin: clamp(4rem, 5vw, 5.6rem) auto !important;
+    margin: var(--space-6) auto 0 !important;
     max-width: 32ch;
     text-align: center !important;
-    font-size: clamp(2.4rem, 2.8vw, 3rem);
-    line-height: 1.4;
+    font-size: clamp(2rem, 1.8vw, 2.3rem);
+    line-height: 1.55;
+}
+
+/* Ghost's shared grid adds a separate margin to the following block. */
+body.post-template .mm-post-content > blockquote + :not(h1, h2, h3, h4, h5, h6, hr) {
+    margin-top: var(--space-5);
+}
+
+/* Native editor callouts: quiet editorial notes instead of solid banners.
+   Preserve other editor-selected colors; refine neutral and accent variants. */
+body.post-template .mm-post-content .kg-callout-card {
+    padding: clamp(1.8rem, 2.5vw, 2.4rem);
+    gap: 1.2rem;
+    border: 1px solid rgba(244, 241, 234, 0.12);
+    border-radius: 6px;
+    box-shadow: none;
+    align-items: flex-start;
+}
+
+body.post-template .mm-post-content .kg-callout-card:is(.kg-callout-card-grey, .kg-callout-card-white),
+body.post-template .mm-post-content .kg-callout-card:not([class*="kg-callout-card-"]) {
+    background: rgba(244, 241, 234, 0.045);
+    color: var(--ink);
+}
+
+body.post-template .mm-post-content .kg-callout-card.kg-callout-card-accent {
+    background: rgba(82, 113, 255, 0.09);
+    border-color: rgba(82, 113, 255, 0.22);
+    color: var(--ink);
+}
+
+body.post-template .mm-post-content .kg-callout-card .kg-callout-text {
+    min-width: 0;
+    font-family: var(--font-post-body);
+    font-size: clamp(1.85rem, 1.6vw, 2.05rem);
+    font-weight: 400;
+    line-height: 1.65;
+}
+
+body.post-template .mm-post-content .kg-callout-text > p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+body.post-template .mm-post-content .kg-callout-text > p + p {
+    margin-top: 1.2rem;
+}
+
+/* Closing question from existing HTML cards (.callout). Higher specificity
+   keeps old per-post style tags from changing the theme's presentation. */
+body.post-template .mm-post-content .callout {
+    width: 100%;
+    margin: var(--space-6) auto 0;
+    padding: clamp(2.8rem, 4vw, 4rem) clamp(2rem, 4vw, 4rem);
+    background: var(--surface-0);
+    border: 1px solid rgba(244, 241, 234, 0.12);
+    border-top: 2px solid rgba(82, 113, 255, 0.5);
+    border-radius: 6px;
+    box-shadow: none;
+    text-align: center;
+    transform: none;
+    transition: none;
+}
+
+body.post-template .mm-post-content .callout::before {
+    content: none;
+}
+
+body.post-template .mm-post-content .callout h4 {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 2vw, 2.3rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--brand) !important;
+    text-shadow: none;
+    text-align: center;
+}
+
+body.post-template .mm-post-content .callout p {
+    max-width: 48ch;
+    margin: 0 auto;
+    font-family: var(--font-post-body);
+    font-size: clamp(1.95rem, 2.05vw, 2.4rem);
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: var(--ink) !important;
+    text-align: center;
+    text-wrap: pretty;
+}
+
+body.post-template .mm-post-content .callout p + p {
+    margin-top: var(--space-4);
 }
 
 /* Links — editorial: ink text + brand underline. Reads like a printed
@@ -857,15 +952,19 @@ body.post-template .mm-post .share-link:hover {
 
     body.post-template .mm-post-content blockquote,
     body.post-template .gh-content blockquote {
-        font-size: 1.75rem !important;
-        padding-left: var(--space-5) !important;
-        margin: clamp(2.4rem, 4vw, 3.2rem) 0 !important;
+        font-size: 1.7rem !important;
+        padding-left: var(--space-4) !important;
+        margin: var(--space-5) 0 0 !important;
     }
 
     body.post-template .mm-post-content blockquote.kg-blockquote-alt,
     body.post-template .gh-content blockquote.kg-blockquote-alt {
-        font-size: 2rem !important;
+        font-size: 1.85rem !important;
         max-width: none;
+    }
+
+    body.post-template .mm-post-content .kg-callout-card .kg-callout-text {
+        font-size: 1.7rem;
     }
 
     body.post-template .mm-post-content blockquote cite,
