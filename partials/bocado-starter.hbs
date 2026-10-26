@@ -1,0 +1,24 @@
+<li class="mm-boc-start__item">
+    <article class="mm-boc-start__article">
+        <a href="{{url}}" class="mm-boc-start__link" aria-labelledby="boc-start-{{id}}">
+            {{#if feature_image}}
+                <div class="mm-boc-start__media">
+                    <img
+                        srcset="{{> "srcset"}}"
+                        sizes="(min-width: 1200px) 360px, (min-width: 761px) 30vw, 100vw"
+                        src="{{img_url feature_image size="m"}}"
+                        alt="{{feature_image_alt}}"
+                        width="750"
+                        height="500"
+                        loading="lazy"
+                        class="mm-boc-start__image"
+                    >
+                </div>
+            {{/if}}
+            <div class="mm-boc-start__body">
+                <h3 class="mm-boc-start__title" id="boc-start-{{id}}">{{title}}</h3>
+                <p class="mm-boc-start__excerpt">{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt words="26"}}{{/if}}</p>
+            </div>
+        </a>
+    </article>
+</li>

@@ -111,6 +111,31 @@ Template Name: Archive
         {{/if}}
     {{/get}}
 
+    {{!-- Fixed editorial selection; Ghost supplies the current article data.
+         Match each slug explicitly to preserve editorial order, not dates. --}}
+    {{#get "posts" filter="slug:[las-bestias-se-atraen,el-fuego-se-contagia,liderando-por-inercia]" limit="3" as |starter_posts|}}
+        {{#if starter_posts}}
+            <section class="mm-boc-start" aria-labelledby="boc-start-title">
+                <div class="mm-canvas">
+                    <header class="mm-boc-start__header">
+                        <h2 class="mm-v2-title" id="boc-start-title">Para empezar a <span class="mm-accent">masticar.</span></h2>
+                    </header>
+                    <ul class="mm-boc-start__grid" role="list">
+                        {{#foreach starter_posts}}
+                            {{#match slug "las-bestias-se-atraen"}}{{> "bocado-starter"}}{{/match}}
+                        {{/foreach}}
+                        {{#foreach starter_posts}}
+                            {{#match slug "el-fuego-se-contagia"}}{{> "bocado-starter"}}{{/match}}
+                        {{/foreach}}
+                        {{#foreach starter_posts}}
+                            {{#match slug "liderando-por-inercia"}}{{> "bocado-starter"}}{{/match}}
+                        {{/foreach}}
+                    </ul>
+                </div>
+            </section>
+        {{/if}}
+    {{/get}}
+
     {{!-- 3. Archivo de bocados (excluye el destacado de arriba) ------------ --}}
     <section class="mm-boc-archive" id="mm-boc-archive" aria-labelledby="boc-archive-title">
         <div class="mm-canvas">
