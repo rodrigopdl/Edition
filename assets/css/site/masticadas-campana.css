@@ -1,0 +1,25 @@
+/* Campaign layout inherits the original Charlas color palette. */
+html:has(body.page-masticadas-campana) {
+    scroll-behavior: smooth;
+}
+
+body.page-masticadas-campana #mm-ch-mast {
+    scroll-margin-top: 96px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:has(body.page-masticadas-campana) {
+        scroll-behavior: auto;
+    }
+}
+
+/* The campaign headline needs several lines instead of Charlas' short title. */
+body.page-masticadas-campana .mm-ch-v2-hero .mm-hero__title {
+    max-width: 24ch;
+    white-space: normal;
+    text-wrap: balance;
+}
+
+body.page-masticadas-campana .mm-ch-v2-hero .mm-hero__title .mm-accent {
+    white-space: normal;
+}

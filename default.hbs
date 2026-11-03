@@ -48,6 +48,7 @@
     
     {{!-- Load main CSS with optimized loading --}}
     <link rel="stylesheet" href="{{asset "built/screen.css"}}" onload="document.documentElement.classList.add('css-loaded')">
+    {{{block "page_styles"}}}
     
     {{!-- Fallback for content visibility --}}
     <noscript>
