@@ -1,4 +1,5 @@
 {{!< default}}
+{{#contentFor "minimal_header"}}true{{/contentFor}}
 {{#contentFor "page_styles"}}
 <link rel="stylesheet" href="{{asset "css/site/masticadas-campana.css"}}">
 {{/contentFor}}
@@ -12,54 +13,41 @@ Template Name: Masticadas campaña
     <section class="mm-v2-hero mm-ch-v2-hero" aria-labelledby="ch-title">
         <div class="mm-canvas mm-canvas--wide">
             <div class="mm-hero__inner">
+                <p class="mm-eyebrow mm-campaign-eyebrow">La masticada</p>
                 <h1 class="mm-hero__title mm-ch-v2-hero__title" id="ch-title">
-                    Que tu equipo termine el año <span class="mm-accent">más conectado.</span>
+                    Una conversación que <span class="mm-accent">acerca a tu equipo.</span>
                 </h1>
                 <div class="mm-hero__lede mm-ch-v2-hero__lede">
-                    <p>Una experiencia grupal de 90 minutos para reflexionar, conversar y entenderse mejor.</p>
+                    <p>90 minutos para reflexionar juntos, a partir de historias que dejan mucho para masticar.</p>
                 </div>
                 <div class="mm-actions mm-actions--center">
-                    <a href="https://wa.me/59800000000?text=Hola%20Rodri%2C%20vi%20la%20propuesta%20de%20las%20masticadas%20y%20me%20gustar%C3%ADa%20organizar%20una%20para%20mi%20equipo.%20%C2%BFMe%20cont%C3%A1s%20un%20poco%20m%C3%A1s%3F" class="mm-btn mm-btn--primary mm-btn--lg" target="_blank" rel="noopener noreferrer">
-                        Quiero organizar una masticada
+                    <a href="https://wa.me/59898043397?text=Hola%20Rodri%2C%20vi%20la%20propuesta%20de%20las%20masticadas%20y%20me%20gustar%C3%ADa%20organizar%20una%20para%20mi%20equipo.%20%C2%BFMe%20cont%C3%A1s%20un%20poco%20m%C3%A1s%3F" class="mm-btn mm-btn--primary mm-btn--lg mm-btn--whatsapp" target="_blank" rel="noopener noreferrer">
+                        <span class="mm-btn__whatsapp-icon" aria-hidden="true">{{> "icons/whatsapp"}}</span>
+                        <span class="mm-btn__label">Quiero una masticada</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="mm-ch-v2-why" id="mm-ch-what" aria-labelledby="ch-why-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <h2 class="mm-v2-title" id="ch-why-title">Una conversación diferente para tu equipo.</h2>
-            <div class="mm-prose">
-                <p>Trabajamos juntos todos los días, pero pocas veces nos detenemos a conversar sobre cómo somos, qué nos pasa y cómo nos relacionamos con los demás.</p>
-                <p><strong>Una masticada es un espacio para hacerlo.</strong></p>
-                <p>A partir de historias e ideas de mi libro <em>La Bestia</em>, exploramos cómo reaccionamos ante las dificultades, qué nos frena y cómo eso influye en nuestra manera de relacionarnos.</p>
-                <p>La idea es que cada uno pueda compartir sus experiencias, escuchar otras perspectivas y conocer mejor a las personas con las que trabaja.</p>
-            </div>
-        </div>
-
-    <div class="mm-ch-v2-real" aria-labelledby="ch-real-title">
+    <section class="mm-ch-v2-real" aria-label="Experiencia de un equipo">
         <div class="mm-canvas">
             <div class="mm-ch-v2-exp mm-ch-v2-exp--lead">
-                <h2 class="mm-ch-v2-exp__heading" id="ch-real-title">
-                    <span class="mm-ch-v2-exp__heading-intro">Una masticada en</span>
-                    Fernández Secco &amp; Asociados
-                </h2>
                 <figure class="mm-ch-v2-exp__photo">
                     <div class="mm-ch-v2-real__frame">
                         <img
-                            src="{{asset "images/masticada-fernandez.jpg"}}"
+                            src="{{asset "images/masticada-fernandez-zoom2.jpg"}}"
                             alt="Masticada en Fernández Secco"
                             class="mm-ch-v2-real__img"
-                            loading="lazy"
-                            width="1728"
-                            height="1139"
+                            loading="eager" fetchpriority="high"
+                            width="1708"
+                            height="717"
                         >
                     </div>
                 </figure>
                 <figure class="mm-ch-v2-testimonial">
-                    <blockquote class="mm-testimonial__quote mm-ch-v2-testimonial__quote">
-                        <span class="mm-testimonial__mark" aria-hidden="true">“</span>La masticada con Rodri fue una experiencia transformadora para nuestro equipo. Se generó un espacio para compartir experiencias muy enriquecedoras sobre La Bestia que permitieron potenciar la forma en la que nos complementamos y establecer un marco de referencia común para el futuro. El equipo salió súper motivado y más conectado de la masticada.
+                    <blockquote class="mm-testimonial__quote mm-ch-v2-testimonial__quote" id="joaquin-quote">
+                        <span class="mm-testimonial__mark" aria-hidden="true">“</span><span id="joaquin-excerpt" hidden>El equipo salió súper motivado y más conectado de la masticada.</span><span id="joaquin-full">La masticada con Rodri fue una experiencia transformadora para nuestro equipo. Se generó un espacio para compartir experiencias muy enriquecedoras sobre La Bestia que permitieron potenciar la forma en la que nos complementamos y establecer un marco de referencia común para el futuro. El equipo salió súper motivado y más conectado de la masticada.</span>
                     </blockquote>
                     <figcaption class="mm-testimonial__cite mm-ch-v2-testimonial__author">
                         <div class="mm-testimonial__avatar">
@@ -74,14 +62,14 @@ Template Name: Masticadas campaña
                         </div>
                         <div class="mm-testimonial__person">
                             <span class="mm-testimonial__name">Joaquín Fernández</span>
-                            <span class="mm-testimonial__role">Socio, Fernández Secco &amp; Asociados</span>
+                            <span class="mm-testimonial__role">Fernández Secco &amp; Asociados</span>
                         </div>
                     </figcaption>
+                    <button class="mm-testimonial-toggle" type="button" aria-expanded="false" aria-controls="joaquin-quote" hidden>Leer testimonio completo</button>
                 </figure>
 
             </div>
         </div>
-    </div>
     </section>
 
     <section class="mm-ch-v2-what" aria-labelledby="ch-what-title">
@@ -90,42 +78,56 @@ Template Name: Masticadas campaña
                 ¿Cómo es una masticada?
             </h2>
             <div class="mm-prose">
-                <p>Nos sentamos en ronda, sin pantallas ni presentaciones. Pongo un poco de música de fondo y empiezo compartiendo historias que invitan a pensar.</p>
-                <p>De a poco, esas historias van dando lugar a una conversación entre todos.</p>
-                <p>Nadie está obligado a hablar. Cada uno participa cuando quiere, compartiendo algo que le resonó, haciendo preguntas o simplemente escuchando.</p>
-                <p>Una oportunidad para salir por un rato de la rutina y tener una conversación que normalmente no tendríamos.</p>
+                <p>Voy a donde se reúne tu equipo y nos sentamos en ronda. Pongo un poco de jazz de fondo y empiezo compartiendo historias de mi libro <em>La Bestia</em>.</p>
+                <p>Historias que invitan a reflexionar sobre lo que nos frena, lo que nos entusiasma y cómo ambas cosas influyen en nuestra manera de relacionarnos.</p>
+                <p>De a poco, se abre una conversación entre todos. Voy haciendo preguntas, compartiendo nuevas historias y acompañando lo que va surgiendo.</p>
+                <p class="mm-campaign-benefit">Una oportunidad para conocernos mejor a nosotros mismos y descubrir otras facetas de las personas con las que trabajamos todos los días.</p>
             </div>
         </div>
 
-        {{!-- Collage real de la Ruby Meetup. --}}
-        <div class="mm-canvas mm-canvas--narrow mm-ch-v2-ruby">
+        {{!-- Dos contextos reales de una masticada, sin recortar las imágenes. --}}
+        <div class="mm-canvas mm-canvas--wide mm-ch-v2-ruby mm-campaign-scenes">
             <figure class="mm-ch-v2-ruby__figure">
-                <img
-                    src="{{asset "images/masticada-ruby.png"}}"
-                    alt="Escenas de una masticada: personas sentadas conversando"
-                    class="mm-ch-v2-ruby__img"
-                    loading="lazy"
-                    width="1600"
-                    height="1113"
-                >
-                <figcaption class="mm-ch-v2-what__caption">Una masticada en la Ruby MVD Meetup</figcaption>
+                <div class="mm-ch-v2-real__frame">
+                    <img
+                        src="{{asset "images/masticada-ruby.png"}}"
+                        alt="Escenas de una masticada: personas sentadas conversando"
+                        class="mm-ch-v2-ruby__img"
+                        loading="lazy"
+                        width="1600"
+                        height="1113"
+                    >
+                </div>
+                <figcaption class="mm-ch-v2-what__caption">Una masticada en la Ruby Meetup</figcaption>
+            </figure>
+            <figure class="mm-ch-v2-ruby__figure">
+                <div class="mm-ch-v2-real__frame">
+                    <img
+                        src="{{asset "images/masticada-wyeworks.jpg"}}"
+                        alt="Participantes de una masticada en WyeWorks reunidos alrededor de una mesa"
+                        class="mm-ch-v2-ruby__img"
+                        loading="lazy"
+                        width="4032"
+                        height="3024"
+                    >
+                </div>
+                <figcaption class="mm-ch-v2-what__caption">Una masticada en WyeWorks</figcaption>
             </figure>
         </div>
 
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-prose">
-                <p>La experiencia ya está preparada. No necesitás definir un tema ni organizar un evento especial.</p>
-                <p>Podemos hacerla en tu propia oficina, en aproximadamente <strong>90 minutos</strong>. Es ideal para grupos de <strong>hasta 20 personas</strong>, aunque podemos conversar sobre formatos para equipos más grandes.</p>
+                <p>La experiencia dura aproximadamente <strong>90 minutos</strong> y funciona tanto con grupos pequeños como con grupos más numerosos.</p>
             </div>
+            <a class="mm-campaign-contact" href="https://wa.me/59898043397?text=Hola%20Rodri%2C%20vi%20la%20propuesta%20de%20las%20masticadas%20y%20me%20gustar%C3%ADa%20organizar%20una%20para%20mi%20equipo.%20%C2%BFMe%20cont%C3%A1s%20un%20poco%20m%C3%A1s%3F" target="_blank" rel="noopener noreferrer">
+                <span class="mm-btn__whatsapp-icon" aria-hidden="true">{{> "icons/whatsapp"}}</span>
+                <span>Quiero llevar una masticada a mi equipo</span>
+            </a>
         </div>
 
         {{!-- Segunda foto de masticada (Piano Piano), tras el cierre narrativo.
              Con el marco crema de las demás fotos del sitio. --}}
         <div class="mm-canvas mm-canvas--narrow mm-ch-v2-ruby mm-ch-v2-ruby--close mm-ch-v2-ruby--framed">
-            <h2 class="mm-ch-v2-exp__heading mm-ch-v2-exp__heading--photo">
-                <span class="mm-ch-v2-exp__heading-intro">Una masticada en</span>
-                Piano Piano Producciones
-            </h2>
             <figure class="mm-ch-v2-ruby__figure">
                 <div class="mm-ch-v2-real__frame">
                     <img
@@ -155,7 +157,7 @@ Template Name: Masticadas campaña
                     </div>
                     <div class="mm-testimonial__person">
                         <span class="mm-testimonial__name">Fernando Mino</span>
-                        <span class="mm-testimonial__role">Director, Piano Piano Producciones</span>
+                        <span class="mm-testimonial__role">Piano Piano Producciones</span>
                     </div>
                 </figcaption>
             </figure>
@@ -181,28 +183,28 @@ Template Name: Masticadas campaña
                 <div class="mm-intro__text">
                     <h2 class="mm-v2-title" id="ch-intro-title">Hola, <span class="mm-accent">soy Rodri.</span></h2>
                     <div class="mm-prose">
-                        <p>Durante más de una década trabajé en WyeWorks, una empresa de tecnología uruguaya. Empecé como desarrollador, después integré el equipo de managers y terminé acompañando estratégicamente al CEO.</p>
-                        <p>En ese camino descubrí que muchos de los desafíos más difíciles del trabajo no eran técnicos. Eran humanos. Y muchas veces empezaban por uno mismo.</p>
-                        <p>Eso me llevó a escribir <em>La Bestia</em> y a crear <em>Para masticar</em>, un proyecto desde el que comparto historias e ideas para ayudarnos a pensar mejor.</p>
-                        <p>Hoy llevo esas conversaciones a equipos a través de las masticadas.</p>
+                        <p>Durante más de diez años trabajé en WyeWorks, una consultora de software uruguaya. Empecé como desarrollador, después lideré equipos y terminé trabajando codo a codo con el CEO, ayudándolo a pensar los desafíos de la empresa.</p>
+                        <p>En ese camino descubrí que los problemas más difíciles rara vez eran técnicos. Tenían que ver con las personas, con lo que nos pasa por dentro y cómo eso influye en nuestra manera de relacionarnos.</p>
+                        <p>También descubrí cuánto puede cambiar nuestra forma de ver las cosas cuando nos damos el tiempo de reflexionar.</p>
+                        <p>Por eso creé <em>Para masticar</em>: para ayudar a personas y equipos a hacer de la reflexión un hábito.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- CTA de campaña: +598 00 000 000 es un marcador; reemplazar por el número real antes de publicar. --}}
+    {{!-- Contacto de la campaña por WhatsApp. --}}
     <section class="mm-ch-v2-plus" id="mm-ch-mast" aria-labelledby="ch-mast-name">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-ch-v2-formats__panel mm-ch-v2-formats__panel--hero">
-                <h3 class="mm-ch-v2-formats__name mm-ch-v2-formats__name--hero" id="ch-mast-name">Organizá una masticada con tu equipo.</h3>
-                <p class="mm-ch-v2-formats__lead">Una experiencia diferente para compartir, conversar y conocerse mejor, sin salir de la oficina.</p>
-                <p class="mm-ch-v2-formats__lead">Escribime y vemos cómo organizarla.</p>
+                <h3 class="mm-ch-v2-formats__name mm-ch-v2-formats__name--hero" id="ch-mast-name">Que tu equipo termine el año <span class="mm-accent">más conectado.</span></h3>
+                <p class="mm-ch-v2-formats__lead">Escribime y coordinamos una masticada.</p>
                 <div class="mm-actions mm-ch-v2-formats__actions">
-                    <a href="https://wa.me/59800000000?text=Hola%20Rodri%2C%20vi%20la%20propuesta%20de%20las%20masticadas%20y%20me%20gustar%C3%ADa%20organizar%20una%20para%20mi%20equipo.%20%C2%BFMe%20cont%C3%A1s%20un%20poco%20m%C3%A1s%3F"
-                       class="mm-btn mm-btn--primary mm-btn--lg"
+                    <a href="https://wa.me/59898043397?text=Hola%20Rodri%2C%20vi%20la%20propuesta%20de%20las%20masticadas%20y%20me%20gustar%C3%ADa%20organizar%20una%20para%20mi%20equipo.%20%C2%BFMe%20cont%C3%A1s%20un%20poco%20m%C3%A1s%3F"
+                       class="mm-btn mm-btn--primary mm-btn--lg mm-btn--whatsapp"
                        target="_blank" rel="noopener noreferrer">
-                        Hablemos por WhatsApp
+                        <span class="mm-btn__whatsapp-icon" aria-hidden="true">{{> "icons/whatsapp"}}</span>
+                        <span class="mm-btn__label">Hablemos</span>
                     </a>
                 </div>
             </div>
@@ -211,4 +213,63 @@ Template Name: Masticadas campaña
 
 </main>
 
+<script>
+(function () {
+    var quote = document.getElementById('joaquin-quote');
+    var excerpt = document.getElementById('joaquin-excerpt');
+    var full = document.getElementById('joaquin-full');
+    var toggle = document.querySelector('.page-masticadas-campana .mm-testimonial-toggle');
+    if (!quote || !excerpt || !full || !toggle) return;
+
+    excerpt.hidden = false;
+    full.hidden = true;
+    toggle.hidden = false;
+    toggle.addEventListener('click', function () {
+        var expanded = toggle.getAttribute('aria-expanded') !== 'true';
+        excerpt.hidden = expanded;
+        full.hidden = !expanded;
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.textContent = expanded ? 'Mostrar menos' : 'Leer testimonio completo';
+    });
+})();
+</script>
+
 {{#contentFor "body_class"}}homepage-mm-v2 page-charlas page-masticadas-campana{{/contentFor}}
+
+{{#contentFor "page_footer"}}
+<footer class="mm-footer mm-campaign-footer">
+    <div class="mm-footer-content">
+        <a class="mm-campaign-footer__logo" href="/">
+            {{#if @site.logo}}
+                <img src="{{@site.logo}}" alt="{{@site.title}}">
+            {{else}}
+                {{@site.title}}
+            {{/if}}
+        </a>
+        <div class="mm-campaign-footer__details">
+            <p class="mm-footer-year">© {{date format="YYYY"}} {{@site.title}}</p>
+            {{#foreach @site.secondary_navigation}}
+                {{#match label "Privacidad"}}
+                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
+                {{else match label "Política de privacidad"}}
+                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
+                {{else match label "Aviso legal"}}
+                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
+                {{else match label "Términos y condiciones"}}
+                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
+                {{else match label "Cookies"}}
+                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
+                {{else match label "Privacy Policy"}}
+                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
+                {{else match label "Terms of Service"}}
+                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
+                {{else match label "Privacy"}}
+                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
+                {{else match label "Terms"}}
+                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
+                {{/match}}
+            {{/foreach}}
+        </div>
+    </div>
+</footer>
+{{/contentFor}}

@@ -131,11 +131,11 @@
 <body class="{{body_class}}{{{block "body_class"}}} is-head-{{#match @custom.navigation_layout "Logo on the left"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Elegant serif"}} has-serif-body{{/match}}{{^is "home"}}{{#if @site.cover_image}} is-head-brand{{/if}}{{/is}}">
 <div class="site">
 
-    <header id="gh-head" class="gh-head gh-outer">
+    <header id="gh-head" class="gh-head gh-outer{{#if (block "minimal_header")}} gh-head--minimal{{/if}}">
         <div class="gh-head-inner">
             <div class="gh-head-brand">
                 <div class="gh-head-brand-wrapper">
-                    <a class="gh-head-logo" href="{{@site.url}}">
+                    <a class="gh-head-logo" href="{{#if (block "minimal_header")}}/{{else}}{{@site.url}}{{/if}}">
                         {{#if @site.logo}}
                             <img src="{{@site.logo}}" alt="{{@site.title}}">
                         {{else}}
@@ -143,10 +143,13 @@
                         {{/if}}
                     </a>
                 </div>
+                {{#unless (block "minimal_header")}}
                 <button class="gh-search gh-icon-btn search-trigger" aria-label="Search this site">{{> "icons/search"}}</button>
                 <button class="gh-burger" aria-label="Toggle menu"></button>
+                {{/unless}}
             </div>
 
+            {{#unless (block "minimal_header")}}
             <nav class="gh-head-menu">
                 {{navigation}}
                 {{#unless @site.members_enabled}}
@@ -165,6 +168,7 @@
                     <button class="gh-search gh-icon-btn search-trigger" aria-label="Search this site">{{> "icons/search"}}</button>
                 {{/unless}}
             </div>
+            {{/unless}}
         </div>
     </header>
 
@@ -176,6 +180,9 @@
         </div>
     {{/is}}
 
+    {{#if (block "page_footer")}}
+        {{{block "page_footer"}}}
+    {{else}}
     <footer class="mm-footer">
         <div class="mm-footer-content">
             {{!-- Left Column: About --}}
@@ -199,6 +206,7 @@
             </div>
         </div>
     </footer>
+    {{/if}}
 
 </div>
 
