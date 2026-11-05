@@ -506,3 +506,64 @@ body.page-masticadas-campana .mm-campaign-footer__legal {
         align-items: flex-start;
     }
 }
+
+/* One reading system for explanation, practical details and the personal bio. */
+body.page-masticadas-campana .mm-ch-v2 {
+    --charlas-measure: 64rem;
+}
+
+body.page-masticadas-campana .mm-ch-v2 .mm-prose {
+    font-size: 2rem;
+    line-height: 1.6;
+    max-width: none;
+    text-align: left;
+}
+
+body.page-masticadas-campana .mm-ch-v2 .mm-prose p {
+    margin-bottom: 1.8rem;
+    text-wrap: wrap;
+}
+
+body.page-masticadas-campana .mm-ch-v2 .mm-prose p:last-child {
+    margin-bottom: 0;
+}
+
+body.page-masticadas-campana .mm-ch-v2 .mm-v2-title {
+    font-size: clamp(2.8rem, 2.7vw, 3.4rem);
+    line-height: 1.15;
+    margin-bottom: 2rem;
+    text-align: left;
+    text-wrap: wrap;
+}
+
+body.page-masticadas-campana .mm-ch-v2-intro .mm-intro__text {
+    max-width: 64rem;
+}
+
+body.page-masticadas-campana .mm-ch-v2 .mm-prose p.mm-campaign-benefit {
+    margin: 2.4rem 0 0;
+    font-family: var(--font-display);
+    font-size: 2.1rem;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+}
+
+@media (max-width: 560px) {
+    body.page-masticadas-campana .mm-ch-v2 .mm-v2-title {
+        font-size: 2.8rem;
+        margin-bottom: 1.8rem;
+    }
+
+    body.page-masticadas-campana .mm-ch-v2 .mm-prose {
+        font-size: 1.9rem;
+        line-height: 1.6;
+    }
+
+    body.page-masticadas-campana .mm-ch-v2 .mm-prose p.mm-campaign-benefit {
+        margin-top: 2rem;
+        font-size: 2rem;
+        line-height: 1.45;
+    }
+}
