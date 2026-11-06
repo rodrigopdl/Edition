@@ -16,10 +16,12 @@
 {{#post}}
 {{#is "post"}}
     <aside class="mm-post-masticadas mm-v2" aria-labelledby="post-masticadas-title">
-        {{> "masticada-plate"}}
-        <div class="mm-post-masticadas__copy">
-            <h2 id="post-masticadas-title">¿Y si seguimos masticando en equipo?</h2>
-            <a href="/masticadas/" class="mm-btn mm-btn--primary">Conocé las masticadas</a>
+        <div class="mm-post-masticadas__inner">
+            {{> "masticada-plate"}}
+            <div class="mm-post-masticadas__copy">
+                <h2 id="post-masticadas-title">¿Y si seguimos masticando en equipo?</h2>
+                <a href="/masticadas/" class="mm-btn mm-btn--primary">Conocé las masticadas</a>
+            </div>
         </div>
     </aside>
 {{/is}}

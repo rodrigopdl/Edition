@@ -1231,15 +1231,21 @@ body.post-template .mm-post-sessions + .single-footer {
 
 /* A compact invitation after a Bocado, using the home plate unchanged. */
 body.post-template .mm-post-masticadas {
+    width: 100%;
+    margin: 0;
+    padding-block: clamp(4rem, 5vw, 6.4rem);
+    background: var(--surface-1);
+    border: 0;
+}
+
+body.post-template .mm-post-masticadas__inner {
     display: grid;
     grid-template-columns: 24rem minmax(0, 1fr);
     align-items: center;
     gap: clamp(3.2rem, 5vw, 5.6rem);
     width: calc(100% - 4.4rem);
     max-width: 96rem;
-    margin: 4rem auto 0;
-    padding: 3.2rem 0 clamp(4rem, 6vw, 6.4rem);
-    border-top: 1px solid rgba(255,255,255,.08);
+    margin-inline: auto;
 }
 
 body.post-template .mm-post-masticadas .mm-ceramic {
@@ -1272,7 +1278,7 @@ body.post-template .mm-post-masticadas .mm-btn {
 }
 
 @media (max-width: 680px) {
-    body.post-template .mm-post-masticadas {
+    body.post-template .mm-post-masticadas__inner {
         grid-template-columns: minmax(0, 1fr);
         gap: 2rem;
         text-align: center;
@@ -1287,13 +1293,6 @@ body.post-template .mm-post-masticadas .mm-btn {
         font-size: 2rem;
     }
 
-}
-
-/* The newsletter already provides air below its cream panel. */
-body.post-template .mm-post-bottom + .mm-post-masticadas {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: 0;
 }
 
 body.post-template .mm-post-masticadas + .mm-post-related {
