@@ -144,7 +144,6 @@
                     </a>
                 </div>
                 {{#unless (block "minimal_header")}}
-                <button class="gh-search gh-icon-btn search-trigger" aria-label="Search this site">{{> "icons/search"}}</button>
                 <button class="gh-burger" aria-label="Toggle menu"></button>
                 {{/unless}}
             </div>
@@ -152,22 +151,7 @@
             {{#unless (block "minimal_header")}}
             <nav class="gh-head-menu">
                 {{navigation}}
-                {{#unless @site.members_enabled}}
-                    {{#match @custom.navigation_layout "Stacked"}}
-                        <button class="gh-search gh-icon-btn search-trigger" aria-label="Search this site">{{> "icons/search"}}</button>
-                    {{/match}}
-                {{/unless}}
             </nav>
-
-            <div class="gh-head-actions">
-                {{#unless @site.members_enabled}}
-                    {{^match @custom.navigation_layout "Stacked"}}
-                        <button class="gh-search gh-icon-btn search-trigger" aria-label="Search this site">{{> "icons/search"}}</button>
-                    {{/match}}
-                {{else}}
-                    <button class="gh-search gh-icon-btn search-trigger" aria-label="Search this site">{{> "icons/search"}}</button>
-                {{/unless}}
-            </div>
             {{/unless}}
         </div>
     </header>

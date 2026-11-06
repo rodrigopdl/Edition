@@ -30,7 +30,7 @@
 
     // Initialize search
     function init() {
-        if (!searchModal) return;
+        if (!searchModal || !searchTriggers.length) return;
 
         // Attach event listeners
         searchTriggers.forEach(trigger => {

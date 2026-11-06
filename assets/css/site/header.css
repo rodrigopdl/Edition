@@ -59,7 +59,7 @@
     flex-shrink: 0;
     white-space: nowrap;
     gap: 0.4rem;
-    margin-left: 0.8rem;
+    margin-left: clamp(2.4rem, 3vw, 4.8rem);
 }
 
 /* Visually-hidden label — the aria-label carries the accessible name. */
@@ -296,5 +296,16 @@
         font-size: 2.4rem;
         font-weight: 600;
         text-transform: none;
+    }
+}
+
+/* Keep the social group distinct from page links in the expanded mobile menu. */
+@media (max-width: 991px) {
+    .gh-head-menu .social-links {
+        margin-left: 0;
+    }
+
+    .gh-head-menu .nav-social-group:has(.social-links__link) {
+        padding-top: 1.2rem;
     }
 }
