@@ -1,0 +1,32 @@
+/* Shared dark treatment from the home contact panel; layout stays local. */
+body .mm-v2 .mm-contact-panel {
+    position: relative;
+    background: linear-gradient(180deg, rgba(244,241,234,.06) 0%, rgba(244,241,234,.025) 100%);
+    color: var(--ink);
+    border: 1px solid rgba(244,241,234,.12);
+    border-radius: 4px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 30px 60px -32px rgba(0,0,0,.45);
+}
+
+body .mm-v2 .mm-contact-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4.4rem;
+    height: 2px;
+    background: var(--brand);
+    opacity: .85;
+}
+
+body .mm-v2 .mm-contact-panel :is(.mm-v2-title, .mm-ch-v2-formats__name) {
+    color: var(--ink);
+}
+
+body .mm-v2 .mm-contact-panel :is(.mm-post-bottom__lede, .mm-boc-subscribe__lede, .mm-ch-v2-formats__lead) {
+    color: var(--ink-2);
+}
+
+body .mm-v2 .mm-contact-panel :is(.mm-eyebrow, .mm-post-bottom__note, .mm-boc-subscribe__note) {
+    color: var(--ink-2);
+}
