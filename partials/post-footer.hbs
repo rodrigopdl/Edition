@@ -12,41 +12,24 @@
     {{/if}}
 {{/post}}
 
+{{!-- One invitation to continue reflecting together, before related articles. --}}
+{{#post}}
+{{#is "post"}}
+    <aside class="mm-post-masticadas mm-v2" aria-labelledby="post-masticadas-title">
+        {{> "masticada-plate"}}
+        <div class="mm-post-masticadas__copy">
+            <h2 id="post-masticadas-title">¿Y si seguimos masticando en equipo?</h2>
+            <a href="/masticadas/" class="mm-btn mm-btn--primary">Conocé las masticadas</a>
+        </div>
+    </aside>
+{{/is}}
+{{/post}}
+
 {{!-- "Otros bocados" (related). Siempre renderiza: usa las tags/id del post,
      que solo resuelven fuera del bloque post. --}}
 {{#if @custom.show_related_posts}}
     {{> "related-posts"}}
 {{/if}}
-
-{{!-- "¿Seguimos masticando?" — las tres formas de trabajar conmigo. Va al final,
-     tras "Otros bocados". Solo en posts; integrado sobre el navy, sin caja. --}}
-{{#post}}
-{{#is "post"}}
-    <aside class="mm-post-sessions mm-v2 gh-canvas" aria-label="Formas de trabajar con Rodri">
-        <p class="mm-post-sessions__q">¿Seguimos masticando?</p>
-
-        <ul class="mm-post-ways" role="list">
-            <li class="mm-post-ways__item">
-                <h3 class="mm-post-ways__name">Masticadas <span class="mm-post-ways__accent">Para vos</span></h3>
-                <p class="mm-post-ways__desc">¿Te quedaste pensando en algo? Podemos dedicarle una masticada, con historias e ideas preparadas especialmente para vos.</p>
-                <a href="/sesiones/" class="mm-post-sessions__link mm-post-ways__link" aria-label="Conocé más sobre Masticadas para vos">Conocé más</a>
-            </li>
-
-            <li class="mm-post-ways__item">
-                <h3 class="mm-post-ways__name">Masticadas <span class="mm-post-ways__accent">Para equipos</span></h3>
-                <p class="mm-post-ways__desc">Un encuentro para que tu equipo comparta experiencias, converse sobre un tema que quiere trabajar y se conozca mejor.</p>
-                <a href="/masticadas/" class="mm-post-sessions__link mm-post-ways__link" aria-label="Conocé más sobre Masticadas para equipos">Conocé más</a>
-            </li>
-
-            <li class="mm-post-ways__item">
-                <h3 class="mm-post-ways__name">El Viaje <span class="mm-post-ways__accent">Para masticar</span></h3>
-                <p class="mm-post-ways__desc">Un mes de masticadas y bocados para que tu equipo profundice en un tema y se conozca mejor como grupo.</p>
-                <a href="/viaje/" class="mm-post-sessions__link mm-post-ways__link" aria-label="Conocé más sobre El Viaje">Conocé más</a>
-            </li>
-        </ul>
-    </aside>
-{{/is}}
-{{/post}}
 
 {{#post}}
     {{> "comments"}}
