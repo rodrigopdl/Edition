@@ -467,25 +467,78 @@ body.page-bocados {
     }
 }
 
-/* Mobile — stack: image on top, text below. */
+/* Mobile spotlight: a small cover beside the editorial content. */
 @media (max-width: 640px) {
     .mm-boc .mm-boc-featured {
-        padding-block: clamp(3.6rem, 8vw, 5rem);
+        padding-block: 2.8rem;
+    }
+
+    .mm-boc .mm-boc-featured__eyebrow {
+        margin-bottom: 1.6rem;
     }
 
     .mm-boc .mm-boc-featured__card {
-        grid-template-columns: 1fr;
-        gap: var(--space-6);
+        grid-template-columns: clamp(10rem, 28vw, 12rem) minmax(0, 1fr);
+        gap: 1.6rem;
+        align-items: start;
+    }
+
+    .mm-boc .mm-boc-featured__card--no-media {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .mm-boc .mm-boc-featured__media {
+        padding: .4rem;
+    }
+
+    .mm-boc .mm-boc-featured__img {
+        height: auto;
+        aspect-ratio: auto;
+        object-fit: contain;
+    }
+
+    .mm-boc .mm-boc-featured__body {
+        min-width: 0;
+    }
+
+    .mm-boc .mm-boc-featured__date {
+        margin-bottom: .8rem;
+        letter-spacing: .08em;
+        line-height: 1.3;
     }
 
     .mm-boc .mm-boc-featured__title {
-        font-size: clamp(2.4rem, 7vw, 3rem);
-        margin-bottom: var(--space-4);
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+        line-height: 1.12;
+        overflow-wrap: anywhere;
     }
 
     .mm-boc .mm-boc-featured__excerpt {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
         font-size: 1.6rem;
-        margin-bottom: var(--space-5);
+        line-height: 1.45;
+        margin-bottom: 1.2rem;
+    }
+
+    .mm-boc .mm-boc-featured__cta {
+        min-height: 4.4rem;
+        padding-top: .8rem;
+    }
+}
+
+/* Very narrow phones keep a compact cover without squeezing the title. */
+@media (max-width: 359px) {
+    .mm-boc .mm-boc-featured__card {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.6rem;
+    }
+
+    .mm-boc .mm-boc-featured__media {
+        width: 13.6rem;
     }
 }
 
