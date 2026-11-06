@@ -227,33 +227,20 @@ Template Name: Charlas
         </div>
     </section>
 
-    {{!-- Individual encounters complement the group proposal, with secondary weight. --}}
-    <section class="mm-ch-v2-individuals" aria-labelledby="ch-individuals-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <div class="mm-ses-teams mm-ch-v2-individuals__inner">
-                <h3 class="mm-ses-teams__eyebrow" id="ch-individuals-title">Una masticada para cada uno.</h3>
-                <div class="mm-prose">
-                    <p>Además de los encuentros grupales, también ofrezco masticadas uno a uno.</p>
-                    <p>Podés regalar masticadas individuales a tu equipo, en una ocasión especial o como un beneficio durante el año. Quienes quieran aprovecharlas eligen qué les gustaría masticar, y yo preparo una conversación especialmente pensada para cada uno.</p>
-                </div>
-                <a href="/sesiones" class="mm-ses-teams__cta">Conocé las masticadas para vos <span aria-hidden="true">→</span></a>
-            </div>
-        </div>
-    </section>
-
     {{!-- 5. Bloque crema comercial: "Organizá una masticada". Transición natural
          del relato a la propuesta concreta. Conserva id=mm-ch-mast. --}}
     <section class="mm-ch-v2-plus" id="mm-ch-mast" aria-labelledby="ch-mast-name">
         <div class="mm-canvas mm-canvas--narrow">
-            <div class="mm-ch-v2-formats__panel mm-ch-v2-formats__panel--hero">
+            <div class="mm-ch-v2-formats__panel mm-ch-v2-formats__panel--hero" id="mm-ch-cta">
                 <h3 class="mm-ch-v2-formats__name mm-ch-v2-formats__name--hero" id="ch-mast-name">Organizá una masticada.</h3>
                 <p class="mm-ch-v2-formats__lead">Un encuentro para que tu equipo converse sobre un tema que quiere explorar, comparta experiencias y se conozca mejor.</p>
                 <!--p class="mm-ch-v2-formats__note-hero">2 horas <span aria-hidden="true">·</span> Experiencia presencial</p-->
                 <div class="mm-actions mm-ch-v2-formats__actions">
-                    <a href="#mm-ch-cta"
-                       class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll mm-ch-v2-mast-cta"
-                       data-tipo="masticada">
-                        Consultar por una masticada
+                    <a href="https://wa.me/59898043397?text=Hola%20Rodri%2C%20vi%20la%20propuesta%20de%20las%20masticadas%20y%20me%20interes%C3%B3%20para%20mi%20equipo.%20%C2%BFPodemos%20conversar%3F"
+                       class="mm-btn mm-btn--primary mm-btn--lg mm-btn--whatsapp"
+                       target="_blank" rel="noopener noreferrer">
+                        <span class="mm-btn__whatsapp-icon" aria-hidden="true">{{> "icons/whatsapp"}}</span>
+                        <span>Hablemos</span>
                     </a>
                 </div>
             </div>
@@ -323,68 +310,6 @@ Template Name: Charlas
         </div>
     </section-->
 
-    {{!-- 5. CTA final — formulario embebido en la página (mismo Formspree que el
-         resto del sitio), adaptado a charlas. No lleva a la home. --}}
-    <section class="mm-ch-v2-cta mm-ch-v2-form" id="mm-ch-cta" aria-labelledby="ch-cta-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <div class="mm-ch-v2-cta__inner">
-                <h2 class="mm-v2-title" id="ch-cta-title">
-                    ¿Tenés algo <span class="mm-accent">en mente?</span>
-                </h2>
-                <p class="mm-ch-v2-cta__lede">
-                    Ya sea una masticada o una charla, contame un poco sobre el equipo, encuentro o evento que estás organizando.
-                </p>
-
-                <div class="mm-ch-v2-form__form" id="mm-ch-form">
-                    {{> "contact-form"
-                        show_selector=false
-                        charla_choice=true
-                        tipo_predefinido="charla"
-                        origen="charlas"
-                        subject="Contacto — desde /masticadas/"
-                        message_label="Contame un poco"
-                        message_placeholder="Contame sobre tu equipo, cuántas personas son y si tienen algún tema en mente. Si te interesa la masticada sobre La Bestia, también podés contármelo."}}
-                </div>
-
-                <p class="mm-ch-v2-cta__fallback">
-                    También podés escribirme a
-                    <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.
-                </p>
-            </div>
-        </div>
-    </section>
-
 </main>
-
-{{!-- CTA final: rename the shared partial's submit to "Enviar" for this page,
-     y preseleccionar "Una masticada" cuando se llega desde el CTA del bloque
-     protagonista de Masticada. --}}
-<script>
-(function () {
-    'use strict';
-    var form = document.getElementById('mm-ch-form');
-    if (!form) return;
-
-    var submit = form.querySelector('button[type="submit"]');
-    if (submit) submit.textContent = 'Enviar';
-
-    {{!-- Los CTA de cada formato preseleccionan su opción en el selector. --}}
-    function preselect(val) {
-        var radios = form.querySelectorAll('input[name="tipo_consulta"]');
-        for (var i = 0; i < radios.length; i++) {
-            if (radios[i].value === val) { radios[i].checked = true; break; }
-        }
-    }
-
-    {{!-- Hay varios CTA de masticada (hero + bloque crema); todos preseleccionan. --}}
-    var mastCtas = document.querySelectorAll('.mm-ch-v2-mast-cta');
-    for (var m = 0; m < mastCtas.length; m++) {
-        mastCtas[m].addEventListener('click', function () { preselect('Una masticada'); });
-    }
-
-    var charlaCta = document.querySelector('.mm-ch-v2-charla-cta');
-    if (charlaCta) charlaCta.addEventListener('click', function () { preselect('Una charla'); });
-})();
-</script>
 
 {{#contentFor "body_class"}}homepage-mm-v2 page-charlas{{/contentFor}}

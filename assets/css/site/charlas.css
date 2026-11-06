@@ -636,3 +636,23 @@ body.page-charlas .mm-ch-v2-intro .mm-prose {
         gap: var(--space-5);
     }
 }
+
+/* Direct WhatsApp contact in the existing cream panel. */
+body.page-charlas .mm-btn--whatsapp {
+    max-width: 100%;
+    gap: .8rem;
+}
+
+body.page-charlas .mm-btn__whatsapp-icon {
+    display: inline-flex;
+    flex: 0 0 2rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+body.page-charlas .mm-btn__whatsapp-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
