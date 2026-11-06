@@ -1,26 +1,97 @@
 {{!< default}}
 
-<main class="homepage-main mm-v2">
+<main class="homepage-main mm-v2 mm-home-refresh">
 
-    {{!-- 1. Hero --}}
-    <section class="mm-v2-hero" aria-labelledby="hero-title">
-        <div class="mm-canvas mm-canvas--wide">
-            <div class="mm-hero__inner">
-                <h1 class="mm-hero__title" id="hero-title">
-                    Un lugar para frenar <span class="mm-accent">y pensar mejor.</span>
-                </h1>
+    {{!-- A continuous opening: purpose, team experience, then the individual option. --}}
+    <div class="mm-home-opening">
+        <section class="mm-v2-hero" aria-labelledby="hero-title">
+            <div class="mm-canvas mm-canvas--wide">
+                <div class="mm-hero__inner">
+                    <h1 class="mm-hero__title" id="hero-title">
+                        <span class="mm-home-hero__line">Hagamos de la</span>
+                        <span class="mm-home-hero__line">reflexión <span class="mm-accent">un hábito.</span></span>
+                    </h1>
+                    <div class="mm-hero__lede">
+                        <p>Historias, ideas y conversaciones para pensar mejor, conocernos más y conectar con los demás.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <div class="mm-hero__lede">
-                    <p>Para ordenar lo que tenés en la cabeza, ver lo que quizás no estás viendo y pensar qué hacer con lo que tenés por delante.</p>
+        <section class="mm-home-offers" id="mm-home-ways" aria-labelledby="home-masticadas-title">
+            <div class="mm-canvas">
+                <div class="mm-home-masticadas">
+                    <div class="mm-ceramic">
+                        <div class="mm-ceramic__content">
+                            <h2 id="home-masticadas-title">Las masticadas</h2>
+                            <p>Conversaciones que acercan a tu equipo.</p>
+                        </div>
+                    </div>
+
+                    <div class="mm-home-masticadas__copy">
+                        <p class="mm-home-offer__label">Para equipos</p>
+                        <h3>90 minutos para pensar y conectar de otra manera.</h3>
+                        <p class="mm-home-offer__description">Historias, ideas y conversaciones para conocerse mejor, compartir perspectivas y fortalecer los vínculos.</p>
+                        <a href="/masticadas/" class="mm-btn mm-btn--primary mm-home-offer__cta">Conocé las masticadas</a>
+                    </div>
+
+                    <figure class="mm-home-proof">
+                        <img src="{{asset "images/masticada-fernandez-zoom2.jpg"}}"
+                             alt="El equipo de Fernández Secco &amp; Asociados en una masticada"
+                             width="1708" height="717" loading="lazy">
+                        <blockquote>“El equipo salió súper motivado y más conectado de la masticada.”</blockquote>
+                        <figcaption>
+                            <strong>Joaquín Fernández</strong>
+                            <span>Fernández Secco &amp; Asociados</span>
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <article class="mm-home-sessions" aria-labelledby="home-sesiones-title">
+                    <div>
+                        <h2 class="mm-home-offer__label" id="home-sesiones-title">Sesiones 1:1</h2>
+                        <p class="mm-home-sessions__promise">Una cabeza más para pensar.</p>
+                        <p class="mm-home-offer__description">Para ordenar eso que tenés en la cabeza, explorar otras miradas y pensar qué hacer con lo que tenés entre manos.</p>
+                    </div>
+                    <a href="/sesiones/" class="mm-btn mm-btn--ghost">Conocé más</a>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    {{!-- 3. Bio --}}
+    <section class="mm-intro" aria-labelledby="intro-title">
+        <div class="mm-canvas">
+            <div class="mm-intro__grid">
+                <figure class="mm-intro__figure">
+                    <div class="mm-intro__frame">
+                        <img
+                            src="{{asset "images/rodri3.jpg"}}"
+                            alt="Rodri Ponce de León"
+                            class="mm-intro__img"
+                            width="800"
+                            height="1200"
+                            loading="lazy"
+                        >
+                    </div>
+                </figure>
+
+                <div class="mm-intro__text">
+                    <h2 class="mm-v2-title" id="intro-title">
+                        Hola, <span class="mm-accent">soy Rodri.</span>
+                    </h2>
+                    <div class="mm-prose mm-prose--intro">
+                        <p>Durante más de una década trabajé en WyeWorks, una empresa de tecnología uruguaya. Empecé como desarrollador de software, después pasé a formar parte del equipo de managers y terminé como acompañante estratégico del CEO.</p>
+                        <p>En ese camino entendí que muchos de los problemas más difíciles no eran técnicos. Eran humanos. Y muchas veces empezaban por uno mismo.</p>
+                        <p>También descubrí cuánto puede cambiar nuestra forma de ver las cosas cuando nos damos el tiempo de reflexionar. Y cuánto más rica puede volverse esa reflexión cuando la compartimos con otros.</p>
+                        <p>Así fue tomando forma Para masticar. Primero como un lugar para compartir historias e ideas y después como una forma de ayudar a otras personas a pensar mejor.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 2. Bocados — una sola aparición en la home: suscripción + último bocado
-         + acceso al archivo. Editorial, sobre el fondo oscuro (no card crema).
-         Dos columnas en desktop; apila en mobile. El formulario se oculta a
-         miembros ya suscriptos, pero el último bocado y el archivo se ven siempre. --}}
+    {{!-- 4. Bocados: suscripción y último publicado --}}
     <section class="mm-boc-sub" id="bocados" aria-labelledby="boc-sub-title">
         <div class="mm-canvas">
             <div class="mm-boc-sub__inner">
@@ -93,69 +164,6 @@
         </div>
     </section>
 
-    {{!-- 3. Formas de trabajar juntos — sube aquí (justo tras Bocados) para que
-         las propuestas se descubran temprano, sobre todo en mobile. --}}
-    <section class="mm-ways" id="mm-home-ways" aria-labelledby="ways-title">
-        <div class="mm-canvas">
-            <header class="mm-section-header mm-ways__header">
-                <h2 class="mm-v2-title" id="ways-title">Otras formas de <span class="mm-accent">masticar.</span></h2>
-            </header>
-
-            {{!-- Equal proposals, in the same order on desktop and mobile. --}}
-            <div class="mm-ways__grid mm-ways__grid--three">
-                <article class="mm-way">
-                    <h3 class="mm-way__title">Masticadas <span class="mm-way__title-accent">Para vos</span></h3>
-                    <p class="mm-way__text mm-way__text--secondary">Para pensar a fondo sobre algo que te importa, con historias e ideas preparadas especialmente para nuestra conversación.</p>
-                    <a href="/sesiones/" class="mm-way__link" aria-label="Conocé más sobre Masticadas para vos">Conocé más</a>
-                </article>
-
-                <article class="mm-way">
-                    <h3 class="mm-way__title">Masticadas <span class="mm-way__title-accent">Para equipos</span></h3>
-                    <p class="mm-way__text mm-way__text--secondary">Para que tu equipo converse sobre lo que está viviendo, comparta experiencias y se conozca mejor.</p>
-                    <a href="/masticadas/" class="mm-way__link" aria-label="Conocé más sobre Masticadas para equipos">Conocé más</a>
-                </article>
-
-                <article class="mm-way">
-                    <h3 class="mm-way__title">El Viaje <span class="mm-way__title-accent">Para masticar</span></h3>
-                    <p class="mm-way__text mm-way__text--secondary">Un mes de masticadas y bocados para que tu equipo profundice en un tema que quiere trabajar.</p>
-                    <a href="/viaje/" class="mm-way__link" aria-label="Conocé más sobre El Viaje Para masticar">Conocé más</a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    {{!-- 4. Bio --}}
-    <section class="mm-intro" aria-labelledby="intro-title">
-        <div class="mm-canvas">
-            <div class="mm-intro__grid">
-                <figure class="mm-intro__figure">
-                    <div class="mm-intro__frame">
-                        <img
-                            src="{{asset "images/rodri3.jpg"}}"
-                            alt="Rodri Ponce de León"
-                            class="mm-intro__img"
-                            width="800"
-                            height="1200"
-                            loading="lazy"
-                        >
-                    </div>
-                </figure>
-
-                <div class="mm-intro__text">
-                    <h2 class="mm-v2-title" id="intro-title">
-                        Hola, <span class="mm-accent">soy Rodri.</span>
-                    </h2>
-                    <div class="mm-prose mm-prose--intro">
-                        <p>Durante más de una década trabajé en WyeWorks, una empresa de tecnología uruguaya. Empecé como desarrollador de software, después pasé a formar parte del equipo de managers y terminé como acompañante estratégico del CEO.</p>
-                        <p>En ese camino entendí que muchos de los problemas más difíciles no eran técnicos. Eran humanos. Y muchas veces empezaban por uno mismo.</p>
-                        <p>Eso me llevó a leer, escribir y prestar más atención a cómo pensamos, qué nos frena y cómo influimos en los demás. Con el tiempo fui construyendo mi propia forma de mirar estas cosas.</p>
-                        <p>Así fue tomando forma Para masticar. Primero como un lugar para compartir historias e ideas y después como una forma de ayudar a otras personas a pensar mejor.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     {{!-- 5. Testimonio --}}
     <section class="mm-testimonial" aria-labelledby="testimonial-title">
         <div class="mm-canvas">
@@ -184,7 +192,7 @@
         </div>
     </section>
 
-    {{!-- 5. La Bestia --}}
+    {{!-- 6. La Bestia --}}
     <section class="mm-bestia" aria-labelledby="bestia-title">
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-bestia__grid">
@@ -222,29 +230,46 @@
         </div>
     </section>
 
-    {{!-- 6. Hablemos --}}
+    {{!-- 7. Contacto --}}
     <section class="mm-home-contact" id="mm-home-contact" aria-labelledby="home-contact-title">
         <div class="mm-canvas">
             <div class="mm-home-contact__panel">
                 <header class="mm-home-contact__header">
                     <h2 class="mm-v2-title mm-home-contact__title" id="home-contact-title">
-                        <span class="mm-accent">Hablemos.</span>
+                        ¿Tenés algo para <span class="mm-accent">masticar?</span>
                     </h2>
-                    <p class="mm-home-contact__subhead">
-                      Contame qué te trae por acá. No hace falta que tengas claro por dónde empezar.
-                    </p>
+                    <p class="mm-home-contact__subhead">Ya sea con tu equipo o por tu cuenta, podemos conversar sobre lo que tenés en mente.</p>
                 </header>
 
-                {{> "contact-form" show_selector=true origen="home" subject="Contacto — desde la home"}}
+                <div class="mm-actions mm-home-contact__actions">
+                    <a id="mm-home-whatsapp" class="mm-btn mm-btn--primary mm-home-whatsapp" href="https://wa.me/59898043397?text=Hola%20Rodri%2C%20estuve%20mirando%20Para%20masticar%20y%20quer%C3%ADa%20hacerte%20una%20consulta." target="_blank" rel="noopener noreferrer">
+                        <span class="mm-home-whatsapp__icon" aria-hidden="true">{{> "icons/whatsapp"}}</span>
+                        <span>Hablemos por WhatsApp</span>
+                    </a>
+                </div>
 
-                <p class="mm-home-contact__fallback">
-                    También podés escribirme a
-                    <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.
-                </p>
+                <p class="mm-home-contact__fallback">O, si preferís, podés escribirme a <a href="mailto:rodri@paramasticar.com">rodri@paramasticar.com</a>.</p>
             </div>
         </div>
     </section>
 
 </main>
+
+<script>
+// Record the WhatsApp contact through the existing, Ghost-injected Meta Pixel.
+(function () {
+    var link = document.querySelector('.mm-home-refresh #mm-home-whatsapp');
+    if (!link || link.getAttribute('data-meta-contact-bound') === 'true') return;
+    link.setAttribute('data-meta-contact-bound', 'true');
+    link.addEventListener('click', function () {
+        if (typeof window.fbq !== 'function') return;
+        try {
+            window.fbq('track', 'Contact');
+        } catch (error) {
+            // WhatsApp navigation remains available if the Pixel fails.
+        }
+    }, true);
+})();
+</script>
 
 {{#contentFor "body_class"}}homepage-mm-v2{{/contentFor}}
