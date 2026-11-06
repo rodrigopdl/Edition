@@ -2,7 +2,7 @@
 
 <main class="homepage-main mm-v2 mm-home-refresh">
 
-    {{!-- A continuous opening: purpose, team experience, then the individual option. --}}
+    {{!-- A continuous opening: purpose and team experience. --}}
     <div class="mm-home-opening">
         <section class="mm-v2-hero" aria-labelledby="hero-title">
             <div class="mm-canvas mm-canvas--wide">
@@ -11,9 +11,6 @@
                         <span class="mm-home-hero__line">Hagamos de la</span>
                         <span class="mm-home-hero__line">reflexión <span class="mm-accent">un hábito.</span></span>
                     </h1>
-                    <div class="mm-hero__lede">
-                        <p>Historias, ideas y conversaciones para pensar mejor, conocernos más y conectar con los demás.</p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -23,38 +20,17 @@
                 <div class="mm-home-masticadas">
                     <div class="mm-ceramic">
                         <div class="mm-ceramic__content">
-                            <h2 id="home-masticadas-title">Las masticadas</h2>
-                            <p>Conversaciones que acercan a tu equipo.</p>
+                            <p><span class="mm-ceramic__music">Música.</span><span class="mm-ceramic__stories">Historias.</span><span class="mm-ceramic__conversation">Buenas<br>conversaciones.</span></p>
                         </div>
                     </div>
 
                     <div class="mm-home-masticadas__copy">
-                        <p class="mm-home-offer__label">Para equipos</p>
-                        <h3>90 minutos para pensar y conectar de otra manera.</h3>
-                        <p class="mm-home-offer__description">Historias, ideas y conversaciones para conocerse mejor, compartir perspectivas y fortalecer los vínculos.</p>
+                        <h2 id="home-masticadas-title">Las masticadas.</h2>
+                        <p class="mm-home-masticadas__subtitle">90 minutos para conectar como equipo.</p>
+                        <p class="mm-home-offer__description">Una experiencia grupal para reflexionar, conversar y entenderse mejor.</p>
                         <a href="/masticadas/" class="mm-btn mm-btn--primary mm-home-offer__cta">Conocé las masticadas</a>
                     </div>
-
-                    <figure class="mm-home-proof">
-                        <img src="{{asset "images/masticada-fernandez-zoom2.jpg"}}"
-                             alt="El equipo de Fernández Secco &amp; Asociados en una masticada"
-                             width="1708" height="717" loading="lazy">
-                        <blockquote>“El equipo salió súper motivado y más conectado de la masticada.”</blockquote>
-                        <figcaption>
-                            <strong>Joaquín Fernández</strong>
-                            <span>Fernández Secco &amp; Asociados</span>
-                        </figcaption>
-                    </figure>
                 </div>
-
-                <article class="mm-home-sessions" aria-labelledby="home-sesiones-title">
-                    <div>
-                        <h2 class="mm-home-offer__label" id="home-sesiones-title">Sesiones 1:1</h2>
-                        <p class="mm-home-sessions__promise">Una cabeza más para pensar.</p>
-                        <p class="mm-home-offer__description">Para ordenar eso que tenés en la cabeza, explorar otras miradas y pensar qué hacer con lo que tenés entre manos.</p>
-                    </div>
-                    <a href="/sesiones/" class="mm-btn mm-btn--ghost">Conocé más</a>
-                </article>
             </div>
         </section>
     </div>
@@ -81,13 +57,41 @@
                         Hola, <span class="mm-accent">soy Rodri.</span>
                     </h2>
                     <div class="mm-prose mm-prose--intro">
-                        <p>Durante más de una década trabajé en WyeWorks, una empresa de tecnología uruguaya. Empecé como desarrollador de software, después pasé a formar parte del equipo de managers y terminé como acompañante estratégico del CEO.</p>
-                        <p>En ese camino entendí que muchos de los problemas más difíciles no eran técnicos. Eran humanos. Y muchas veces empezaban por uno mismo.</p>
-                        <p>También descubrí cuánto puede cambiar nuestra forma de ver las cosas cuando nos damos el tiempo de reflexionar. Y cuánto más rica puede volverse esa reflexión cuando la compartimos con otros.</p>
-                        <p>Así fue tomando forma Para masticar. Primero como un lugar para compartir historias e ideas y después como una forma de ayudar a otras personas a pensar mejor.</p>
+                        <p>Durante más de diez años trabajé en WyeWorks, una consultora de software uruguaya. Empecé como desarrollador, después lideré equipos y terminé trabajando codo a codo con el CEO, ayudándolo a pensar los desafíos de la empresa.</p>
+                        <p>En ese camino descubrí que los problemas más difíciles rara vez eran técnicos. Tenían que ver con las personas, con lo que nos pasa por dentro y cómo eso influye en nuestra manera de relacionarnos.</p>
+                        <p>Y fui descubriendo cuánto ayuda detenernos a reflexionar para entender mejor lo que nos pasa. Sobre todo cuando lo hacemos con otros, compartiendo lo que pensamos y escuchando otras maneras de ver las cosas.</p>
+                        <p>Por eso creé <em>Para masticar</em>: para ayudar a personas y equipos a hacer de la reflexión un hábito.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    {{!-- 5. Testimonio --}}
+    <section class="mm-testimonial" aria-labelledby="testimonial-title">
+        <div class="mm-canvas">
+            <figure class="mm-testimonial__figure">
+                <blockquote class="mm-testimonial__quote" id="testimonial-title">
+                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>Su capacidad para articular ideas sobre liderazgo, autonomía, cultura y desarrollo humano generó conversaciones valiosas que dejaron huella en muchas personas dentro de WyeWorks.
+                </blockquote>
+
+                <figcaption class="mm-testimonial__cite">
+                    <div class="mm-testimonial__avatar">
+                        <img
+                            src="{{asset "images/Jose.webp"}}"
+                            alt="José Costa, Co-founder y CEO de WyeWorks"
+                            class="mm-testimonial__avatar-img"
+                            width="120"
+                            height="120"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="mm-testimonial__person">
+                        <span class="mm-testimonial__name">José Costa</span>
+                        <span class="mm-testimonial__role">Co-founder &amp; CEO, WyeWorks</span>
+                    </div>
+                </figcaption>
+            </figure>
         </div>
     </section>
 
@@ -164,34 +168,6 @@
         </div>
     </section>
 
-    {{!-- 5. Testimonio --}}
-    <section class="mm-testimonial" aria-labelledby="testimonial-title">
-        <div class="mm-canvas">
-            <figure class="mm-testimonial__figure">
-                <blockquote class="mm-testimonial__quote" id="testimonial-title">
-                    <span class="mm-testimonial__mark" aria-hidden="true">“</span>Rodri fue una de las voces que más nos ayudó a pensar sobre quiénes somos como organización y qué tipo de empresa queríamos construir. Su capacidad para articular ideas sobre liderazgo, autonomía, cultura y desarrollo humano generó conversaciones valiosas que dejaron huella en muchas personas dentro de WyeWorks.
-                </blockquote>
-
-                <figcaption class="mm-testimonial__cite">
-                    <div class="mm-testimonial__avatar">
-                        <img
-                            src="{{asset "images/Jose.webp"}}"
-                            alt="José Costa, Co-founder y CEO de WyeWorks"
-                            class="mm-testimonial__avatar-img"
-                            width="120"
-                            height="120"
-                            loading="lazy"
-                        >
-                    </div>
-                    <div class="mm-testimonial__person">
-                        <span class="mm-testimonial__name">José Costa</span>
-                        <span class="mm-testimonial__role">Co-founder &amp; CEO, WyeWorks</span>
-                    </div>
-                </figcaption>
-            </figure>
-        </div>
-    </section>
-
     {{!-- 6. La Bestia --}}
     <section class="mm-bestia" aria-labelledby="bestia-title">
         <div class="mm-canvas mm-canvas--narrow">
@@ -210,13 +186,12 @@
                 </div>
                 <div class="mm-bestia__text">
                     <h2 class="mm-v2-title" id="bestia-title">
-                        <span class="mm-accent">La Bestia.</span>
+                        <span class="mm-accent">Mi libro.</span>
                     </h2>
                     <div class="mm-prose">
                         <p>Todos tenemos una Bestia.</p>
                         <p>Esa parte de nosotros que aparece cuando algo se pone difícil y trata de convencernos de reaccionar, evitar, postergar o elegir el camino fácil.</p>
                         <p>No podemos hacerla desaparecer. Pero podemos aprender a reconocerla antes de que decida por nosotros.</p>
-                        <p>De eso trata La Bestia, mi libro.</p>
                     </div>
                     <div class="mm-actions mm-bestia__actions">
                         <a href="/bestia/" class="mm-btn mm-btn--ghost">Conocer el libro</a>
@@ -238,7 +213,7 @@
                     <h2 class="mm-v2-title mm-home-contact__title" id="home-contact-title">
                         ¿Tenés algo para <span class="mm-accent">masticar?</span>
                     </h2>
-                    <p class="mm-home-contact__subhead">Ya sea con tu equipo o por tu cuenta, podemos conversar sobre lo que tenés en mente.</p>
+                    <p class="mm-home-contact__subhead">Ya sea para tu equipo o para vos, contame qué tenés en mente.</p>
                 </header>
 
                 <div class="mm-actions mm-home-contact__actions">
