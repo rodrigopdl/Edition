@@ -1,4 +1,7 @@
 {{!< default}}
+{{#contentFor "page_styles"}}
+<link rel="stylesheet" href="{{asset "css/site/masticadas-campana.css"}}">
+{{/contentFor}}
 {{!--
 Template Name: Charlas
 --}}
@@ -9,85 +12,41 @@ Template Name: Charlas
     <section class="mm-v2-hero mm-ch-v2-hero" aria-labelledby="ch-title">
         <div class="mm-canvas mm-canvas--wide">
             <div class="mm-hero__inner">
+                <p class="mm-eyebrow mm-campaign-eyebrow">La masticada</p>
                 <h1 class="mm-hero__title mm-ch-v2-hero__title" id="ch-title">
-                    <span class="mm-accent">La masticada.</span>
+                    Una conversación que <span class="mm-accent">acerca a tu equipo.</span>
                 </h1>
                 <div class="mm-hero__lede mm-ch-v2-hero__lede">
-                    <p>Un encuentro para que tu equipo converse sobre lo que le importa, con historias e ideas que enriquecen el intercambio.</p>
+                    <p>90 minutos reflexionando juntos, a partir de historias que dejan mucho para masticar.</p>
                 </div>
-                <!--p class="mm-ch-v2-hero__facts">2 horas <span aria-hidden="true">·</span> Experiencia presencial</p-->
                 <div class="mm-actions mm-actions--center">
-                    <a href="#mm-ch-cta" class="mm-btn mm-btn--primary mm-btn--lg js-smooth-scroll mm-ch-v2-mast-cta">
-                        Quiero organizar una masticada
+                    <a href="https://wa.me/59898043397?text=Hola%20Rodri%2C%20vi%20la%20propuesta%20de%20las%20masticadas%20y%20me%20interes%C3%B3%20para%20mi%20equipo.%20%C2%BFPodemos%20conversar%3F" class="mm-btn mm-btn--primary mm-btn--lg mm-btn--whatsapp" target="_blank" rel="noopener noreferrer">
+                        <span class="mm-btn__whatsapp-icon" aria-hidden="true">{{> "icons/whatsapp"}}</span>
+                        <span class="mm-btn__label">Quiero una masticada</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 2. El porqué de una masticada — antes de contar cómo se desarrolla. --}}
-    <section class="mm-ch-v2-why" id="mm-ch-what" aria-labelledby="ch-why-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <h2 class="mm-v2-title" id="ch-why-title">
-                Hay preguntas que vale la pena <span class="mm-accent">masticar juntos.</span>
-            </h2>
-            <div class="mm-prose">
-                <p class="mm-ch-v2-questions">
-                    <span>¿Qué tipo de equipo queremos construir?</span>                
-                    <span>¿Qué hacemos cuando las cosas se ponen difíciles?</span>
-                    <span>¿Cómo podemos trabajar mejor juntos?</span>
-                </p>
-                <p>Antes de cada masticada, converso con quien la organiza para entender qué está viviendo el equipo y elegir una buena pregunta para explorar. Después preparo historias e ideas para alimentar la conversación.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="mm-ch-v2-book" aria-labelledby="ch-book-title">
-        <div class="mm-canvas">
-            <div class="mm-ch-v2-book__grid">
-                <figure class="mm-ch-v2-book__figure">
-                    <img
-                        src="{{asset "images/book.png"}}"
-                        alt="La Bestia, libro de Rodrigo Ponce de León"
-                        class="mm-ch-v2-book__image"
-                        width="810"
-                        height="1106"
-                        loading="lazy"
-                    >
-                </figure>
-                <div class="mm-prose">
-                    <h3 class="mm-ch-v2-book__title" id="ch-book-title">Una masticada sobre <em>La Bestia</em>.</h3>
-                    <p>Si no tienen un tema en mente, tengo una masticada basada en las ideas de mi libro <em>La Bestia</em>, que ya compartí con equipos de distintas empresas y ámbitos.</p>
-                    <p>Conversamos sobre cómo reaccionamos frente a lo que nos pasa y cómo eso influye en nuestra manera de trabajar con compañeros y clientes. Una oportunidad para entendernos mejor y descubrir qué podemos hacer diferente.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{!-- 3. Prueba social de la masticada (Joaquín): foto grupal + testimonio,
-         antes de narrar la experiencia. --}}
-    <section class="mm-ch-v2-real" aria-labelledby="ch-real-title">
+    <section class="mm-ch-v2-real" aria-label="Experiencia de un equipo">
         <div class="mm-canvas">
             <div class="mm-ch-v2-exp mm-ch-v2-exp--lead">
-                <h2 class="mm-ch-v2-exp__heading" id="ch-real-title">
-                    <span class="mm-ch-v2-exp__heading-intro">Una masticada en</span>
-                    Fernández Secco &amp; Asociados
-                </h2>
                 <figure class="mm-ch-v2-exp__photo">
                     <div class="mm-ch-v2-real__frame">
                         <img
-                            src="{{asset "images/masticada-fernandez.jpg"}}"
+                            src="{{asset "images/masticada-fernandez-zoom2.jpg"}}"
                             alt="Masticada en Fernández Secco"
                             class="mm-ch-v2-real__img"
-                            loading="lazy"
-                            width="1728"
-                            height="1139"
+                            loading="eager" fetchpriority="high"
+                            width="1708"
+                            height="717"
                         >
                     </div>
                 </figure>
                 <figure class="mm-ch-v2-testimonial">
-                    <blockquote class="mm-testimonial__quote mm-ch-v2-testimonial__quote">
-                        <span class="mm-testimonial__mark" aria-hidden="true">“</span>La masticada con Rodri fue una experiencia transformadora para nuestro equipo. Se generó un espacio para compartir experiencias muy enriquecedoras sobre La Bestia que permitieron potenciar la forma en la que nos complementamos y establecer un marco de referencia común para el futuro. El equipo salió súper motivado y más conectado de la masticada.
+                    <blockquote class="mm-testimonial__quote mm-ch-v2-testimonial__quote" id="joaquin-quote">
+                        <span class="mm-testimonial__mark" aria-hidden="true">“</span><span id="joaquin-excerpt" hidden>El equipo salió súper motivado y más conectado de la masticada.</span><span id="joaquin-full">La masticada con Rodri fue una experiencia transformadora para nuestro equipo. Se generó un espacio para compartir experiencias muy enriquecedoras sobre La Bestia que permitieron potenciar la forma en la que nos complementamos y establecer un marco de referencia común para el futuro. El equipo salió súper motivado y más conectado de la masticada.</span>
                     </blockquote>
                     <figcaption class="mm-testimonial__cite mm-ch-v2-testimonial__author">
                         <div class="mm-testimonial__avatar">
@@ -105,63 +64,69 @@ Template Name: Charlas
                             <span class="mm-testimonial__role">Socio, Fernández Secco &amp; Asociados</span>
                         </div>
                     </figcaption>
+                    <button class="mm-testimonial-toggle" type="button" aria-expanded="false" aria-controls="joaquin-quote" hidden>Leer testimonio completo</button>
                 </figure>
 
-                <div class="mm-actions mm-ch-v2-exp__cta">
-                    <a href="#mm-ch-cta" class="mm-ch-v2-exp__link js-smooth-scroll mm-ch-v2-mast-cta" data-tipo="masticada">
-                        Quiero organizar una masticada <span aria-hidden="true">→</span>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
 
-    {{!-- 4. Cómo se desarrolla una masticada — narración condensada en tres
-         momentos (ambientación, historias, conversación), con las fotos reales. --}}
     <section class="mm-ch-v2-what" aria-labelledby="ch-what-title">
-        <div class="mm-canvas mm-canvas--narrow">
+        <div class="mm-canvas mm-canvas--narrow mm-campaign-explanation">
             <h2 class="mm-v2-title" id="ch-what-title">
-                Nos sentamos en <span class="mm-accent">una gran ronda.</span>
+                ¿Cómo es una masticada?
             </h2>
             <div class="mm-prose">
-                <p>Pongo un parlante en el centro, suena un jazz tenue de fondo. No hay pantallas ni diapositivas, y si hay luces bajas, mejor. La ambientación es parte del secreto.</p>
-                <p class="mm-ch-v2-beat">Las historias alimentan la conversación.</p>
-                <p>Empiezo compartiendo algunas historias e ideas relacionadas con el tema que elegimos. Algunas vienen de mis experiencias, otras de mis lecturas o de cosas que me pasan en la vida cotidiana.</p>
-                <p>De a poco, las historias van dando lugar a la conversación. Aparecen experiencias propias, distintas maneras de mirar las cosas y preguntas que quizás no nos habíamos hecho. Yo voy acompañando el intercambio, sumando ideas y ayudando a profundizar cuando hace falta.</p>
+                <p>Voy a donde se reúne tu equipo y nos sentamos en ronda. Pongo un poco de jazz de fondo y empiezo compartiendo historias de mi libro <em>La Bestia</em>.</p>
+                <p>Historias que invitan a reflexionar sobre lo que nos frena, lo que nos entusiasma y cómo ambas cosas influyen en nuestra manera de relacionarnos.</p>
+                <p>De a poco, se abre una conversación entre todos. Voy haciendo preguntas, compartiendo nuevas historias y acompañando lo que va surgiendo.</p>
+                <p class="mm-campaign-benefit">Una oportunidad para conocernos mejor a nosotros mismos y descubrir otras facetas de las personas con las que trabajamos todos los días.</p>
             </div>
         </div>
 
-        {{!-- Imagen de una masticada (collage Ruby Meetup), entre el momento de
-             las historias y el de la conversación. Mismo ancho que el texto. --}}
-        <div class="mm-canvas mm-canvas--narrow mm-ch-v2-ruby">
+        {{!-- Dos contextos reales de una masticada, sin recortar las imágenes. --}}
+        <div class="mm-canvas mm-canvas--wide mm-ch-v2-ruby mm-campaign-scenes">
             <figure class="mm-ch-v2-ruby__figure">
-                <img
-                    src="{{asset "images/masticada-ruby.png"}}"
-                    alt="Escenas de una masticada: personas sentadas conversando"
-                    class="mm-ch-v2-ruby__img"
-                    loading="lazy"
-                    width="1600"
-                    height="1113"
-                >
-                <figcaption class="mm-ch-v2-what__caption">Una masticada en la Ruby MVD Meetup</figcaption>
+                <div class="mm-ch-v2-real__frame">
+                    <img
+                        src="{{asset "images/masticada-ruby.png"}}"
+                        alt="Escenas de una masticada: personas sentadas conversando"
+                        class="mm-ch-v2-ruby__img"
+                        loading="lazy"
+                        width="1600"
+                        height="1113"
+                    >
+                </div>
+                <figcaption class="mm-ch-v2-what__caption">Una masticada en la Ruby Meetup</figcaption>
+            </figure>
+            <figure class="mm-ch-v2-ruby__figure">
+                <div class="mm-ch-v2-real__frame">
+                    <img
+                        src="{{asset "images/masticada-wyeworks.jpg"}}"
+                        alt="Participantes de una masticada en WyeWorks reunidos alrededor de una mesa"
+                        class="mm-ch-v2-ruby__img"
+                        loading="lazy"
+                        width="4032"
+                        height="3024"
+                    >
+                </div>
+                <figcaption class="mm-ch-v2-what__caption">Una masticada en WyeWorks</figcaption>
             </figure>
         </div>
 
         <div class="mm-canvas mm-canvas--narrow">
             <div class="mm-prose">
-                <p class="mm-ch-v2-beat">La conversación es protagonista.</p>
-                <p>Nadie está obligado a hablar: cada uno participa cuando le nace. Alguien comparte algo que le resonó, otro suma su experiencia y empiezan a aparecer miradas que quizás no habíamos considerado.</p>
-                <p>Me gusta cuando la conversación termina y queda la sensación de que todavía hay mucho para hablar. De que algo nos hizo mirar las cosas de otra manera o nos dejó pensando en algo que nunca nos habíamos preguntado. Como si la masticada terminara, pero algunas conversaciones recién estuvieran empezando.</p>
+                <p>La experiencia dura aproximadamente <strong>90 minutos</strong> y funciona tanto con grupos pequeños como con grupos más numerosos.</p>
             </div>
+            <a class="mm-campaign-contact" href="https://wa.me/59898043397?text=Hola%20Rodri%2C%20vi%20la%20propuesta%20de%20las%20masticadas%20y%20me%20interes%C3%B3%20para%20mi%20equipo.%20%C2%BFPodemos%20conversar%3F" target="_blank" rel="noopener noreferrer">
+                <span class="mm-btn__whatsapp-icon" aria-hidden="true">{{> "icons/whatsapp"}}</span>
+                <span>Quiero llevar una masticada a mi equipo</span>
+            </a>
         </div>
 
         {{!-- Segunda foto de masticada (Piano Piano), tras el cierre narrativo.
              Con el marco crema de las demás fotos del sitio. --}}
         <div class="mm-canvas mm-canvas--narrow mm-ch-v2-ruby mm-ch-v2-ruby--close mm-ch-v2-ruby--framed">
-            <h2 class="mm-ch-v2-exp__heading mm-ch-v2-exp__heading--photo">
-                <span class="mm-ch-v2-exp__heading-intro">Una masticada en</span>
-                Piano Piano Producciones
-            </h2>
             <figure class="mm-ch-v2-ruby__figure">
                 <div class="mm-ch-v2-real__frame">
                     <img
@@ -217,99 +182,56 @@ Template Name: Charlas
                 <div class="mm-intro__text">
                     <h2 class="mm-v2-title" id="ch-intro-title">Hola, <span class="mm-accent">soy Rodri.</span></h2>
                     <div class="mm-prose">
-                        <p>Durante más de una década trabajé en WyeWorks, una empresa de tecnología uruguaya. Empecé como desarrollador de software, después pasé a formar parte del equipo de managers y terminé como acompañante estratégico del CEO.</p>
-                        <p>En ese camino entendí que muchos de los problemas más difíciles no eran técnicos. Eran humanos. Y muchas veces empezaban por uno mismo.</p>
-                        <p>Eso me llevó a leer, escribir y prestar más atención a cómo pensamos, qué nos frena y cómo influimos en los demás. Con el tiempo fui construyendo mi propia forma de mirar estas cosas.</p>
-                        <p>Así nació <em>Para masticar</em>: un proyecto que empezó con los bocados que escribo cada semana y fue creciendo hasta dar lugar a mi libro <em>La Bestia</em> y a encuentros como las masticadas.</p>
+                        <p>Durante más de diez años trabajé en WyeWorks, una consultora de software uruguaya. Empecé como desarrollador, después lideré equipos y terminé trabajando codo a codo con el CEO, ayudándolo a pensar los desafíos de la empresa.</p>
+                        <p>En ese camino descubrí que los problemas más difíciles rara vez eran técnicos. Tenían que ver con las personas, con lo que nos pasa por dentro y cómo eso influye en nuestra manera de relacionarnos.</p>
+                        <p>Y fui descubriendo cuánto ayuda detenernos a reflexionar para entender mejor lo que nos pasa. Sobre todo cuando lo hacemos con otros, compartiendo lo que pensamos y escuchando otras maneras de ver las cosas.</p>
+                        <p>Por eso creé <em>Para masticar</em>: para ayudar a personas y equipos a hacer de la reflexión un hábito.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 5. Bloque crema comercial: "Organizá una masticada". Transición natural
-         del relato a la propuesta concreta. Conserva id=mm-ch-mast. --}}
+    {{!-- Contacto de la campaña por WhatsApp. --}}
     <section class="mm-ch-v2-plus" id="mm-ch-mast" aria-labelledby="ch-mast-name">
         <div class="mm-canvas mm-canvas--narrow">
-            <div class="mm-ch-v2-formats__panel mm-ch-v2-formats__panel--hero" id="mm-ch-cta">
-                <h3 class="mm-ch-v2-formats__name mm-ch-v2-formats__name--hero" id="ch-mast-name">Organizá una masticada.</h3>
-                <p class="mm-ch-v2-formats__lead">Un encuentro para que tu equipo converse sobre un tema que quiere explorar, comparta experiencias y se conozca mejor.</p>
-                <!--p class="mm-ch-v2-formats__note-hero">2 horas <span aria-hidden="true">·</span> Experiencia presencial</p-->
+            <div class="mm-ch-v2-formats__panel mm-ch-v2-formats__panel--hero">
+                <h3 class="mm-ch-v2-formats__name mm-ch-v2-formats__name--hero" id="ch-mast-name">Que tu equipo termine el año <span class="mm-accent">más conectado.</span></h3>
+                <p class="mm-ch-v2-formats__lead">Escribime y coordinamos una masticada.</p>
                 <div class="mm-actions mm-ch-v2-formats__actions">
                     <a href="https://wa.me/59898043397?text=Hola%20Rodri%2C%20vi%20la%20propuesta%20de%20las%20masticadas%20y%20me%20interes%C3%B3%20para%20mi%20equipo.%20%C2%BFPodemos%20conversar%3F"
                        class="mm-btn mm-btn--primary mm-btn--lg mm-btn--whatsapp"
                        target="_blank" rel="noopener noreferrer">
                         <span class="mm-btn__whatsapp-icon" aria-hidden="true">{{> "icons/whatsapp"}}</span>
-                        <span>Hablemos</span>
+                        <span class="mm-btn__label">Hablemos</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    {{!-- 5. Charlas: otro formato disponible. La tarjeta crema mantiene
-         a la Masticada como propuesta protagonista. --}}
-    <!--section class="mm-ch-v2-plus mm-ch-v2-plus--alt" aria-labelledby="ch-alt-title">
-        <div class="mm-canvas mm-canvas--narrow">
-            <div class="mm-ch-v2-alt">
-                <h2 class="mm-ch-v2-alt__q" id="ch-alt-title">También doy charlas.</h2>
-                <div class="mm-ch-v2-alt__body">
-                    <div class="mm-ch-v2-alt__text">
-                        <div class="mm-ch-v2-alt__head">
-                            <h4 class="mm-ch-v2-alt__name">Una charla para dejar pensando</h4>
-                            <p class="mm-ch-v2-alt__duration">30–45 minutos</p>
-                        </div>
-                        <p class="mm-ch-v2-alt__desc">Historias e ideas para mirar las cosas desde otro lugar. Podemos adaptar la charla a lo que estés buscando para tu equipo o evento.</p>
-                        <a href="#mm-ch-cta"
-                           class="mm-ch-v2-alt__link js-smooth-scroll mm-ch-v2-charla-cta"
-                           data-tipo="charla">
-                            Consultar por una charla <span aria-hidden="true">→</span>
-                        </a>
-                    </div>
-                    <figure class="mm-ch-v2-alt__photo">
-                        <div class="mm-ch-v2-real__frame">
-                            <img
-                                src="{{asset "images/talks-lameetup-2-1200.webp"}}"
-                                srcset="{{asset "images/talks-lameetup-2-720.webp"}} 720w, {{asset "images/talks-lameetup-2-1200.webp"}} 1200w"
-                                sizes="(max-width: 640px) calc(100vw - 44px), 360px"
-                                alt="Rodri dando una charla frente a una audiencia — Conferencia La Meetup II en Sinergia Faro"
-                                class="mm-ch-v2-alt__img"
-                                loading="lazy"
-                                width="1200"
-                                height="800"
-                            >
-                        </div>
-                    </figure>
-                </div>
-
-                {{!-- Prueba social de la charla: testimonio de Lucía. Sin foto
-                     (el bloque Charla de arriba ya muestra la imagen del formato),
-                     para no repetir dos fotos de charla seguidas. --}}
-                <figure class="mm-ch-v2-backing mm-ch-v2-backing--alt">
-                    <blockquote class="mm-testimonial__quote mm-ch-v2-backing__quote">
-                        <span class="mm-testimonial__mark" aria-hidden="true">“</span>Tu presentación me inspiró muchísimo. Quiero destacar la tranquilidad que transmitiste, y el sentimiento de 'es re por acá' que me dejaste.
-                    </blockquote>
-                    <figcaption class="mm-testimonial__cite mm-ch-v2-backing__author">
-                        <div class="mm-testimonial__avatar">
-                        <img
-                            src="{{asset "images/lucia.jpeg"}}"
-                            alt="Lucía Del Arco"
-                            class="mm-testimonial__avatar-img"
-                            width="48"
-                            height="48"
-                            loading="lazy"
-                        >
-                        </div>
-                        <div class="mm-testimonial__person">
-                            <span class="mm-testimonial__name">Lucía Del Arco</span>
-                            <span class="mm-testimonial__role">Delivery Manager</span>
-                        </div>
-                    </figcaption>
-                </figure>
-            </div>
-        </div>
-    </section-->
-
 </main>
 
-{{#contentFor "body_class"}}homepage-mm-v2 page-charlas{{/contentFor}}
+<script>
+(function () {
+    var quote = document.getElementById('joaquin-quote');
+    var excerpt = document.getElementById('joaquin-excerpt');
+    var full = document.getElementById('joaquin-full');
+    var toggle = document.querySelector('.page-masticadas-campana .mm-testimonial-toggle');
+    if (!quote || !excerpt || !full || !toggle) return;
+
+    excerpt.hidden = false;
+    full.hidden = true;
+    toggle.hidden = false;
+    toggle.addEventListener('click', function () {
+        var expanded = toggle.getAttribute('aria-expanded') !== 'true';
+        excerpt.hidden = expanded;
+        full.hidden = !expanded;
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.textContent = expanded ? 'Mostrar menos' : 'Leer testimonio completo';
+    });
+})();
+
+</script>
+
+{{#contentFor "body_class"}}homepage-mm-v2 page-charlas page-masticadas-campana{{/contentFor}}

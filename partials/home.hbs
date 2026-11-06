@@ -230,21 +230,6 @@
 
 </main>
 
-<script>
-// Record the WhatsApp contact through the existing, Ghost-injected Meta Pixel.
-(function () {
-    var link = document.querySelector('.mm-home-refresh #mm-home-whatsapp');
-    if (!link || link.getAttribute('data-meta-contact-bound') === 'true') return;
-    link.setAttribute('data-meta-contact-bound', 'true');
-    link.addEventListener('click', function () {
-        if (typeof window.fbq !== 'function') return;
-        try {
-            window.fbq('track', 'Contact');
-        } catch (error) {
-            // WhatsApp navigation remains available if the Pixel fails.
-        }
-    }, true);
-})();
-</script>
+
 
 {{#contentFor "body_class"}}homepage-mm-v2{{/contentFor}}
