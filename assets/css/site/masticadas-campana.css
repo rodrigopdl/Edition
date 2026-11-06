@@ -567,3 +567,51 @@ body.page-masticadas-campana .mm-ch-v2 .mm-prose p.mm-campaign-benefit {
         line-height: 1.45;
     }
 }
+
+/* A separate, quiet recommendation below the complete bio grid. */
+body.page-masticadas-campana .mm-campaign-bio-quote {
+    max-width: 68rem;
+    margin: clamp(3.2rem, 4vw, 4.8rem) auto 0;
+    text-align: center;
+}
+
+body.page-masticadas-campana .mm-campaign-bio-quote blockquote {
+    margin: 0 0 1.4rem;
+    padding: 0;
+    border: 0;
+    font-family: var(--font-post-body);
+    font-size: clamp(1.9rem, 1.6vw, 2.1rem);
+    font-style: italic;
+    line-height: 1.5;
+    text-align: center;
+    text-wrap: pretty;
+    color: var(--ink-2);
+}
+
+body.page-masticadas-campana .mm-campaign-bio-quote figcaption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    text-align: left;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    line-height: 1.35;
+    color: var(--ink-2);
+}
+
+body.page-masticadas-campana .mm-campaign-bio-quote img {
+    width: 4rem;
+    height: 4rem;
+    flex: 0 0 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+body.page-masticadas-campana .mm-campaign-bio-quote strong {
+    display: block;
+    margin-bottom: .2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--ink);
+}
