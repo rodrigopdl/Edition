@@ -113,7 +113,7 @@ Template Name: Archive
 
     {{!-- Fixed editorial selection; Ghost supplies the current article data.
          Match each slug explicitly to preserve editorial order, not dates. --}}
-    {{#get "posts" filter="slug:[las-bestias-se-atraen,el-fuego-se-contagia,liderando-por-inercia]" limit="3" as |starter_posts|}}
+    {{#get "posts" filter="slug:[rafa-nadal-el-encantador-de-bestias,las-bestias-se-atraen,torturas]" limit="3" as |starter_posts|}}
         {{#if starter_posts}}
             <section class="mm-boc-start" aria-labelledby="boc-start-title">
                 <div class="mm-canvas">
@@ -122,13 +122,13 @@ Template Name: Archive
                     </header>
                     <ul class="mm-boc-start__grid" role="list">
                         {{#foreach starter_posts}}
+                            {{#match slug "rafa-nadal-el-encantador-de-bestias"}}{{> "bocado-starter"}}{{/match}}
+                        {{/foreach}}
+                        {{#foreach starter_posts}}
                             {{#match slug "las-bestias-se-atraen"}}{{> "bocado-starter"}}{{/match}}
                         {{/foreach}}
                         {{#foreach starter_posts}}
-                            {{#match slug "el-fuego-se-contagia"}}{{> "bocado-starter"}}{{/match}}
-                        {{/foreach}}
-                        {{#foreach starter_posts}}
-                            {{#match slug "liderando-por-inercia"}}{{> "bocado-starter"}}{{/match}}
+                            {{#match slug "torturas"}}{{> "bocado-starter"}}{{/match}}
                         {{/foreach}}
                     </ul>
                 </div>
