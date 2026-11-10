@@ -1022,3 +1022,53 @@ body.page-bocados {
         letter-spacing: 0.16em;
     }
 }
+
+/* Desktop spotlight: keep the latest post prominent without eclipsing starters. */
+@media (min-width: 881px) {
+    .mm-boc .mm-boc-featured {
+        padding-block: 3.2rem;
+    }
+
+    .mm-boc .mm-boc-featured__eyebrow {
+        margin-bottom: 1.6rem;
+    }
+
+    .mm-boc .mm-boc-featured__card {
+        grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);
+        gap: clamp(3.2rem, 3.5vw, 4.8rem);
+    }
+
+    .mm-boc .mm-boc-featured__media {
+        max-width: 40rem;
+    }
+
+    .mm-boc .mm-boc-featured__img {
+        height: auto;
+        aspect-ratio: auto;
+        object-fit: contain;
+    }
+
+    .mm-boc .mm-boc-featured__card--no-media {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .mm-boc .mm-boc-featured__date {
+        margin-bottom: 1.2rem;
+    }
+
+    .mm-boc .mm-boc-featured__title {
+        margin-bottom: 1.6rem;
+    }
+
+    .mm-boc .mm-boc-featured__excerpt {
+        margin-bottom: 2rem;
+    }
+
+    .mm-boc .mm-boc-featured + .mm-boc-start {
+        padding-top: 3.2rem;
+    }
+
+    .mm-boc .mm-boc-featured + .mm-boc-start .mm-boc-start__header {
+        margin-bottom: 2.4rem;
+    }
+}
