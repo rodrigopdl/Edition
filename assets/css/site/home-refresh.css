@@ -174,6 +174,17 @@ body.post-template .mm-post-masticadas .mm-ceramic__conversation {
     color: #303649;
 }
 
+/* Harmonize both plates' lettering while keeping their size hierarchy. */
+body.home-template .mm-home-refresh :is(.mm-ceramic__music, .mm-ceramic__stories, .mm-ceramic__conversation),
+body.post-template .mm-post-masticadas :is(.mm-ceramic__music, .mm-ceramic__stories, .mm-ceramic__conversation) {
+    color: #343b50;
+}
+
+body.home-template .mm-home-refresh .mm-ceramic__stories,
+body.post-template .mm-post-masticadas .mm-ceramic__stories {
+    font-weight: 650;
+}
+
 body.home-template .mm-home-refresh .mm-home-masticadas__copy {
     min-width: 0;
     max-width: 52rem;
