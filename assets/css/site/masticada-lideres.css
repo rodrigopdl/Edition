@@ -13,3 +13,87 @@ body.page-masticada-lideres .mm-ch-v2 .mm-prose p.mm-leaders-audience {
     line-height: 1.55;
     color: var(--ink-2);
 }
+
+/* A readable sample after Joaquín, before the explanation of the experience. */
+body.page-masticada-lideres .mm-leaders-story {
+    margin-top: clamp(3.2rem, 4vw, 4.8rem);
+}
+
+body.page-masticada-lideres .mm-ch-v2 .mm-leaders-story.mm-canvas--narrow {
+    max-width: 80rem;
+}
+
+body.page-masticada-lideres .mm-leaders-story-band {
+    padding-top: clamp(3.2rem, 4vw, 4.8rem);
+    background: var(--surface-0);
+}
+
+body.page-masticada-lideres .mm-leaders-story-band .mm-leaders-story {
+    margin-top: 0;
+}
+
+body.page-masticada-lideres .mm-leaders-story__inner {
+    padding: clamp(2.4rem, 3vw, 3.2rem);
+    background: var(--surface-1);
+    border-radius: 4px;
+}
+
+body.page-masticada-lideres .mm-leaders-story__eyebrow {
+    margin: 0 0 2rem;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+}
+
+body.page-masticada-lideres .mm-ch-v2 .mm-leaders-story .mm-prose {
+    font-size: 1.95rem;
+    line-height: 1.55;
+}
+
+body.page-masticada-lideres .mm-ch-v2 .mm-leaders-story .mm-prose p {
+    margin-bottom: 1.6rem;
+}
+
+body.page-masticada-lideres .mm-ch-v2 .mm-leaders-story .mm-prose p:last-child {
+    margin-bottom: 0;
+}
+
+body.page-masticada-lideres .mm-leaders-story__hook strong,
+body.page-masticada-lideres .mm-leaders-story__question strong {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--ink);
+}
+
+body.page-masticada-lideres .mm-leaders-story__hook strong {
+    font-size: clamp(2.8rem, 2.5vw, 3.4rem);
+    font-weight: 650;
+}
+
+body.page-masticada-lideres .mm-leaders-story__question strong {
+    font-size: 2.2rem;
+}
+
+body.page-masticada-lideres .mm-ch-v2-what .mm-ch-v2-ruby--close {
+    margin-top: clamp(3.2rem, 4vw, 4.8rem);
+}
+
+@media (max-width: 560px) {
+    body.page-masticada-lideres .mm-leaders-story__inner {
+        padding: 2.4rem 2rem;
+    }
+
+    body.page-masticada-lideres .mm-ch-v2 .mm-leaders-story .mm-prose {
+        font-size: 1.85rem;
+        line-height: 1.5;
+    }
+
+    body.page-masticada-lideres .mm-leaders-story__hook strong {
+        font-size: 2.8rem;
+    }
+}
