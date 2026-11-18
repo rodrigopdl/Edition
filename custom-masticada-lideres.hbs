@@ -277,10 +277,13 @@ Template Name: Masticada para líderes
 (function () {
     var links = document.querySelectorAll('.page-masticadas-campana a[data-meta-contact]');
 
-    function trackContact() {
+    function trackContact(event) {
         if (typeof window.fbq !== 'function') return;
         try {
-            window.fbq('track', 'Contact');
+            window.fbq('track', 'Contact', {
+                landing: 'masticada-lideres',
+                contact_location: event.currentTarget.getAttribute('data-meta-contact')
+            });
         } catch (error) {
             // A Pixel failure must never prevent the visitor from opening WhatsApp.
         }
