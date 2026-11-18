@@ -1,0 +1,15 @@
+/* Only widen the leaders campaign lede on desktop. */
+@media (min-width: 881px) {
+    body.page-masticada-lideres .mm-ch-v2-hero .mm-hero__lede {
+        width: 100%;
+        max-width: 76rem;
+        text-wrap: balance;
+    }
+}
+
+/* A secondary paragraph within the existing practical explanation. */
+body.page-masticada-lideres .mm-ch-v2 .mm-prose p.mm-leaders-audience {
+    font-size: .95em;
+    line-height: 1.55;
+    color: var(--ink-2);
+}
