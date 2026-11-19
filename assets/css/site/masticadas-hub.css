@@ -25,6 +25,7 @@ body.page-masticadas-hub :is(.mm-masticadas-menu, .mm-masticadas-evidence) > .mm
 
 body.page-masticadas-hub .mm-masticadas-menu > .mm-canvas > .mm-v2-title {
     margin-bottom: 2.4rem;
+    font-size: clamp(3.2rem, 3vw, 3.8rem);
 }
 
 body.page-masticadas-hub .mm-masticadas-menu__grid {
@@ -106,6 +107,18 @@ body.page-masticadas-hub .mm-masticadas-option__cta-text {
     text-underline-offset: .2em;
 }
 
+body.page-masticadas-hub .mm-ch-v2 .mm-masticadas-menu__testimonial {
+    margin: clamp(3.2rem, 4vw, 4.8rem) auto 0;
+    max-width: 76rem;
+    row-gap: 1.6rem;
+}
+
+body.page-masticadas-hub .mm-ch-v2 .mm-masticadas-menu__testimonial .mm-ch-v2-testimonial__quote {
+    max-width: 44ch;
+    font-size: clamp(2.3rem, 2.3vw, 3rem);
+    line-height: 1.45;
+}
+
 body.page-masticadas-hub .mm-ch-v2-what {
     padding-top: clamp(3.2rem, 4vw, 4.8rem);
     padding-bottom: 0;
@@ -113,7 +126,7 @@ body.page-masticadas-hub .mm-ch-v2-what {
 
 body.page-masticadas-hub .mm-campaign-scenes {
     max-width: 112rem;
-    margin-block: 3.2rem 0;
+    margin-block: 0;
 }
 
 body.page-masticadas-hub .mm-masticadas-evidence {
@@ -121,31 +134,21 @@ body.page-masticadas-hub .mm-masticadas-evidence {
     background: var(--surface-0);
 }
 
-body.page-masticadas-hub .mm-masticadas-evidence__grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 4rem;
-    align-items: start;
-}
-
-body.page-masticadas-hub .mm-masticadas-evidence__item {
-    min-width: 0;
-}
-
-body.page-masticadas-hub .mm-masticadas-evidence__item > .mm-ch-v2-real__frame img {
+body.page-masticadas-hub .mm-campaign-scenes > figure > .mm-ch-v2-real__frame img {
     display: block;
     width: 100%;
     height: auto;
 }
 
 body.page-masticadas-hub .mm-masticadas-evidence .mm-ch-v2-testimonial {
-    margin-top: 2rem;
+    margin: 0 auto;
+    max-width: 76rem;
     row-gap: 1.4rem;
 }
 
 body.page-masticadas-hub .mm-ch-v2 .mm-masticadas-evidence .mm-ch-v2-testimonial__quote {
-    max-width: 100%;
-    font-size: 2rem;
+    max-width: 60ch;
+    font-size: clamp(2rem, 1.8vw, 2.4rem);
     line-height: 1.5;
 }
 
@@ -153,10 +156,9 @@ body.page-masticadas-hub .mm-ch-v2-intro {
     padding-top: clamp(4rem, 5vw, 6.4rem);
 }
 
-@media (max-width: 760px) {
-    body.page-masticadas-hub .mm-masticadas-evidence__grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 3.2rem;
+@media (min-width: 761px) {
+    body.page-masticadas-hub .mm-campaign-scenes {
+        grid-template-columns: minmax(0, 1.078167fr) minmax(0, 1fr);
     }
 }
 
