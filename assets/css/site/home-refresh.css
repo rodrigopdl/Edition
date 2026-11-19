@@ -212,6 +212,7 @@ body.home-template .mm-home-refresh .mm-home-masticadas__copy h2 {
     color: var(--ink);
 }
 
+
 body.home-template .mm-home-refresh .mm-home-masticadas__subtitle {
     margin: 0 0 1.2rem;
     font-family: var(--font-display);
@@ -319,13 +320,13 @@ body.home-template .mm-home-refresh .mm-home-sessions .mm-home-offer__descriptio
 
     body.home-template .mm-home-refresh .mm-home-masticadas {
         grid-template-columns: minmax(0, 1fr);
-        gap: 1.6rem;
+        gap: 2.4rem;
     }
 
     body.home-template .mm-home-refresh .mm-home-masticadas__copy {
         display: block;
         width: 100%;
-        margin-top: -.8rem;
+        margin-top: 0;
         text-align: center;
     }
 
@@ -342,11 +343,12 @@ body.home-template .mm-home-refresh .mm-home-sessions .mm-home-offer__descriptio
 
     body.home-template .mm-home-refresh .mm-home-masticadas__copy h2 {
         text-align: center;
-        margin: .4rem auto 1.2rem;
+        margin: 0 auto 1.2rem;
         font-size: 3.6rem;
         max-width: 22ch;
         text-wrap: wrap;
     }
+
 
     body.home-template .mm-home-refresh .mm-home-masticadas__subtitle {
         max-width: 100%;
