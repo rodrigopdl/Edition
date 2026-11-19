@@ -12,7 +12,6 @@
 <meta name="twitter:title" content="Masticada para líderes | Para masticar">
 <meta name="twitter:description" content="Una experiencia de 90 minutos para reflexionar sobre cómo lideramos, aprender de otras miradas y seguir creciendo juntos.">
 {{/contentFor}}
-{{#contentFor "minimal_header"}}true{{/contentFor}}
 {{#contentFor "page_styles"}}
 <link rel="stylesheet" href="{{asset "css/site/masticadas-campana.css"}}">
 <link rel="stylesheet" href="{{asset "css/site/masticada-lideres.css"}}">
@@ -299,41 +298,3 @@ Template Name: Masticada para líderes
 </script>
 
 {{#contentFor "body_class"}}homepage-mm-v2 page-charlas page-masticadas-campana page-masticada-lideres{{/contentFor}}
-
-{{#contentFor "page_footer"}}
-<footer class="mm-footer mm-campaign-footer">
-    <div class="mm-footer-content">
-        <a class="mm-campaign-footer__logo" href="/">
-            {{#if @site.logo}}
-                <img src="{{@site.logo}}" alt="{{@site.title}}">
-            {{else}}
-                {{@site.title}}
-            {{/if}}
-        </a>
-        <div class="mm-campaign-footer__details">
-            <p class="mm-footer-year">© {{date format="YYYY"}} {{@site.title}}</p>
-            {{#foreach @site.secondary_navigation}}
-                {{#match label "Privacidad"}}
-                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
-                {{else match label "Política de privacidad"}}
-                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
-                {{else match label "Aviso legal"}}
-                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
-                {{else match label "Términos y condiciones"}}
-                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
-                {{else match label "Cookies"}}
-                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
-                {{else match label "Privacy Policy"}}
-                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
-                {{else match label "Terms of Service"}}
-                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
-                {{else match label "Privacy"}}
-                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
-                {{else match label "Terms"}}
-                    <a class="mm-campaign-footer__legal" href="{{url}}">{{label}}</a>
-                {{/match}}
-            {{/foreach}}
-        </div>
-    </div>
-</footer>
-{{/contentFor}}

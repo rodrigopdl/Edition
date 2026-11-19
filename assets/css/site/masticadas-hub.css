@@ -98,6 +98,10 @@ body.page-masticadas-hub .mm-masticadas-option__cta {
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 1.3;
+    text-decoration: none;
+}
+
+body.page-masticadas-hub .mm-masticadas-option__cta-text {
     text-decoration: underline;
     text-underline-offset: .2em;
 }
